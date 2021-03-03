@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Silver HTPC", "Silver HTPC\Silver HTPC.csproj", "{9FB5B48F-13D1-470D-A706-81A0F8675DD0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9FB5B48F-13D1-470D-A706-81A0F8675DD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FB5B48F-13D1-470D-A706-81A0F8675DD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FB5B48F-13D1-470D-A706-81A0F8675DD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FB5B48F-13D1-470D-A706-81A0F8675DD0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F39E8CFE-90EB-425C-A753-3A4F5D186FC2}
+	EndGlobalSection
+EndGlobal
