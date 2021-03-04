@@ -23,7 +23,7 @@
         <Label x:Name="date_label" Grid.ColumnSpan="2" Content="Date" Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="28,-108,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" Width="284" FontWeight="Medium" FontSize="20px"  FontFamily="Arial"/>
         <Button x:Name="munu_button1" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="80">
             <StackPanel>
-                <Image Source="live_tv_white_192x192.png" Stretch="Fill" Height="40" Width="40" HorizontalAlignment="Center"/>
+                <Image Source="Image/live_tv_white_192x192.png" Stretch="Fill" Height="40" Width="40" HorizontalAlignment="Center"/>
                 <TextBlock Text="Live TV" FontSize="25"/>
             </StackPanel>
         </Button>
