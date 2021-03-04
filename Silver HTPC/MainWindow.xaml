@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Silver_HTPC"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Home Page" Height="450" Width="800">
 
     <Grid Margin="6,113,6,15">
         <Grid.ColumnDefinitions>
@@ -16,44 +16,63 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="1*" />
             <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
 
         </Grid.RowDefinitions>
         <Label x:Name="time_label" Grid.ColumnSpan="2" Content="Time" Grid.Column="1" HorizontalAlignment="Left" Height="50" Margin="242,-108,-6,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" Width="284" FontWeight="Medium" FontSize="30px"  FontFamily="Arial"/>
-        <Label x:Name="date_label" Grid.ColumnSpan="2" Content="Date" Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="242,-58,-6,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" Width="284" FontWeight="Medium" FontSize="20px"  FontFamily="Arial"/>
-        <Button x:Name="munu_button1" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="204" Height="126">
+        <Label x:Name="date_label" Grid.ColumnSpan="2" Content="Date" Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="28,-108,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" Width="284" FontWeight="Medium" FontSize="20px"  FontFamily="Arial"/>
+        <Button x:Name="munu_button1" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="80">
             <StackPanel>
-                <Image Source="live_tv_white_192x192.png" Stretch="Fill" Height="90" Width="90"/>
+                <Image Source="live_tv_white_192x192.png" Stretch="Fill" Height="40" Width="40" HorizontalAlignment="Center"/>
                 <TextBlock Text="Live TV" FontSize="25"/>
             </StackPanel>
         </Button>
-        <Button x:Name="munu_button2" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="204" Height="126">
+        <Button x:Name="munu_button2" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="80">
             <StackPanel>
-                <Image Source="live_tv_white_192x192.png" Stretch="Fill" Height="90" Width="90"/>
+                <Image Source="live_tv_white_192x192.png" Stretch="Fill" Height="40" Width="40"/>
                 <TextBlock Text="Photos - Videos" FontSize="25"/>
             </StackPanel>
         </Button>
-        <Button x:Name="munu_button3" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="204" Height="126">
+        <Button x:Name="munu_button3" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="80">
             <StackPanel>
-                <Image Source="live_tv_white_192x192.png" Stretch="Fill" Height="90" Width="90"/>
+                <Image Source="live_tv_white_192x192.png" Stretch="Fill" Height="40" Width="40"/>
                 <TextBlock Text="Music" FontSize="25" HorizontalAlignment="Center"/>
             </StackPanel>
         </Button>
-        <Button x:Name="munu_button4" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="204" Height="126" Margin="28,10">
+        <Button x:Name="munu_button4" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="80">
             <StackPanel>
-                <Image Source="live_tv_white_192x192.png" Stretch="Fill" Height="90" Width="90"/>
+                <Image Source="live_tv_white_192x192.png" Stretch="Fill" Height="40" Width="40" HorizontalAlignment="Center"/>
                 <TextBlock Text="Recordings" FontSize="25"/>
             </StackPanel>
         </Button>
-        <Button x:Name="munu_button5" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="204" Height="126" Margin="28,10">
+        <Button x:Name="munu_button5" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="80">
             <StackPanel>
-                <Image Source="live_tv_white_192x192.png" Stretch="Fill" Height="90" Width="90"/>
+                <Image Source="live_tv_white_192x192.png" Stretch="Fill" Height="40" Width="40"/>
                 <TextBlock Text="Search" FontSize="25"/>
             </StackPanel>
         </Button>
-        <Button x:Name="munu_button6" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="204" Height="126" Margin="28,10">
+        <Button x:Name="munu_button6" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="80">
             <StackPanel>
-                <Image Source="live_tv_white_192x192.png" Stretch="Fill" Height="90" Width="90"/>
-                <TextBlock Text="Other Apps" FontSize="25"/>
+                <Image Source="live_tv_white_192x192.png" Stretch="Fill" Height="40" Width="40"/>
+                <TextBlock Text="Other Apps" FontSize="25" HorizontalAlignment="Center"/>
+            </StackPanel>
+        </Button>
+        <Button x:Name="munu_button7" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="80">
+            <StackPanel>
+                <Image Source="live_tv_white_192x192.png" Stretch="Fill" Height="40" Width="40" HorizontalAlignment="Center"/>
+                <TextBlock Text="Setting" FontSize="25"/>
+            </StackPanel>
+        </Button>
+        <Button x:Name="munu_button8" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="80">
+            <StackPanel>
+                <Image Source="live_tv_white_192x192.png" Stretch="Fill" Height="40" Width="40"/>
+                <TextBlock Text="Notification" FontSize="25"/>
+            </StackPanel>
+        </Button>
+        <Button x:Name="munu_button9" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="80">
+            <StackPanel>
+                <Image Source="live_tv_white_192x192.png" Stretch="Fill" Height="40" Width="40"/>
+                <TextBlock Text="Netflix" FontSize="25" HorizontalAlignment="Center"/>
             </StackPanel>
         </Button>
     </Grid>
