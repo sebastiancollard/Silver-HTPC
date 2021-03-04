@@ -95,7 +95,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="live_tv_white_192x192.png" />
+    <Resource Include="Image\live_tv_white_192x192.png" />
+    <Resource Include="Image\README.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Netflix-Symbol.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
