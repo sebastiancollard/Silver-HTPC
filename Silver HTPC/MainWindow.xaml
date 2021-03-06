@@ -3,10 +3,132 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:system="clr-namespace:System;assembly=mscorlib"
         xmlns:local="clr-namespace:Silver_HTPC"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="MainWindow" Height="450" Width="800" >
+    <Grid Background="#FFB0D8E4">
+        <Label x:Name="Recording_Label" Content="Recordings" Height="74" Width="220" RenderTransformOrigin="0.22,1.006" FontFamily="Segoe UI Black" FontSize="36" Margin="46,-1,0,0" Cursor="None" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="Black">
+            <Label.OpacityMask>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Label.OpacityMask>
+        </Label>
+
+        <!-- https://www.wpf-tutorial.com/data-binding/the-stringformat-property/ -->
+
+        <TextBlock Text="{Binding Source={x:Static system:DateTime.Now}, StringFormat={}{0:dddd, MMMM dd}}"  HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="201" RenderTransformOrigin="0.268,0.293" Margin="591,-6,0,0" Background="{x:Null}" FontFamily="Segoe UI Black" FontSize="24" />
+        <TextBlock Text="{Binding Source={x:Static system:DateTime.Now}, StringFormat={}{0:HH:mm}}" HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="73" RenderTransformOrigin="0.268,0.293" Margin="719,20,0,0" Background="{x:Null}" FontFamily="Segoe UI Black" FontSize="24" />
+        <ScrollBar x:Name="ScrollBar" HorizontalAlignment="Left" Height="238" Margin="10,109,0,0" VerticalAlignment="Top" Width="13" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" BorderBrush="White" Foreground="White"/>
+        <Line X1="0" Y1="55" X2="800" Y2="55" Stroke="LightSlateGray" StrokeThickness="7" Opacity="1"   />
+        <!-- https://www.iconsdb.com/red-icons/record-icon.html -->
+        <Image HorizontalAlignment="Left" Height="50" Margin="0,1,0,0" VerticalAlignment="Top" Width="58" RenderTransformOrigin="0.148,-0.221" Source="Image/recordimage.png" />
+        <Button x:Name="Sort_Button" Content="Sort by" HorizontalAlignment="Left" Margin="651,78,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="9.63,-6.324" Height="44" FontFamily="Arial Rounded MT Bold" FontSize="18"/>
+        <Button Content="Search" HorizontalAlignment="Left" Margin="651,137,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="9.63,-6.324" Height="44" FontFamily="Arial Rounded MT Bold" FontSize="18"/>
+        <Button Content="Delete &#xD;&#xA;Multiple" HorizontalAlignment="Left" Margin="651,215,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="9.63,-6.324" Height="44" FontFamily="Arial Rounded MT Bold" FontSize="18"/>
+
+        <StackPanel Height="318" Margin="46,78,0,0" VerticalAlignment="Top" Width="523" HorizontalAlignment="Left">
+            <!-- https://stackoverflow.com/questions/50457409/using-viewbox-to-scale-grid-containing-labels-and-textboxes -->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="262*" />
+                    <ColumnDefinition Width="35*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="60"/>
+                </Grid.RowDefinitions>
+
+                <Label Background="White" Grid.Column="0" Grid.Row="0" Margin="0 0 0 10">
+                    <Grid Width="451">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <Image Grid.Column="0"  Grid.Row="0" Source="Image/TLC.png" Grid.RowSpan="2" />
+                        <TextBlock Grid.Row="0" Grid.Column="1"  Text="90 Day Fiance - Into Your Arms" FontSize="17" FontFamily="Segoe UI Black" />
+                        <TextBlock Grid.Row="1" Grid.Column="1" Text="Recorded: 03/11/2020 at 14:20" TextAlignment="center" />
+                        <TextBlock Grid.Row="0" Grid.Column="2" Text="1:23:45" FontSize="15" TextAlignment="Center" Padding="10" Grid.RowSpan="2"/>
+
+                    </Grid>
+                </Label>
+                <!-- </Label> -->
+
+
+                <!-- https://stackoverflow.com/questions/2697383/wpf-button-with-image -->
+
+                <Button Grid.Column="1" Grid.Row="0" Click="Button_Click" Margin="0 0 0 10">
+                    <Image Source="Image/trash.png" />
+                </Button>
+
+
+                <!-- Name of the show recorded(Top left)  Right alligned -> When it was recorded -> Date with time -->
+                <Label Background="White" Grid.Column="0" Grid.Row="1" Margin="0 0 0 10" HorizontalAlignment="Stretch">
+                    <Grid Width="451">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="84" />
+                            <ColumnDefinition Width="259" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <Image Grid.Column="0"  Grid.Row="0" Source="Image/abc.png" Grid.RowSpan="2" />
+                        <TextBlock Grid.Row="0" Grid.Column="1"  Text="Grey's Anatomy - No Time for Despair" FontSize="17" FontFamily="Segoe UI Black" />
+                        <TextBlock Grid.Row="1" Grid.Column="1" Text="Recorded: 03/11/2020 at 14:20" TextAlignment="center" />
+                        <TextBlock Grid.Row="0" Grid.Column="2" Text="0:43:49" FontSize="15" TextAlignment="Center" Margin="0 0 0 0" Padding="10" Grid.RowSpan="2"/>
+
+                    </Grid>
+                </Label>
+
+                <Button  Grid.Column="1" Grid.Row="1" Click="Button_Click" Margin="0 0 0 10">
+                    <!-- https://findicons.com/files/icons/1580/devine_icons_part_2/128/trash_recyclebin_empty_closed.png -->
+                    <Image Source="Image/trash.png" />
+                </Button>
+
+                <Label Background="White" Grid.Column="0" Grid.Row="2" Margin="0 0 0 10" HorizontalAlignment="Stretch">
+                    <Grid Width="451">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="84" />
+                            <ColumnDefinition Width="259" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <Image Grid.Column="0"  Grid.Row="0" Source="Image/BBC.png" Grid.RowSpan="2" />
+                        <TextBlock Grid.Row="0" Grid.Column="1"  Text="The Coroner - Black Dog" FontSize="17" FontFamily="Segoe UI Black" />
+                        <TextBlock Grid.Row="1" Grid.Column="1" Text="Recorded: 03/11/2020 at 14:20" TextAlignment="center" />
+                        <TextBlock Grid.Row="0" Grid.Column="2" Text="0:43:02" FontSize="15" TextAlignment="Center" Margin="0 0 0 0" Padding="10" Grid.RowSpan="2"/>
+
+                    </Grid>
+                </Label>
+
+                <Button  Grid.Column="1" Grid.Row="2" Click="Button_Click" Margin="0 0 0 10">
+                    <!-- https://findicons.com/files/icons/1580/devine_icons_part_2/128/trash_recyclebin_empty_closed.png -->
+                    <Image Source="Image/trash.png" />
+                </Button>
+            </Grid>
+        </StackPanel>
     </Grid>
+    <!--
+        REFERNCES: https://tvtonight.com.au/2017/05/what-do-older-viewers-watch.html
+    -->
 </Window>

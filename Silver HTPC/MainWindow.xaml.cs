@@ -24,5 +24,10 @@ namespace Silver_HTPC
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
