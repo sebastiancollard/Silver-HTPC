@@ -19,8 +19,8 @@
 
         <!-- https://www.wpf-tutorial.com/data-binding/the-stringformat-property/ -->
 
-        <TextBlock Text="{Binding Source={x:Static system:DateTime.Now}, StringFormat={}{0:dddd, MMMM dd}}"  HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="201" RenderTransformOrigin="0.268,0.293" Margin="591,-6,0,0" Background="{x:Null}" FontFamily="Segoe UI Black" FontSize="24" />
-        <TextBlock Text="{Binding Source={x:Static system:DateTime.Now}, StringFormat={}{0:HH:mm}}" HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="73" RenderTransformOrigin="0.268,0.293" Margin="719,20,0,0" Background="{x:Null}" FontFamily="Segoe UI Black" FontSize="24" />
+        <TextBlock Text="{Binding Source={x:Static system:DateTime.Now}, StringFormat={}{0:dddd, MMMM dd}}"  HorizontalAlignment="Right" Height="31" VerticalAlignment="Top" Width="235" RenderTransformOrigin="0.268,0.293" Margin="0,-6,10,0" Background="{x:Null}" FontFamily="Segoe UI Black" FontSize="24" />
+        <TextBlock Text="{Binding Source={x:Static system:DateTime.Now}, StringFormat={}{0:HH:mm}}" HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="73" RenderTransformOrigin="0.268,0.293" Margin="709,20,0,0" Background="{x:Null}" FontFamily="Segoe UI Black" FontSize="24" />
         <ScrollBar x:Name="ScrollBar" HorizontalAlignment="Left" Height="238" Margin="10,109,0,0" VerticalAlignment="Top" Width="13" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" BorderBrush="White" Foreground="White"/>
         <Line X1="0" Y1="55" X2="800" Y2="55" Stroke="LightSlateGray" StrokeThickness="7" Opacity="1"   />
         <!-- https://www.iconsdb.com/red-icons/record-icon.html -->
@@ -89,7 +89,7 @@
 
                         <Image Grid.Column="0"  Grid.Row="0" Source="Image/abc.png" Grid.RowSpan="2" />
                         <TextBlock Grid.Row="0" Grid.Column="1"  Text="Grey's Anatomy - No Time for Despair" FontSize="17" FontFamily="Segoe UI Black" />
-                        <TextBlock Grid.Row="1" Grid.Column="1" Text="Recorded: 03/11/2020 at 14:20" TextAlignment="center" />
+                        <TextBlock Grid.Row="1" Grid.Column="1" Text="Recorded: 03/07/2020 at 9:20" TextAlignment="center" />
                         <TextBlock Grid.Row="0" Grid.Column="2" Text="0:43:49" FontSize="15" TextAlignment="Center" Margin="0 0 0 0" Padding="10" Grid.RowSpan="2"/>
 
                     </Grid>
@@ -115,7 +115,7 @@
 
                         <Image Grid.Column="0"  Grid.Row="0" Source="Image/BBC.png" Grid.RowSpan="2" />
                         <TextBlock Grid.Row="0" Grid.Column="1"  Text="The Coroner - Black Dog" FontSize="17" FontFamily="Segoe UI Black" />
-                        <TextBlock Grid.Row="1" Grid.Column="1" Text="Recorded: 03/11/2020 at 14:20" TextAlignment="center" />
+                        <TextBlock Grid.Row="1" Grid.Column="1" Text="Recorded: 03/01/2020 at 18:00" TextAlignment="center" />
                         <TextBlock Grid.Row="0" Grid.Column="2" Text="0:43:02" FontSize="15" TextAlignment="Center" Margin="0 0 0 0" Padding="10" Grid.RowSpan="2"/>
 
                     </Grid>
