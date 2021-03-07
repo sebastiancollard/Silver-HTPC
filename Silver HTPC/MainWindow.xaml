@@ -63,7 +63,7 @@
                 <TextBlock Text="Setting" FontSize="25"/>
             </StackPanel>
         </Button>
-        <Button x:Name="munu_button8" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="80">
+        <Button x:Name="munu_button8" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="80" Click="munu_button8_Click">
             <StackPanel>
                 <Image Source="Image\notification_icon.png" Stretch="Fill" Height="40" Width="40"/>
                 <TextBlock Text="Notification" FontSize="25"/>

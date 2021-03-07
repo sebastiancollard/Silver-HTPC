@@ -32,6 +32,12 @@ namespace Silver_HTPC
             }, this.Dispatcher);
         }
 
-        
+        private void munu_button8_Click(object sender, RoutedEventArgs e)
+        {
+            Notification_tab notification_window = new Notification_tab();
+            notification_window.Show();
+            this.Close();
+
+        }
     }
 }
