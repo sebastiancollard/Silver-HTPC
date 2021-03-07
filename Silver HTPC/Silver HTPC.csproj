@@ -95,11 +95,28 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\live_tv_white_192x192.png" />
+    <Resource Include="Image\live_tv.png" />
     <Resource Include="Image\README.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\Netflix-Symbol.png" />
+    <Resource Include="Image\gallery_icon.png" />
+    <Resource Include="Image\music_icon.png" />
+    <Resource Include="Image\notification_icon.png" />
+    <Resource Include="Image\record_icon.png" />
+    <Resource Include="Image\search_icon.jpg" />
+    <Resource Include="Image\settings_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\netflix_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\tv_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\apps_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\profile_icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
