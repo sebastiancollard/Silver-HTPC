@@ -1,0 +1,33 @@
+﻿<Window x:Class="Silver_HTPC.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Silver_HTPC"
+        mc:Ignorable="d"
+        Title="Settings" Height="450" Width="800">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="1,0" MappingMode="RelativeToBoundingBox" StartPoint="0,1">
+                <GradientStop Color="Black" Offset="1"/>
+                <GradientStop Color="White"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <TextBlock HorizontalAlignment="Left" Margin="64,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="29" Width="109" FontSize="20" FontWeight="Bold"><Run Text="Settings"/></TextBlock>
+        <Slider HorizontalAlignment="Left" Margin="216,131,0,0" VerticalAlignment="Top" Width="196"/>
+        <TextBlock HorizontalAlignment="Left" Margin="85,126,0,0" TextWrapping="Wrap" Text="Font size" VerticalAlignment="Top" Height="29" Width="109" FontSize="20"/>
+        <TextBlock HorizontalAlignment="Left" Margin="85,184,0,0" TextWrapping="Wrap" Text="Language" VerticalAlignment="Top" Height="29" Width="109" FontSize="20"/>
+        <ComboBox HorizontalAlignment="Left" Height="29" Margin="216,184,0,0" VerticalAlignment="Top" Width="196">
+            <ComboBoxItem Content="English"></ComboBoxItem>
+            <ComboBoxItem Content="French"></ComboBoxItem>
+            <ComboBoxItem Content="Spanish"></ComboBoxItem>
+        </ComboBox>
+        <Button Content="     Advanced Settings" HorizontalAlignment="Left" Height="113" Margin="0,313,-0.444,-3.333" VerticalAlignment="Top" Width="796" FontWeight="Bold" FontSize="20" HorizontalContentAlignment="Left" Background="#FFD4D4D4"/>
+        <TextBlock HorizontalAlignment="Left" Margin="85,244,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="29" Width="117" FontSize="20"><Run Text="Button "/><Run Text="guide"/></TextBlock>
+        <Button Content="Off" HorizontalAlignment="Left" Height="29" Margin="216,244,0,0" VerticalAlignment="Top" Width="44" Background="#FFD4D4D4"/>
+        <Button Content="On" HorizontalAlignment="Left" Height="29" Margin="260,244,0,0" VerticalAlignment="Top" Width="44" Background="#FF00CF55"/>
+        <Image HorizontalAlignment="Left" Height="29" Margin="17,19,0,0" VerticalAlignment="Top" Width="32" Source="Settings gear.png"/>
+        <Rectangle HorizontalAlignment="Left" Height="5" Margin="0,60,-0.444,0" VerticalAlignment="Top" Width="796" Fill="#FF777A93"/>
+
+    </Grid>
+</Window>
