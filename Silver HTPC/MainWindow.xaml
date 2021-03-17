@@ -7,7 +7,13 @@
         xmlns:local="clr-namespace:Silver_HTPC"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" >
-    <Grid Background="#FFB0D8E4">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="1,0" MappingMode="RelativeToBoundingBox" StartPoint="0,1">
+                <GradientStop Color="Black" Offset="0"/>
+                <GradientStop Color="White" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
         <Label x:Name="Recording_Label" Content="Recordings" Height="74" Width="220" RenderTransformOrigin="0.22,1.006" FontFamily="Segoe UI Black" FontSize="36" Margin="46,-1,0,0" Cursor="None" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="Black">
             <Label.OpacityMask>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -19,9 +25,8 @@
 
         <!-- https://www.wpf-tutorial.com/data-binding/the-stringformat-property/ -->
 
-        <TextBlock Text="{Binding Source={x:Static system:DateTime.Now}, StringFormat={}{0:dddd, MMMM dd}}"  HorizontalAlignment="Right" Height="31" VerticalAlignment="Top" Width="235" RenderTransformOrigin="0.268,0.293" Margin="0,-6,10,0" Background="{x:Null}" FontFamily="Segoe UI Black" FontSize="24" />
+        <TextBlock Text="{Binding Source={x:Static system:DateTime.Now}, StringFormat={}{0:dddd, MMMM dd}}"  HorizontalAlignment="Right" Height="31" VerticalAlignment="Top" Width="235" RenderTransformOrigin="0.268,0.293" Margin="0,-6,-10,0" Background="{x:Null}" FontFamily="Segoe UI Black" FontSize="24" />
         <TextBlock Text="{Binding Source={x:Static system:DateTime.Now}, StringFormat={}{0:HH:mm}}" HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="73" RenderTransformOrigin="0.268,0.293" Margin="709,20,0,0" Background="{x:Null}" FontFamily="Segoe UI Black" FontSize="24" />
-        <ScrollBar x:Name="ScrollBar" HorizontalAlignment="Left" Height="238" Margin="10,109,0,0" VerticalAlignment="Top" Width="13" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" BorderBrush="White" Foreground="White"/>
         <Line X1="0" Y1="55" X2="800" Y2="55" Stroke="LightSlateGray" StrokeThickness="7" Opacity="1"   />
         <!-- https://www.iconsdb.com/red-icons/record-icon.html -->
         <Image HorizontalAlignment="Left" Height="50" Margin="0,1,0,0" VerticalAlignment="Top" Width="58" RenderTransformOrigin="0.148,-0.221" Source="Image/recordimage.png" />
@@ -34,32 +39,61 @@
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="262*" />
-                    <ColumnDefinition Width="35*"/>
                 </Grid.ColumnDefinitions>
 
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="120"/>
                     <RowDefinition Height="60"/>
                     <RowDefinition Height="60"/>
                 </Grid.RowDefinitions>
 
-                <Label Background="White" Grid.Column="0" Grid.Row="0" Margin="0 0 0 10">
-                    <Grid Width="451">
+                <Label Background="White" Grid.Column="0" Grid.Row="0" Margin="0 0 0 10" Foreground="Black" BorderBrush="Black" BorderThickness="3">
+                    <Grid Width="513" Height="100">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="84" />
+                            <ColumnDefinition Width="316" MinWidth="316" />
+                            <ColumnDefinition />
                         </Grid.ColumnDefinitions>
 
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
                             <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="60" />
                         </Grid.RowDefinitions>
 
                         <Image Grid.Column="0"  Grid.Row="0" Source="Image/TLC.png" Grid.RowSpan="2" />
-                        <TextBlock Grid.Row="0" Grid.Column="1"  Text="90 Day Fiance - Into Your Arms" FontSize="17" FontFamily="Segoe UI Black" />
+                        <TextBlock Grid.Row="0" Grid.Column="1"  Text="90 Day Fiance - Into Your Arms" FontSize="17" FontFamily="Segoe UI Black" Margin="38,0,0,0" />
                         <TextBlock Grid.Row="1" Grid.Column="1" Text="Recorded: 03/11/2020 at 14:20" TextAlignment="center" />
-                        <TextBlock Grid.Row="0" Grid.Column="2" Text="1:23:45" FontSize="15" TextAlignment="Center" Padding="10" Grid.RowSpan="2"/>
+                        <TextBlock Grid.Row="0" Grid.Column="2" Text="1:23:45" FontSize="15" TextAlignment="Center" Padding="10" Grid.RowSpan="2" Margin="0,0,0,0"/>
+
+                        <Button Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="center" Margin="29,20,0,10" Grid.ColumnSpan="2" Width="165" HorizontalContentAlignment="left" Height="30"  FontFamily="Segoe UI Black">
+                            <Grid Height="20" Width="165">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+
+                                <TextBlock Grid.Column="0"> Play</TextBlock>
+                                <Image Source="Image/Play2.png" Grid.Column="1" HorizontalAlignment="Left" Margin="46,-9,0,-9" Width="36" RenderTransformOrigin="-0.111,0.5"/>
+
+                            </Grid>
+
+                        </Button>
+
+                        <Button  Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="center" Margin="235,20,0,10" Grid.ColumnSpan="2" Width="165" HorizontalContentAlignment="left" Height="30"  FontFamily="Segoe UI Black">
+                            <Grid Height="20" Width="165">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <TextBlock Grid.Column="0"> Delete</TextBlock>
+                                <Image Source="Image/trash.png" Grid.Column="1" HorizontalAlignment="Left" Margin="57,0,-15,0" RenderTransformOrigin="0.85,0.55" Width="40"/>
+                            </Grid>
+
+
+                        </Button>
 
                     </Grid>
                 </Label>
@@ -67,10 +101,6 @@
 
 
                 <!-- https://stackoverflow.com/questions/2697383/wpf-button-with-image -->
-
-                <Button Grid.Column="1" Grid.Row="0" Click="Button_Click" Margin="0 0 0 10">
-                    <Image Source="Image/trash.png" />
-                </Button>
 
 
                 <!-- Name of the show recorded(Top left)  Right alligned -> When it was recorded -> Date with time -->
@@ -88,17 +118,12 @@
                         </Grid.RowDefinitions>
 
                         <Image Grid.Column="0"  Grid.Row="0" Source="Image/abc.png" Grid.RowSpan="2" />
-                        <TextBlock Grid.Row="0" Grid.Column="1"  Text="Grey's Anatomy - No Time for Despair" FontSize="17" FontFamily="Segoe UI Black" />
-                        <TextBlock Grid.Row="1" Grid.Column="1" Text="Recorded: 03/07/2020 at 9:20" TextAlignment="center" />
-                        <TextBlock Grid.Row="0" Grid.Column="2" Text="0:43:49" FontSize="15" TextAlignment="Center" Margin="0 0 0 0" Padding="10" Grid.RowSpan="2"/>
+                        <TextBlock Grid.Row="0" Grid.Column="1"  Text="Grey's Anatomy - No Time for Despair" FontSize="17" FontFamily="Segoe UI Black" Grid.ColumnSpan="2" Margin="0,0,45,0" />
+                        <TextBlock Grid.Row="1" Grid.Column="1" Text="Recorded: 03/07/2020 at 9:20" TextAlignment="center" Grid.ColumnSpan="2" Margin="0,0,50,0" />
+                        <TextBlock Grid.Row="0" Grid.Column="2" Text="0:43:49" FontSize="15" TextAlignment="Center" Margin="63,0,-62,0" Padding="10" Grid.RowSpan="2"/>
 
                     </Grid>
                 </Label>
-
-                <Button  Grid.Column="1" Grid.Row="1" Click="Button_Click" Margin="0 0 0 10">
-                    <!-- https://findicons.com/files/icons/1580/devine_icons_part_2/128/trash_recyclebin_empty_closed.png -->
-                    <Image Source="Image/trash.png" />
-                </Button>
 
                 <Label Background="White" Grid.Column="0" Grid.Row="2" Margin="0 0 0 10" HorizontalAlignment="Stretch">
                     <Grid Width="451">
@@ -114,19 +139,18 @@
                         </Grid.RowDefinitions>
 
                         <Image Grid.Column="0"  Grid.Row="0" Source="Image/BBC.png" Grid.RowSpan="2" />
-                        <TextBlock Grid.Row="0" Grid.Column="1"  Text="The Coroner - Black Dog" FontSize="17" FontFamily="Segoe UI Black" />
-                        <TextBlock Grid.Row="1" Grid.Column="1" Text="Recorded: 03/01/2020 at 18:00" TextAlignment="center" />
-                        <TextBlock Grid.Row="0" Grid.Column="2" Text="0:43:02" FontSize="15" TextAlignment="Center" Margin="0 0 0 0" Padding="10" Grid.RowSpan="2"/>
+                        <TextBlock Grid.Row="0" Grid.Column="1"  Text="The Coroner - Black Dog" FontSize="17" FontFamily="Segoe UI Black" Grid.ColumnSpan="2" Margin="62,0,46,0" />
+                        <TextBlock Grid.Row="1" Grid.Column="1" Text="Recorded: 03/01/2020 at 18:00" TextAlignment="center" Grid.ColumnSpan="2" Margin="34,0,74,0" />
+                        <TextBlock Grid.Row="0" Grid.Column="2" Text="0:43:02" FontSize="15" TextAlignment="Center" Margin="0,0,-130,0" Padding="10" Grid.RowSpan="2"/>
 
                     </Grid>
                 </Label>
-
-                <Button  Grid.Column="1" Grid.Row="2" Click="Button_Click" Margin="0 0 0 10">
-                    <!-- https://findicons.com/files/icons/1580/devine_icons_part_2/128/trash_recyclebin_empty_closed.png -->
-                    <Image Source="Image/trash.png" />
-                </Button>
             </Grid>
         </StackPanel>
+        <Rectangle Fill="White" HorizontalAlignment="Left" Height="31" Margin="631,378,0,0" Stroke="Black" VerticalAlignment="Top" Width="151" RenderTransformOrigin="0.506,0.543"/>
+        <Rectangle Fill="#FF00FF17" HorizontalAlignment="Left" Height="31" Margin="631,378,0,0" Stroke="Black" VerticalAlignment="Top" Width="13" RenderTransformOrigin="0.506,0.543"/>
+        <TextBlock HorizontalAlignment="Left" Height="31" Margin="635,306,-39,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="196" RenderTransformOrigin="0.406,-0.589" FontFamily="Segoe UI Emoji" FontSize="24"><Run Text="Total: "/><Run Text="250GB"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="31" Margin="631,342,-35,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="196" RenderTransformOrigin="0.406,-0.589" FontFamily="Segoe UI Emoji" FontSize="24"><Run Text="Free:"/><Run Text=" "/><Run Text="225.2GB"/></TextBlock>
     </Grid>
     <!--
         REFERNCES: https://tvtonight.com.au/2017/05/what-do-older-viewers-watch.html
