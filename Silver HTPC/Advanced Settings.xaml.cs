@@ -16,9 +16,9 @@ using System.Windows.Shapes;
 namespace Silver_HTPC
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Advanced Settings.xaml
     /// </summary>
-    public partial class AdvancedSettings : Page
+    public partial class AdvancedSettings : Window
     {
         public AdvancedSettings()
         {
