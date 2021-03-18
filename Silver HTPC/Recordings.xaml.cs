@@ -23,8 +23,8 @@ namespace Silver_HTPC
         public Recordings()
         {
             InitializeComponent();
-            test win = new test();
-            win.Show();
+            //test win = new test();
+            //win.Show();
             
         }
 

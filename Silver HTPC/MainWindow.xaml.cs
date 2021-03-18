@@ -19,9 +19,9 @@ namespace Silver_HTPC
     /// <summary>
     /// Interaction logic for test.xaml
     /// </summary>
-    public partial class test : Window
+    public partial class MainWindow : Window
     {
-        public test()
+        public MainWindow()
         {
             InitializeComponent();
             DispatcherTimer timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
