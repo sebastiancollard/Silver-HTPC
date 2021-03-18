@@ -1,4 +1,4 @@
-﻿<Window x:Class="Silver_HTPC.AdvancedSettings"
+﻿<Page x:Class="Silver_HTPC.AdvancedSettings"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -30,4 +30,4 @@
         <Rectangle HorizontalAlignment="Left" Height="5" Margin="0,60,-0.444,0" VerticalAlignment="Top" Width="796" Fill="#FF777A93"/>
 
     </Grid>
-</Window>
+</Page>

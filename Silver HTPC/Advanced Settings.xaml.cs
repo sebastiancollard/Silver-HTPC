@@ -18,7 +18,7 @@ namespace Silver_HTPC
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class AdvancedSettings : Window
+    public partial class AdvancedSettings : Page
     {
         public AdvancedSettings()
         {
