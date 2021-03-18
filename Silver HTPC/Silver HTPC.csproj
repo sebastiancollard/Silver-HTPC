@@ -55,10 +55,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="MainWindow.xaml">
+      <SubType>Designer</SubType>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="Recordings.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Search.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -66,6 +71,11 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Search.xaml.cs">
+      <DependentUpon>Search.xaml</DependentUpon>
     <Compile Include="Recordings.xaml.cs">
       <DependentUpon>Recordings.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -114,6 +124,33 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="windows-8-touch-keyboard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="inception poster.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="search--v2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Inception_OST.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="prime video.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="spotify-download-logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="apple tv.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="live tv.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="netflix_PNG15.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Image\TLC.png" />
