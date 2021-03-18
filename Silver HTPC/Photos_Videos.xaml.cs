@@ -19,10 +19,10 @@ namespace Silver_HTPC
     /// Interaction logic for Page1.xaml
     /// </summary>
 
-    public partial class Page1 : Page
+    public partial class Photos_Videos : Page
     {
         bool delete_Single_Clicked = false;
-        public Page1()
+        public Photos_Videos()
         {
             InitializeComponent();
         }

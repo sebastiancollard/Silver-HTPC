@@ -6,5 +6,5 @@
         xmlns:local="clr-namespace:Silver_HTPC"
         mc:Ignorable="d"
         Title="test" Height="450" Width="800">
-    <Frame Source="Page1.xaml"></Frame>
+    <Frame Source="Photos_Videos.xaml"></Frame>
 </Window>
