@@ -55,12 +55,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-	<Page Include="MainWindow.xaml">
-		<SubType>Designer</SubType>
-	</Page>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-    </Compile>
     <Page Include="Recordings.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
