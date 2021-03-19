@@ -55,9 +55,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-	<Page Include="MainWindow.xaml">
-		<SubType>Designer</SubType>
-	</Page>
+    <Page Include="MainWindow.xaml">
+      <SubType>Designer</SubType>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
@@ -75,9 +74,8 @@
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
-	<Compile Include="Search.xaml.cs">
-		<DependentUpon>Search.xaml</DependentUpon>
-	</Compile>
+    <Compile Include="Search.xaml.cs">
+      <DependentUpon>Search.xaml</DependentUpon>
     <Compile Include="Recordings.xaml.cs">
       <DependentUpon>Recordings.xaml</DependentUpon>
       <SubType>Code</SubType>
