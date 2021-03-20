@@ -67,6 +67,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Recordings.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Search.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -79,10 +86,34 @@
     </Compile>
     <Compile Include="Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
+    </Compile>
+	<Compile Include="Search.xaml.cs">
+		<DependentUpon>Search.xaml</DependentUpon>
+	</Compile>
+    <Compile Include="Recordings.xaml.cs">
+      <DependentUpon>Recordings.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Notification_tab.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Photos_Videos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Photos_Videos.xaml.cs">
+      <DependentUpon>Photos_Videos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Notification_tab.xaml.cs">
+      <DependentUpon>Notification_tab.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -107,6 +138,102 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="windows-8-touch-keyboard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="inception poster.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="search--v2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Inception_OST.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="prime video.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="spotify-download-logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="apple tv.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="live tv.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="netflix_PNG15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\TLC.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\recordImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\trash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\abc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\bbc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\photo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\fam.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\fam1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\vid.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\Play.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\banff.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\fam2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\play2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\play2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\live_tv.png" />
+    <Resource Include="Image\README.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\gallery_icon.png" />
+    <Resource Include="Image\music_icon.png" />
+    <Resource Include="Image\notification_icon.png" />
+    <Resource Include="Image\record_icon.png" />
+    <Resource Include="Image\search_icon.jpg" />
+    <Resource Include="Image\settings_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\netflix_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\tv_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\apps_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\profile_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\download_icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
