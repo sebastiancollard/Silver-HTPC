@@ -17,9 +17,9 @@ namespace Silver_HTPC
     /// <summary>
     /// Interaction logic for Window1.xaml
     /// </summary>
-    public partial class Window1 : Window
+    public partial class Music : Window
     {
-        public Window1()
+        public Music()
         {
             InitializeComponent();
         }
