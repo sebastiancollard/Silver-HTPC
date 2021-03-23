@@ -16,20 +16,22 @@ using System.Windows.Shapes;
 namespace Silver_HTPC
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Settings.xaml
     /// </summary>
-    public partial class Recordings : Page
+    public partial class Settings : Window
     {
-        public Recordings()
+        public Settings()
         {
             InitializeComponent();
-            //test win = new test();
-            //win.Show();
-            
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        // Trying to get the button to take you to the next screen
+        // No idea if I'm even close to the right track here
+        private void AdSet_button_Click(object sender, RoutedEventArgs e)
         {
+            AdvancedSettings ASett_window = new AdvancedSettings();
+            ASett_window.Show();
+            this.Close();
 
         }
     }

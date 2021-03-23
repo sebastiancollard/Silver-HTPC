@@ -16,21 +16,13 @@ using System.Windows.Shapes;
 namespace Silver_HTPC
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Advanced Settings.xaml
     /// </summary>
-    public partial class Recordings : Page
+    public partial class AdvancedSettings : Window
     {
-        public Recordings()
+        public AdvancedSettings()
         {
             InitializeComponent();
-            //test win = new test();
-            //win.Show();
-            
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

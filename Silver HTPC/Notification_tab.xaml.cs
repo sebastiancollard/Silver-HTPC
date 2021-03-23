@@ -10,22 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Silver_HTPC
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Notification_tab.xaml
     /// </summary>
-    public partial class Recordings : Page
+    public partial class Notification_tab : Window
     {
-        public Recordings()
+        public Notification_tab()
         {
             InitializeComponent();
-            //test win = new test();
-            //win.Show();
-            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

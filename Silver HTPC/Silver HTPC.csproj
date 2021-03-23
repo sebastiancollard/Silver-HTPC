@@ -58,14 +58,18 @@
     <Compile Include="Music.xaml.cs">
       <DependentUpon>Music.xaml</DependentUpon>
     </Compile>
-    <Compile Include="test.xaml.cs">
-      <DependentUpon>test.xaml</DependentUpon>
-    </Compile>
-    <Page Include="Music.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="Advanced Settings.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Settings.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Recordings.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Search.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -73,15 +77,35 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Advanced Settings.xaml.cs">
+      <DependentUpon>Advanced Settings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.xaml.cs">
+      <DependentUpon>Settings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Search.xaml.cs">
+      <DependentUpon>Search.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Recordings.xaml.cs">
       <DependentUpon>Recordings.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Notification_tab.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Photos_Videos.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="test.xaml">
+    <Page Include="MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Music.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -89,6 +113,9 @@
   <ItemGroup>
     <Compile Include="Photos_Videos.xaml.cs">
       <DependentUpon>Photos_Videos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Notification_tab.xaml.cs">
+      <DependentUpon>Notification_tab.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -114,6 +141,33 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="windows-8-touch-keyboard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="inception poster.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="search--v2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Inception_OST.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="prime video.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="spotify-download-logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="apple tv.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="live tv.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="netflix_PNG15.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Image\TLC.png" />
@@ -158,7 +212,31 @@
     <Resource Include="Image\play2.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Image\live_tv.png" />
+    <Resource Include="Image\README.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\gallery_icon.png" />
     <Resource Include="Image\music_icon.png" />
+    <Resource Include="Image\notification_icon.png" />
+    <Resource Include="Image\record_icon.png" />
+    <Resource Include="Image\search_icon.jpg" />
+    <Resource Include="Image\settings_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\netflix_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\tv_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\apps_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\profile_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\download_icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
