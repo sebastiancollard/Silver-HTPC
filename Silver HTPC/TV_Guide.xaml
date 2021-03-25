@@ -7,9 +7,9 @@
         mc:Ignorable="d"
         Title="TV_Guide" Height="450" Width="800">
     <Grid>
-        <Label Content="TV Guide" HorizontalAlignment="Left" VerticalAlignment="Top" Height="55" Width="192" FontSize="30"/>
-        <Label Content="Time" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="585,0,0,0" Height="29" Width="197"/>
-        <Label Content="Date" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="585,29,0,0" Height="26" Width="197"/>
+        <Label Content="TV Guide" HorizontalAlignment="Left" VerticalAlignment="Top" Height="55" Width="192" FontSize="30" VerticalContentAlignment="Center"/>
+        <Label Content="Time" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="585,0,0,0" Height="29" Width="197" VerticalContentAlignment="Center" FontSize="15"/>
+        <Label Content="Date" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="585,29,0,0" Height="26" Width="197" VerticalContentAlignment="Center"/>
         <Grid HorizontalAlignment="Left" Height="326" VerticalAlignment="Top" Width="792" Margin="0,60,0,0">
             <Grid HorizontalAlignment="Left" Height="125" VerticalAlignment="Top" Width="792">
                 <Grid.RowDefinitions>
@@ -43,8 +43,14 @@
                             <Image Source="Image/netflix_icon.png" Stretch="Fill" Height="20" Width="20" HorizontalAlignment="Center"/>
                         </StackPanel>
                     </Button>
+                    <Button x:Name="munu_button15" Grid.Row="1" VerticalAlignment="Center" Width="170" Height="89">
+                        <StackPanel>
+                            <Image Source="Image/tv_icon.png" Stretch="Fill" Height="60" Width="60" HorizontalAlignment="Center"/>
+                            <Image Source="Image/bbc.png" Stretch="Fill" Height="20" Width="40" HorizontalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
                 </StackPanel>
-                <Label Content="Recommended" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="0"/>
+                <Label Content="Recommendations / Constinue watching" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="0" FontSize="15"/>
 
             </Grid>
             <Grid HorizontalAlignment="Left" Height="125" VerticalAlignment="Top" Width="792" Margin="0,125,0,0">
@@ -79,8 +85,14 @@
                             <Image Source="Image/netflix_icon.png" Stretch="Fill" Height="20" Width="20" HorizontalAlignment="Center"/>
                         </StackPanel>
                     </Button>
+                    <Button x:Name="munu_button25" Grid.Row="1" VerticalAlignment="Center" Width="170" Height="89">
+                        <StackPanel>
+                            <Image Source="Image/tv_icon.png" Stretch="Fill" Height="60" Width="60" HorizontalAlignment="Center"/>
+                            <Image Source="Image/bbc.png" Stretch="Fill" Height="20" Width="40" HorizontalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
                 </StackPanel>
-                <Label Content="Recommended" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="0"/>
+                <Label Content="Explore" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="0" FontSize="15"/>
                 <Grid HorizontalAlignment="Left" Height="125" VerticalAlignment="Top" Width="792" Margin="0,89,0,-125" Grid.Row="1">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="1*" />
@@ -112,8 +124,14 @@
                                 <Image Source="Image/bbc.png" Stretch="Fill" Height="20" Width="40" HorizontalAlignment="Center"/>
                             </StackPanel>
                         </Button>
+                        <Button x:Name="munu_button35" Grid.Row="1" VerticalAlignment="Center" Width="170" Height="89">
+                            <StackPanel>
+                                <Image Source="Image/tv_icon.png" Stretch="Fill" Height="60" Width="60" HorizontalAlignment="Center"/>
+                                <Image Source="Image/bbc.png" Stretch="Fill" Height="20" Width="40" HorizontalAlignment="Center"/>
+                            </StackPanel>
+                        </Button>
                     </StackPanel>
-                    <Label Content="Recommended" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="0"/>
+                    <Label Content="Sports" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="0" FontSize="15"/>
 
                 </Grid>
 
