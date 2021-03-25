@@ -19,7 +19,7 @@ namespace Silver_HTPC
     /// Interaction logic for Page1.xaml
     /// </summary>
 
-    public partial class Photos_Videos : Page
+    public partial class Photos_Videos : Window
     {
         bool delete_Single_Clicked = false;
         public Photos_Videos()

@@ -18,7 +18,7 @@ namespace Silver_HTPC
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class Recordings : Page
+    public partial class Recordings : Window
     {
         public Recordings()
         {

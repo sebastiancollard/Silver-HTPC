@@ -33,25 +33,25 @@
                 <TextBlock Text="Live TV" FontSize="25"/>
             </StackPanel>
         </Button>
-        <Button x:Name="munu_button2" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="80">
+        <Button x:Name="munu_button2" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="80" Click="menu_button2_click">
             <StackPanel>
                 <Image Source="Image/gallery_icon.png" Stretch="Fill" Height="40" Width="40"/>
                 <TextBlock Text="Photos - Videos" FontSize="25"/>
             </StackPanel>
         </Button>
-        <Button x:Name="munu_button3" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="80">
+        <Button x:Name="munu_button3" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="80" Click="menu_button3_click">
             <StackPanel>
                 <Image Source="Image/music_icon.png" Stretch="Fill" Height="40" Width="40"/>
                 <TextBlock Text="Music" FontSize="25" HorizontalAlignment="Center"/>
             </StackPanel>
         </Button>
-        <Button x:Name="munu_button4" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="80">
+        <Button x:Name="munu_button4" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="80" Click="menu_button4_click">
             <StackPanel>
                 <Image Source="Image/record_icon.png" Stretch="Fill" Height="40" Width="40" HorizontalAlignment="Center"/>
                 <TextBlock Text="Recordings" FontSize="25"/>
             </StackPanel>
         </Button>
-        <Button x:Name="munu_button5" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="80">
+        <Button x:Name="munu_button5" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="80" Click="menu_button5_click">
             <StackPanel>
                 <Image Source="Image/search_icon.jpg" Stretch="Fill" Height="40" Width="40"/>
                 <TextBlock Text="Search" FontSize="25"/>
@@ -63,7 +63,7 @@
                 <TextBlock Text="Other Apps" FontSize="25" HorizontalAlignment="Center"/>
             </StackPanel>
         </Button>
-        <Button x:Name="munu_button7" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="80">
+        <Button x:Name="munu_button7" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="80" Click="menu_button7_click">
             <StackPanel>
                 <Image Source="Image/settings_icon.png" Stretch="Fill" Height="40" Width="40" HorizontalAlignment="Center"/>
                 <TextBlock Text="Setting" FontSize="25"/>

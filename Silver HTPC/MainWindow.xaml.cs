@@ -38,5 +38,40 @@ namespace Silver_HTPC
             this.Close();
 
         }
+
+        private void menu_button4_click(object sender, RoutedEventArgs e)
+        {
+            Recordings recording_Window = new Recordings();
+            recording_Window.Show();
+            this.Close();
+        }
+
+        private void menu_button2_click(object sender, RoutedEventArgs e)
+        {
+            Photos_Videos photos_Videos_Window = new Photos_Videos();
+            photos_Videos_Window.Show();
+            this.Close();
+        }
+
+        private void menu_button5_click(object sender, RoutedEventArgs e)
+        {
+            Search search_Window = new Search();
+            search_Window.Show();
+            this.Close();
+        }
+
+        private void menu_button7_click(object sender, RoutedEventArgs e)
+        {
+            Settings settings_Window = new Settings();
+            settings_Window.Show();
+            this.Close();
+        }
+
+        private void menu_button3_click(object sender, RoutedEventArgs e)
+        {
+            Music music_Window = new Music();
+            music_Window.Show();
+            this.Close();
+        }
     }
 }
