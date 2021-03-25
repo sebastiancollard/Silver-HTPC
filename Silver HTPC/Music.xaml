@@ -25,8 +25,8 @@
             </Label.OpacityMask>
         </Label>
         <TextBlock HorizontalAlignment="Left" Height="31" TextWrapping="Wrap" VerticalAlignment="Top" Width="196" RenderTransformOrigin="0.406,-0.589" FontFamily="Segoe UI Emoji" FontSize="24" Margin="635,342,-39,0"><Run Text="Free:"/><Run Text=" "/><Run Text="225.2GB"/></TextBlock>
-        <TextBlock Text="{Binding Source={x:Static System:DateTime.Now}, StringFormat=\{0:dddd\, MMMM dd\}}"  HorizontalAlignment="Right" Height="31" VerticalAlignment="Top" Width="255" RenderTransformOrigin="0.268,0.293" Background="{x:Null}" FontFamily="Segoe UI Black" FontSize="24" Margin="0,-8,0,0" />
-        <TextBlock Text="{Binding Source={x:Static System:DateTime.Now}, StringFormat=\{0:HH:mm\}}" HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="72" RenderTransformOrigin="0.268,0.293" Margin="710,18,0,0" Background="{x:Null}" FontFamily="Segoe UI Black" FontSize="24" />
+        <TextBlock Text="{Binding Source={x:Static System:DateTime.Now}, StringFormat=\{0:dddd\, MMMM dd\}}"  HorizontalAlignment="Right" Height="31" VerticalAlignment="Top" Width="296" RenderTransformOrigin="0.268,0.293" Background="{x:Null}" FontFamily="Segoe UI Black" FontSize="24" Margin="0,-8,-26,0" />
+        <TextBlock Text="{Binding Source={x:Static System:DateTime.Now}, StringFormat=\{0:HH:mm\}}" HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="72" RenderTransformOrigin="0.268,0.293" Margin="720,20,0,0" Background="{x:Null}" FontFamily="Segoe UI Black" FontSize="24" />
         <Rectangle Fill="White" HorizontalAlignment="Left" Height="31" Margin="631,378,0,0" Stroke="Black" VerticalAlignment="Top" Width="151" RenderTransformOrigin="0.506,0.543"/>
         <Rectangle Fill="#FF00FF17" HorizontalAlignment="Left" Height="31" Margin="631,378,0,0" Stroke="Black" VerticalAlignment="Top" Width="13" RenderTransformOrigin="0.506,0.543"/>
         <TextBlock HorizontalAlignment="Left" Height="31" Margin="635,306,-39,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="196" RenderTransformOrigin="0.406,-0.589" FontFamily="Segoe UI Emoji" FontSize="24"><Run Text="Total: "/><Run Text="250GB"/><InlineUIContainer>
@@ -51,7 +51,104 @@
                 </LinearGradientBrush>
             </Label.OpacityMask>
         </Label>
-        <StackPanel HorizontalAlignment="Left" Height="285" Margin="10,124,0,0" VerticalAlignment="Top" Width="595"/>
-        
+        <Grid HorizontalAlignment="Left" Height="298" Margin="58,111,0,0" VerticalAlignment="Top" Width="542">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Name="music1" Grid.Row="0" Grid.Column="0" Background="white"  FontSize="20" FontFamily="Segoe UI Semibold" Margin="0 5 0 0">
+                <Grid Width="532" Height="40">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Text="Poker Face - Lady Gaga"/>
+                    <TextBlock Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" Text="3m:48s" HorizontalAlignment="Right" VerticalAlignment="center"/>
+                    <Image Grid.Row="0" Grid.Column="0" Source="Image/music_icon_black.png"/>
+
+
+                </Grid>
+            </Label>
+
+            <Label Name="music2" Grid.Row="1" Grid.Column="0" Background="white"  FontSize="20" FontFamily="Segoe UI Semibold" Margin="0 5 0 0">
+                <Grid Width="532" Height="40">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="70"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Text="I Walk The Line - Johnny Cash"/>
+                    <TextBlock Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" Text="2m:45s" HorizontalAlignment="Right" VerticalAlignment="center"/>
+                    <Image Grid.Row="0" Grid.Column="0" Source="Image/music_icon_black.png"/>
+
+
+                </Grid>
+            </Label>
+
+            <Label Name="music3" Grid.Row="2" Grid.Column="0" Background="white"  FontSize="20" FontFamily="Segoe UI Semibold" Margin="0 5 0 0">
+                <Grid Width="532" Height="40">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="70"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Text="Help - The Beatles"/>
+                    <TextBlock Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" Text="2m:20s" HorizontalAlignment="Right" VerticalAlignment="center"/>
+                    <Image Grid.Row="0" Grid.Column="0" Source="Image/music_icon_black.png"/>
+
+
+                </Grid>
+            </Label>
+            <Label Name="music4" Grid.Row="3" Grid.Column="0" Background="white"  FontSize="20" FontFamily="Segoe UI Semibold" Margin="0 5 0 0">
+                <Grid Width="532" Height="40">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="70"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Text="In My Life - The Beatles"/>
+                    <TextBlock Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" Text="2m:27s" HorizontalAlignment="Right" VerticalAlignment="center"/>
+                    <Image Grid.Row="0" Grid.Column="0" Source="Image/music_icon_black.png"/>
+
+
+                </Grid>
+            </Label>
+
+        </Grid>
+
     </Grid>
 </Window>
