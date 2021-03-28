@@ -24,12 +24,15 @@ namespace Silver_HTPC
         const int WIDTH = 100;
         const int HEIGHT = 200;
         bool isResultsOnScreen = false;
+        int index = 0;
 
         public Search()
         {
             InitializeComponent();
 
             MakeResults();
+
+            searchBox.Focus();
         }
         private void MakeResults()
         {
@@ -51,6 +54,10 @@ namespace Silver_HTPC
                 btn.Height = HEIGHT;
                 btn.VerticalAlignment = VerticalAlignment.Top;
                 btn.Margin = new Thickness();
+                btn.Style = (Style)FindResource("MyButtonStyle");
+                btn.GotFocus += result_hover;
+                btn.LostFocus += result_nhover;
+                btn.Foreground = Brushes.Green;
 
                 Image application = new Image();
                 //application.Source = new BitmapImage(new Uri("netflix_PNG15.png", UriKind.RelativeOrAbsolute));
@@ -64,9 +71,6 @@ namespace Silver_HTPC
             }
             //Inception Netflix result
             ((Image)Results[0].Children[1]).Source = new BitmapImage(new Uri("netflix_PNG15.png", UriKind.RelativeOrAbsolute));
-            ((Button)Results[0].Children[0]).MouseEnter += result_hover;
-            ((Button)Results[0].Children[0]).MouseLeave += result_nhover;
-            ((Button)Results[0].Children[0]).Style = (Style)FindResource("MyButtonStyle");
 
 
             //Inception Prime Video result
@@ -97,20 +101,6 @@ namespace Silver_HTPC
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            if (!isResultsOnScreen)
-            {
-                stack.Children.Add(new Label { Width = 30 });
-                foreach (var res in Results)
-                {
-                    stack.Children.Add(res);
-                    stack.Children.Add(new Label { Width = 30}); 
-                }
-                isResultsOnScreen = true;
-            }
-        }
-
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             var tb = sender as TextBox;
@@ -136,15 +126,43 @@ namespace Silver_HTPC
         {
             var btn = sender as Button;
             btn.Content = "Inception";
-            btn.Foreground = Brushes.Green;
+            btn.BorderBrush = Brushes.Red;
             ((ImageBrush)btn.Background).Opacity = 0.1;
+            if (btn == (Button)(Results[0].Children[0]))
+            {
+                scroll.ScrollToHorizontalOffset(0);
+            }
+            else if (btn == (Button)(Results[Results.Count-1].Children[0]))
+            {
+                scroll.ScrollToHorizontalOffset(100);
+            }
         }
         
         private void result_nhover(object sender, RoutedEventArgs e)
         {
             var btn = sender as Button;
             btn.Content = "";
+            btn.BorderBrush = Brushes.Black;
             ((ImageBrush)btn.Background).Opacity = 1;
+        }
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Back)
+            {
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.Show();
+                this.Close();
+            }
+        }
+
+        private void SearchBar_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                Keyboard.ClearFocus();
+                ((Button)((Grid)Results[index]).Children[0]).Focus();
+            }
         }
     }
 }
