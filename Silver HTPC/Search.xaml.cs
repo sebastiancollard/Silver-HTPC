@@ -74,14 +74,20 @@ namespace Silver_HTPC
 
             //Inception Apple TV result
             ((Image)Results[2].Children[1]).Source = new BitmapImage(new Uri("apple tv.png", UriKind.RelativeOrAbsolute));
+            ((Image)Results[2].Children[1]).Width = 75;
+            ((Image)Results[2].Children[1]).Height = 75;
 
             //Inception Disney+ result
             ((Image)Results[3].Children[1]).Source = new BitmapImage(new Uri("Disney+.png", UriKind.RelativeOrAbsolute));
-            ((Image)Results[3].Children[1]).Width = 75;
-            ((Image)Results[3].Children[1]).Height = 75;
+            ((Image)Results[3].Children[1]).Width = 100;
+            ((Image)Results[3].Children[1]).Height = 100;
+            ((Image)Results[3].Children[1]).Margin = new Thickness(0, 195, 0, 0);
 
             //Inception Live TV result
             ((Image)Results[4].Children[1]).Source = new BitmapImage(new Uri("live tv.png", UriKind.RelativeOrAbsolute));
+            ((Image)Results[4].Children[1]).Width = 75;
+            ((Image)Results[4].Children[1]).Height = 75;
+            ((Image)Results[4].Children[1]).Margin = new Thickness(0, 195, 0, 0);
 
             //Inception Soundtrack Spotify result
             ((Button)Results[5].Children[0]).Background = new ImageBrush { ImageSource = new BitmapImage(new Uri("inception_OST.jpg", UriKind.RelativeOrAbsolute)) };
