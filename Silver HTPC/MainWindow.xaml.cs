@@ -21,6 +21,8 @@ namespace Silver_HTPC
     /// </summary>
     public partial class MainWindow : Window
     {
+        private static int currentButtonSelectionIndex=0;
+        private static Button[] menuButtonList;
         public MainWindow()
         {
             InitializeComponent();
@@ -29,13 +31,75 @@ namespace Silver_HTPC
                 this.time_label.Content = DateTime.Now.ToString("hh:mm tt");
                 this.date_label.Content = DateTime.Now.ToString("MMMM dd, yyyy");
             }, this.Dispatcher);
+            menuButtonList = new Button[] { munu_button1, munu_button2, munu_button3, munu_button4, munu_button5,munu_button6,munu_button7,munu_button8,munu_button9};
+           
+            setButtonFocus(0);
         }
+        public void setButtonFocus(int button_index)
+        {
+            //currentButtonSelectionIndex = button_index;
+            Button button = menuButtonList[button_index];
+            button.Background = Brushes.DarkBlue;
+            button.Foreground = Brushes.White;
+        }
+        public void resetButtonFocus(int button_index)
+        {
+            Button button = menuButtonList[button_index];
+            button.ClearValue(Button.BackgroundProperty); ;
+            button.ClearValue(Button.ForegroundProperty); ;
+        }
+
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.Key)
+            {
+                case Key.Right:
+
+                    resetButtonFocus(currentButtonSelectionIndex);
+                    currentButtonSelectionIndex = (currentButtonSelectionIndex + 1) % 9;
+                    setButtonFocus(currentButtonSelectionIndex);
+                    break;
+                case Key.Left:
+                    if (currentButtonSelectionIndex != 0)
+                    {
+                        resetButtonFocus(currentButtonSelectionIndex);
+                        currentButtonSelectionIndex = (currentButtonSelectionIndex - 1) % 9;
+                        setButtonFocus(currentButtonSelectionIndex);
+                    }
+                    
+                    break;
+                case Key.Down:
+                    resetButtonFocus(currentButtonSelectionIndex);
+                    currentButtonSelectionIndex = (currentButtonSelectionIndex + 3) % 9;
+                    setButtonFocus(currentButtonSelectionIndex);
+                    break;
+                case Key.Up:
+                    if (currentButtonSelectionIndex>=3){
+                        resetButtonFocus(currentButtonSelectionIndex);
+                        currentButtonSelectionIndex = (currentButtonSelectionIndex - 3) % 9;
+                        setButtonFocus(currentButtonSelectionIndex);
+                    }
+                    break;
+                default:
+                    break;
+            }
+            /*if (e.Key == Key.Right)
+            {
+                resetButtonFocus(currentButtonSelectionIndex);
+                currentButtonSelectionIndex = (currentButtonSelectionIndex + 1) % 9;
+                setButtonFocus(currentButtonSelectionIndex);
+            }*/
+            
+        }
+        
 
         private void munu_button8_Click(object sender, RoutedEventArgs e)
         {
             Notification_tab notification_window = new Notification_tab();
             notification_window.Show();
             this.Close();
+            
 
         }
 
@@ -73,5 +137,7 @@ namespace Silver_HTPC
             music_Window.Show();
             this.Close();
         }
+
+        
     }
 }
