@@ -6,18 +6,43 @@
         xmlns:local="clr-namespace:Silver_HTPC"
         mc:Ignorable="d"
         Title="Search" Height="450" Width="800">
-    <Grid Margin="0,0,21,0">
-        <Grid.Background>
+    <Window.Resources>
+        <!-- This style is used for buttons, to remove the WPF default 'animated' mouse over effect -->
+        <Style x:Key="MyButtonStyle" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" 
+                        BorderThickness="1"
+                        Padding="4,2"
+                        BorderBrush="Black" 
+                        CornerRadius="3" 
+                        Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Canvas>
+        <Canvas.Background>
             <LinearGradientBrush EndPoint="1,0" MappingMode="RelativeToBoundingBox" StartPoint="0,1">
                 <GradientStop Color="Black" Offset="1"/>
                 <GradientStop Color="White"/>
             </LinearGradientBrush>
-        </Grid.Background>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="90*"/>
-            <RowDefinition Height="329*"/>
-        </Grid.RowDefinitions>
-        <ComboBox HorizontalAlignment="Left" Margin="609,46,0,0" VerticalAlignment="Top" Width="120" Height="43" IsReadOnly="True" IsSynchronizedWithCurrentItem="False" SelectedIndex="0">
+        </Canvas.Background>
+        <ScrollViewer HorizontalAlignment="Left" Height="348"  VerticalAlignment="Top" Width="792" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Visible" Canvas.Top="61">
+            <StackPanel x:Name="stack"  Orientation="Horizontal" >
+            </StackPanel>
+        </ScrollViewer>
+        <ComboBox x:Name="filter" HorizontalAlignment="Left" Margin="609,46,0,0" VerticalAlignment="Top" Width="120" Height="43" IsReadOnly="True" IsSynchronizedWithCurrentItem="False" SelectedIndex="0">
             <ComboBoxItem Content="All" HorizontalAlignment="Left" RenderTransformOrigin="0.5,0.5"/>
             <ComboBoxItem Content="Live TV"/>
             <ComboBoxItem Content="Movies/Shows"/>
@@ -28,8 +53,8 @@
         <Button HorizontalAlignment="Left" Margin="35,46,0,0" VerticalAlignment="Top" Width="52" Height="43">
             <Image Source="search--v2.png" HorizontalAlignment="Left" Height="43" VerticalAlignment="Top" Width="42"/>
         </Button>
-        <TextBox Height="43" Margin="87,46,0,0" TextWrapping="Wrap" Text="Inception" VerticalAlignment="Top" Width="471" HorizontalAlignment="Left" Foreground="Black"/>
-        <Button HorizontalAlignment="Left" Margin="35,30,0,0" VerticalAlignment="Top" Width="100" Height="200" Grid.Row="1" BorderThickness="1" BorderBrush="Red" SnapsToDevicePixels="True" FontFamily="REVOLUTION" Foreground="Black">
+        <TextBox Height="43" Margin="87,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="471" HorizontalAlignment="Left" Foreground="Black" TextChanged="TextBox_TextChanged"/>
+        <!--<Button HorizontalAlignment="Left" Margin="35,30,0,0" VerticalAlignment="Top" Width="100" Height="200" Grid.Row="1" BorderThickness="1" BorderBrush="Red" SnapsToDevicePixels="True" FontFamily="REVOLUTION" Foreground="Black">
             <Button.Background>
                 <ImageBrush ImageSource="inception poster.jpg" Opacity="0.1"/>
             </Button.Background>
@@ -62,7 +87,19 @@
             </Button.Background>
             <Image HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="31" Source="netflix_PNG15.png"/>
         </Button>
-        <Button Content="" HorizontalAlignment="Left" Margin="177,30,0,0" VerticalAlignment="Top" Width="100" Height="200" BorderBrush="Black" Grid.Row="1">
+        <Grid HorizontalAlignment="Left" Height="255" Margin="184,30,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100">
+            <Button Content="Button" VerticalAlignment="Top" Height="200" Margin="0,0,0,0"/>
+            <Image Margin="25,205,25,0" Source="netflix_PNG15.png"/>
+        </Grid>
+        --><Button Canvas.Left="569" Canvas.Top="13" Width="75">
+        <Button Content="Button" Width="75" Click="Button_Click">
+            <Button.Background>
+                <ImageBrush/>
+            </Button.Background>
+        </Button>
+        </Button>
+
+        <!--<Button Content="" HorizontalAlignment="Left" Margin="177,30,0,0" VerticalAlignment="Top" Width="100" Height="200" BorderBrush="Black" Grid.Row="1">
             <Button.Background>
                 <ImageBrush ImageSource="inception poster.jpg"/>
             </Button.Background>
@@ -138,6 +175,7 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
+        -->
 
-    </Grid>
+    </Canvas>
 </Window>
