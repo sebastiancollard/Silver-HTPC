@@ -129,7 +129,7 @@ namespace Silver_HTPC
             content.Children.Add(title);
             content.Children.Add(new Separator { Opacity = 0, Height = 5 });
             content.Children.Add(info);
-            content.Children.Add(new Separator { Opacity = 0, Height = 20 });
+            content.Children.Add(new Separator { Opacity = 0, Height = 5 });
             content.Children.Add(description);
             content.Opacity = 0;
             ((Button)Results[0].Children[1]).Content = content;
