@@ -100,7 +100,8 @@ namespace Silver_HTPC
             title.Focusable = false;
 
             TextBox info = new TextBox();
-            info.Text = "148 min";
+            info.Text = "2010\n 148 min";
+            info.TextAlignment = TextAlignment.Center;
             info.Foreground = Brushes.White;
             info.FontFamily = new FontFamily("Segoe UI");
             info.Background = new SolidColorBrush();
