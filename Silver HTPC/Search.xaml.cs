@@ -225,7 +225,10 @@ namespace Silver_HTPC
             if (e.Key == Key.Enter)
             {
                 Keyboard.ClearFocus();
-                ((Button)((Grid)Results[index]).Children[1]).Focus();
+                if (stack.Children.Count > 0)
+                    ((Button)((Grid)Results[index]).Children[1]).Focus();
+                else 
+                    dummy.Focus();
             }
         }
     }

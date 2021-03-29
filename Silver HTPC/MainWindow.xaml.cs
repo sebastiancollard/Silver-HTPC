@@ -38,6 +38,10 @@ namespace Silver_HTPC
             //list of buttons, stack panels and content
             //content=> possible mitigation -> reading from a file (log file)
             menuButtonList = new Button[] { munu_button1, munu_button2, munu_button3, munu_button4, munu_button5,munu_button6,munu_button7,munu_button8,munu_button9,profile_button};
+
+            foreach (Button btn in menuButtonList)
+                btn.KeyDown += select;
+
             stackPanelList = new StackPanel[] { stackPan_Button1, stackPan_Button2, stackPan_Button3, stackPan_Button4, stackPan_Button5, stackPan_Button6, stackPan_Button7, stackPan_Button8, stackPan_Button9, stackPan_Profile };
             content = new string[,] { { "Live TV", "Image/tv_icon.png" }, { "Gallery", "Image/gallery_icon.png" }, { "Music", "Image/music_icon.png" }, { "Recordings", "Image/record_icon.png" }, { "Search", "Image/search_icon.jpg" }, { "Netflix", "Image/netflix_icon.png" }, { "Settings", "Image/settings_icon.png" }, { "Notification", "Image/notification_icon.png" }, { "Other Apps", "Image/apps_icon.png" } , {"John Doe","Image/profile_icon.png" } };
             //dynamically add content to static buttons
@@ -63,11 +67,63 @@ namespace Silver_HTPC
                 lbl.Content = content[i,0];
                 stackPanelList[i].Children.Add(lbl);*/
             }
-            
+
             //Set it to the button content
-            
+            munu_button1.Focus();
             setButtonFocus(0);
         }
+
+        private void select(object sender, KeyEventArgs e)
+        {
+            var btn = sender as Button;
+            if (e.Key == Key.Enter)
+            {
+                if (btn == munu_button8)
+                {
+                    Notification_tab notification_window = new Notification_tab();
+                    notification_window.Show();
+                    this.Hide();
+                }
+                else if (btn == munu_button1)
+                {
+                    Photos_Videos photos_Videos_Window = new Photos_Videos();
+                    photos_Videos_Window.Show();
+                    this.Close();
+                }
+                else if (btn == munu_button4)
+                {
+                    Recordings recording_Window = new Recordings();
+                    recording_Window.Show();
+                    this.Close();
+                }
+                else if (btn == munu_button2)
+                {
+                    Photos_Videos photos_Videos_Window = new Photos_Videos();
+                    photos_Videos_Window.Show();
+                    this.Close();
+                }
+                else if (btn == munu_button5)
+                {
+                    Photos_Videos photos_Videos_Window = new Photos_Videos();
+                    photos_Videos_Window.Show();
+                    this.Close();
+                }
+                else if (btn == munu_button7)
+                {
+                    Settings settings_Window = new Settings();
+                    settings_Window.Show();
+                    this.Close();
+                }
+                else if (btn == munu_button3)
+                {
+                    Music music_Window = new Music();
+                    music_Window.Show();
+                    this.Close();
+                }
+            }
+
+        }
+
         public void setButtonFocus(int button_index)
         {
             //currentButtonSelectionIndex = button_index;

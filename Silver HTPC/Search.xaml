@@ -54,7 +54,7 @@
             </Setter>
         </Style>
     </Window.Resources>
-    <Canvas>
+    <Canvas x:Name="background">
         <Canvas.Background>
             <LinearGradientBrush EndPoint="1,0" MappingMode="RelativeToBoundingBox" StartPoint="0,1">
                 <GradientStop Color="Black" Offset="1"/>
@@ -62,7 +62,7 @@
             </LinearGradientBrush>
         </Canvas.Background>
         <ScrollViewer x:Name="scroll" HorizontalAlignment="Left" Height="348"  VerticalAlignment="Top" Width="792" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Visible" Canvas.Top="61">
-            <StackPanel x:Name="stack"  Orientation="Horizontal" >
+            <StackPanel x:Name="stack"  Orientation="Horizontal">
             </StackPanel>
         </ScrollViewer>
         <ComboBox x:Name="filter" HorizontalAlignment="Left" Margin="609,46,0,0" VerticalAlignment="Top" Width="120" Height="43" IsReadOnly="True" IsSynchronizedWithCurrentItem="False" SelectedIndex="0">
@@ -78,6 +78,7 @@
         </Button>
         <TextBox x:Name="searchBox" Height="43" Margin="87,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="471" HorizontalAlignment="Left" Foreground="Black" TextChanged="TextBox_TextChanged" KeyDown="SearchBar_KeyDown"/>
         <Label Canvas.Left="404" Canvas.Top="10"/>
+        <Button x:Name="dummy" Content="Button" Canvas.Top="-149" Width="75" Background="#00DDDDDD" BorderBrush="#00707070" Foreground="#00000000"/>
         <!--<Button HorizontalAlignment="Left" Margin="35,30,0,0" VerticalAlignment="Top" Width="100" Height="200" Grid.Row="1" BorderThickness="1" BorderBrush="Red" SnapsToDevicePixels="True" FontFamily="REVOLUTION" Foreground="Black">
             <Button.Background>
                 <ImageBrush ImageSource="inception poster.jpg" Opacity="0.1"/>
