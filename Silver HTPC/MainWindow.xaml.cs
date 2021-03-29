@@ -31,7 +31,7 @@ namespace Silver_HTPC
                 this.time_label.Content = DateTime.Now.ToString("hh:mm tt");
                 this.date_label.Content = DateTime.Now.ToString("MMMM dd, yyyy");
             }, this.Dispatcher);
-            menuButtonList = new Button[] { munu_button1, munu_button2, munu_button3, munu_button4, munu_button5,munu_button6,munu_button7,munu_button8,munu_button9};
+            menuButtonList = new Button[] { munu_button1, munu_button2, munu_button3, munu_button4, munu_button5,munu_button6,munu_button7,munu_button8,munu_button9,profile_button};
            
             setButtonFocus(0);
         }
@@ -55,13 +55,16 @@ namespace Silver_HTPC
             switch (e.Key)
             {
                 case Key.Right:
-
-                    resetButtonFocus(currentButtonSelectionIndex);
-                    currentButtonSelectionIndex = (currentButtonSelectionIndex + 1) % 9;
-                    setButtonFocus(currentButtonSelectionIndex);
+                    if (currentButtonSelectionIndex!=2 && currentButtonSelectionIndex!= 5 && currentButtonSelectionIndex != 8 && currentButtonSelectionIndex != 9)
+                    {
+                        resetButtonFocus(currentButtonSelectionIndex);
+                        currentButtonSelectionIndex = (currentButtonSelectionIndex + 1) % 9;
+                        setButtonFocus(currentButtonSelectionIndex);
+                    }
+                    
                     break;
                 case Key.Left:
-                    if (currentButtonSelectionIndex != 0)
+                    if (currentButtonSelectionIndex != 0 && currentButtonSelectionIndex != 3 && currentButtonSelectionIndex != 6 && currentButtonSelectionIndex != 9)
                     {
                         resetButtonFocus(currentButtonSelectionIndex);
                         currentButtonSelectionIndex = (currentButtonSelectionIndex - 1) % 9;
@@ -70,14 +73,30 @@ namespace Silver_HTPC
                     
                     break;
                 case Key.Down:
-                    resetButtonFocus(currentButtonSelectionIndex);
-                    currentButtonSelectionIndex = (currentButtonSelectionIndex + 3) % 9;
-                    setButtonFocus(currentButtonSelectionIndex);
+                    if (currentButtonSelectionIndex == 9)
+                    {
+                        resetButtonFocus(currentButtonSelectionIndex);
+                        currentButtonSelectionIndex = 0;
+                        setButtonFocus(currentButtonSelectionIndex);
+                    }
+                    else if (currentButtonSelectionIndex<6)
+                    {
+                        resetButtonFocus(currentButtonSelectionIndex);
+                        currentButtonSelectionIndex = (currentButtonSelectionIndex + 3) % 9;
+                        setButtonFocus(currentButtonSelectionIndex);
+                    }
+                    
                     break;
                 case Key.Up:
-                    if (currentButtonSelectionIndex>=3){
+                    if (currentButtonSelectionIndex>=3 && currentButtonSelectionIndex!=9){
                         resetButtonFocus(currentButtonSelectionIndex);
                         currentButtonSelectionIndex = (currentButtonSelectionIndex - 3) % 9;
+                        setButtonFocus(currentButtonSelectionIndex);
+                    }
+                    else
+                    {
+                        resetButtonFocus(currentButtonSelectionIndex);
+                        currentButtonSelectionIndex = 9;
                         setButtonFocus(currentButtonSelectionIndex);
                     }
                     break;

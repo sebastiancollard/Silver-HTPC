@@ -81,7 +81,7 @@
                 <TextBlock Text="Netflix" FontSize="25" HorizontalAlignment="Center"/>
             </StackPanel>
         </Button>
-        <Button x:Name="button" HorizontalAlignment="Left" Margin="-2,-108,0,0" VerticalAlignment="Top" Width="148" Height="35" FontSize="20">
+        <Button x:Name="profile_button" HorizontalAlignment="Left" Margin="-2,-108,0,0" VerticalAlignment="Top" Width="148" Height="35" FontSize="20">
             <StackPanel Orientation="Horizontal">
                 <Image Source="Image\profile_icon.png" Stretch="Fill" Height="25" Width="25"/>
                 <TextBlock Text="John Doe" FontSize="25" HorizontalAlignment="Center"/>
