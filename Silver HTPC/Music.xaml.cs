@@ -37,7 +37,8 @@ namespace Silver_HTPC
             MusicButtonsGrids.Add(ButtonGrid4);
 
             MusicButtonsList[MusicIndex].Focus();
-            
+            Console.WriteLine("dada");
+
         }
 
         private void Grid_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
@@ -49,6 +50,7 @@ namespace Silver_HTPC
         private void Music_GotFocus(object sender, RoutedEventArgs e)
         {
             Button thisButton = e.Source as Button;
+            Console.WriteLine(thisButton.Name.ToString());
             thisButton.Background = Brushes.Red;
             thisButton.Height =60;
             //Console.WriteLine(thisButton);
@@ -70,6 +72,29 @@ namespace Silver_HTPC
                     Console.WriteLine("MusicIndex: " + MusicIndex);
                 }
             }
+            else if (e.Key == Key.Right)
+            {
+               
+                for(int i=0; i < MusicButtonsList.Count; i++)
+                {
+                    MusicButtonsList[i].Focusable=false;
+                }
+                SortButton.Focus();
+                Console.WriteLine("MusicIndex: " + MusicIndex);
+            }
+            else if (e.Key == Key.Up)
+            {
+                if (MusicIndex != 0)
+                {
+                    MusicIndex -= 1;
+                    Console.WriteLine("MusicIndex: " + MusicIndex);
+                }
+                else
+                {
+                    MusicIndex = MusicButtonsList.Count - 1;
+                    Console.WriteLine("MusicIndex: " + MusicIndex);
+                }
+            }
             /**
             int tempMusicIndex = MusicIndex + 1;
             if (tempMusicIndex < MusicButtonsList.Count())
@@ -82,6 +107,7 @@ namespace Silver_HTPC
             **/
         }
 
+        /**
         private void Music_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Up)
@@ -97,7 +123,9 @@ namespace Silver_HTPC
                     Console.WriteLine("MusicIndex: " + MusicIndex);
                 }
             }
+            
         }
+        **/
 
 
 
@@ -124,6 +152,11 @@ namespace Silver_HTPC
                 }
             }
             **/
+        }
+        private void Button_LostFocus(object sender, RoutedEventArgs e)
+        {
+            Button thisButton = e.Source as Button;
+            thisButton.Background = Brushes.White;
         }
     }
 }
