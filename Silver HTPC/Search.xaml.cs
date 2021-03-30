@@ -395,7 +395,7 @@ namespace Silver_HTPC
             {
                 Keyboard.ClearFocus();
                 if (stack.Children.Count > 0)
-                    ((Button)((Grid)Results[index]).Children[1]).Focus();
+                    ((Button)((Grid)stack.Children[1]).Children[1]).Focus();
                 else
                     dummy.Focus();
             }
