@@ -27,20 +27,20 @@
 
                         <ListBoxItem Width="168">
                             <StackPanel Width="158">
-                                <Image Source="Image/tv_icon.png" Stretch="Fill" Height="60" Width="60" HorizontalAlignment="Center"/>
+                                <Image Source="Image/sherlock.png" Stretch="Uniform" Height="67" Width="87" HorizontalAlignment="Center" Margin="29,0,29,0"/>
                                 <Image Source="Image/bbc.png" Stretch="Fill" Height="20" Width="40" HorizontalAlignment="Center"/>
                             </StackPanel>
                         </ListBoxItem>
 
                         <ListBoxItem Width="168">
                             <StackPanel Width="158">
-                                <Image Source="Image/tv_icon.png" Stretch="Fill" Height="60" Width="60" HorizontalAlignment="Center"/>
+                                <Image Source="Image/topgear.png" Stretch="UniformToFill" Height="67" Width="87" HorizontalAlignment="Center" Margin="29,0,29,0"/>
                                 <Image Source="Image/bbc.png" Stretch="Fill" Height="20" Width="40" HorizontalAlignment="Center"/>
                             </StackPanel>
                         </ListBoxItem>
                         <ListBoxItem Width="168">
                             <StackPanel Width="158">
-                                <Image Source="Image/tv_icon.png" Stretch="Fill" Height="60" Width="60" HorizontalAlignment="Center"/>
+                                <Image Source="Image/conviction.png" Stretch="Fill" Height="67" Width="87" HorizontalAlignment="Center" Margin="29,0,29,0"/>
                                 <Image Source="Image/abc.png" Stretch="Uniform" Height="20" Width="40" HorizontalAlignment="Center"/>
                             </StackPanel>
                         </ListBoxItem>
