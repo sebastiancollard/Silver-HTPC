@@ -39,8 +39,8 @@ namespace Silver_HTPC
             //content=> possible mitigation -> reading from a file (log file)
             menuButtonList = new Button[] { munu_button1, munu_button2, munu_button3, munu_button4, munu_button5,munu_button6,munu_button7,munu_button8,munu_button9,profile_button};
 
-            foreach (Button btn in menuButtonList)
-                btn.KeyDown += select;
+            /*foreach (Button btn in menuButtonList)
+                btn.KeyDown += select;*/
 
             stackPanelList = new StackPanel[] { stackPan_Button1, stackPan_Button2, stackPan_Button3, stackPan_Button4, stackPan_Button5, stackPan_Button6, stackPan_Button7, stackPan_Button8, stackPan_Button9, stackPan_Profile };
             content = new string[,] { { "Live TV", "Image/tv_icon.png" }, { "Gallery", "Image/gallery_icon.png" }, { "Music", "Image/music_icon.png" }, { "Recordings", "Image/record_icon.png" }, { "Search", "Image/search_icon.jpg" }, { "Netflix", "Image/netflix_icon.png" }, { "Settings", "Image/settings_icon.png" }, { "Notification", "Image/notification_icon.png" }, { "Other Apps", "Image/apps_icon.png" } , {"John Doe","Image/profile_icon.png" } };
@@ -69,10 +69,10 @@ namespace Silver_HTPC
             }
 
             //Set it to the button content
-            munu_button1.Focus();
-            setButtonFocus(0);
+            //munu_button1.Focus();
+            setButtonFocus(currentButtonSelectionIndex);
         }
-
+        /*
         private void select(object sender, KeyEventArgs e)
         {
             var btn = sender as Button;
@@ -119,10 +119,13 @@ namespace Silver_HTPC
                     Music music_Window = new Music();
                     music_Window.Show();
                     this.Close();
+                }else if (btn == profile_button)
+                {
+                    MessageBox.Show("create one");
                 }
             }
 
-        }
+        }*/
 
         public void setButtonFocus(int button_index)
         {
@@ -205,6 +208,54 @@ namespace Silver_HTPC
                         setButtonFocus(currentButtonSelectionIndex);
                     }
                     break;
+                case Key.Enter:
+                    /*{ "Live TV", "Image/tv_icon.png" }, { "Gallery", "Image/gallery_icon.png" }, { "Music", "Image/music_icon.png" }, { "Recordings", "Image/record_icon.png" }, { "Search", "Image/search_icon.jpg" }, { "Netflix", "Image/netflix_icon.png" }, { "Settings", "Image/settings_icon.png" }, { "Notification", "Image/notification_icon.png" }, { "Other Apps", "Image/apps_icon.png" } , {"John Doe","Image/profile_icon.png" }*/
+                    bool dontClose = false;
+                    resetButtonFocus(currentButtonSelectionIndex);
+                    switch (content[currentButtonSelectionIndex, 0]){
+                        case "Live TV":
+                            TV_Guide tv = new TV_Guide();
+                            tv.Show();
+                            break;
+                        case "Gallery":
+                            Photos_Videos gallery = new Photos_Videos();
+                            gallery.Show();
+                            break;
+                        case "Music":
+                            Music music = new Music();
+                            music.Show();
+                            break;
+                        case "Recordings":
+                            Recordings rec = new Recordings();
+                            rec.Show();
+                            break;
+                        case "Search":
+                            Search search = new Search();
+                            search.Show();
+                            break;
+                        case "Netflix":
+                            dontClose = true;
+                            MessageBox.Show("No screens made for third party");
+                            break;
+                        case "Settings":
+                            Settings settings = new Settings();
+                            settings.Show();
+                            break;
+                        case "Notification":
+                            Notification_tab notif = new Notification_tab();
+                            notif.Show();
+                            break;
+                        case "Other Apps":
+                            dontClose = true;
+                            MessageBox.Show("No screens made for other apps");
+                            break;
+                        default://profile
+                            dontClose = true;
+                            MessageBox.Show(this,"No screens made for profile");
+                            break;
+                    }
+                    if (!dontClose) this.Close();
+                    break;
                 default:
                     break;
             }
@@ -252,9 +303,10 @@ namespace Silver_HTPC
 
         private void menu_button3_click(object sender, RoutedEventArgs e)
         {
-            Music music_Window = new Music();
+            MessageBox.Show("No screens made for third party");
+            /*Music music_Window = new Music();
             music_Window.Show();
-            this.Close();
+            this.Close();*/
         }
 
         
