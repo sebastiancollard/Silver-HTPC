@@ -20,10 +20,12 @@ namespace Silver_HTPC
     /// </summary>
     public partial class Search : Window
     {
-        List<Grid> Results = new List<Grid>();
+        static List<Grid> Results = new List<Grid>();
+        static List<string> searches = new List<string> { "inception", "spidermanintothespiderverse", "theamazingspiderman", "theamazingspiderman2", "spiderman", "spiderman2", "spiderman3" };
         const int WIDTH = 100;
         const int HEIGHT = 200;
         bool isResultsOnScreen = false;
+        bool found = false;
         int index = 0;
 
         public Search()
@@ -36,7 +38,7 @@ namespace Silver_HTPC
         }
         private void MakeResults()
         {
-            for (int i = 0; i < 7; ++i)
+            for (int i = 0; i < 11; ++i)
             {
                 Grid result = new Grid();
                 result.Width = WIDTH;
@@ -46,7 +48,15 @@ namespace Silver_HTPC
                 Button btn = new Button();
                 //btn.Content = i.ToString();
                 var brush = new ImageBrush();
-                brush.ImageSource = new BitmapImage(new Uri("inception poster.jpg", UriKind.RelativeOrAbsolute));
+                if (i < 6)
+                    brush.ImageSource = new BitmapImage(new Uri("inception poster.jpg", UriKind.RelativeOrAbsolute));
+                else if (i == 6)
+                    brush.ImageSource = new BitmapImage(new Uri("inception_OST.jpg", UriKind.RelativeOrAbsolute));
+                else if (i > 6 && i < 10)
+                    brush.ImageSource = new BitmapImage(new Uri("spiderverse_1.jpg", UriKind.RelativeOrAbsolute));
+                else if (i == 10)
+                    brush.ImageSource = new BitmapImage(new Uri("spiderverse_OST.jpg", UriKind.RelativeOrAbsolute));
+
                 btn.Content = new StackPanel();
                 btn.Background = brush;
                 btn.BorderBrush = new SolidColorBrush(Colors.Black);
@@ -68,118 +78,273 @@ namespace Silver_HTPC
                 bg.Style = (Style)FindResource("MyLabelStyle");
 
                 Image application = new Image();
-                //application.Source = new BitmapImage(new Uri("netflix_PNG15.png", UriKind.RelativeOrAbsolute));
                 application.Width = 50;
                 application.Height = 50;
                 application.Margin = new Thickness(0, 205, 0, 0);
+
+                if (i == 0 || i == 7) //Netflix
+                    application.Source = new BitmapImage(new Uri("netflix_PNG15.png", UriKind.RelativeOrAbsolute));
+                else if (i == 1 || i == 8) //Prime Video
+                    application.Source = new BitmapImage(new Uri("prime video.png", UriKind.RelativeOrAbsolute));
+                else if (i == 2)
+                {   //Apple TV
+                    application.Source = new BitmapImage(new Uri("apple tv.png", UriKind.RelativeOrAbsolute));
+                    application.Width = 75;
+                    application.Height = 75;
+                }
+                else if (i == 3)
+                {   //Disney+
+                    application.Source = new BitmapImage(new Uri("Disney+.png", UriKind.RelativeOrAbsolute));
+                    application.Width = 100;
+                    application.Height = 100;
+                    application.Margin = new Thickness(0, 195, 0, 0);
+                }
+                else if (i == 4)
+                {   //Live TV
+                    application.Source = new BitmapImage(new Uri("live tv.png", UriKind.RelativeOrAbsolute));
+                    application.Width = 75;
+                    application.Height = 75;
+                    application.Margin = new Thickness(0, 195, 0, 0);
+                }
+                else if (i == 5 || i == 9)
+                {   //Youtube
+                    application.Source = new BitmapImage(new Uri("youtube.png", UriKind.RelativeOrAbsolute));
+                    application.Width = 100;
+                    application.Height = 100;
+                    application.Margin = new Thickness(0, 195, 0, 0);
+                }
+                else if (i == 6 || i == 10)
+                {   //Spotify
+                    bg.Height = 100;
+                    bg.Margin = new Thickness(0, 50, 0, 0);
+                    btn.Height = 100;
+                    btn.Margin = new Thickness(0, 50, 0, 0);
+                    application.Source = new BitmapImage(new Uri("spotify-download-logo.png", UriKind.RelativeOrAbsolute));
+                }
+
+                if (i != 6 && i != 10)
+                {   //Non-Spotify
+                    StackPanel content = new StackPanel();
+
+                    TextBox title = new TextBox();
+                    if (i < 6)
+                        title.Text = "Inception";
+                    else if (i > 6)
+                    {
+                        title.Text = "Spiderman: Into The Spider-Verse";
+                    }
+                    title.FontSize = 10;
+                    title.TextAlignment = TextAlignment.Center;
+                    title.TextWrapping = TextWrapping.Wrap;
+                    title.FontFamily = new FontFamily("Segoe UI");
+                    title.Foreground = Brushes.White;
+                    title.Background = new SolidColorBrush();
+                    title.Background.Opacity = 0;
+                    title.HorizontalAlignment = HorizontalAlignment.Center;
+                    LinearGradientBrush gradient = new LinearGradientBrush();
+                    gradient.EndPoint = new Point(0.5, 1);
+                    gradient.StartPoint = new Point(0.5, 0);
+                    gradient.GradientStops.Add(new GradientStop { Offset = 0 });
+                    gradient.GradientStops.Add(new GradientStop { Offset = 1, Color = Colors.White });
+                    title.BorderBrush = gradient;
+                    title.IsHitTestVisible = false;
+                    title.IsReadOnly = true;
+                    title.Focusable = false;
+
+                    TextBox info = new TextBox();
+                    if (i < 6)
+                        info.Text = "2010\n 148 min";
+                    else if (i > 6)
+                        info.Text = "2018\n 117 min";
+                    info.FontSize = 10;
+                    info.TextAlignment = TextAlignment.Center;
+                    info.Foreground = Brushes.White;
+                    info.FontFamily = new FontFamily("Segoe UI");
+                    info.Background = new SolidColorBrush();
+                    info.Background.Opacity = 0;
+                    info.BorderBrush = new SolidColorBrush { Opacity = 0 };
+                    info.HorizontalAlignment = HorizontalAlignment.Center;
+                    info.IsHitTestVisible = false;
+                    info.IsReadOnly = true;
+                    info.Focusable = false;
+
+
+                    TextBox description = new TextBox();
+                    description.TextWrapping = TextWrapping.Wrap;
+                    description.Foreground = Brushes.White;
+                    description.FontSize = 10;
+                    description.FontFamily = new FontFamily("Segoe UI");
+                    if (i < 6)
+                        description.Text = "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.";
+                    else if (i > 6)
+                        description.Text = "Teen Miles Morales becomes the Spider-Man of his universe, and must join with five spider-powered individuals from other dimensions to stop a threat for all realities.";
+                    description.FontSize = 9;
+                    description.Background = new SolidColorBrush();
+                    description.Background.Opacity = 0;
+                    description.HorizontalAlignment = HorizontalAlignment.Center;
+                    LinearGradientBrush gradient2 = new LinearGradientBrush();
+                    gradient2.EndPoint = new Point(0.5, 1);
+                    gradient2.StartPoint = new Point(0.5, 0);
+                    gradient2.GradientStops.Add(new GradientStop { Offset = 1 });
+                    gradient2.GradientStops.Add(new GradientStop { Offset = 0, Color = Colors.White });
+                    description.BorderBrush = gradient2;
+                    description.IsReadOnly = true;
+                    description.Focusable = false;
+
+                    if (i < 6)
+                    {
+                        content.Children.Add(title);
+                        content.Children.Add(new Separator { Opacity = 0, Height = 5 });
+                        content.Children.Add(info);
+                        content.Children.Add(new Separator { Opacity = 0, Height = 5 });
+                        content.Children.Add(description);
+                        content.Opacity = 0;
+                    }
+                    else if (i > 6)
+                    {
+                        content.Children.Add(title);
+                        content.Children.Add(info);
+                        content.Children.Add(description);
+                        content.Opacity = 0;
+                    }
+                    
+                    btn.Content = content;
+                }
+                else 
+                {   //Spotify
+                    StackPanel spotify_content = new StackPanel();
+
+                    TextBox spotify_title = new TextBox();
+                    if (i == 6)
+                        spotify_title.Text = "Inception (Music From ...";
+                    else if (i == 10)
+                    {
+                        spotify_title.Text = "Spider-Man: Into The Spider-Verse";
+                    }
+                    spotify_title.FontSize = 10;
+                    spotify_title.TextWrapping = TextWrapping.Wrap;
+                    spotify_title.TextAlignment = TextAlignment.Center;
+                    spotify_title.FontFamily = new FontFamily("Segoe UI");
+                    spotify_title.Foreground = Brushes.White;
+                    spotify_title.Background = new SolidColorBrush();
+                    spotify_title.Background.Opacity = 0;
+                    spotify_title.HorizontalAlignment = HorizontalAlignment.Center;
+                    LinearGradientBrush spotify_gradient = new LinearGradientBrush();
+                    spotify_gradient.EndPoint = new Point(0.5, 1);
+                    spotify_gradient.StartPoint = new Point(0.5, 0);
+                    spotify_gradient.GradientStops.Add(new GradientStop { Offset = 0 });
+                    spotify_gradient.GradientStops.Add(new GradientStop { Offset = 1, Color = Colors.White });
+                    spotify_title.BorderBrush = spotify_gradient;
+                    spotify_title.IsHitTestVisible = false;
+                    spotify_title.IsReadOnly = true;
+                    spotify_title.Focusable = false;
+
+                    TextBox spotify_artist = new TextBox();
+                    if (i == 6)
+                        spotify_artist.Text = "Hans Zimmer";
+                    else if (i == 10)
+                        spotify_artist.Text = "Various Artists";
+                    spotify_artist.FontSize = 9;
+                    spotify_artist.TextAlignment = TextAlignment.Center;
+                    spotify_artist.Foreground = Brushes.White;
+                    spotify_artist.FontFamily = new FontFamily("Segoe UI");
+                    spotify_artist.Background = new SolidColorBrush();
+                    spotify_artist.Background.Opacity = 0;
+                    spotify_artist.BorderBrush = new SolidColorBrush { Opacity = 0 };
+                    spotify_artist.HorizontalAlignment = HorizontalAlignment.Center;
+                    spotify_artist.IsHitTestVisible = false;
+                    spotify_artist.IsReadOnly = true;
+                    spotify_artist.Focusable = false;
+
+                    TextBox spotify_info = new TextBox();
+                    spotify_info.TextWrapping = TextWrapping.Wrap;
+                    spotify_info.Foreground = Brushes.White;
+                    spotify_info.FontFamily = new FontFamily("Segoe UI");
+                    if (i == 6)
+                        spotify_info.Text = "Album, 2010, 49 min";
+                    else if (i == 10)
+                        spotify_info.Text = "Album, 2018, 41 min";
+                    spotify_info.FontSize = 9;
+                    spotify_info.Background = new SolidColorBrush();
+                    spotify_info.Background.Opacity = 0;
+                    spotify_info.HorizontalAlignment = HorizontalAlignment.Center;
+                    spotify_info.BorderBrush = new SolidColorBrush { Opacity = 0 };
+                    spotify_info.IsReadOnly = true;
+                    spotify_info.Focusable = false;
+
+                    spotify_content.Children.Add(spotify_title);
+                    spotify_content.Children.Add(new Separator { Opacity = 0, Height = 5 });
+                    spotify_content.Children.Add(spotify_artist);
+                    spotify_content.Children.Add(new Separator { Opacity = 0, Height = 5 });
+                    spotify_content.Children.Add(spotify_info);
+                    spotify_content.Opacity = 0;
+                    btn.Content = spotify_content;
+                }
 
                 result.Children.Add(bg);
                 result.Children.Add(btn);
                 result.Children.Add(application);
                 Results.Add(result);
             }
+
             //Inception Netflix result
-            ((Image)Results[0].Children[2]).Source = new BitmapImage(new Uri("netflix_PNG15.png", UriKind.RelativeOrAbsolute));
-            StackPanel content = new StackPanel();
-
-            TextBox title = new TextBox();
-            title.Text = "Inception";
-            title.FontFamily = new FontFamily("Segoe UI");
-            title.Foreground = Brushes.White;
-            title.Background = new SolidColorBrush();
-            title.Background.Opacity = 0;
-            title.HorizontalAlignment = HorizontalAlignment.Center;
-            LinearGradientBrush gradient = new LinearGradientBrush();
-            gradient.EndPoint = new Point(0.5,1);
-            gradient.StartPoint = new Point(0.5,0);
-            gradient.GradientStops.Add(new GradientStop { Offset = 0 });
-            gradient.GradientStops.Add(new GradientStop { Offset = 1, Color = Colors.White});
-            title.BorderBrush = gradient;
-            title.IsHitTestVisible = false;
-            title.IsReadOnly = true;
-            title.Focusable = false;
-
-            TextBox info = new TextBox();
-            info.Text = "2010\n 148 min";
-            info.TextAlignment = TextAlignment.Center;
-            info.Foreground = Brushes.White;
-            info.FontFamily = new FontFamily("Segoe UI");
-            info.Background = new SolidColorBrush();
-            info.Background.Opacity = 0;
-            info.BorderBrush = new SolidColorBrush { Opacity = 0 };
-            info.HorizontalAlignment = HorizontalAlignment.Center;
-            info.IsHitTestVisible = false;
-            info.IsReadOnly = true;
-            info.Focusable = false;
-
-
-            TextBox description = new TextBox();
-            description.TextWrapping = TextWrapping.Wrap;
-            description.Foreground = Brushes.White;
-            description.FontSize = 10;
-            description.FontFamily = new FontFamily("Segoe UI");
-            description.Text = "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.";
-            description.Background = new SolidColorBrush();
-            description.Background.Opacity = 0;
-            description.HorizontalAlignment = HorizontalAlignment.Center;
-            description.BorderBrush = gradient;
-            description.IsReadOnly = true;
-            description.Focusable = false;
-
-            content.Children.Add(title);
-            content.Children.Add(new Separator { Opacity = 0, Height = 5 });
-            content.Children.Add(info);
-            content.Children.Add(new Separator { Opacity = 0, Height = 5 });
-            content.Children.Add(description);
-            content.Opacity = 0;
-            ((Button)Results[0].Children[1]).Content = content;
-
+            Results[0].Name = "inception";
 
             //Inception Prime Video result
-            ((Image)Results[1].Children[2]).Source = new BitmapImage(new Uri("prime video.png", UriKind.RelativeOrAbsolute));
+            Results[1].Name = "inception";
 
             //Inception Apple TV result
-            ((Image)Results[2].Children[2]).Source = new BitmapImage(new Uri("apple tv.png", UriKind.RelativeOrAbsolute));
-            ((Image)Results[2].Children[2]).Width = 75;
-            ((Image)Results[2].Children[2]).Height = 75;
+            Results[2].Name = "inception";
 
             //Inception Disney+ result
-            ((Image)Results[3].Children[2]).Source = new BitmapImage(new Uri("Disney+.png", UriKind.RelativeOrAbsolute));
-            ((Image)Results[3].Children[2]).Width = 100;
-            ((Image)Results[3].Children[2]).Height = 100;
-            ((Image)Results[3].Children[2]).Margin = new Thickness(0, 195, 0, 0);
+            Results[3].Name = "inception";
 
             //Inception Live TV result
-            ((Image)Results[4].Children[2]).Source = new BitmapImage(new Uri("live tv.png", UriKind.RelativeOrAbsolute));
-            ((Image)Results[4].Children[2]).Width = 75;
-            ((Image)Results[4].Children[2]).Height = 75;
-            ((Image)Results[4].Children[2]).Margin = new Thickness(0, 195, 0, 0);
+            Results[4].Name = "inception";
+
+            //Inception Youtube result
+            Results[5].Name = "inception";
 
             //Inception Soundtrack Spotify result
-            ((Button)Results[5].Children[1]).Background = new ImageBrush { ImageSource = new BitmapImage(new Uri("inception_OST.jpg", UriKind.RelativeOrAbsolute)) };
-            ((Label)Results[5].Children[0]).Height = 100;
-            ((Label)Results[5].Children[0]).Margin = new Thickness(0, 50, 0, 0);
-            ((Button)Results[5].Children[1]).Height = 100;
-            ((Button)Results[5].Children[1]).Margin = new Thickness(0, 50, 0, 0);
-            ((Image)Results[5].Children[2]).Source = new BitmapImage(new Uri("spotify-download-logo.png", UriKind.RelativeOrAbsolute));
+            Results[6].Name = "inception";
 
+            //Spider-Verse Netflix result
+            Results[7].Name = "spiderman_into_the_spiderverse";
+
+            //Spider-Verse Prime Video result
+            Results[8].Name = "spiderman_into_the_spiderverse";
+
+            //Spider-Verse Youtube result
+            Results[9].Name = "spiderman_into_the_spiderverse";
+
+            //Spider-Verse Spotify result
+            Results[10].Name = "spiderman_into_the_spiderverse";
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             var tb = sender as TextBox;
-
-            if (!isResultsOnScreen && tb.Text.ToLower().Equals("inception") && filter.Text.Equals("All"))
+            found = false;
+            string parsed_search = RemoveSpecialCharacters(tb.Text.ToLower().Replace(" ", String.Empty));
+            foreach (string str in searches)
             {
-                stack.Children.Add(new Label { Width = 20 });
-                foreach (var res in Results)
+                if (str.Contains(parsed_search))
                 {
-                    stack.Children.Add(res);
+                    found = true;
+                    stack.Children.Clear();
                     stack.Children.Add(new Label { Width = 20 });
+                    foreach (var res in Results)
+                    {
+                        if (RemoveSpecialCharacters(res.Name.ToLower()).Contains(parsed_search))
+                        {
+                            stack.Children.Add(res);
+                            stack.Children.Add(new Label { Width = 20 });
+                        }
+                    }
+                    isResultsOnScreen = true;
                 }
-                isResultsOnScreen = true;
             }
-            else if (isResultsOnScreen && tb.Text.Equals(""))
+            if (!found || (isResultsOnScreen && tb.Text.Equals("")))
             {
                 stack.Children.Clear();
                 isResultsOnScreen = false;
@@ -192,20 +357,24 @@ namespace Silver_HTPC
             btn.BorderBrush = Brushes.Red;
             ((StackPanel)btn.Content).Opacity = 1;
             ((ImageBrush)btn.Background).Opacity = 0.1;
+            ((Grid)btn.Parent).Width += 20;
+            ((Grid)btn.Parent).Height += 20;
             if (btn == (Button)(Results[0].Children[1]))
             {
                 scroll.ScrollToHorizontalOffset(0);
             }
-            else if (btn == (Button)(Results[Results.Count-1].Children[1]))
-            {
-                scroll.ScrollToHorizontalOffset(100);
-            }
+            //else if (btn == ((Grid)stack.Children[stack.Children.Count-1]).Children[0])
+            //{
+            //    scroll.ScrollToHorizontalOffset(100);
+            //}
         }
-        
+
         private void result_nselected(object sender, RoutedEventArgs e)
         {
             var btn = sender as Button;
             btn.BorderBrush = Brushes.Black;
+            ((Grid)btn.Parent).Width -= 20;
+            ((Grid)btn.Parent).Height -= 20;
             ((StackPanel)btn.Content).Opacity = 0;
             ((ImageBrush)btn.Background).Opacity = 1;
         }
@@ -227,9 +396,22 @@ namespace Silver_HTPC
                 Keyboard.ClearFocus();
                 if (stack.Children.Count > 0)
                     ((Button)((Grid)Results[index]).Children[1]).Focus();
-                else 
+                else
                     dummy.Focus();
             }
+        }
+
+        private static string RemoveSpecialCharacters(string str)
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (char c in str)
+            {
+                if ((c >= '0' && c <= '9') || (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
+                {
+                    sb.Append(c);
+                }
+            }
+            return sb.ToString();
         }
     }
 }

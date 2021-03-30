@@ -251,5 +251,14 @@
   <ItemGroup>
     <Resource Include="Disney+.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="youtube.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="spiderverse_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="spiderverse_OST.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
