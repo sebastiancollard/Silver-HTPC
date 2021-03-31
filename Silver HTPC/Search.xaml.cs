@@ -375,24 +375,20 @@ namespace Silver_HTPC
             var tb = sender as TextBox;
             found = false;
             string parsed_search = RemoveSpecialCharacters(tb.Text.ToLower().Replace(" ", String.Empty));
-            foreach (string str in searches)
+
+            stack.Children.Clear();
+            stack.Children.Add(new Label { Width = 20 });
+            foreach (var res in Results)
             {
-                if (str.Contains(parsed_search))
+                if (RemoveSpecialCharacters(res.Name.ToLower()).Contains(parsed_search))
                 {
                     found = true;
-                    stack.Children.Clear();
+                    stack.Children.Add(res);
                     stack.Children.Add(new Label { Width = 20 });
-                    foreach (var res in Results)
-                    {
-                        if (RemoveSpecialCharacters(res.Name.ToLower()).Contains(parsed_search))
-                        {
-                            stack.Children.Add(res);
-                            stack.Children.Add(new Label { Width = 20 });
-                        }
-                    }
-                    isResultsOnScreen = true;
                 }
             }
+            isResultsOnScreen = true;
+
             if (!found || (isResultsOnScreen && tb.Text.Equals("")))
             {
                 stack.Children.Clear();
