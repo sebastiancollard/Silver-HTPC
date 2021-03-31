@@ -63,6 +63,10 @@ namespace Silver_HTPC
                 btn.Name = "Button" + i.ToString();
                 btn.Width = WIDTH;
                 btn.Height = HEIGHT;
+                double aspect = ((ImageBrush)btn.Background).ImageSource.Width / ((ImageBrush)btn.Background).ImageSource.Height;
+                btn.Width = btn.Height * aspect;
+                result.Width = btn.Height * aspect;
+                btn.HorizontalAlignment = HorizontalAlignment.Center;
                 btn.VerticalAlignment = VerticalAlignment.Top;
                 btn.Margin = new Thickness();
                 btn.Style = (Style)FindResource("MyButtonStyle");
@@ -75,6 +79,7 @@ namespace Silver_HTPC
                 bg.Width = WIDTH;
                 bg.Height = HEIGHT;
                 bg.VerticalAlignment = VerticalAlignment.Top;
+                bg.Width = btn.Height * aspect;
                 bg.Style = (Style)FindResource("MyLabelStyle");
 
                 Image application = new Image();
@@ -121,6 +126,7 @@ namespace Silver_HTPC
                     btn.Margin = new Thickness(0, 50, 0, 0);
                     application.Source = new BitmapImage(new Uri("spotify-download-logo.png", UriKind.RelativeOrAbsolute));
                 }
+
 
                 if (i != 6 && i != 10)
                 {   //Non-Spotify
@@ -213,7 +219,10 @@ namespace Silver_HTPC
                 else 
                 {   //Spotify
                     StackPanel spotify_content = new StackPanel();
-
+                    aspect = ((ImageBrush)btn.Background).ImageSource.Width / ((ImageBrush)btn.Background).ImageSource.Height;
+                    btn.Width = btn.Height * aspect;
+                    bg.Width = btn.Height * aspect;
+                    result.Width = btn.Height * aspect;
                     TextBox spotify_title = new TextBox();
                     if (i == 6)
                         spotify_title.Text = "Inception (Music From ...";
