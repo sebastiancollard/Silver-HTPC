@@ -21,12 +21,12 @@ namespace Silver_HTPC
     public partial class Search : Window
     {
         static List<Grid> Results = new List<Grid>();
-        static List<string> searches = new List<string> { "inception", "spidermanintothespiderverse", "theamazingspiderman", "theamazingspiderman2", "spiderman", "spiderman2", "spiderman3" };
+        static List<string> searches = new List<string> { "inception", "spidermanfarfromehome", "spidermanintothespiderverse", "spidermanhomecoming", "theamazingspiderman2", "theamazingspiderman", "spiderman3", "spiderman2", "spiderman" };
         const int WIDTH = 100;
         const int HEIGHT = 200;
         bool isResultsOnScreen = false;
         bool found = false;
-        int index = 0;
+        int offset = 600;
 
         public Search()
         {
@@ -38,7 +38,7 @@ namespace Silver_HTPC
         }
         private void MakeResults()
         {
-            for (int i = 0; i < 11; ++i)
+            for (int i = 0; i <= 17; ++i)
             {
                 Grid result = new Grid();
                 result.Width = WIDTH;
@@ -52,12 +52,21 @@ namespace Silver_HTPC
                     brush.ImageSource = new BitmapImage(new Uri("inception poster.jpg", UriKind.RelativeOrAbsolute));
                 else if (i == 6)
                     brush.ImageSource = new BitmapImage(new Uri("inception_OST.jpg", UriKind.RelativeOrAbsolute));
-                else if (i > 6 && i < 10)
+                else if (i > 6 && i < 9)
+                    brush.ImageSource = new BitmapImage(new Uri("spidermanfarfromhome.jpeg", UriKind.RelativeOrAbsolute));
+                else if (i == 9)
+                    brush.ImageSource = new BitmapImage(new Uri("spidermanfarfromhome_OST.jpg", UriKind.RelativeOrAbsolute));
+                else if (i > 9 && i < 13)
                     brush.ImageSource = new BitmapImage(new Uri("spiderverse_1.jpg", UriKind.RelativeOrAbsolute));
-                else if (i == 10)
+                else if (i == 13)
                     brush.ImageSource = new BitmapImage(new Uri("spiderverse_OST.jpg", UriKind.RelativeOrAbsolute));
+                else if (i > 13 && i < 17)
+                    brush.ImageSource = new BitmapImage(new Uri("spidermanhomecoming.jpg", UriKind.RelativeOrAbsolute));
+                else if (i == 17)
+                    brush.ImageSource = new BitmapImage(new Uri("spidermanhomecoming_OST.jpg", UriKind.RelativeOrAbsolute));
 
                 btn.Content = new StackPanel();
+                btn.KeyDown += Window_KeyDown;
                 btn.Background = brush;
                 btn.BorderBrush = new SolidColorBrush(Colors.Black);
                 btn.Name = "Button" + i.ToString();
@@ -87,9 +96,9 @@ namespace Silver_HTPC
                 application.Height = 50;
                 application.Margin = new Thickness(0, 205, 0, 0);
 
-                if (i == 0 || i == 7) //Netflix
+                if (i == 0 || i == 7 || i == 10 || i == 14) //Netflix
                     application.Source = new BitmapImage(new Uri("netflix_PNG15.png", UriKind.RelativeOrAbsolute));
-                else if (i == 1 || i == 8) //Prime Video
+                else if (i == 1 || i == 8 || i == 11 || i == 15) //Prime Video
                     application.Source = new BitmapImage(new Uri("prime video.png", UriKind.RelativeOrAbsolute));
                 else if (i == 2)
                 {   //Apple TV
@@ -111,14 +120,14 @@ namespace Silver_HTPC
                     application.Height = 75;
                     application.Margin = new Thickness(0, 195, 0, 0);
                 }
-                else if (i == 5 || i == 9)
+                else if (i == 5 || i == 8 || i == 12 || i == 16)
                 {   //Youtube
                     application.Source = new BitmapImage(new Uri("youtube.png", UriKind.RelativeOrAbsolute));
                     application.Width = 100;
                     application.Height = 100;
                     application.Margin = new Thickness(0, 195, 0, 0);
                 }
-                else if (i == 6 || i == 10)
+                else if (i == 6 || i == 9 || i == 13 || i == 17)
                 {   //Spotify
                     bg.Height = 100;
                     bg.Margin = new Thickness(0, 50, 0, 0);
@@ -128,7 +137,7 @@ namespace Silver_HTPC
                 }
 
 
-                if (i != 6 && i != 10)
+                if (i != 6 && i != 9 && i != 13 && i != 17)
                 {   //Non-Spotify
                     StackPanel content = new StackPanel();
 
@@ -160,8 +169,12 @@ namespace Silver_HTPC
                     TextBox info = new TextBox();
                     if (i < 6)
                         info.Text = "2010\n 148 min";
-                    else if (i > 6)
+                    else if (i > 6 && i < 9)
+                        info.Text = "2019\n 129 min";
+                    else if (i > 9 && i < 13)
                         info.Text = "2018\n 117 min";
+                    else if (i > 13)
+                        info.Text = "2017\n 133 min";
                     info.FontSize = 10;
                     info.TextAlignment = TextAlignment.Center;
                     info.Foreground = Brushes.White;
@@ -182,8 +195,12 @@ namespace Silver_HTPC
                     description.FontFamily = new FontFamily("Segoe UI");
                     if (i < 6)
                         description.Text = "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.";
-                    else if (i > 6)
+                    else if (i > 6 && i < 9)
+                        description.Text = "Following the events of Avengers: Endgame (2019), Spider-Man must step up to take on new threats in a world that has changed forever.";
+                    else if (i > 9 && i < 13)
                         description.Text = "Teen Miles Morales becomes the Spider-Man of his universe, and must join with five spider-powered individuals from other dimensions to stop a threat for all realities.";
+                    else if (i > 13)
+                        description.Text = "Peter Parker balances his life as an ordinary high school student in Queens with his superhero alter-ego Spider-Man, and finds himself on the trail of a new menace prowling the skies of New York City.";
                     description.FontSize = 9;
                     description.Background = new SolidColorBrush();
                     description.Background.Opacity = 0;
@@ -197,40 +214,32 @@ namespace Silver_HTPC
                     description.IsReadOnly = true;
                     description.Focusable = false;
 
-                    if (i < 6)
-                    {
-                        content.Children.Add(title);
-                        content.Children.Add(new Separator { Opacity = 0, Height = 5 });
-                        content.Children.Add(info);
-                        content.Children.Add(new Separator { Opacity = 0, Height = 5 });
-                        content.Children.Add(description);
-                        content.Opacity = 0;
-                    }
-                    else if (i > 6)
-                    {
-                        content.Children.Add(title);
-                        content.Children.Add(info);
-                        content.Children.Add(description);
-                        content.Opacity = 0;
-                    }
                     
+                    content.Children.Add(title);
+                    content.Children.Add(info);
+                    content.Children.Add(description);
+                    content.Opacity = 0;
+
                     btn.Content = content;
                 }
                 else 
                 {   //Spotify
                     StackPanel spotify_content = new StackPanel();
-                    aspect = ((ImageBrush)btn.Background).ImageSource.Width / ((ImageBrush)btn.Background).ImageSource.Height;
                     btn.Width = btn.Height * aspect;
                     bg.Width = btn.Height * aspect;
                     result.Width = btn.Height * aspect;
                     TextBox spotify_title = new TextBox();
                     if (i == 6)
                         spotify_title.Text = "Inception (Music From ...";
-                    else if (i == 10)
-                    {
+                    else if (i == 9)
+                        spotify_title.Text = "Spider-Man: Far From Home";
+                    else if (i == 13)
                         spotify_title.Text = "Spider-Man: Into The Spider-Verse";
-                    }
-                    spotify_title.FontSize = 10;
+                    else if (i == 17)
+                        spotify_title.Text = "Spider-Man: Homecoming";
+
+
+                        spotify_title.FontSize = 10;
                     spotify_title.TextWrapping = TextWrapping.Wrap;
                     spotify_title.TextAlignment = TextAlignment.Center;
                     spotify_title.FontFamily = new FontFamily("Segoe UI");
@@ -251,8 +260,13 @@ namespace Silver_HTPC
                     TextBox spotify_artist = new TextBox();
                     if (i == 6)
                         spotify_artist.Text = "Hans Zimmer";
-                    else if (i == 10)
+                    else if (i == 9)
+                        spotify_artist.Text = "Michael Giacchino";
+                    else if (i == 13)
                         spotify_artist.Text = "Various Artists";
+                    else if (i == 17)
+                        spotify_artist.Text = "Michael Giacchino";
+
                     spotify_artist.FontSize = 9;
                     spotify_artist.TextAlignment = TextAlignment.Center;
                     spotify_artist.Foreground = Brushes.White;
@@ -271,8 +285,13 @@ namespace Silver_HTPC
                     spotify_info.FontFamily = new FontFamily("Segoe UI");
                     if (i == 6)
                         spotify_info.Text = "Album, 2010, 49 min";
-                    else if (i == 10)
+                    else if (i == 9)
+                        spotify_info.Text = "Album, 2019, 79 min";
+                    else if (i == 13)
                         spotify_info.Text = "Album, 2018, 41 min";
+                    else if (i == 17)
+                        spotify_info.Text = "Album, 2017, 66 min";
+
                     spotify_info.FontSize = 9;
                     spotify_info.Background = new SolidColorBrush();
                     spotify_info.Background.Opacity = 0;
@@ -317,17 +336,38 @@ namespace Silver_HTPC
             //Inception Soundtrack Spotify result
             Results[6].Name = "inception";
 
+            //Spider-Man: Far From Home Prime Video result
+            Results[7].Name = "spiderman_far_from_home";
+
+            //Spider-Man: Far Frome Home Youtube result
+            Results[8].Name = "spiderman_far_from_home";
+
+            //Spider-Man: Far From Home Spotify result
+            Results[9].Name = "spiderman_far_from_home";
+
             //Spider-Verse Netflix result
-            Results[7].Name = "spiderman_into_the_spiderverse";
+            Results[10].Name = "spiderman_into_the_spiderverse";
 
             //Spider-Verse Prime Video result
-            Results[8].Name = "spiderman_into_the_spiderverse";
+            Results[11].Name = "spiderman_into_the_spiderverse";
 
             //Spider-Verse Youtube result
-            Results[9].Name = "spiderman_into_the_spiderverse";
+            Results[12].Name = "spiderman_into_the_spiderverse";
 
             //Spider-Verse Spotify result
-            Results[10].Name = "spiderman_into_the_spiderverse";
+            Results[13].Name = "spiderman_into_the_spiderverse";
+
+            //Spider-Man: Homecoming Netflix result
+            Results[14].Name = "spiderman_homecoming";
+
+            //Spider-Man: Homecoming Prime Video result
+            Results[15].Name = "spiderman_homecoming";
+
+            //Spider-Man: Homecoming Youtube result
+            Results[16].Name = "spiderman_homecoming";
+
+            //Spider-Man: Homecoming Spotify result
+            Results[17].Name = "spiderman_homecoming";
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -368,10 +408,12 @@ namespace Silver_HTPC
             ((ImageBrush)btn.Background).Opacity = 0.1;
             ((Grid)btn.Parent).Width += 20;
             ((Grid)btn.Parent).Height += 20;
-            if (btn == (Button)(Results[0].Children[1]))
-            {
-                scroll.ScrollToHorizontalOffset(0);
-            }
+            //if (btn.TranslatePoint(new Point(), this).X > this.Width)
+            scroll.ScrollToHorizontalOffset(btn.TranslatePoint(new Point(), stack).X - offset);
+            //if (btn == (Button)(Results[0].Children[1]))
+            //{
+            //    scroll.ScrollToHorizontalOffset(0);
+            //}
             //else if (btn == ((Grid)stack.Children[stack.Children.Count-1]).Children[0])
             //{
             //    scroll.ScrollToHorizontalOffset(100);
@@ -404,7 +446,9 @@ namespace Silver_HTPC
             {
                 Keyboard.ClearFocus();
                 if (stack.Children.Count > 0)
+                {
                     ((Button)((Grid)stack.Children[1]).Children[1]).Focus();
+                }
                 else
                     dummy.Focus();
             }
