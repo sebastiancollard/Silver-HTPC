@@ -251,5 +251,12 @@
   <ItemGroup>
     <Resource Include="Disney+.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\conviction.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\sherlock.png" />
+    <Resource Include="Image\topgear.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
