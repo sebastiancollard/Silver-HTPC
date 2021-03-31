@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 namespace Silver_HTPC
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Search.xaml
     /// </summary>
     public partial class Search : Window
     {
@@ -26,7 +26,7 @@ namespace Silver_HTPC
         const int HEIGHT = 200;
         bool isResultsOnScreen = false;
         bool found = false;
-        int offset = 600;
+        const int offset = 340;
 
         public Search()
         {
@@ -38,7 +38,7 @@ namespace Silver_HTPC
         }
         private void MakeResults()
         {
-            for (int i = 0; i <= 17; ++i)
+            for (int i = 0; i <= 34; ++i)
             {
                 Grid result = new Grid();
                 result.Width = WIDTH;
@@ -64,6 +64,26 @@ namespace Silver_HTPC
                     brush.ImageSource = new BitmapImage(new Uri("spidermanhomecoming.jpg", UriKind.RelativeOrAbsolute));
                 else if (i == 17)
                     brush.ImageSource = new BitmapImage(new Uri("spidermanhomecoming_OST.jpg", UriKind.RelativeOrAbsolute));
+                else if (i > 17 && i < 21)
+                    brush.ImageSource = new BitmapImage(new Uri("theamazingspiderman2.jpg", UriKind.RelativeOrAbsolute));
+                else if (i == 21)
+                    brush.ImageSource = new BitmapImage(new Uri("theamazingspiderman2_OST.jpg", UriKind.RelativeOrAbsolute));
+                else if (i > 21 && i < 24)
+                    brush.ImageSource = new BitmapImage(new Uri("theamazingspiderman.jpg", UriKind.RelativeOrAbsolute));
+                else if (i == 24)
+                    brush.ImageSource = new BitmapImage(new Uri("theamazingspiderman_OST.jpg", UriKind.RelativeOrAbsolute));
+                else if (i > 24 && i < 27)
+                    brush.ImageSource = new BitmapImage(new Uri("spiderman3.jpg", UriKind.RelativeOrAbsolute));
+                else if (i == 27)
+                    brush.ImageSource = new BitmapImage(new Uri("spiderman3_OST.jpg", UriKind.RelativeOrAbsolute));
+                else if (i > 27 && i < 30)
+                    brush.ImageSource = new BitmapImage(new Uri("spiderman2.jpg", UriKind.RelativeOrAbsolute));
+                else if (i == 30)
+                    brush.ImageSource = new BitmapImage(new Uri("spiderman2_OST.jpg", UriKind.RelativeOrAbsolute));
+                else if (i > 30 && i < 34)
+                    brush.ImageSource = new BitmapImage(new Uri("spiderman.jpg", UriKind.RelativeOrAbsolute));
+                else if (i == 34)
+                    brush.ImageSource = new BitmapImage(new Uri("spiderman_OST.jpg", UriKind.RelativeOrAbsolute));
 
                 btn.Content = new StackPanel();
                 btn.KeyDown += Window_KeyDown;
@@ -96,9 +116,9 @@ namespace Silver_HTPC
                 application.Height = 50;
                 application.Margin = new Thickness(0, 205, 0, 0);
 
-                if (i == 0 || i == 7 || i == 10 || i == 14) //Netflix
+                if (i == 0 || i == 7 || i == 10 || i == 14 || i == 18 || i == 31) //Netflix
                     application.Source = new BitmapImage(new Uri("netflix_PNG15.png", UriKind.RelativeOrAbsolute));
-                else if (i == 1 || i == 8 || i == 11 || i == 15) //Prime Video
+                else if (i == 1 || i == 8 || i == 11 || i == 15 || i == 19 || i == 22 || i == 25 || i == 28 || i == 32) //Prime Video
                     application.Source = new BitmapImage(new Uri("prime video.png", UriKind.RelativeOrAbsolute));
                 else if (i == 2)
                 {   //Apple TV
@@ -120,14 +140,14 @@ namespace Silver_HTPC
                     application.Height = 75;
                     application.Margin = new Thickness(0, 195, 0, 0);
                 }
-                else if (i == 5 || i == 8 || i == 12 || i == 16)
+                else if (i == 5 || i == 8 || i == 12 || i == 16 || i == 20 || i == 23 || i == 26 || i == 29 || i == 33)
                 {   //Youtube
                     application.Source = new BitmapImage(new Uri("youtube.png", UriKind.RelativeOrAbsolute));
                     application.Width = 100;
                     application.Height = 100;
                     application.Margin = new Thickness(0, 195, 0, 0);
                 }
-                else if (i == 6 || i == 9 || i == 13 || i == 17)
+                else if (i == 6 || i == 9 || i == 13 || i == 17 || i == 21 || i == 24 || i == 27 || i == 30 || i == 34)
                 {   //Spotify
                     bg.Height = 100;
                     bg.Margin = new Thickness(0, 50, 0, 0);
@@ -137,17 +157,11 @@ namespace Silver_HTPC
                 }
 
 
-                if (i != 6 && i != 9 && i != 13 && i != 17)
+                if (i != 6 && i != 9 && i != 13 && i != 17 && i != 21 && i != 24 && i != 27 && i != 30 && i != 34)
                 {   //Non-Spotify
                     StackPanel content = new StackPanel();
 
                     TextBox title = new TextBox();
-                    if (i < 6)
-                        title.Text = "Inception";
-                    else if (i > 6)
-                    {
-                        title.Text = "Spiderman: Into The Spider-Verse";
-                    }
                     title.FontSize = 10;
                     title.TextAlignment = TextAlignment.Center;
                     title.TextWrapping = TextWrapping.Wrap;
@@ -167,14 +181,6 @@ namespace Silver_HTPC
                     title.Focusable = false;
 
                     TextBox info = new TextBox();
-                    if (i < 6)
-                        info.Text = "2010\n 148 min";
-                    else if (i > 6 && i < 9)
-                        info.Text = "2019\n 129 min";
-                    else if (i > 9 && i < 13)
-                        info.Text = "2018\n 117 min";
-                    else if (i > 13)
-                        info.Text = "2017\n 133 min";
                     info.FontSize = 10;
                     info.TextAlignment = TextAlignment.Center;
                     info.Foreground = Brushes.White;
@@ -193,14 +199,6 @@ namespace Silver_HTPC
                     description.Foreground = Brushes.White;
                     description.FontSize = 10;
                     description.FontFamily = new FontFamily("Segoe UI");
-                    if (i < 6)
-                        description.Text = "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.";
-                    else if (i > 6 && i < 9)
-                        description.Text = "Following the events of Avengers: Endgame (2019), Spider-Man must step up to take on new threats in a world that has changed forever.";
-                    else if (i > 9 && i < 13)
-                        description.Text = "Teen Miles Morales becomes the Spider-Man of his universe, and must join with five spider-powered individuals from other dimensions to stop a threat for all realities.";
-                    else if (i > 13)
-                        description.Text = "Peter Parker balances his life as an ordinary high school student in Queens with his superhero alter-ego Spider-Man, and finds himself on the trail of a new menace prowling the skies of New York City.";
                     description.FontSize = 9;
                     description.Background = new SolidColorBrush();
                     description.Background.Opacity = 0;
@@ -214,7 +212,61 @@ namespace Silver_HTPC
                     description.IsReadOnly = true;
                     description.Focusable = false;
 
-                    
+                    if (i < 6)
+                    {
+                        title.Text = "Inception";
+                        info.Text = "2010\n 148 min";
+                        description.Text = "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.";
+                    }
+                    else if (i > 6 && i < 9)
+                    {
+                        title.Text = "Spider-Man: Far From Home";
+                        info.Text = "2019\n 129 min";
+                        description.Text = "Following the events of Avengers: Endgame (2019), Spider-Man must step up to take on new threats in a world that has changed forever.";
+                    }
+                    else if (i > 9 && i < 13)
+                    {
+                        title.Text = "Spider-Man: Into The Spider-Verse";
+                        info.Text = "2018\n 117 min";
+                        description.Text = "Teen Miles Morales becomes the Spider-Man of his universe, and must join with five spider-powered individuals from other dimensions to stop a threat for all realities.";
+                    }
+                    else if (i > 13 && i < 17)
+                    {
+                        title.Text = "Spider-Man: Homecoming";
+                        info.Text = "2017\n 133 min";
+                        description.Text = "Peter Parker balances his life as an ordinary high school student in Queens with his superhero alter-ego Spider-Man, and finds himself on the trail of a new menace prowling the skies of New York City.";
+                    }
+                    else if (i > 17 && i < 21)
+                    {
+                        title.Text = "The Amazing Spider-Man 2";
+                        info.Text = "2014\n 144 min";
+                        description.Text = "When New York is put under siege by Oscorp, it is up to Spider-Man to save the city he swore to protect as well as his loved ones.";
+                    }
+                    else if (i > 21 && i < 24)
+                    {
+                        title.Text = "The Amazing Spider-Man";
+                        info.Text = "2012\n 136 min";
+                        description.Text = "After Peter Parker is bitten by a genetically altered spider, he gains newfound, spider-like powers and ventures out to save the city from the machinations of a mysterious reptilian foe.";
+                    }
+                    else if (i > 24 && i < 27)
+                    {
+                        title.Text = "Spider-Man 3";
+                        info.Text = "2007\n 139 min";
+                        description.Text = "A strange black entity from another world bonds with Peter Parker and causes inner turmoil as he contends with new villains, temptations, and revenge.";
+                    }
+                    else if (i > 27 && i < 30)
+                    {
+                        title.Text = "Spider-Man 2";
+                        info.Text = "2004\n 127 min";
+                        description.Text = "Peter Parker is beset with troubles in his failing personal life as he battles a brilliant scientist named Doctor Otto Octavius.";
+                    }
+                    else if (i > 30 && i < 34)
+                    {
+                        title.Text = "Spider-Man";
+                        info.Text = "2002\n 121 min";
+                        description.Text = "When bitten by a genetically modified spider, a nerdy, shy, and awkward high school student gains spider-like abilities that he eventually must use to fight evil as a superhero after tragedy befalls his family.";
+                    }
+
                     content.Children.Add(title);
                     content.Children.Add(info);
                     content.Children.Add(description);
@@ -229,17 +281,8 @@ namespace Silver_HTPC
                     bg.Width = btn.Height * aspect;
                     result.Width = btn.Height * aspect;
                     TextBox spotify_title = new TextBox();
-                    if (i == 6)
-                        spotify_title.Text = "Inception (Music From ...";
-                    else if (i == 9)
-                        spotify_title.Text = "Spider-Man: Far From Home";
-                    else if (i == 13)
-                        spotify_title.Text = "Spider-Man: Into The Spider-Verse";
-                    else if (i == 17)
-                        spotify_title.Text = "Spider-Man: Homecoming";
 
-
-                        spotify_title.FontSize = 10;
+                    spotify_title.FontSize = 10;
                     spotify_title.TextWrapping = TextWrapping.Wrap;
                     spotify_title.TextAlignment = TextAlignment.Center;
                     spotify_title.FontFamily = new FontFamily("Segoe UI");
@@ -258,14 +301,6 @@ namespace Silver_HTPC
                     spotify_title.Focusable = false;
 
                     TextBox spotify_artist = new TextBox();
-                    if (i == 6)
-                        spotify_artist.Text = "Hans Zimmer";
-                    else if (i == 9)
-                        spotify_artist.Text = "Michael Giacchino";
-                    else if (i == 13)
-                        spotify_artist.Text = "Various Artists";
-                    else if (i == 17)
-                        spotify_artist.Text = "Michael Giacchino";
 
                     spotify_artist.FontSize = 9;
                     spotify_artist.TextAlignment = TextAlignment.Center;
@@ -283,14 +318,6 @@ namespace Silver_HTPC
                     spotify_info.TextWrapping = TextWrapping.Wrap;
                     spotify_info.Foreground = Brushes.White;
                     spotify_info.FontFamily = new FontFamily("Segoe UI");
-                    if (i == 6)
-                        spotify_info.Text = "Album, 2010, 49 min";
-                    else if (i == 9)
-                        spotify_info.Text = "Album, 2019, 79 min";
-                    else if (i == 13)
-                        spotify_info.Text = "Album, 2018, 41 min";
-                    else if (i == 17)
-                        spotify_info.Text = "Album, 2017, 66 min";
 
                     spotify_info.FontSize = 9;
                     spotify_info.Background = new SolidColorBrush();
@@ -299,6 +326,57 @@ namespace Silver_HTPC
                     spotify_info.BorderBrush = new SolidColorBrush { Opacity = 0 };
                     spotify_info.IsReadOnly = true;
                     spotify_info.Focusable = false;
+
+                    if (i == 6)
+                    {
+                        spotify_title.Text = "Inception (Music From ...";
+                        spotify_artist.Text = "Hans Zimmer";
+                        spotify_info.Text = "Album, 2010, 49 min";
+                    }
+                    else if (i == 9)
+                    {
+                        spotify_title.Text = "Spider-Man: Far From Home";
+                        spotify_artist.Text = "Michael Giacchino";
+                        spotify_info.Text = "Album, 2019, 79 min";
+                    }
+                    else if (i == 13) { 
+                        spotify_title.Text = "Spider-Man: Into The Spider-Verse";
+                        spotify_artist.Text = "Various Artists";
+                        spotify_info.Text = "Album, 2018, 41 min";
+                    }
+                    else if (i == 17) {
+                        spotify_title.Text = "Spider-Man: Homecoming";
+                        spotify_artist.Text = "Michael Giacchino";
+                        spotify_info.Text = "Album, 2017, 66 min";
+                    }
+                    else if (i == 21) {
+                        spotify_title.Text = "The Amazing Spider-Man 2";
+                        spotify_artist.Text = "Various Artists";
+                        spotify_info.Text = "Album, 2014, 115 min";
+                    }
+                    else if (i == 24) {
+                        spotify_title.Text = "The Amazing Spider-Man";
+                        spotify_artist.Text = "James Horner";
+                        spotify_info.Text = "Album, 2012, 77 min";
+                    }
+                    else if (i == 27)
+                    {
+                        spotify_title.Text = "Spider-Man 3";
+                        spotify_artist.Text = "Various Artists";
+                        spotify_info.Text = "Album, 2007, 52 min";
+                    }
+                    else if (i == 30)
+                    {
+                        spotify_title.Text = "Spider-Man 2";
+                        spotify_artist.Text = "Danny Elfman";
+                        spotify_info.Text = "Album, 2004, 48 min";
+                    }
+                    else if (i == 34)
+                    {
+                        spotify_title.Text = "Spider-Man";
+                        spotify_artist.Text = "Various Artists";
+                        spotify_info.Text = "Album, 2002, 65 min";
+                    }
 
                     spotify_content.Children.Add(spotify_title);
                     spotify_content.Children.Add(new Separator { Opacity = 0, Height = 5 });
@@ -368,6 +446,40 @@ namespace Silver_HTPC
 
             //Spider-Man: Homecoming Spotify result
             Results[17].Name = "spiderman_homecoming";
+
+            //The Amazing Spider-Man 2 Netflix result
+            Results[18].Name = "the_amazing_spiderman_2";
+
+            //The Amazing Spider-Man 2 Prime Video result
+            Results[19].Name = "the_amazing_spiderman_2";
+
+            //The Amazing Spider-Man 2 Youtube result
+            Results[20].Name = "the_amazing_spiderman_2";
+
+            //The Amazing Spider-Man 2 Spotify result
+            Results[21].Name = "the_amazing_spiderman_2";
+
+            //The Amazing Spider-Man Prime Video result
+            Results[22].Name = "the_amazing_spiderman";
+            
+            //The Amazing Spider-Man Youtube result
+            Results[23].Name = "the_amazing_spiderman";
+            
+            //The Amazing Spider-Man Spotify result
+            Results[24].Name = "the_amazing_spiderman";
+
+            Results[25].Name = "spiderman_3";
+            Results[26].Name = "spiderman_3";
+            Results[27].Name = "spiderman_3";
+            Results[28].Name = "spiderman_2";
+            Results[29].Name = "spiderman_2";
+            Results[30].Name = "spiderman_2";
+            Results[31].Name = "spiderman";
+            Results[32].Name = "spiderman";
+            Results[33].Name = "spiderman";
+            Results[34].Name = "spiderman";
+
+
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
