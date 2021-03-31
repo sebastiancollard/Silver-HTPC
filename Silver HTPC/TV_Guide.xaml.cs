@@ -78,7 +78,8 @@ namespace Silver_HTPC
 
                     break;
                 case Key.Enter:
-                    
+                    LiveTV livetv = new LiveTV();
+                    livetv.Show();
 
                     break;
                 default:

@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="LiveTV.xaml.cs">
+      <DependentUpon>LiveTV.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Music.xaml.cs">
       <DependentUpon>Music.xaml</DependentUpon>
     </Compile>
@@ -64,6 +67,10 @@
     <Page Include="Advanced Settings.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="LiveTV.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Settings.xaml">
       <Generator>MSBuild:Compile</Generator>
