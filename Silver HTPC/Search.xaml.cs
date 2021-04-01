@@ -116,15 +116,22 @@ namespace Silver_HTPC
                 application.Height = 50;
                 application.Margin = new Thickness(0, 205, 0, 0);
 
-                if (i == 0 || i == 7 || i == 10 || i == 14 || i == 18 || i == 31) //Netflix
+                if (i == 0 || i == 7 || i == 10 || i == 14 || i == 18 || i == 31)
+                {//Netflix
                     application.Source = new BitmapImage(new Uri("netflix_PNG15.png", UriKind.RelativeOrAbsolute));
-                else if (i == 1 || i == 8 || i == 11 || i == 15 || i == 19 || i == 22 || i == 25 || i == 28 || i == 32) //Prime Video
+                    application.Name = "netflix";
+                }
+                else if (i == 1 || i == 8 || i == 11 || i == 15 || i == 19 || i == 22 || i == 25 || i == 28 || i == 32)
+                {//Prime Video
                     application.Source = new BitmapImage(new Uri("prime video.png", UriKind.RelativeOrAbsolute));
+                    application.Name = "primevideo";
+                }
                 else if (i == 2)
                 {   //Apple TV
                     application.Source = new BitmapImage(new Uri("apple tv.png", UriKind.RelativeOrAbsolute));
                     application.Width = 75;
                     application.Height = 75;
+                    application.Name = "appletv";
                 }
                 else if (i == 3)
                 {   //Disney+
@@ -132,6 +139,7 @@ namespace Silver_HTPC
                     application.Width = 100;
                     application.Height = 100;
                     application.Margin = new Thickness(0, 195, 0, 0);
+                    application.Name = "disneyplus";
                 }
                 else if (i == 4)
                 {   //Live TV
@@ -139,6 +147,7 @@ namespace Silver_HTPC
                     application.Width = 75;
                     application.Height = 75;
                     application.Margin = new Thickness(0, 195, 0, 0);
+                    application.Name = "livetv";
                 }
                 else if (i == 5 || i == 8 || i == 12 || i == 16 || i == 20 || i == 23 || i == 26 || i == 29 || i == 33)
                 {   //Youtube
@@ -146,6 +155,7 @@ namespace Silver_HTPC
                     application.Width = 100;
                     application.Height = 100;
                     application.Margin = new Thickness(0, 195, 0, 0);
+                    application.Name = "youtube";
                 }
                 else if (i == 6 || i == 9 || i == 13 || i == 17 || i == 21 || i == 24 || i == 27 || i == 30 || i == 34)
                 {   //Spotify
@@ -154,6 +164,7 @@ namespace Silver_HTPC
                     btn.Height = 100;
                     btn.Margin = new Thickness(0, 50, 0, 0);
                     application.Source = new BitmapImage(new Uri("spotify-download-logo.png", UriKind.RelativeOrAbsolute));
+                    application.Name = "spotify";
                 }
 
 
@@ -395,89 +406,126 @@ namespace Silver_HTPC
 
             //Inception Netflix result
             Results[0].Name = "inception";
+            ((Button)(Results[0].Children[1])).Name = "movie";
 
             //Inception Prime Video result
             Results[1].Name = "inception";
+            ((Button)(Results[1].Children[1])).Name = "movie";
 
             //Inception Apple TV result
             Results[2].Name = "inception";
+            ((Button)(Results[2].Children[1])).Name = "movie";
 
             //Inception Disney+ result
             Results[3].Name = "inception";
+            ((Button)(Results[3].Children[1])).Name = "movie";
 
             //Inception Live TV result
             Results[4].Name = "inception";
+            ((Button)(Results[4].Children[1])).Name = "livetv";
 
             //Inception Youtube result
             Results[5].Name = "inception";
+            ((Button)(Results[5].Children[1])).Name = "movie";
 
             //Inception Soundtrack Spotify result
             Results[6].Name = "inception";
+            ((Button)(Results[6].Children[1])).Name = "music";
 
             //Spider-Man: Far From Home Prime Video result
             Results[7].Name = "spiderman_far_from_home";
+            ((Button)(Results[7].Children[1])).Name = "movie";
 
             //Spider-Man: Far Frome Home Youtube result
             Results[8].Name = "spiderman_far_from_home";
+            ((Button)(Results[8].Children[1])).Name = "movie";
 
             //Spider-Man: Far From Home Spotify result
             Results[9].Name = "spiderman_far_from_home";
+            ((Button)(Results[6].Children[1])).Name = "music";
 
             //Spider-Verse Netflix result
             Results[10].Name = "spiderman_into_the_spiderverse";
+            ((Button)(Results[10].Children[1])).Name = "movie";
 
             //Spider-Verse Prime Video result
             Results[11].Name = "spiderman_into_the_spiderverse";
+            ((Button)(Results[11].Children[1])).Name = "movie";
 
             //Spider-Verse Youtube result
             Results[12].Name = "spiderman_into_the_spiderverse";
+            ((Button)(Results[12].Children[1])).Name = "movie";
 
             //Spider-Verse Spotify result
             Results[13].Name = "spiderman_into_the_spiderverse";
+            ((Button)(Results[13].Children[1])).Name = "music";
 
             //Spider-Man: Homecoming Netflix result
             Results[14].Name = "spiderman_homecoming";
+            ((Button)(Results[14].Children[1])).Name = "movie";
 
             //Spider-Man: Homecoming Prime Video result
             Results[15].Name = "spiderman_homecoming";
+            ((Button)(Results[15].Children[1])).Name = "movie";
 
             //Spider-Man: Homecoming Youtube result
             Results[16].Name = "spiderman_homecoming";
+            ((Button)(Results[16].Children[1])).Name = "movie";
 
             //Spider-Man: Homecoming Spotify result
             Results[17].Name = "spiderman_homecoming";
+            ((Button)(Results[17].Children[1])).Name = "music";
 
             //The Amazing Spider-Man 2 Netflix result
             Results[18].Name = "the_amazing_spiderman_2";
+            ((Button)(Results[18].Children[1])).Name = "movie";
 
             //The Amazing Spider-Man 2 Prime Video result
             Results[19].Name = "the_amazing_spiderman_2";
+            ((Button)(Results[19].Children[1])).Name = "movie";
 
             //The Amazing Spider-Man 2 Youtube result
             Results[20].Name = "the_amazing_spiderman_2";
+            ((Button)(Results[20].Children[1])).Name = "movie";
 
             //The Amazing Spider-Man 2 Spotify result
             Results[21].Name = "the_amazing_spiderman_2";
+            ((Button)(Results[21].Children[1])).Name = "music";
 
             //The Amazing Spider-Man Prime Video result
             Results[22].Name = "the_amazing_spiderman";
-            
+            ((Button)(Results[22].Children[1])).Name = "movie";
+
             //The Amazing Spider-Man Youtube result
             Results[23].Name = "the_amazing_spiderman";
-            
+            ((Button)(Results[23].Children[1])).Name = "movie";
+
             //The Amazing Spider-Man Spotify result
             Results[24].Name = "the_amazing_spiderman";
+            ((Button)(Results[24].Children[1])).Name = "music";
 
             Results[25].Name = "spiderman_3";
+            ((Button)(Results[25].Children[1])).Name = "movie";
             Results[26].Name = "spiderman_3";
+            ((Button)(Results[26].Children[1])).Name = "movie";
             Results[27].Name = "spiderman_3";
+            ((Button)(Results[27].Children[1])).Name = "music";
+
             Results[28].Name = "spiderman_2";
+            ((Button)(Results[28].Children[1])).Name = "movie";
             Results[29].Name = "spiderman_2";
+            ((Button)(Results[29].Children[1])).Name = "movie";
             Results[30].Name = "spiderman_2";
+            ((Button)(Results[30].Children[1])).Name = "music";
+
             Results[31].Name = "spiderman";
+            ((Button)(Results[31].Children[1])).Name = "movie";
             Results[32].Name = "spiderman";
+            ((Button)(Results[32].Children[1])).Name = "movie";
             Results[33].Name = "spiderman";
+            ((Button)(Results[33].Children[1])).Name = "movie";
             Results[34].Name = "spiderman";
+            ((Button)(Results[34].Children[1])).Name = "music";
 
 
         }
@@ -490,15 +538,33 @@ namespace Silver_HTPC
 
             stack.Children.Clear();
             stack.Children.Add(new Label { Width = 20 });
-            foreach (var res in Results)
+            string filterVal = RemoveSpecialCharacters(((ComboBoxItem)filter.SelectedItem).Content.ToString().ToLower());
+
+            if (filterVal.Equals("all"))
             {
-                if (RemoveSpecialCharacters(res.Name.ToLower()).Contains(parsed_search))
+                foreach (var res in Results)
                 {
-                    found = true;
-                    stack.Children.Add(res);
-                    stack.Children.Add(new Label { Width = 20 });
+                    if (RemoveSpecialCharacters(res.Name.ToLower()).Contains(RemoveSpecialCharacters(searchBox.Text)))
+                    {
+                        found = true;
+                        stack.Children.Add(res);
+                        stack.Children.Add(new Label { Width = 20 });
+                    }
                 }
             }
+            else
+            {
+                foreach (Grid res in Results)
+                {
+                    if (filterVal.Contains(((Button)res.Children[1]).Name) && RemoveSpecialCharacters(res.Name.ToLower()).Contains(RemoveSpecialCharacters(searchBox.Text)))
+                    {
+                        found = true;
+                        stack.Children.Add(res);
+                        stack.Children.Add(new Label { Width = 20 });
+                    }
+                }
+            }
+
             isResultsOnScreen = true;
 
             if (!found || (isResultsOnScreen && tb.Text.Equals("")))
@@ -516,16 +582,7 @@ namespace Silver_HTPC
             ((ImageBrush)btn.Background).Opacity = 0.1;
             ((Grid)btn.Parent).Width += 20;
             ((Grid)btn.Parent).Height += 20;
-            //if (btn.TranslatePoint(new Point(), this).X > this.Width)
             scroll.ScrollToHorizontalOffset(btn.TranslatePoint(new Point(), stack).X - offset);
-            //if (btn == (Button)(Results[0].Children[1]))
-            //{
-            //    scroll.ScrollToHorizontalOffset(0);
-            //}
-            //else if (btn == ((Grid)stack.Children[stack.Children.Count-1]).Children[0])
-            //{
-            //    scroll.ScrollToHorizontalOffset(100);
-            //}
         }
 
         private void result_nselected(object sender, RoutedEventArgs e)
@@ -573,6 +630,49 @@ namespace Silver_HTPC
                 }
             }
             return sb.ToString();
+        }
+
+        private void filter_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var combobox = sender as ComboBox;
+            found = false;
+            var filterVal = RemoveSpecialCharacters(((ComboBoxItem)combobox.SelectedItem).Content.ToString().ToLower());
+
+            stack.Children.Clear();
+            stack.Children.Add(new Label { Width = 20 });
+
+            if (filterVal.Equals("all"))
+            {
+                foreach (var res in Results)
+                {
+                    if (RemoveSpecialCharacters(res.Name.ToLower()).Contains(RemoveSpecialCharacters(searchBox.Text)))
+                    {
+                        found = true;
+                        stack.Children.Add(res);
+                        stack.Children.Add(new Label { Width = 20 });
+                    }
+                }
+            }
+            else
+            {
+                foreach (Grid res in Results)
+                {
+                    if (filterVal.Contains(((Button)res.Children[1]).Name) && RemoveSpecialCharacters(res.Name.ToLower()).Contains(RemoveSpecialCharacters(searchBox.Text)))
+                    {
+                        found = true;
+                        stack.Children.Add(res);
+                        stack.Children.Add(new Label { Width = 20 });
+                    }
+                }
+            }
+
+            isResultsOnScreen = true;
+
+            if (!found)
+            {
+                stack.Children.Clear();
+                isResultsOnScreen = false;
+            }
         }
     }
 }
