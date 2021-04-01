@@ -246,8 +246,8 @@ namespace Silver_HTPC
                             notif.Show();
                             break;
                         case "Other Apps":
-                            dontClose = true;
-                            MessageBox.Show("No screens made for other apps");
+                            OtherApplications otherApp = new OtherApplications();
+                            otherApp.Show();
                             break;
                         default://profile
                             dontClose = true;
