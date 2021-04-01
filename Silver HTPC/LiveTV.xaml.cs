@@ -23,10 +23,18 @@ namespace Silver_HTPC
         bool hidden;
         StackPanel sidemenu;
 
-        public LiveTV()
+        public LiveTV(int x)
         {
             InitializeComponent();
+            Image nowPlaying = image1;
+            BitmapImage bi = new BitmapImage();
+            bi.BeginInit();
+            if(x==1) bi.UriSource = new Uri("image/sherlock_live.png", UriKind.Relative);
+            else bi.UriSource = new Uri("image/topgear_live.png", UriKind.Relative);
+            bi.EndInit();
+            nowPlaying.Source = bi;
             sidemenu = stackpanel;
+
         }
 
 

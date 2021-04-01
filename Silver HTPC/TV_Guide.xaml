@@ -10,14 +10,18 @@
         <Label Content="TV Guide" HorizontalAlignment="Left" VerticalAlignment="Top" Height="55" Width="192" FontSize="30" VerticalContentAlignment="Center"/>
         <Label Content="Time" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="585,0,0,0" Height="29" Width="197" VerticalContentAlignment="Center" FontSize="15"/>
         <Label Content="Date" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="585,29,0,0" Height="26" Width="197" VerticalContentAlignment="Center"/>
-        <Grid HorizontalAlignment="Left" Height="326" VerticalAlignment="Top" Width="792" Margin="0,60,0,0">
-            <Grid HorizontalAlignment="Left" Height="125" VerticalAlignment="Top" Width="792">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="1*" />
-                    <RowDefinition Height="2.5*" />
-                </Grid.RowDefinitions>
+        <Grid HorizontalAlignment="Left" Height="349" VerticalAlignment="Top" Width="792" Margin="0,60,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="41*"/>
+                <ColumnDefinition Width="751*"/>
+            </Grid.ColumnDefinitions>
 
-                <StackPanel HorizontalAlignment="Left" Height="89" VerticalAlignment="Top" Width="792" Grid.Row="1" Orientation="Horizontal">
+            <StackPanel HorizontalAlignment="Left" Height="422" Margin="0,10,0,-83" VerticalAlignment="Top" Width="792" Grid.ColumnSpan="2">
+
+
+                <Label Content="Recommendations / Continue watching" Height="40" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="15"  Grid.ColumnSpan="2"/>
+
+                <StackPanel HorizontalAlignment="Left" Height="89" VerticalAlignment="Top" Width="792" Orientation="Horizontal" Grid.ColumnSpan="2" >
                     <ListBox x:Name="listbox1" Width="791" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Hidden">
                         <ListBox.ItemsPanel>
                             <ItemsPanelTemplate>
@@ -76,20 +80,12 @@
                         </ListBoxItem>
 
                     </ListBox>
-                    </StackPanel>
+                </StackPanel>
 
-                   
-                <Label Content="Recommendations / Constinue watching" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="0" FontSize="15"/>
 
-            </Grid>
-            <Grid HorizontalAlignment="Left" Height="125" VerticalAlignment="Top" Width="792" Margin="0,125,0,0">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="1*" />
-                    <RowDefinition Height="2.5*" />
-                </Grid.RowDefinitions>
+                <Label Content="Explore" HorizontalAlignment="Left"  Height="40" VerticalContentAlignment="Bottom" VerticalAlignment="Top" FontSize="15" />
 
-                <StackPanel HorizontalAlignment="Left" Height="89" VerticalAlignment="Top" Width="792" Grid.Row="1" Orientation="Horizontal">
-
+                <StackPanel HorizontalAlignment="Left" Height="90" VerticalAlignment="Top" Width="792" Orientation="Horizontal" Grid.ColumnSpan="2" >
                     <ListBox x:Name="listbox2" Width="791" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Hidden">
                         <ListBox.ItemsPanel>
                             <ItemsPanelTemplate>
@@ -156,85 +152,76 @@
 
 
 
-                <!--<StackPanel HorizontalAlignment="Left" Height="89" VerticalAlignment="Top" Width="792" Grid.Row="1" Orientation="Horizontal">
-                    <Button x:Name="munu_button21" Grid.Row="1" VerticalAlignment="Center" Width="170" Height="89">
-                        <StackPanel>
-                            <Image Source="Image/tv_icon.png" Stretch="Fill" Height="60" Width="60" HorizontalAlignment="Center"/>
-                            <Image Source="Image/bbc.png" Stretch="Fill" Height="20" Width="40" HorizontalAlignment="Center"/>
-                        </StackPanel>
-                    </Button>
 
-                    <Button x:Name="munu_button22" Grid.Row="1" VerticalAlignment="Center" Width="170" Height="89" >
-                        <StackPanel>
-                            <Image Source="Image/tv_icon.png" Stretch="Fill" Height="60" Width="60" HorizontalAlignment="Center"/>
-                            <Image Source="Image/abc.png" Stretch="Fill" Height="20" Width="20" HorizontalAlignment="Center"/>
-                        </StackPanel>
-                    </Button>
-                    <Button x:Name="munu_button23" Grid.Row="1" VerticalAlignment="Center" Width="170" Height="89" >
-                        <StackPanel>
-                            <Image Source="Image/tv_icon.png" Stretch="Fill" Height="60" Width="60" HorizontalAlignment="Center"/>
-                            <Image Source="Image/TLC.png" Stretch="Fill" Height="20" Width="50" HorizontalAlignment="Center"/>
-                        </StackPanel>
-                    </Button>
-                    <Button x:Name="munu_button24" Grid.Row="1" VerticalAlignment="Center" Width="170" Height="89" >
-                        <StackPanel>
-                            <Image Source="Image/tv_icon.png" Stretch="Fill" Height="60" Width="60" HorizontalAlignment="Center"/>
-                            <Image Source="Image/netflix_icon.png" Stretch="Fill" Height="20" Width="20" HorizontalAlignment="Center"/>
-                        </StackPanel>
-                    </Button>
-                    <Button x:Name="munu_button25" Grid.Row="1" VerticalAlignment="Center" Width="170" Height="89">
-                        <StackPanel>
-                            <Image Source="Image/tv_icon.png" Stretch="Fill" Height="60" Width="60" HorizontalAlignment="Center"/>
-                            <Image Source="Image/bbc.png" Stretch="Fill" Height="20" Width="40" HorizontalAlignment="Center"/>
-                        </StackPanel>
-                    </Button>
+
+
+                <Label Content="Sports" HorizontalAlignment="Left" VerticalAlignment="Top" Height="40" VerticalContentAlignment="Bottom" FontSize="15"/>
+
+                <StackPanel HorizontalAlignment="Left" Height="89" VerticalAlignment="Top" Width="792" Orientation="Horizontal">
+                    <ListBox x:Name="listbox3" Width="791" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                        <ListBox.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <VirtualizingStackPanel IsItemsHost="True" Orientation="Horizontal"/>
+                            </ItemsPanelTemplate>
+                        </ListBox.ItemsPanel>
+
+                        <ListBoxItem x:Name="listbox3item1" Width="168">
+                            <StackPanel Width="158">
+                                <Image Source="Image/sherlock.png" Stretch="Uniform" Height="67" Width="87" HorizontalAlignment="Center" Margin="29,0,29,0"/>
+                                <Image Source="Image/bbc.png" Stretch="Fill" Height="20" Width="40" HorizontalAlignment="Center"/>
+                            </StackPanel>
+                        </ListBoxItem>
+
+                        <ListBoxItem x:Name="listbox3item2" Width="168">
+                            <StackPanel Width="158">
+                                <Image Source="Image/topgear.png" Stretch="UniformToFill" Height="67" Width="87" HorizontalAlignment="Center" Margin="29,0,29,0"/>
+                                <Image Source="Image/bbc.png" Stretch="Fill" Height="20" Width="40" HorizontalAlignment="Center"/>
+                            </StackPanel>
+                        </ListBoxItem>
+                        <ListBoxItem x:Name="listbox3item3" Width="168">
+                            <StackPanel Width="158">
+                                <Image Source="Image/conviction.png" Stretch="Fill" Height="67" Width="87" HorizontalAlignment="Center" Margin="29,0,29,0"/>
+                                <Image Source="Image/abc.png" Stretch="Uniform" Height="20" Width="40" HorizontalAlignment="Center"/>
+                            </StackPanel>
+                        </ListBoxItem>
+                        <ListBoxItem x:Name="listbox3item4" Width="168">
+                            <StackPanel Width="158">
+                                <Image Source="Image/tv_icon.png" Stretch="Fill" Height="60" Width="60" HorizontalAlignment="Center"/>
+                                <Image Source="Image/bbc.png" Stretch="Fill" Height="20" Width="40" HorizontalAlignment="Center"/>
+                            </StackPanel>
+                        </ListBoxItem>
+                        <ListBoxItem x:Name="listbox3item5" Width="168">
+                            <StackPanel Width="158">
+                                <Image Source="Image/tv_icon.png" Stretch="Fill" Height="60" Width="60" HorizontalAlignment="Center"/>
+                                <Image Source="Image/bbc.png" Stretch="Fill" Height="20" Width="40" HorizontalAlignment="Center"/>
+                            </StackPanel>
+                        </ListBoxItem>
+                        <ListBoxItem x:Name="listbox3item6" Width="168">
+                            <StackPanel Width="158">
+                                <Image Source="Image/tv_icon.png" Stretch="Fill" Height="60" Width="60" HorizontalAlignment="Center"/>
+                                <Image Source="Image/abc.png" Stretch="Uniform" Height="20" Width="40" HorizontalAlignment="Center"/>
+                            </StackPanel>
+                        </ListBoxItem>
+                        <ListBoxItem x:Name="listbox3item7" Width="168">
+                            <StackPanel Width="158">
+                                <Image Source="Image/tv_icon.png" Stretch="Fill" Height="60" Width="60" HorizontalAlignment="Center"/>
+                                <Image Source="Image/bbc.png" Stretch="Fill" Height="20" Width="40" HorizontalAlignment="Center"/>
+                            </StackPanel>
+                        </ListBoxItem>
+                        <ListBoxItem x:Name="listbox3item8" Width="168">
+                            <StackPanel Width="158">
+                                <Image Source="Image/tv_icon.png" Stretch="Fill" Height="60" Width="60" HorizontalAlignment="Center"/>
+                                <Image Source="Image/abc.png" Stretch="Uniform" Height="20" Width="40" HorizontalAlignment="Center"/>
+                            </StackPanel>
+                        </ListBoxItem>
+
+                    </ListBox>
                 </StackPanel>
-                -->
-                <Label Content="Explore" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="0" FontSize="15"/>
-                <Grid HorizontalAlignment="Left" Height="125" VerticalAlignment="Top" Width="792" Margin="0,89,0,-125" Grid.Row="1">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="1*" />
-                        <RowDefinition Height="2.5*" />
-                    </Grid.RowDefinitions>
 
-                    <StackPanel HorizontalAlignment="Left" Height="89" VerticalAlignment="Top" Width="792" Grid.Row="1" Orientation="Horizontal">
-                        <Button x:Name="munu_button31" Grid.Row="1" VerticalAlignment="Center" Width="170" Height="89" >
-                            <StackPanel>
-                                <Image Source="Image/tv_icon.png" Stretch="Fill" Height="60" Width="60" HorizontalAlignment="Center"/>
-                                <Image Source="Image/abc.png" Stretch="Fill" Height="20" Width="20" HorizontalAlignment="Center"/>
-                            </StackPanel>
-                        </Button>
-                        <Button x:Name="munu_button32" Grid.Row="1" VerticalAlignment="Center" Width="170" Height="89" >
-                            <StackPanel>
-                                <Image Source="Image/tv_icon.png" Stretch="Fill" Height="60" Width="60" HorizontalAlignment="Center"/>
-                                <Image Source="Image/TLC.png" Stretch="Fill" Height="20" Width="50" HorizontalAlignment="Center"/>
-                            </StackPanel>
-                        </Button>
-                        <Button x:Name="munu_button33" Grid.Row="1" VerticalAlignment="Center" Width="170" Height="89" >
-                            <StackPanel>
-                                <Image Source="Image/tv_icon.png" Stretch="Fill" Height="60" Width="60" HorizontalAlignment="Center"/>
-                                <Image Source="Image/netflix_icon.png" Stretch="Fill" Height="20" Width="20" HorizontalAlignment="Center"/>
-                            </StackPanel>
-                        </Button>
-                        <Button x:Name="munu_button34" Grid.Row="1" VerticalAlignment="Center" Width="170" Height="89">
-                            <StackPanel>
-                                <Image Source="Image/tv_icon.png" Stretch="Fill" Height="60" Width="60" HorizontalAlignment="Center"/>
-                                <Image Source="Image/bbc.png" Stretch="Fill" Height="20" Width="40" HorizontalAlignment="Center"/>
-                            </StackPanel>
-                        </Button>
-                        <Button x:Name="munu_button35" Grid.Row="1" VerticalAlignment="Center" Width="170" Height="89">
-                            <StackPanel>
-                                <Image Source="Image/tv_icon.png" Stretch="Fill" Height="60" Width="60" HorizontalAlignment="Center"/>
-                                <Image Source="Image/bbc.png" Stretch="Fill" Height="20" Width="40" HorizontalAlignment="Center"/>
-                            </StackPanel>
-                        </Button>
-                    </StackPanel>
-                    <Label Content="Sports" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="0" FontSize="15"/>
+            </StackPanel>
 
-                </Grid>
-
-            </Grid>
         </Grid>
+
 
     </Grid>
 

@@ -265,5 +265,11 @@
     <Resource Include="Image\sherlock.png" />
     <Resource Include="Image\topgear.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\sherlock_live.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\topgear_live.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
