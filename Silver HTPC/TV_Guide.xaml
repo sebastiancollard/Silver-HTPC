@@ -10,13 +10,14 @@
         <Label Content="TV Guide" HorizontalAlignment="Left" VerticalAlignment="Top" Height="55" Width="192" FontSize="30" VerticalContentAlignment="Center"/>
         <Label Content="Time" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="585,0,0,0" Height="29" Width="197" VerticalContentAlignment="Center" FontSize="15"/>
         <Label Content="Date" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="585,29,0,0" Height="26" Width="197" VerticalContentAlignment="Center"/>
-        <Grid HorizontalAlignment="Left" Height="349" VerticalAlignment="Top" Width="792" Margin="0,60,0,0">
+        <!--<Grid HorizontalAlignment="Left" Height="349" VerticalAlignment="Top" Width="792" Margin="0,60,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="41*"/>
                 <ColumnDefinition Width="751*"/>
-            </Grid.ColumnDefinitions>
+            </Grid.ColumnDefinitions> -->
 
-            <StackPanel HorizontalAlignment="Left" Height="422" Margin="0,10,0,-83" VerticalAlignment="Top" Width="792" Grid.ColumnSpan="2">
+            
+                <StackPanel HorizontalAlignment="Left" Height="422" Margin="0,60,0,-83" VerticalAlignment="Top" Width="792" Grid.ColumnSpan="2">
 
 
                 <Label Content="Recommendations / Continue watching" Height="40" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="15"  Grid.ColumnSpan="2"/>
@@ -167,21 +168,22 @@
 
                         <ListBoxItem x:Name="listbox3item1" Width="168">
                             <StackPanel Width="158">
-                                <Image Source="Image/sherlock.png" Stretch="Uniform" Height="67" Width="87" HorizontalAlignment="Center" Margin="29,0,29,0"/>
-                                <Image Source="Image/bbc.png" Stretch="Fill" Height="20" Width="40" HorizontalAlignment="Center"/>
+                                <Image Source="Image/espn_show.png" Stretch="Uniform" Height="67" Width="87" HorizontalAlignment="Center" Margin="29,0,29,0"/>
+                                <Image Source="Image/espn_logo.png" Stretch="Uniform" Height="20" Width="40" HorizontalAlignment="Center"/>
                             </StackPanel>
                         </ListBoxItem>
 
                         <ListBoxItem x:Name="listbox3item2" Width="168">
                             <StackPanel Width="158">
-                                <Image Source="Image/topgear.png" Stretch="UniformToFill" Height="67" Width="87" HorizontalAlignment="Center" Margin="29,0,29,0"/>
-                                <Image Source="Image/bbc.png" Stretch="Fill" Height="20" Width="40" HorizontalAlignment="Center"/>
+                                <Image Source="Image/tsn_show.png" Stretch="UniformToFill" Height="67" Width="87" HorizontalAlignment="Center" Margin="29,0,29,0"/>
+                                <Image Source="Image/tsn_logo.png" Stretch="Uniform" Height="20" Width="40" HorizontalAlignment="Center"/>
                             </StackPanel>
                         </ListBoxItem>
                         <ListBoxItem x:Name="listbox3item3" Width="168">
                             <StackPanel Width="158">
-                                <Image Source="Image/conviction.png" Stretch="Fill" Height="67" Width="87" HorizontalAlignment="Center" Margin="29,0,29,0"/>
-                                <Image Source="Image/abc.png" Stretch="Uniform" Height="20" Width="40" HorizontalAlignment="Center"/>
+                                <Image Source="Image/nbcgolf_show.png" Stretch="Fill"
+                                       Height="67" Width="87" HorizontalAlignment="Center" Margin="29,0,29,0"/>
+                                <Image Source="Image/nbcgolf_logo.png" Stretch="Uniform" Height="20" Width="40" HorizontalAlignment="Center"/>
                             </StackPanel>
                         </ListBoxItem>
                         <ListBoxItem x:Name="listbox3item4" Width="168">
@@ -220,7 +222,8 @@
 
             </StackPanel>
 
-        </Grid>
+
+        <!--</Grid>-->
 
 
     </Grid>

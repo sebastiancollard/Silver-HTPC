@@ -80,19 +80,21 @@ namespace Silver_HTPC
 
                     break;
                 case Key.Down:
-                    lb.SelectedIndex = -1;
-                    lb.ScrollIntoView(0);
+                    lb.SelectedIndex = 0;
+                    lb.ScrollIntoView(lb.SelectedItem);
                     if (lb_index < MAX_LB_INDEX - 1) lb_index += 1;
                     lb = List_boxes[lb_index];
                     lb.SelectedIndex = 0;
                     lb.Focus();
+                    
                     break;
                 case Key.Up:
-                    lb.SelectedIndex = -1;
+                    lb.SelectedIndex = 0;
                     if (lb_index > 0) lb_index -= 1;
                     lb = List_boxes[lb_index];
                     lb.SelectedIndex = 0;
                     lb.Focus();
+                    
 
                     break;
                 case Key.Enter:

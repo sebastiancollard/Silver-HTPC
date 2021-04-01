@@ -271,5 +271,19 @@
   <ItemGroup>
     <Resource Include="Image\topgear_live.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\tsn_logo.png" />
+    <Resource Include="Image\tsn_show.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\espn_logo.png" />
+    <Resource Include="Image\espn_show.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\nbcgolf_show.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\nbcgolf_logo.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
