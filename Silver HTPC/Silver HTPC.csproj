@@ -58,12 +58,19 @@
     <Compile Include="Music.xaml.cs">
       <DependentUpon>Music.xaml</DependentUpon>
     </Compile>
+    <Compile Include="OtherApplications.xaml.cs">
+      <DependentUpon>OtherApplications.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TV_Guide.xaml.cs">
       <DependentUpon>TV_Guide.xaml</DependentUpon>
     </Compile>
     <Page Include="Advanced Settings.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="OtherApplications.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Settings.xaml">
       <Generator>MSBuild:Compile</Generator>
