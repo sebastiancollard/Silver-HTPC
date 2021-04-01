@@ -55,11 +55,20 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Music.xaml.cs">
+      <DependentUpon>Music.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OtherApplications.xaml.cs">
+      <DependentUpon>OtherApplications.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TV_Guide.xaml.cs">
+      <DependentUpon>TV_Guide.xaml</DependentUpon>
+    </Compile>
     <Page Include="Advanced Settings.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="MainWindow.xaml">
+    <Page Include="OtherApplications.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -87,9 +96,9 @@
     <Compile Include="Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
-	<Compile Include="Search.xaml.cs">
-		<DependentUpon>Search.xaml</DependentUpon>
-	</Compile>
+    <Compile Include="Search.xaml.cs">
+      <DependentUpon>Search.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Recordings.xaml.cs">
       <DependentUpon>Recordings.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -103,6 +112,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Music.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TV_Guide.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -234,6 +251,24 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Image\download_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\music_icon_black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Disney+.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="youtube.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="spiderverse_1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="spiderverse_OST.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="spidermanfarfromhome.jpeg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

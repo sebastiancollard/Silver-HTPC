@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Silver_HTPC"
         mc:Ignorable="d"
-        Title="Home Page" Height="450" Width="800">
+        Title="Home Page" Height="450" Width="800" KeyDown="Window_KeyDown">
     <Window.Background>
         <LinearGradientBrush EndPoint="0,1" StartPoint="1,0">
             <GradientStop Color="Black" Offset="1"/>
@@ -28,61 +28,61 @@
         <Label x:Name="time_label" Grid.ColumnSpan="2" Content="Time" Grid.Column="1" HorizontalAlignment="Left" Height="50" Margin="242,-108,-6,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" Width="284" FontWeight="Medium" FontSize="30px"  FontFamily="Arial" />
         <Label x:Name="date_label" Grid.ColumnSpan="2" Content="Date" Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="242,-58,-6,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" Width="284" FontWeight="Medium" FontSize="15px"  FontFamily="Arial"/>
         <Button x:Name="munu_button1" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="80">
-            <StackPanel>
+            <StackPanel x:Name="stackPan_Button1">
                 <Image Source="Image/tv_icon.png" Stretch="Fill" Height="40" Width="40" HorizontalAlignment="Center"/>
                 <TextBlock Text="Live TV" FontSize="25"/>
             </StackPanel>
         </Button>
-        <Button x:Name="munu_button2" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="80">
-            <StackPanel>
+        <Button x:Name="munu_button2" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="80" Click="menu_button2_click">
+            <StackPanel x:Name="stackPan_Button2">
                 <Image Source="Image/gallery_icon.png" Stretch="Fill" Height="40" Width="40"/>
                 <TextBlock Text="Photos - Videos" FontSize="25"/>
             </StackPanel>
         </Button>
-        <Button x:Name="munu_button3" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="80">
-            <StackPanel>
+        <Button x:Name="munu_button3" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="80" Click="menu_button3_click">
+            <StackPanel x:Name="stackPan_Button3">
                 <Image Source="Image/music_icon.png" Stretch="Fill" Height="40" Width="40"/>
                 <TextBlock Text="Music" FontSize="25" HorizontalAlignment="Center"/>
             </StackPanel>
         </Button>
-        <Button x:Name="munu_button4" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="80">
-            <StackPanel>
+        <Button x:Name="munu_button4" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="80" Click="menu_button4_click">
+            <StackPanel x:Name="stackPan_Button4">
                 <Image Source="Image/record_icon.png" Stretch="Fill" Height="40" Width="40" HorizontalAlignment="Center"/>
                 <TextBlock Text="Recordings" FontSize="25"/>
             </StackPanel>
         </Button>
-        <Button x:Name="munu_button5" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="80">
-            <StackPanel>
+        <Button x:Name="munu_button5" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="80" Click="menu_button5_click">
+            <StackPanel x:Name="stackPan_Button5">
                 <Image Source="Image/search_icon.jpg" Stretch="Fill" Height="40" Width="40"/>
                 <TextBlock Text="Search" FontSize="25"/>
             </StackPanel>
         </Button>
         <Button x:Name="munu_button9" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="80">
-            <StackPanel>
+            <StackPanel x:Name="stackPan_Button9">
                 <Image Source="Image/apps_icon.png" Stretch="Fill" Height="40" Width="40"/>
                 <TextBlock Text="Other Apps" FontSize="25" HorizontalAlignment="Center"/>
             </StackPanel>
         </Button>
-        <Button x:Name="munu_button7" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="80">
-            <StackPanel>
+        <Button x:Name="munu_button7" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="80" Click="menu_button7_click">
+            <StackPanel x:Name="stackPan_Button7">
                 <Image Source="Image/settings_icon.png" Stretch="Fill" Height="40" Width="40" HorizontalAlignment="Center"/>
                 <TextBlock Text="Setting" FontSize="25"/>
             </StackPanel>
         </Button>
         <Button x:Name="munu_button8" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="80" Click="munu_button8_Click">
-            <StackPanel>
+            <StackPanel x:Name="stackPan_Button8">
                 <Image Source="Image\notification_icon.png" Stretch="Fill" Height="40" Width="40"/>
                 <TextBlock Text="Notification" FontSize="25"/>
             </StackPanel>
         </Button>
         <Button x:Name="munu_button6" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="80">
-            <StackPanel>
+            <StackPanel x:Name="stackPan_Button6">
                 <Image Source="Image\netflix_icon.png" Stretch="Fill" Height="40" Width="40"/>
                 <TextBlock Text="Netflix" FontSize="25" HorizontalAlignment="Center"/>
             </StackPanel>
         </Button>
-        <Button x:Name="button" HorizontalAlignment="Left" Margin="-2,-108,0,0" VerticalAlignment="Top" Width="148" Height="35" FontSize="20">
-            <StackPanel Orientation="Horizontal">
+        <Button x:Name="profile_button" HorizontalAlignment="Left" Margin="1,-108,0,0" VerticalAlignment="Top" Width="148" Height="35" FontSize="20">
+            <StackPanel x:Name="stackPan_Profile" Orientation="Horizontal">
                 <Image Source="Image\profile_icon.png" Stretch="Fill" Height="25" Width="25"/>
                 <TextBlock Text="John Doe" FontSize="25" HorizontalAlignment="Center"/>
             </StackPanel>

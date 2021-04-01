@@ -24,9 +24,20 @@ namespace Silver_HTPC
             InitializeComponent();
         }
 
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Back)
+            {
+                MainWindow home = new MainWindow();
+                home.Show();
+                this.Close();
+            }
         }
     }
 }
