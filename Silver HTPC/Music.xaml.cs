@@ -54,16 +54,17 @@ namespace Silver_HTPC
         // https://docs.microsoft.com/en-us/dotnet/desktop/wpf/advanced/how-to-change-the-color-of-an-element-using-focus-events?view=netframeworkdesktop-4.8
         private void Music_GotFocus(object sender, RoutedEventArgs e)
         {
-            Button thisButton = e.Source as Button;
+            Button thisButton = sender as Button;
             //Console.WriteLine(thisButton.Name.ToString());
             thisButton.Background = Brushes.Red;
             thisButton.Height =60;
             MusicButtonsGrids[MusicIndex].Height = 60;
             
-            /**
+            
             play = new Button();
             //play.Width = 60;
             //play.Height = 45;
+            play.Name = "Play1";
             play.Content = "Play";
             play.Background = Brushes.Aqua; 
             play.VerticalContentAlignment = VerticalAlignment.Center;
@@ -72,32 +73,34 @@ namespace Silver_HTPC
             play.HorizontalAlignment = HorizontalAlignment.Left;
             //play.KeyDown += Play_KeyDown;
             play.GotFocus += Play_GotFocus;
-            //play.LostFocus += Play_LostFocus;
-            Grid.SetColumn(play, 1);
+            play.LostFocus += Play_LostFocus;
+            Grid.SetColumn(play, 0);
             //Grid.SetColumnSpan(play, 2);
             Grid.SetRow(play, 1);
             //Grid.SetRowSpan(play, 2);
 
             MusicButtonsGrids[MusicIndex].Children.Add(play);
             //Console.WriteLine(thisButton);
-            **/
+            
         }
 
         private void Play_GotFocus(object sender, RoutedEventArgs e)
         {
-            //Button thisButton = e.Source as Button;
+            Button thisButton = sender as Button;
             Console.WriteLine("Here");
+            thisButton.Background = Brushes.Orange;
             //MusicButtonsGrids[MusicIndex].Children.
-            //play.Background = Brushes.Red;
-            ButtonGrid1.Children.Remove(play);
+            //play.back
+           // ButtonGrid1.Children.Remove(play);
             //MusicButtonsGrids[MusicIndex].Children.Remove(play);
             //MusicButtonsGrids[MusicIndex].Children()
         }
 
         private void Play_LostFocus(object sender, RoutedEventArgs e)
         {
-            Button thisButton = e.Source as Button;
+            Button thisButton = sender as Button;
             thisButton.Background = Brushes.White;
+            ButtonGrid1.Children.Remove(thisButton);
         }
 
 
@@ -228,10 +231,10 @@ namespace Silver_HTPC
 
             private void Music_LostFocus(object sender, RoutedEventArgs e)
         {
-            Button thisButton = e.Source as Button;
+            Button thisButton = sender as Button;
             thisButton.Background = Brushes.White;
-            thisButton.Height = 40;
-            MusicButtonsGrids[MusicIndex].Height = 40;
+            thisButton.Height = 50;
+            MusicButtonsGrids[MusicIndex].Height = 50;
 
             /**
             if (MusicIndex!=0 && MusicIndex < MusicButtonsList.Count - 1)
@@ -252,7 +255,7 @@ namespace Silver_HTPC
         }
         private void Button_LostFocus(object sender, RoutedEventArgs e)
         {
-            Button thisButton = e.Source as Button;
+            Button thisButton = sender as Button;
             thisButton.Background = Brushes.White;
             thisButton.Height = 44;
         }
