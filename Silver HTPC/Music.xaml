@@ -25,25 +25,17 @@
             </Label.OpacityMask>
         </Label>
         <TextBlock HorizontalAlignment="Left" Height="31" TextWrapping="Wrap" VerticalAlignment="Top" Width="196" RenderTransformOrigin="0.406,-0.589" FontFamily="Segoe UI Emoji" FontSize="24" Margin="635,342,-39,0"><Run Text="Free:"/><Run Text=" "/><Run Text="225.2GB"/></TextBlock>
-        <TextBlock Text="{Binding Source={x:Static System:DateTime.Now}, StringFormat=\{0:dddd\, MMMM dd\}}"  HorizontalAlignment="Right" Height="31" VerticalAlignment="Top" Width="296" RenderTransformOrigin="0.268,0.293" Background="{x:Null}" FontFamily="Segoe UI Black" FontSize="24" Margin="0,-6,-86,0" />
+        <TextBlock Text="{Binding Source={x:Static System:DateTime.Now}, StringFormat=\{0:dddd\, MMMM dd\}}"  HorizontalAlignment="Right" Height="31" VerticalAlignment="Top" Width="296" RenderTransformOrigin="0.268,0.293" Background="{x:Null}" FontFamily="Segoe UI Black" FontSize="24" Margin="0,-6,-67,0" />
         <TextBlock Text="{Binding Source={x:Static System:DateTime.Now}, StringFormat=\{0:HH:mm\}}" HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="72" RenderTransformOrigin="0.268,0.293" Margin="720,20,0,0" Background="{x:Null}" FontFamily="Segoe UI Black" FontSize="24" />
         <Rectangle Fill="White" HorizontalAlignment="Left" Height="31" Margin="631,378,0,0" Stroke="Black" VerticalAlignment="Top" Width="151" RenderTransformOrigin="0.506,0.543"/>
         <Rectangle Fill="#FF00FF17" HorizontalAlignment="Left" Height="31" Margin="631,378,0,0" Stroke="Black" VerticalAlignment="Top" Width="13" RenderTransformOrigin="0.506,0.543"/>
         <TextBlock HorizontalAlignment="Left" Height="31" Margin="635,306,-39,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="196" RenderTransformOrigin="0.406,-0.589" FontFamily="Segoe UI Emoji" FontSize="24"><Run Text="Total: "/><Run Text="250GB"/><InlineUIContainer>
               
             </InlineUIContainer></TextBlock>
-        <Button Name="SearchButton" Content="Search" HorizontalAlignment="Left" Margin="668,139,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="9.63,-6.324" Height="44" FontFamily="Arial Rounded MT Bold" FontSize="18" GotFocus="Music_GotFocus" LostFocus="Button_LostFocus"/>
-        <Button x:Name="SortButton" Content="Sort by" HorizontalAlignment="Left" Margin="668,80,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="9.63,-6.324" Height="44" FontFamily="Arial Rounded MT Bold" FontSize="18" GotFocus="Music_GotFocus" LostFocus="Button_LostFocus"/>
-        <Button Name="DeleteMultiple" Content="Delete &#xA;Multiple" HorizontalAlignment="Left" Margin="668,212,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="9.63,-6.324" Height="44" FontFamily="Arial Rounded MT Bold" FontSize="18" GotFocus="Music_GotFocus" LostFocus="Button_LostFocus"/>
+        <Button Name="SearchButton" Content="Search" HorizontalAlignment="Left" Margin="668,139,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="9.63,-6.324" Height="44" FontFamily="Arial Rounded MT Bold" FontSize="18" GotFocus="Music_GotFocus" LostFocus="Button_LostFocus" KeyDown="Button_KeyDown" FocusVisualStyle="{x:Null}"/>
+        <Button x:Name="SortButton" Content="Sort by" HorizontalAlignment="Left" Margin="668,80,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="9.63,-6.324" Height="44" FontFamily="Arial Rounded MT Bold" FontSize="18" GotFocus="Music_GotFocus" LostFocus="Button_LostFocus" KeyDown="Button_KeyDown" FocusVisualStyle="{x:Null}"/>
+        <Button Name="DeleteMultiple" Content="Delete &#xA;Multiple" HorizontalAlignment="Left" Margin="668,212,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="9.63,-6.324" Height="44" FontFamily="Arial Rounded MT Bold" FontSize="18" GotFocus="Music_GotFocus" LostFocus="Button_LostFocus" KeyDown="Button_KeyDown" FocusVisualStyle="{x:Null}"/>
         <Label x:Name="Recording_Label_Copy" Content="All Music" Height="59" Width="195" RenderTransformOrigin="0.22,1.006" FontFamily="Segoe UI Historic" FontSize="30" Margin="83,65,0,0" Cursor="None" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="Black">
-            <Label.OpacityMask>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="Black" Offset="0"/>
-                    <GradientStop Color="White" Offset="1"/>
-                </LinearGradientBrush>
-            </Label.OpacityMask>
-        </Label>
-        <Label x:Name="Recording_Label_Copy1" Content="Playlists" Height="74" Width="220" RenderTransformOrigin="0.22,1.006" FontFamily="Segoe UI Historic" FontSize="30" Margin="337,65,0,0" Cursor="None" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="Black">
             <Label.OpacityMask>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black" Offset="0"/>
@@ -53,7 +45,7 @@
         </Label>
         <ScrollViewer HorizontalAlignment="Left" Height="298" Margin="58,111,0,0" VerticalAlignment="Top" Width="542" VerticalScrollBarVisibility="Hidden">
 
-            <StackPanel Orientation="Vertical" Height="450"> 
+            <StackPanel Orientation="Vertical" Height="684"> 
             <!--<Grid Name="MusicGrid" HorizontalAlignment="Left" Height="431" VerticalAlignment="Top" Width="542" > 
                 <Grid.RowDefinitions>
                     <RowDefinition Height= "50"/>
@@ -79,6 +71,7 @@
 
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*"/>
+                            <RowDefinition Height="0.5*"/>
                         </Grid.RowDefinitions>
 
                         <TextBlock Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Text="Poker Face - Lady Gaga" VerticalAlignment="top"/>
@@ -100,6 +93,7 @@
 
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*"/>
+                            <RowDefinition Height="0.5*"/>
                         </Grid.RowDefinitions>
 
                         <TextBlock Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Text="I Walk The Line - Johnny Cash"/>
@@ -121,6 +115,7 @@
 
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*"/>
+                            <RowDefinition Height="0.5*"/>
                         </Grid.RowDefinitions>
 
                         <TextBlock Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Text="Help - The Beatles"/>
@@ -141,6 +136,7 @@
 
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*"/>
+                            <RowDefinition Height="0.5*"/>
                         </Grid.RowDefinitions>
 
                         <TextBlock Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Text="In My Life - The Beatles"/>

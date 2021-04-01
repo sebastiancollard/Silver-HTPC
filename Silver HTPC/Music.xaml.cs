@@ -22,6 +22,9 @@ namespace Silver_HTPC
         private static List<Button> MusicButtonsList = new List<Button>();
         private static List<Grid> MusicButtonsGrids = new List<Grid>();
         private int MusicIndex=0;
+        private Button play;
+
+
         public Music()
         {
             InitializeComponent();
@@ -39,6 +42,8 @@ namespace Silver_HTPC
             MusicButtonsList[MusicIndex].Focus();
             Console.WriteLine("dada");
 
+         
+
         }
 
         private void Grid_GotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
@@ -50,17 +55,68 @@ namespace Silver_HTPC
         private void Music_GotFocus(object sender, RoutedEventArgs e)
         {
             Button thisButton = e.Source as Button;
-            Console.WriteLine(thisButton.Name.ToString());
+            //Console.WriteLine(thisButton.Name.ToString());
             thisButton.Background = Brushes.Red;
             thisButton.Height =60;
+            MusicButtonsGrids[MusicIndex].Height = 60;
+            
+            /**
+            play = new Button();
+            //play.Width = 60;
+            //play.Height = 45;
+            play.Content = "Play";
+            play.Background = Brushes.Aqua; 
+            play.VerticalContentAlignment = VerticalAlignment.Center;
+            play.HorizontalContentAlignment = HorizontalAlignment.Left;
+            play.VerticalAlignment = VerticalAlignment.Bottom;
+            play.HorizontalAlignment = HorizontalAlignment.Left;
+            //play.KeyDown += Play_KeyDown;
+            play.GotFocus += Play_GotFocus;
+            //play.LostFocus += Play_LostFocus;
+            Grid.SetColumn(play, 1);
+            //Grid.SetColumnSpan(play, 2);
+            Grid.SetRow(play, 1);
+            //Grid.SetRowSpan(play, 2);
+
+            MusicButtonsGrids[MusicIndex].Children.Add(play);
             //Console.WriteLine(thisButton);
-            //MusicButtonsGrids[MusicIndex].Height = 50;
+            **/
         }
-        
-        private void Music_KeyDown(object sender, KeyEventArgs e)
+
+        private void Play_GotFocus(object sender, RoutedEventArgs e)
         {
+            //Button thisButton = e.Source as Button;
+            Console.WriteLine("Here");
+            //MusicButtonsGrids[MusicIndex].Children.
+            //play.Background = Brushes.Red;
+            ButtonGrid1.Children.Remove(play);
+            //MusicButtonsGrids[MusicIndex].Children.Remove(play);
+            //MusicButtonsGrids[MusicIndex].Children()
+        }
+
+        private void Play_LostFocus(object sender, RoutedEventArgs e)
+        {
+            Button thisButton = e.Source as Button;
+            thisButton.Background = Brushes.White;
+        }
+
+
+            private void Music_KeyDown(object sender, KeyEventArgs e)
+        {
+            for (int i = 0; i < MusicButtonsList.Count; i++)
+            {
+                MusicButtonsList[i].Focusable = true;
+            }
+            
             if (e.Key == Key.Down)
             {
+               // for (int i = 0; i < MusicButtonsList.Count; i++)
+                //{
+                 //   MusicButtonsList[i].Focusable = false;
+               // }
+
+                //play.Focus();
+                
                 if (MusicIndex < MusicButtonsList.Count - 1)
                 {
                     MusicIndex += 1;
@@ -71,7 +127,9 @@ namespace Silver_HTPC
                     MusicIndex = 0;
                     Console.WriteLine("MusicIndex: " + MusicIndex);
                 }
+                
             }
+            
             else if (e.Key == Key.Right)
             {
                
@@ -81,6 +139,7 @@ namespace Silver_HTPC
                 }
                 SortButton.Focus();
                 Console.WriteLine("MusicIndex: " + MusicIndex);
+
             }
             else if (e.Key == Key.Up)
             {
@@ -127,9 +186,47 @@ namespace Silver_HTPC
         }
         **/
 
+        private void Button_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Left)
+            {
+                
+                Console.WriteLine("MusicIndex Left: " + MusicIndex);
+                MusicButtonsList[MusicIndex].Focusable = true;
+                MusicButtonsList[MusicIndex].Focus();
 
+            }
+        }
+        private void Play_KeyDown(object sender, KeyEventArgs e)
+        {
+            Console.WriteLine("Play_KEYDOWN");
 
-        private void Music_LostFocus(object sender, RoutedEventArgs e)
+            if (e.Key == Key.Down)
+            {
+                for (int i = 0; i < MusicButtonsList.Count; i++)
+                {
+                    MusicButtonsList[i].Focusable = true;
+                }
+
+                if (MusicIndex < MusicButtonsList.Count - 1)
+                {
+                    MusicIndex += 1;
+                    Console.WriteLine("MusicIndexP: " + MusicIndex);
+                }
+                else
+                {
+                    MusicIndex = 0;
+                    Console.WriteLine("MusicIndexP: " + MusicIndex);
+                }
+                play.Focusable = false;
+                MusicButtonsGrids[MusicIndex].Children.Remove(play);
+                MusicButtonsList[MusicIndex].Focus();
+            }
+            
+
+        }
+
+            private void Music_LostFocus(object sender, RoutedEventArgs e)
         {
             Button thisButton = e.Source as Button;
             thisButton.Background = Brushes.White;
@@ -157,6 +254,7 @@ namespace Silver_HTPC
         {
             Button thisButton = e.Source as Button;
             thisButton.Background = Brushes.White;
+            thisButton.Height = 44;
         }
     }
 }
