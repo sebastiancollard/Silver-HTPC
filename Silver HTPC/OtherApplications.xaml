@@ -6,7 +6,19 @@
         xmlns:local="clr-namespace:Silver_HTPC"
         mc:Ignorable="d"
         Title="OtherApplications" Height="450" Width="800">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0,1" StartPoint="1,0">
+            <GradientStop Color="Black" Offset="1"/>
+            <GradientStop Color="White"/>
+        </LinearGradientBrush>
+    </Window.Background>
     <Grid>
-        
+        <ScrollViewer Margin="0,49,0,0">
+            <StackPanel x:Name="Other_StackPanel">
+                                   
+                
+            </StackPanel>
+        </ScrollViewer>
+        <Label Content="Other Applications" HorizontalAlignment="Left" Height="50" Margin="-6,-1,0,0" VerticalAlignment="Top" Width="270" FontSize="30" Foreground="White"/>
     </Grid>
 </Window>
