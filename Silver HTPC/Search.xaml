@@ -74,7 +74,7 @@
             <ComboBoxItem Content="Recordings"/>
         </ComboBox>
         <Button HorizontalAlignment="Left" Margin="35,46,0,0" VerticalAlignment="Top" Width="52" Height="43">
-            <Image Source="search--v2.png" HorizontalAlignment="Left" Height="43" VerticalAlignment="Top" Width="42"/>
+            <Image Source="Image/search_icon.jpg" HorizontalAlignment="Left" Height="43" VerticalAlignment="Top" Width="42"/>
         </Button>
         <TextBox x:Name="searchBox" Height="43" Margin="87,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="471" HorizontalAlignment="Left" Foreground="Black" TextChanged="TextBox_TextChanged" KeyDown="SearchBar_KeyDown"/>
         <Label Canvas.Left="404" Canvas.Top="10"/>

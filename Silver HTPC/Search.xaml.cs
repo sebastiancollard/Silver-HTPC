@@ -49,41 +49,41 @@ namespace Silver_HTPC
                 //btn.Content = i.ToString();
                 var brush = new ImageBrush();
                 if (i < 6)
-                    brush.ImageSource = new BitmapImage(new Uri("inception poster.jpg", UriKind.RelativeOrAbsolute));
+                    brush.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/Image/inception poster.jpg", UriKind.RelativeOrAbsolute));
                 else if (i == 6)
-                    brush.ImageSource = new BitmapImage(new Uri("inception_OST.jpg", UriKind.RelativeOrAbsolute));
+                    brush.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/Image/inception_OST.jpg", UriKind.RelativeOrAbsolute));
                 else if (i > 6 && i < 9)
-                    brush.ImageSource = new BitmapImage(new Uri("spidermanfarfromhome.jpeg", UriKind.RelativeOrAbsolute));
+                    brush.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/Image/spidermanfarfromhome.jpeg", UriKind.RelativeOrAbsolute));
                 else if (i == 9)
-                    brush.ImageSource = new BitmapImage(new Uri("spidermanfarfromhome_OST.jpg", UriKind.RelativeOrAbsolute));
+                    brush.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/Image/spidermanfarfromhome_OST.jpg", UriKind.RelativeOrAbsolute));
                 else if (i > 9 && i < 13)
-                    brush.ImageSource = new BitmapImage(new Uri("spiderverse_1.jpg", UriKind.RelativeOrAbsolute));
+                    brush.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/Image/spiderverse_1.jpg", UriKind.RelativeOrAbsolute));
                 else if (i == 13)
-                    brush.ImageSource = new BitmapImage(new Uri("spiderverse_OST.jpg", UriKind.RelativeOrAbsolute));
+                    brush.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/Image/spiderverse_OST.jpg", UriKind.RelativeOrAbsolute));
                 else if (i > 13 && i < 17)
-                    brush.ImageSource = new BitmapImage(new Uri("spidermanhomecoming.jpg", UriKind.RelativeOrAbsolute));
+                    brush.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/Image/spidermanhomecoming.jpg", UriKind.RelativeOrAbsolute));
                 else if (i == 17)
-                    brush.ImageSource = new BitmapImage(new Uri("spidermanhomecoming_OST.jpg", UriKind.RelativeOrAbsolute));
+                    brush.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/Image/spidermanhomecoming_OST.jpg", UriKind.RelativeOrAbsolute));
                 else if (i > 17 && i < 21)
-                    brush.ImageSource = new BitmapImage(new Uri("theamazingspiderman2.jpg", UriKind.RelativeOrAbsolute));
+                    brush.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/Image/theamazingspiderman2.jpg", UriKind.RelativeOrAbsolute));
                 else if (i == 21)
-                    brush.ImageSource = new BitmapImage(new Uri("theamazingspiderman2_OST.jpg", UriKind.RelativeOrAbsolute));
+                    brush.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/Image/theamazingspiderman2_OST.jpg", UriKind.RelativeOrAbsolute));
                 else if (i > 21 && i < 24)
-                    brush.ImageSource = new BitmapImage(new Uri("theamazingspiderman.jpg", UriKind.RelativeOrAbsolute));
+                    brush.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/Image/theamazingspiderman.jpg", UriKind.RelativeOrAbsolute));
                 else if (i == 24)
-                    brush.ImageSource = new BitmapImage(new Uri("theamazingspiderman_OST.jpg", UriKind.RelativeOrAbsolute));
+                    brush.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/Image/theamazingspiderman_OST.jpg", UriKind.RelativeOrAbsolute));
                 else if (i > 24 && i < 27)
-                    brush.ImageSource = new BitmapImage(new Uri("spiderman3.jpg", UriKind.RelativeOrAbsolute));
+                    brush.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/Image/spiderman3.jpg", UriKind.RelativeOrAbsolute));
                 else if (i == 27)
-                    brush.ImageSource = new BitmapImage(new Uri("spiderman3_OST.jpg", UriKind.RelativeOrAbsolute));
+                    brush.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/Image/spiderman3_OST.jpg", UriKind.RelativeOrAbsolute));
                 else if (i > 27 && i < 30)
-                    brush.ImageSource = new BitmapImage(new Uri("spiderman2.jpg", UriKind.RelativeOrAbsolute));
+                    brush.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/Image/spiderman2.jpg", UriKind.RelativeOrAbsolute));
                 else if (i == 30)
-                    brush.ImageSource = new BitmapImage(new Uri("spiderman2_OST.jpg", UriKind.RelativeOrAbsolute));
+                    brush.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/Image/spiderman2_OST.jpg", UriKind.RelativeOrAbsolute));
                 else if (i > 30 && i < 34)
-                    brush.ImageSource = new BitmapImage(new Uri("spiderman.jpg", UriKind.RelativeOrAbsolute));
+                    brush.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/Image/spiderman.jpg", UriKind.RelativeOrAbsolute));
                 else if (i == 34)
-                    brush.ImageSource = new BitmapImage(new Uri("spiderman_OST.jpg", UriKind.RelativeOrAbsolute));
+                    brush.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/Image/spiderman_OST.jpg", UriKind.RelativeOrAbsolute));
 
                 btn.Content = new StackPanel();
                 btn.KeyDown += Window_KeyDown;
@@ -118,24 +118,24 @@ namespace Silver_HTPC
 
                 if (i == 0 || i == 7 || i == 10 || i == 14 || i == 18 || i == 31)
                 {//Netflix
-                    application.Source = new BitmapImage(new Uri("netflix_PNG15.png", UriKind.RelativeOrAbsolute));
+                    application.Source = new BitmapImage(new Uri(@"pack://application:,,,/Image/netflix_PNG15.png", UriKind.RelativeOrAbsolute));
                     application.Name = "netflix";
                 }
                 else if (i == 1 || i == 8 || i == 11 || i == 15 || i == 19 || i == 22 || i == 25 || i == 28 || i == 32)
                 {//Prime Video
-                    application.Source = new BitmapImage(new Uri("prime video.png", UriKind.RelativeOrAbsolute));
+                    application.Source = new BitmapImage(new Uri(@"pack://application:,,,/Image/prime video.png", UriKind.RelativeOrAbsolute));
                     application.Name = "primevideo";
                 }
                 else if (i == 2)
                 {   //Apple TV
-                    application.Source = new BitmapImage(new Uri("apple tv.png", UriKind.RelativeOrAbsolute));
+                    application.Source = new BitmapImage(new Uri(@"pack://application:,,,/Image/apple tv.png", UriKind.RelativeOrAbsolute));
                     application.Width = 75;
                     application.Height = 75;
                     application.Name = "appletv";
                 }
                 else if (i == 3)
                 {   //Disney+
-                    application.Source = new BitmapImage(new Uri("Disney+.png", UriKind.RelativeOrAbsolute));
+                    application.Source = new BitmapImage(new Uri(@"pack://application:,,,/Image/Disney+.png", UriKind.RelativeOrAbsolute));
                     application.Width = 100;
                     application.Height = 100;
                     application.Margin = new Thickness(0, 195, 0, 0);
@@ -143,7 +143,7 @@ namespace Silver_HTPC
                 }
                 else if (i == 4)
                 {   //Live TV
-                    application.Source = new BitmapImage(new Uri("live tv.png", UriKind.RelativeOrAbsolute));
+                    application.Source = new BitmapImage(new Uri(@"pack://application:,,,/Image/live tv.png", UriKind.RelativeOrAbsolute));
                     application.Width = 75;
                     application.Height = 75;
                     application.Margin = new Thickness(0, 195, 0, 0);
@@ -151,7 +151,7 @@ namespace Silver_HTPC
                 }
                 else if (i == 5 || i == 8 || i == 12 || i == 16 || i == 20 || i == 23 || i == 26 || i == 29 || i == 33)
                 {   //Youtube
-                    application.Source = new BitmapImage(new Uri("youtube.png", UriKind.RelativeOrAbsolute));
+                    application.Source = new BitmapImage(new Uri(@"pack://application:,,,/Image/youtube.png", UriKind.RelativeOrAbsolute));
                     application.Width = 100;
                     application.Height = 100;
                     application.Margin = new Thickness(0, 195, 0, 0);
@@ -163,7 +163,7 @@ namespace Silver_HTPC
                     bg.Margin = new Thickness(0, 50, 0, 0);
                     btn.Height = 100;
                     btn.Margin = new Thickness(0, 50, 0, 0);
-                    application.Source = new BitmapImage(new Uri("spotify-download-logo.png", UriKind.RelativeOrAbsolute));
+                    application.Source = new BitmapImage(new Uri(@"pack://application:,,,/Image/spotify-download-logo.png", UriKind.RelativeOrAbsolute));
                     application.Name = "spotify";
                 }
 
