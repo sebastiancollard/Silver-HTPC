@@ -285,5 +285,32 @@
   <ItemGroup>
     <Resource Include="Image\nbcgolf_logo.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\tsn_show2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\fox_sports_logo.png" />
+    <Resource Include="Image\fox_sports_show.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\greys_anatomy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\ctv_logo.png" />
+    <Resource Include="Image\masterchef.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\shark_tank.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\the_nest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\espn_show3.png" />
+    <Resource Include="Image\tsn_show3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\espn_show2.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
