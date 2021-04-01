@@ -47,7 +47,7 @@
                     <RowDefinition Height="60"/>
                 </Grid.RowDefinitions>  -->
 
-                <Button Background="White" Grid.Column="0" Grid.Row="0" Margin="0 0 0 10" Height="60">
+            <Button Background="White" Grid.Column="0" Grid.Row="0" Margin="0 0 0 10" Height="60" Name="record1" GotFocus="Recording_GotFocus" LostFocus="Recording_LostFocus" FocusVisualStyle="{x:Null}" KeyDown="Record_KeyDown">
                     <Grid Width="513" Height="60">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="84" />
@@ -107,7 +107,7 @@
 
 
                 <!-- Name of the show recorded(Top left)  Right alligned -> When it was recorded -> Date with time -->
-                <Button Background="White" Grid.Column="0" Grid.Row="1" Margin="0 0 0 10" HorizontalAlignment="Stretch" Height="60">
+            <Button Background="White" Grid.Column="0" Grid.Row="1" Margin="0 0 0 10" HorizontalAlignment="Stretch" Height="60" Name="record2" GotFocus="Recording_GotFocus" LostFocus="Recording_LostFocus" FocusVisualStyle="{x:Null}" KeyDown="Record_KeyDown">
                     <Grid Width="513" Height="60">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="84" />
@@ -128,7 +128,7 @@
                     </Grid>
                 </Button>
 
-                <Button Background="White" Grid.Column="0" Grid.Row="2" Margin="0 0 0 10" HorizontalAlignment="Stretch" Height="60">
+            <Button Background="White" Grid.Column="0" Grid.Row="2" Margin="0 0 0 10" HorizontalAlignment="Stretch" Height="60" Name="record3" GotFocus="Recording_GotFocus" LostFocus="Recording_LostFocus" FocusVisualStyle="{x:Null}" KeyDown="Record_KeyDown">
                     <Grid Width="513" Height="60">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="84" />
