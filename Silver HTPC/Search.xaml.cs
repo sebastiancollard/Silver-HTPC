@@ -26,7 +26,7 @@ namespace Silver_HTPC
         const int HEIGHT = 200;
         bool isResultsOnScreen = false;
         bool found = false;
-        bool update = false;
+        bool update = true;
         const int offset = 340;
 
         public Search()
@@ -610,7 +610,7 @@ namespace Silver_HTPC
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Back && keypad.Visibility == Visibility.Hidden)
+            if (e.Key == Key.Back)
             {
                 MainWindow mainWindow = new MainWindow();
                 mainWindow.Show();
@@ -639,16 +639,15 @@ namespace Silver_HTPC
                     if (stack.Children.Count > 0)
                         ((Grid)stack.Children[1]).Children[1].Focus();
                 }
-                else
-                    update = true;
+                update = true;
             }
-            else if (e.Key == Key.Back && keypad.Visibility == Visibility.Visible)
+            /**else if (e.Key == Key.Back && keypad.Visibility == Visibility.Visible)
             {
                 stack.Focusable = true;
                 keypad.Visibility = Visibility.Hidden;
                 scroll.Width += 270;
                 scroll.Margin = new Thickness();
-            }
+            }*/
         }
 
         private static string RemoveSpecialCharacters(string str)
