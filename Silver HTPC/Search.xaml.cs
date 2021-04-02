@@ -26,6 +26,7 @@ namespace Silver_HTPC
         const int HEIGHT = 200;
         bool isResultsOnScreen = false;
         bool found = false;
+        bool update = false;
         const int offset = 340;
 
         public Search()
@@ -34,7 +35,11 @@ namespace Silver_HTPC
 
             MakeResults();
 
-            searchBox.Focus();
+            ((Grid)keypad.Children[1]).Children[0].Focus();
+            filter.Visibility = Visibility.Hidden;
+            scroll.Width -= 270;
+            scroll.Margin = new Thickness(270, 0, 0, 0);
+
         }
         private void MakeResults()
         {
@@ -583,6 +588,14 @@ namespace Silver_HTPC
             ((Grid)btn.Parent).Width += 20;
             ((Grid)btn.Parent).Height += 20;
             scroll.ScrollToHorizontalOffset(btn.TranslatePoint(new Point(), stack).X - offset);
+
+            /**if (keypad.Visibility != Visibility.Hidden)
+            {
+                filter.Visibility = Visibility.Visible;
+                keypad.Visibility = Visibility.Hidden;
+                scroll.Width += 270;
+                scroll.Margin = new Thickness();
+            }*/
         }
 
         private void result_nselected(object sender, RoutedEventArgs e)
@@ -597,25 +610,44 @@ namespace Silver_HTPC
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Back)
+            if (e.Key == Key.Back && keypad.Visibility == Visibility.Hidden)
             {
                 MainWindow mainWindow = new MainWindow();
                 mainWindow.Show();
                 this.Close();
             }
-        }
-
-        private void SearchBar_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Enter)
+            else if (e.Key == Key.S)
             {
-                Keyboard.ClearFocus();
-                if (stack.Children.Count > 0)
+
+                if (keypad.Visibility == Visibility.Hidden)
                 {
-                    ((Button)((Grid)stack.Children[1]).Children[1]).Focus();
+                    Console.WriteLine("???");
+                    filter.Visibility = Visibility.Hidden;
+                    keypad.Visibility = Visibility.Visible;
+                    scroll.Width -= 270;
+                    scroll.Margin = new Thickness(270, 0, 0, 0);
+                    update = false;
+                    ((Grid)keypad.Children[1]).Children[0].Focus();
+                }
+                else if (keypad.Visibility == Visibility.Visible && update)
+                {
+                    Console.WriteLine("??");
+                    filter.Visibility = Visibility.Visible;
+                    keypad.Visibility = Visibility.Hidden;
+                    scroll.Width += 270;
+                    scroll.Margin = new Thickness();
+                    if (stack.Children.Count > 0)
+                        ((Grid)stack.Children[1]).Children[1].Focus();
                 }
                 else
-                    dummy.Focus();
+                    update = true;
+            }
+            else if (e.Key == Key.Back && keypad.Visibility == Visibility.Visible)
+            {
+                stack.Focusable = true;
+                keypad.Visibility = Visibility.Hidden;
+                scroll.Width += 270;
+                scroll.Margin = new Thickness();
             }
         }
 
@@ -645,7 +677,7 @@ namespace Silver_HTPC
             {
                 foreach (var res in Results)
                 {
-                    if (RemoveSpecialCharacters(res.Name.ToLower()).Contains(RemoveSpecialCharacters(searchBox.Text)))
+                    if (searchBox != null && RemoveSpecialCharacters(res.Name.ToLower()).Contains(RemoveSpecialCharacters(searchBox.Text)))
                     {
                         found = true;
                         stack.Children.Add(res);
@@ -673,6 +705,46 @@ namespace Silver_HTPC
                 stack.Children.Clear();
                 isResultsOnScreen = false;
             }
+        }
+
+        private void KeyPad_KeyDown(object sender, KeyEventArgs e)
+        {
+            var btn = sender as Button;
+            if (e.Key == Key.E && btn != null)
+                searchBox.Text += btn.Content;
+            else if (e.Key == Key.Right &&
+                btn == ((Grid)keypad.Children[1]).Children[5] ||
+                btn == ((Grid)keypad.Children[1]).Children[11] ||
+                btn == ((Grid)keypad.Children[1]).Children[17] ||
+                btn == ((Grid)keypad.Children[1]).Children[23])
+            {
+                Console.WriteLine("what");
+                keypad.Visibility = Visibility.Hidden;
+                scroll.Width += 270;
+                scroll.Margin = new Thickness();
+            }
+        }
+
+        private void KeyPad_KeyDown2(object sender, KeyEventArgs e)
+        {
+            var btn = sender as Button;
+            if (e.Key == Key.E && btn != null)
+            {
+                if (btn.Content.Equals("Clear"))
+                    searchBox.Text = "";
+                else if (btn.Content.Equals("Space"))
+                    searchBox.Text += " ";
+                else if (btn.Content.Equals("Backspace"))
+                    searchBox.Text = searchBox.Text.Substring(0, searchBox.Text.Length - 1);
+            } 
+            else if (e.Key == Key.Right && btn == ((Grid)keypad.Children[0]).Children[2])
+            {
+                Console.WriteLine("what2");
+                keypad.Visibility = Visibility.Hidden;
+                scroll.Width += 270;
+                scroll.Margin = new Thickness();
+            }
+            
         }
     }
 }
