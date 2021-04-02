@@ -23,6 +23,7 @@ namespace Silver_HTPC
         private static List<Grid> MusicButtonsGrids = new List<Grid>();
         private int MusicIndex=0;
         private Button play;
+        private bool Switche = false;
 
 
         public Music()
@@ -55,40 +56,49 @@ namespace Silver_HTPC
         private void Music_GotFocus(object sender, RoutedEventArgs e)
         {
             Button thisButton = sender as Button;
-            //Console.WriteLine(thisButton.Name.ToString());
-            thisButton.Background = Brushes.Red;
-            thisButton.Height =60;
-            MusicButtonsGrids[MusicIndex].Height = 60;
-            
-            
-            play = new Button();
-            //play.Width = 60;
-            //play.Height = 45;
-            play.Name = "Play1";
-            play.Content = "Play";
-            play.Background = Brushes.Aqua; 
-            play.VerticalContentAlignment = VerticalAlignment.Center;
-            play.HorizontalContentAlignment = HorizontalAlignment.Left;
-            play.VerticalAlignment = VerticalAlignment.Bottom;
-            play.HorizontalAlignment = HorizontalAlignment.Left;
-            //play.KeyDown += Play_KeyDown;
-            play.GotFocus += Play_GotFocus;
-            play.LostFocus += Play_LostFocus;
-            Grid.SetColumn(play, 0);
-            //Grid.SetColumnSpan(play, 2);
-            Grid.SetRow(play, 1);
-            //Grid.SetRowSpan(play, 2);
+            Console.WriteLine(thisButton.Name.ToString());
+            thisButton.Height =80;
+            MusicButtonsGrids[MusicIndex].Height = 80;
 
-            MusicButtonsGrids[MusicIndex].Children.Add(play);
-            //Console.WriteLine(thisButton);
-            
+            if (Switche==false)
+            {
+                thisButton.Background = Brushes.Red;
+
+                play = new Button();
+                play.Width = 100;
+                play.Height = 30;
+                //play.Name = "Play1";
+                play.Content = "Play";
+                play.Background = Brushes.Aqua;
+                play.VerticalContentAlignment = VerticalAlignment.Top;
+                play.HorizontalContentAlignment = HorizontalAlignment.Left;
+                play.VerticalAlignment = VerticalAlignment.Bottom;
+                play.HorizontalAlignment = HorizontalAlignment.Left;
+                play.KeyDown += Play_KeyDown;
+                play.GotFocus += Play_GotFocus;
+                play.LostFocus += Play_LostFocus;
+                Grid.SetColumn(play, 1);
+                Grid.SetColumnSpan(play, 2);
+                Grid.SetRow(play, 0);
+                Grid.SetRowSpan(play, 1);
+
+                MusicButtonsGrids[MusicIndex].Children.Add(play);
+                //MusicButtonsGrids[MusicIndex].Children.Remove(play);
+                //Console.WriteLine(thisButton);
+            }
+            else
+            {
+                thisButton.Background = Brushes.White;
+            }
+            Switche = true;
+
         }
 
         private void Play_GotFocus(object sender, RoutedEventArgs e)
         {
             Button thisButton = sender as Button;
             Console.WriteLine("Here");
-            thisButton.Background = Brushes.Orange;
+            thisButton.Background = Brushes.Red;
             //MusicButtonsGrids[MusicIndex].Children.
             //play.back
            // ButtonGrid1.Children.Remove(play);
@@ -99,27 +109,48 @@ namespace Silver_HTPC
         private void Play_LostFocus(object sender, RoutedEventArgs e)
         {
             Button thisButton = sender as Button;
-            thisButton.Background = Brushes.White;
-            ButtonGrid1.Children.Remove(thisButton);
+            //thisButton.Background = Brushes.Black;
+            //ButtonGrid1.Children.Remove(thisButton);
+            Switche = false;
+            if (MusicIndex != 0)
+            {
+                MusicButtonsGrids[MusicIndex - 1].Children.Remove(thisButton);
+
+            }
+            else
+            {
+                MusicButtonsGrids[MusicButtonsGrids.Count-1].Children.Remove(thisButton);
+            }
+
+            if(MusicIndex!= MusicButtonsGrids.Count - 1)
+            {
+                MusicButtonsGrids[MusicIndex + 1].Children.Remove(thisButton);
+            }
+            else
+            {
+                MusicButtonsGrids[0].Children.Remove(thisButton);
+            }
         }
+            
+                
+            
+
+        
 
 
             private void Music_KeyDown(object sender, KeyEventArgs e)
-        {
-            for (int i = 0; i < MusicButtonsList.Count; i++)
             {
-                MusicButtonsList[i].Focusable = true;
-            }
+           // for (int i = 0; i < MusicButtonsList.Count; i++)
+           // {
+            //    MusicButtonsList[i].Focusable = true;
+            //}
             
             if (e.Key == Key.Down)
             {
-               // for (int i = 0; i < MusicButtonsList.Count; i++)
-                //{
-                 //   MusicButtonsList[i].Focusable = false;
-               // }
 
                 //play.Focus();
                 
+                /**
                 if (MusicIndex < MusicButtonsList.Count - 1)
                 {
                     MusicIndex += 1;
@@ -130,6 +161,9 @@ namespace Silver_HTPC
                     MusicIndex = 0;
                     Console.WriteLine("MusicIndex: " + MusicIndex);
                 }
+                **/
+                
+                
                 
             }
             
@@ -146,16 +180,7 @@ namespace Silver_HTPC
             }
             else if (e.Key == Key.Up)
             {
-                if (MusicIndex != 0)
-                {
-                    MusicIndex -= 1;
-                    Console.WriteLine("MusicIndex: " + MusicIndex);
-                }
-                else
-                {
-                    MusicIndex = MusicButtonsList.Count - 1;
-                    Console.WriteLine("MusicIndex: " + MusicIndex);
-                }
+                
             }
             /**
             int tempMusicIndex = MusicIndex + 1;
@@ -206,10 +231,10 @@ namespace Silver_HTPC
 
             if (e.Key == Key.Down)
             {
-                for (int i = 0; i < MusicButtonsList.Count; i++)
-                {
-                    MusicButtonsList[i].Focusable = true;
-                }
+               // for (int i = 0; i < MusicButtonsList.Count; i++)
+                //{
+                 //   MusicButtonsList[i].Focusable = true;
+               // }
 
                 if (MusicIndex < MusicButtonsList.Count - 1)
                 {
@@ -221,9 +246,22 @@ namespace Silver_HTPC
                     MusicIndex = 0;
                     Console.WriteLine("MusicIndexP: " + MusicIndex);
                 }
-                play.Focusable = false;
-                MusicButtonsGrids[MusicIndex].Children.Remove(play);
-                MusicButtonsList[MusicIndex].Focus();
+                //play.Focusable = false;
+                //MusicButtonsGrids[MusicIndex].Children.Remove(play);
+                //MusicButtonsList[MusicIndex].Focus();
+            }
+            else if(e.Key == Key.Up)
+            {
+                if (MusicIndex != 0)
+                {
+                    MusicIndex -= 1;
+                    Console.WriteLine("MusicIndex: " + MusicIndex);
+                }
+                else
+                {
+                    MusicIndex = MusicButtonsList.Count - 1;
+                    Console.WriteLine("MusicIndex: " + MusicIndex);
+                }
             }
             
 
@@ -258,6 +296,12 @@ namespace Silver_HTPC
             Button thisButton = sender as Button;
             thisButton.Background = Brushes.White;
             thisButton.Height = 44;
+        }
+        private void Button_GotFocus(object sender, RoutedEventArgs e)
+        {
+            Button thisButton = sender as Button;
+            thisButton.Background = Brushes.Red;
+            thisButton.Height = 60;
         }
     }
 }
