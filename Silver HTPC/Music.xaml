@@ -25,7 +25,7 @@
             </Label.OpacityMask>
         </Label>
         <TextBlock HorizontalAlignment="Left" Height="31" TextWrapping="Wrap" VerticalAlignment="Top" Width="196" RenderTransformOrigin="0.406,-0.589" FontFamily="Segoe UI Emoji" FontSize="24" Margin="635,342,-39,0"><Run Text="Free:"/><Run Text=" "/><Run Text="225.2GB"/></TextBlock>
-        <TextBlock Text="{Binding Source={x:Static System:DateTime.Now}, StringFormat=\{0:dddd\, MMMM dd\}}"  HorizontalAlignment="Right" Height="31" VerticalAlignment="Top" Width="296" RenderTransformOrigin="0.268,0.293" Background="{x:Null}" FontFamily="Segoe UI Black" FontSize="24" Margin="0,-6,-67,0" />
+        <TextBlock Text="{Binding Source={x:Static System:DateTime.Now}, StringFormat=\{0:dddd\, MMMM dd\}}" TextAlignment="Right"  HorizontalAlignment="Right" Height="31" VerticalAlignment="Top" Width="296" RenderTransformOrigin="0.268,0.293" Background="{x:Null}" FontFamily="Segoe UI Black" FontSize="24" Margin="0,-6,10,0" />
         <TextBlock Text="{Binding Source={x:Static System:DateTime.Now}, StringFormat=\{0:HH:mm\}}" HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="72" RenderTransformOrigin="0.268,0.293" Margin="720,20,0,0" Background="{x:Null}" FontFamily="Segoe UI Black" FontSize="24" />
         <Rectangle Fill="White" HorizontalAlignment="Left" Height="31" Margin="631,378,0,0" Stroke="Black" VerticalAlignment="Top" Width="151" RenderTransformOrigin="0.506,0.543"/>
         <Rectangle Fill="#FF00FF17" HorizontalAlignment="Left" Height="31" Margin="631,378,0,0" Stroke="Black" VerticalAlignment="Top" Width="13" RenderTransformOrigin="0.506,0.543"/>

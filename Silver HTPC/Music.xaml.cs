@@ -24,6 +24,8 @@ namespace Silver_HTPC
         private int MusicIndex=0;
         private Button play;
         private Button delete;
+        private bool DeleteFocused = false;
+        private bool PlayFocused = false;
         private bool Switche = false;
 
 
@@ -95,9 +97,9 @@ namespace Silver_HTPC
                 delete.HorizontalContentAlignment = HorizontalAlignment.Left;
                 delete.VerticalAlignment = VerticalAlignment.Bottom;
                 delete.HorizontalAlignment = HorizontalAlignment.Left;
-                delete.KeyDown += Play_KeyDown;
-                delete.GotFocus += Play_GotFocus;
-                delete.LostFocus += Play_LostFocus;
+                delete.KeyDown += Delete_KeyDown;
+                delete.GotFocus += Delete_GotFocus;
+                delete.LostFocus += Delete_LostFocus;
                 Grid.SetColumn(delete, 2);
                 Grid.SetColumnSpan(delete, 2);
                 Grid.SetRow(delete, 0);
@@ -119,17 +121,67 @@ namespace Silver_HTPC
             Button thisButton = sender as Button;
             Console.WriteLine("Here");
             thisButton.Background = Brushes.Red;
+            PlayFocused = true;
             //MusicButtonsGrids[MusicIndex].Children.
             //play.back
            // ButtonGrid1.Children.Remove(play);
             //MusicButtonsGrids[MusicIndex].Children.Remove(play);
             //MusicButtonsGrids[MusicIndex].Children()
         }
-
-        private void Play_LostFocus(object sender, RoutedEventArgs e)
+        private void Delete_GotFocus(object sender, RoutedEventArgs e)
         {
             Button thisButton = sender as Button;
-            //thisButton.Background = Brushes.Black;
+            Console.WriteLine("Here");
+            thisButton.Background = Brushes.Red;
+            DeleteFocused = true;
+            //MusicButtonsGrids[MusicIndex].Children.
+            //play.back
+            // ButtonGrid1.Children.Remove(play);
+            //MusicButtonsGrids[MusicIndex].Children.Remove(play);
+            //MusicButtonsGrids[MusicIndex].Children()
+        }
+        private void Delete_LostFocus(object sender, RoutedEventArgs e)
+        {
+            Button thisButton = sender as Button;
+            thisButton.Background = Brushes.Aqua;
+            DeleteFocused = false;
+            //ButtonGrid1.Children.Remove(thisButton);
+            if (MusicIndex != 0)
+            {
+                MusicButtonsGrids[MusicIndex - 1].Children.Remove(play);
+                MusicButtonsGrids[MusicIndex - 1].Children.Remove(delete);
+                //MusicButtonsGrids[MusicIndex - 1].Children.Remove((Button) FindName("Play1"));
+
+            }
+            else
+            {
+                MusicButtonsGrids[MusicButtonsGrids.Count - 1].Children.Remove(play);
+                MusicButtonsGrids[MusicButtonsGrids.Count - 1].Children.Remove(delete);
+
+                //MusicButtonsGrids[MusicButtonsGrids.Count - 1].Children.Remove((Button) FindName("Play1"));
+            }
+
+            if (MusicIndex != MusicButtonsGrids.Count - 1)
+            {
+                MusicButtonsGrids[MusicIndex + 1].Children.Remove(play);
+                MusicButtonsGrids[MusicIndex + 1].Children.Remove(delete);
+                // MusicButtonsGrids[MusicIndex + 1].Children.Remove((Button) FindName("Play1"));
+            }
+            else
+            {
+                MusicButtonsGrids[0].Children.Remove(play);
+                MusicButtonsGrids[0].Children.Remove(delete);
+                // MusicButtonsGrids[0].Children.Remove((Button) FindName("Play1"));
+
+            }
+
+        }
+
+            private void Play_LostFocus(object sender, RoutedEventArgs e)
+        {
+            Button thisButton = sender as Button;
+            thisButton.Background = Brushes.Aqua;
+            PlayFocused = false;
             //ButtonGrid1.Children.Remove(thisButton);
             if (MusicIndex != 0)
             {
@@ -171,10 +223,10 @@ namespace Silver_HTPC
 
             private void Music_KeyDown(object sender, KeyEventArgs e)
             {
-           // for (int i = 0; i < MusicButtonsList.Count; i++)
-           // {
-            //    MusicButtonsList[i].Focusable = true;
-            //}
+            for (int i = 0; i < MusicButtonsList.Count; i++)
+            {
+                MusicButtonsList[i].Focusable = true;
+            }
             
             if (e.Key == Key.Down)
             {
@@ -198,16 +250,19 @@ namespace Silver_HTPC
                 
             }
             
-            else if (e.Key == Key.Right && Switche)
+            else if (e.Key == Key.Right && !PlayFocused && !DeleteFocused)
             {
-               /**
+               
                 for(int i=0; i < MusicButtonsList.Count; i++)
                 {
                     MusicButtonsList[i].Focusable=false;
                 }
+                MusicButtonsGrids[MusicIndex].Children.Remove(play);
+                MusicButtonsGrids[MusicIndex].Children.Remove(delete);
+                Switche = false;
                 SortButton.Focus();
                 Console.WriteLine("MusicIndex: " + MusicIndex);
-               **/
+               
 
             }
             else if (e.Key == Key.Up)
@@ -255,6 +310,8 @@ namespace Silver_HTPC
                 MusicButtonsList[MusicIndex].Focusable = true;
                 MusicButtonsList[MusicIndex].Focus();
 
+                
+
             }
         }
         private void Play_KeyDown(object sender, KeyEventArgs e)
@@ -300,13 +357,93 @@ namespace Silver_HTPC
             
 
         }
+        private void Delete_KeyDown(object sender, KeyEventArgs e)
+        {
+            Console.WriteLine("Delete_KEYDOWN");
 
-            private void Music_LostFocus(object sender, RoutedEventArgs e)
+            if (e.Key == Key.Down)
+            {
+                // for (int i = 0; i < MusicButtonsList.Count; i++)
+                //{
+                //   MusicButtonsList[i].Focusable = true;
+                // }
+
+                if (MusicIndex < MusicButtonsList.Count - 1)
+                {
+                    MusicIndex += 1;
+                    Console.WriteLine("MusicIndexP: " + MusicIndex);
+                }
+                else
+                {
+                    MusicIndex = 0;
+                    Console.WriteLine("MusicIndexP: " + MusicIndex);
+                }
+                //play.Focusable = false;
+                //MusicButtonsGrids[MusicIndex].Children.Remove(play);
+                //MusicButtonsList[MusicIndex].Focus();
+                Switche = false;
+            }
+            else if (e.Key == Key.Up)
+            {
+                if (MusicIndex != 0)
+                {
+                    MusicIndex -= 1;
+                    Console.WriteLine("MusicIndex: " + MusicIndex);
+                }
+                else
+                {
+                    MusicIndex = MusicButtonsList.Count - 1;
+                    Console.WriteLine("MusicIndex: " + MusicIndex);
+                }
+                Switche = false;
+            }
+            else if (e.Key == Key.Right)
+            {
+                SortButton.Focus();
+                for (int i = 0; i < MusicButtonsList.Count; i++)
+                {
+                    MusicButtonsList[i].Focusable = false;
+                }
+                MusicButtonsGrids[MusicIndex].Children.Remove(play);
+                MusicButtonsGrids[MusicIndex].Children.Remove(delete);
+                Switche = false;
+                Console.WriteLine("MusicIndex: " + MusicIndex);
+
+
+            }
+
+
+        }
+
+        private void Music_LostFocus(object sender, RoutedEventArgs e)
         {
             Button thisButton = sender as Button;
             thisButton.Background = Brushes.White;
             thisButton.Height = 50;
             MusicButtonsGrids[MusicIndex].Height = 50;
+            if (MusicIndex != 0)
+            {
+                MusicButtonsGrids[MusicIndex - 1].Height = 50;
+                
+            }
+            else
+            {
+                MusicButtonsGrids[MusicButtonsGrids.Count-1].Height = 50;
+                MusicButtonsGrids[MusicIndex + 1].Height = 50;
+            }
+
+            if(MusicIndex < MusicButtonsGrids.Count - 1)
+            {
+                MusicButtonsGrids[MusicIndex + 1].Height = 50;
+            }
+            else
+            {
+                MusicButtonsGrids[0].Height = 50;
+            }
+
+          
+            //MusicButtonsList[MusicIndex].Focusable = false;
+            Console.WriteLine("LostMusicFocus " + MusicIndex);
 
             /**
             if (MusicIndex!=0 && MusicIndex < MusicButtonsList.Count - 1)
