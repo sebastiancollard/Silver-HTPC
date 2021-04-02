@@ -713,10 +713,10 @@ namespace Silver_HTPC
             if (e.Key == Key.E && btn != null)
                 searchBox.Text += btn.Content;
             else if (e.Key == Key.Right &&
-                btn == ((Grid)keypad.Children[1]).Children[5] ||
+                (btn == ((Grid)keypad.Children[1]).Children[5] ||
                 btn == ((Grid)keypad.Children[1]).Children[11] ||
                 btn == ((Grid)keypad.Children[1]).Children[17] ||
-                btn == ((Grid)keypad.Children[1]).Children[23])
+                btn == ((Grid)keypad.Children[1]).Children[23]) && stack.Children.Count > 0)
             {
                 Console.WriteLine("what");
                 keypad.Visibility = Visibility.Hidden;
