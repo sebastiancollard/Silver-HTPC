@@ -19,7 +19,9 @@ namespace Silver_HTPC
     /// </summary>
     public partial class OtherApplications : Window
     {
-        public static string[,] content; 
+        public static string[,] content;
+        public List<Button> buttonList=new List<Button>();
+        private static int selectedIndex=0;
     public OtherApplications()
         {
             InitializeComponent();
@@ -64,8 +66,8 @@ namespace Silver_HTPC
                 lbl.FontSize = 20;
                 stackPanelBtn.Children.Add(lbl);
                 btn.Content = stackPanelBtn;
-
-
+                buttonList.Add(btn);
+                //btn.Focusable = true;
                 Grid.SetColumn(btn, currColumn);
                 Grid.SetRow(btn, currRow);
                 grid.Children.Add(btn);
@@ -82,12 +84,154 @@ namespace Silver_HTPC
                 }
             }
             Other_StackPanel.Children.Add(grid);
+            //setButtonFocus(selectedIndex);
+            //grid.Focus();
+            foreach (Button btn in buttonList)
+                btn.KeyDown += select;
+           
+
+        }
+
+        private void select(object sender, KeyEventArgs e)
+        {
+            MessageBox.Show("create one");
+            var btn = sender as Button;
+            //btn.Background = Brushes.Black;
+            //if (e.Key == Key.Enter)
+            //{
+            //  if (btn.Equals(buttonList[1]))
+            //{
+            Console.WriteLine("reached");
+            btn.Background = Brushes.Green;
+            btn.BorderBrush = Brushes.Red;
+            //}
+            //}
+
         }
 
 
-        private void munu_button11_Click(object sender, RoutedEventArgs e)
+
+        //FOLLOWING CODE IS NOT BEING USED******************************************
+        public void setButtonFocus(int button_index)
+        {
+            //currentButtonSelectionIndex = button_index;
+            Button button = buttonList[button_index];
+            button.Background = Brushes.DarkBlue;
+            //if (button_index != 9) //not profile button
+            //{
+            
+            button.Foreground = Brushes.White;
+            //button.Focus();
+            //button.Height *= 1.2;
+
+        }
+        public void resetButtonFocus(int button_index)
+        {
+            Button button = buttonList[button_index];
+            button.ClearValue(Button.BackgroundProperty);
+            button.ClearValue(Button.ForegroundProperty);
+            //if (button_index != 9)
+            //{
+            
+            //}
+
+            //button.Height /= 1.2;
+        }
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            /*switch (e.Key)
+            {
+                case Key.Right:
+                    if ((selectedIndex % 3) != 2)
+                    {
+                        resetButtonFocus(selectedIndex);
+                        selectedIndex = (selectedIndex + 1) % buttonList.Count;
+                        setButtonFocus(selectedIndex);
+                    }
+
+                    break;
+                case Key.Left:
+                    if ((selectedIndex % 3) != 0)
+                    {
+                        resetButtonFocus(selectedIndex);
+                        selectedIndex = (selectedIndex - 1) % buttonList.Count;
+                        setButtonFocus(selectedIndex);
+                    }
+
+                    break;
+                case Key.Down:
+                    //if (selectedIndex == buttonList.Count-1)
+                    //{
+                        //resetButtonFocus(selectedIndex);
+                        //selectedIndex = 0;
+                        //setButtonFocus(selectedIndex);
+                    //}
+                    //else if (selectedIndex < 6)
+                    //{
+                        resetButtonFocus(selectedIndex);
+                        selectedIndex = (selectedIndex + 3) % buttonList.Count;
+                        setButtonFocus(selectedIndex);
+                    //}
+
+                    break;
+                case Key.Up:
+                    if (selectedIndex >= 3 && selectedIndex != 9)
+                    {
+                        resetButtonFocus(selectedIndex);
+                        selectedIndex = (selectedIndex - 3) % 9;
+                        setButtonFocus(selectedIndex);
+                    }
+                    else
+                    {
+                        resetButtonFocus(selectedIndex);
+                        selectedIndex = 9;
+                        setButtonFocus(selectedIndex);
+                    }
+                    break;
+                default:
+                    break;
+            }*/
+            if (e.Key == Key.Back)
+            {
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.Show();
+                this.Close();
+            }
+            
+        }
+        private void OnGotFocusHandler(object sender, RoutedEventArgs e)
+        {
+            Button tb = sender as Button;
+            tb.Background = Brushes.Red;
+            //buttonList[selectedIndex].KeyDown += KeyDown;
+            //buttonList[selectedIndex].GotFocus += GotFocus;
+            //buttonList[selectedIndex].LostFocus += LostFocus;
+        }
+        // Raised when Button losses focus.
+        // Changes the color of the Button back to white.
+        private void OnLostFocusHandler(object sender, RoutedEventArgs e)
+        {
+            Button tb = sender as Button;
+            tb.Background = Brushes.White;
+        }
+        
+        /*private void munu_button11_Click(object sender, RoutedEventArgs e)
         {
 
         }
+
+        private void OtherApplications_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Right)
+            {
+                if ((selectedIndex % 3) != 2)
+                {
+                    selectedIndex += 1;
+                    buttonList[selectedIndex].Focus();
+                }
+            }
+        }*/
+
+       
     }
 }

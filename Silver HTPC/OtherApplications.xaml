@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Silver_HTPC"
         mc:Ignorable="d"
-        Title="OtherApplications" Height="450" Width="800">
+        Title="OtherApplications" Height="450" Width="800" KeyDown="Window_KeyDown">
     <Window.Background>
         <LinearGradientBrush EndPoint="0,1" StartPoint="1,0">
             <GradientStop Color="Black" Offset="1"/>
@@ -13,7 +13,7 @@
         </LinearGradientBrush>
     </Window.Background>
     <Grid>
-        <ScrollViewer Margin="0,49,0,0">
+        <ScrollViewer Margin="0,49,0,0" VerticalScrollBarVisibility="Hidden">
             <StackPanel x:Name="Other_StackPanel">
                                    
                 
