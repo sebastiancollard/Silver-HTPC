@@ -48,11 +48,18 @@ namespace Silver_HTPC
             { listbox2item1, listbox2item2, listbox2item3, listbox2item4, listbox2item5, listbox2item6, listbox2item7, listbox2item8 }
             };
 
+            List_boxes[0].SelectedIndex = 0;
+            List_boxes[1].SelectedIndex = 0;
+            List_boxes[2].SelectedIndex = 0;
 
             lb = List_boxes[0];
-            lb.SelectedIndex = 0;
             lb.Focus();
+
             
+            
+
+
+
 
 
 

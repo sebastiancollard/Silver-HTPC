@@ -12,7 +12,7 @@
             <ColumnDefinition Width="3*" />
         </Grid.ColumnDefinitions>
         <Image x:Name="image1" Stretch="UniformToFill" HorizontalAlignment="Left" Height="419" VerticalAlignment="Top" Width="792" Grid.ColumnSpan="2"/>
-        <StackPanel x:Name ="stackpanel" Grid.Column="0">
+        <StackPanel x:Name ="stackpanel" Grid.Column="0" Margin="-400, 0, 400, 0">
             <StackPanel.Background>
                 <LinearGradientBrush EndPoint="1,1" StartPoint="0,1" Opacity="0.8">
                     <GradientStop Color="Black" Offset="0"/>

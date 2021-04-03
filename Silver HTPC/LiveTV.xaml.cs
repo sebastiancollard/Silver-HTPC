@@ -20,7 +20,7 @@ namespace Silver_HTPC
     public partial class LiveTV : Window
     {
 
-        bool hidden;
+        bool hidden = true;
         StackPanel sidemenu;
 
         public LiveTV(int x)

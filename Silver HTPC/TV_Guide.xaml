@@ -19,7 +19,7 @@
                 <Label Content="Recommendations / Continue watching" Height="40" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="15"  Grid.ColumnSpan="2"/>
 
                 <StackPanel HorizontalAlignment="Left" Height="89" VerticalAlignment="Top" Width="792" Orientation="Horizontal" Grid.ColumnSpan="2" >
-                    <ListBox x:Name="listbox1" Width="791" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                    <ListBox x:Name="listbox1" Width="791" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Disabled">
                         <ListBox.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <VirtualizingStackPanel IsItemsHost="True" Orientation="Horizontal"/>
@@ -84,7 +84,7 @@
                 <Label Content="Explore" HorizontalAlignment="Left"  Height="40" VerticalContentAlignment="Bottom" VerticalAlignment="Top" FontSize="15" />
 
                 <StackPanel HorizontalAlignment="Left" Height="90" VerticalAlignment="Top" Width="792" Orientation="Horizontal" Grid.ColumnSpan="2" >
-                    <ListBox x:Name="listbox2" Width="791" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                    <ListBox x:Name="listbox2" Width="791" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Disabled">
                         <ListBox.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <VirtualizingStackPanel IsItemsHost="True" Orientation="Horizontal"/>
@@ -156,7 +156,7 @@
                 <Label Content="Sports" HorizontalAlignment="Left" VerticalAlignment="Top" Height="40" VerticalContentAlignment="Bottom" FontSize="15"/>
 
                 <StackPanel HorizontalAlignment="Left" Height="89" VerticalAlignment="Top" Width="792" Orientation="Horizontal">
-                    <ListBox x:Name="listbox3" Width="791" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                    <ListBox x:Name="listbox3" Width="791" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Disabled">
                         <ListBox.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <VirtualizingStackPanel IsItemsHost="True" Orientation="Horizontal"/>
