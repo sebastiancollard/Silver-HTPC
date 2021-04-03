@@ -20,8 +20,7 @@ namespace Silver_HTPC
     /// </summary>
     public partial class Search : Window
     {
-        static List<Grid> Results = new List<Grid>();
-        static List<string> searches = new List<string> { "inception", "spidermanfarfromehome", "spidermanintothespiderverse", "spidermanhomecoming", "theamazingspiderman2", "theamazingspiderman", "spiderman3", "spiderman2", "spiderman" };
+        List<Grid> Results = new List<Grid>();
         const int WIDTH = 100;
         const int HEIGHT = 200;
         bool isResultsOnScreen = false;
@@ -547,7 +546,7 @@ namespace Silver_HTPC
 
             if (filterVal.Equals("all"))
             {
-                foreach (var res in Results)
+                foreach (Grid res in Results)
                 {
                     if (RemoveSpecialCharacters(res.Name.ToLower()).Contains(RemoveSpecialCharacters(searchBox.Text)))
                     {
@@ -621,7 +620,6 @@ namespace Silver_HTPC
 
                 if (keypad.Visibility == Visibility.Hidden)
                 {
-                    Console.WriteLine("???");
                     filter.Visibility = Visibility.Hidden;
                     keypad.Visibility = Visibility.Visible;
                     scroll.Width -= 270;
@@ -631,7 +629,6 @@ namespace Silver_HTPC
                 }
                 else if (keypad.Visibility == Visibility.Visible && update)
                 {
-                    Console.WriteLine("??");
                     filter.Visibility = Visibility.Visible;
                     keypad.Visibility = Visibility.Hidden;
                     scroll.Width += 270;
@@ -639,7 +636,7 @@ namespace Silver_HTPC
                     if (stack.Children.Count > 0)
                         ((Grid)stack.Children[1]).Children[1].Focus();
                 }
-                update = true;
+                else update = true;
             }
             /**else if (e.Key == Key.Back && keypad.Visibility == Visibility.Visible)
             {
@@ -674,7 +671,7 @@ namespace Silver_HTPC
 
             if (filterVal.Equals("all"))
             {
-                foreach (var res in Results)
+                foreach (Grid res in Results)
                 {
                     if (searchBox != null && RemoveSpecialCharacters(res.Name.ToLower()).Contains(RemoveSpecialCharacters(searchBox.Text)))
                     {
@@ -717,7 +714,7 @@ namespace Silver_HTPC
                 btn == ((Grid)keypad.Children[1]).Children[17] ||
                 btn == ((Grid)keypad.Children[1]).Children[23]) && stack.Children.Count > 0)
             {
-                Console.WriteLine("what");
+                filter.Visibility = Visibility.Visible;
                 keypad.Visibility = Visibility.Hidden;
                 scroll.Width += 270;
                 scroll.Margin = new Thickness();
@@ -738,7 +735,7 @@ namespace Silver_HTPC
             } 
             else if (e.Key == Key.Right && btn == ((Grid)keypad.Children[0]).Children[2])
             {
-                Console.WriteLine("what2");
+                filter.Visibility = Visibility.Visible;
                 keypad.Visibility = Visibility.Hidden;
                 scroll.Width += 270;
                 scroll.Margin = new Thickness();

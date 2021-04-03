@@ -87,14 +87,17 @@ namespace Silver_HTPC
             //setButtonFocus(selectedIndex);
             //grid.Focus();
             foreach (Button btn in buttonList)
-                btn.KeyDown += select;
-           
+            {
+                btn.GotFocus += select;
+                btn.LostFocus += nselect;
+            }
 
+            ((Grid)Other_StackPanel.Children[0]).Children[0].Focus();
         }
 
-        private void select(object sender, KeyEventArgs e)
+        private void select(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("create one");
+            //MessageBox.Show("create one");
             var btn = sender as Button;
             //btn.Background = Brushes.Black;
             //if (e.Key == Key.Enter)
@@ -106,7 +109,15 @@ namespace Silver_HTPC
             btn.BorderBrush = Brushes.Red;
             //}
             //}
+            scroll.ScrollToVerticalOffset(btn.TranslatePoint(new Point(), Other_StackPanel).Y - 150);
 
+        }
+
+        private void nselect(object sender, RoutedEventArgs e)
+        {
+            var btn = sender as Button;
+            btn.Background = Brushes.LightGray;
+            btn.BorderBrush = Brushes.Transparent;
         }
 
 
