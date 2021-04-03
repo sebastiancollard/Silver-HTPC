@@ -228,6 +228,7 @@ namespace Silver_HTPC
             Button thisButton = sender as Button;
             thisButton.Background = Brushes.Aqua;
             PlayFocused = false;
+            Console.WriteLine("MusicIndexL" + MusicIndex);
             //ButtonGrid1.Children.Remove(thisButton);
             if (MusicIndex != 0)
             {
@@ -238,12 +239,12 @@ namespace Silver_HTPC
             }
             else
             {
-                 MusicButtonsGrids[MusicButtonsGrids.Count-1].Children.Remove(play);
+                MusicButtonsGrids[MusicButtonsGrids.Count-1].Children.Remove(play);
                 MusicButtonsGrids[MusicButtonsGrids.Count - 1].Children.Remove(delete);
 
                 //MusicButtonsGrids[MusicButtonsGrids.Count - 1].Children.Remove((Button) FindName("Play1"));
             }
-
+            
             if(MusicIndex!= MusicButtonsGrids.Count - 1)
             {
                 MusicButtonsGrids[MusicIndex + 1].Children.Remove(play);
@@ -257,6 +258,7 @@ namespace Silver_HTPC
                 // MusicButtonsGrids[0].Children.Remove((Button) FindName("Play1"));
 
             }
+            
 
             
         }
@@ -402,7 +404,7 @@ namespace Silver_HTPC
                     MusicIndex = MusicButtonsList.Count - 1;
                     Console.WriteLine("MusicIndex: " + MusicIndex);
                 }
-                //Switche = false;
+                Switche = false;
             }
             
 
@@ -485,14 +487,14 @@ namespace Silver_HTPC
                 //MusicButtonsGrids[MusicIndex + 1].Height = 50;
             }
 
-            //if(MusicIndex < MusicButtonsGrids.Count - 1)
-            //{
-             //   MusicButtonsGrids[MusicIndex + 1].Height = 50;
-            //}
-            //else
-            //{
-             //   MusicButtonsGrids[0].Height = 50;
-            //}
+            if (MusicIndex < MusicButtonsGrids.Count - 1)
+            {
+                MusicButtonsGrids[MusicIndex + 1].Height = 50;
+            }
+            else
+            {
+                MusicButtonsGrids[0].Height = 50;
+            }
             
             //Switche = false;
 
