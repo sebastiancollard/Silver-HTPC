@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+
 namespace Silver_HTPC
 {
     /// <summary>
@@ -27,12 +28,14 @@ namespace Silver_HTPC
         private bool DeleteFocused = false;
         private bool PlayFocused = false;
         private bool Switche = false;
+        
 
 
         public Music()
         {
             InitializeComponent();
-
+            
+            
             MusicButtonsList.Add(music1);
             MusicButtonsList.Add(music2);
             MusicButtonsList.Add(music3);
@@ -42,8 +45,8 @@ namespace Silver_HTPC
             MusicButtonsGrids.Add(ButtonGrid2);
             MusicButtonsGrids.Add(ButtonGrid3);
             MusicButtonsGrids.Add(ButtonGrid4);
-
-            MusicButtonsList[MusicIndex].Focus();
+            // https://stackoverflow.com/questions/43676458/set-focus-on-passwordbox-when-application-starts
+            this.Loaded += new RoutedEventHandler(Login_Focus);
             Console.WriteLine("dada");
 
          
@@ -55,17 +58,21 @@ namespace Silver_HTPC
 
         }
 
+        void Login_Focus(object sender , RoutedEventArgs e)
+        {
+            MusicButtonsList[MusicIndex].Focus();
+        }
+
         // https://docs.microsoft.com/en-us/dotnet/desktop/wpf/advanced/how-to-change-the-color-of-an-element-using-focus-events?view=netframeworkdesktop-4.8
         private void Music_GotFocus(object sender, RoutedEventArgs e)
         {
             Button thisButton = sender as Button;
-            Console.WriteLine(thisButton.Name.ToString());
+            Console.WriteLine(thisButton.Name.ToString() + Switche);
             thisButton.Height =80;
             MusicButtonsGrids[MusicIndex].Height = 80;
-
             if (Switche==false)
             {
-                thisButton.Background = Brushes.Red;
+                thisButton.Background = Brushes.Aqua;
 
                 play = new Button();
                 play.Width = 100;
@@ -84,8 +91,25 @@ namespace Silver_HTPC
                 Grid.SetColumnSpan(play, 2);
                 Grid.SetRow(play, 0);
                 Grid.SetRowSpan(play, 1);
-
+                //play.IsEnabled = true;
+                //play.Focus();
                 MusicButtonsGrids[MusicIndex].Children.Add(play);
+
+               // KeyEventArgs args = new KeyEventArgs(Keyboard.PrimaryDevice,
+
+                //Keyboard.PrimaryDevice.ActiveSource, 0, Key.Down);
+
+                //args.RoutedEvent = Keyboard.KeyDownEvent;
+
+                //InputManager.Current.ProcessInput(args);
+
+
+                //MusicButtonsGrids[MusicIndex].Children.
+                //InputSimulator = new InputSimilator();
+
+                //MusicButtonsList[MusicIndex].Focusable = false;
+
+
 
                 delete = new Button();
                 delete.Width = 100;
@@ -106,20 +130,42 @@ namespace Silver_HTPC
                 Grid.SetRowSpan(delete, 1);
 
                 MusicButtonsGrids[MusicIndex].Children.Add(delete);
-                //Console.WriteLine(thisButton);
+                Console.WriteLine("a");
+                //System.Threading.Thread.Sleep(1000);
+                Switche = true;
+                //MusicButtonsList[MusicIndex].Focusable = false;
+                play.Focus();
+                //Keyboard.ClearFocus();
+                //MusicButtonsList[MusicIndex].Focusable = true;
+                //Switche = true;
+
             }
             else
             {
                 thisButton.Background = Brushes.White;
+                
             }
             Switche = true;
+
+            //StackOverFlow???
+            //if (Switche == false)
+            // {
+            //Keyboard.Focus(play);
+            //}
+
+            //Switche = true;
+            //Console.WriteLine("Switche" + Switche);
+
+
+
+
 
         }
 
         private void Play_GotFocus(object sender, RoutedEventArgs e)
         {
             Button thisButton = sender as Button;
-            Console.WriteLine("Here");
+            //Console.WriteLine("Here");
             thisButton.Background = Brushes.Red;
             PlayFocused = true;
             //MusicButtonsGrids[MusicIndex].Children.
@@ -206,11 +252,13 @@ namespace Silver_HTPC
             }
             else
             {
-                  MusicButtonsGrids[0].Children.Remove(play);
+                MusicButtonsGrids[0].Children.Remove(play);
                 MusicButtonsGrids[0].Children.Remove(delete);
                 // MusicButtonsGrids[0].Children.Remove((Button) FindName("Play1"));
 
             }
+
+            
         }
 
        
@@ -223,10 +271,11 @@ namespace Silver_HTPC
 
             private void Music_KeyDown(object sender, KeyEventArgs e)
             {
-            for (int i = 0; i < MusicButtonsList.Count; i++)
-            {
-                MusicButtonsList[i].Focusable = true;
-            }
+           // for (int i = 0; i < MusicButtonsList.Count; i++)
+           // {
+           //     MusicButtonsList[i].Focusable = false;
+            //}
+            
             
             if (e.Key == Key.Down)
             {
@@ -308,7 +357,8 @@ namespace Silver_HTPC
                 
                 Console.WriteLine("MusicIndex Left: " + MusicIndex);
                 MusicButtonsList[MusicIndex].Focusable = true;
-                MusicButtonsList[MusicIndex].Focus();
+                //MusicButtonsList[MusicIndex].Focus();
+                this.Loaded += new RoutedEventHandler(Login_Focus);
 
                 
 
@@ -352,7 +402,7 @@ namespace Silver_HTPC
                     MusicIndex = MusicButtonsList.Count - 1;
                     Console.WriteLine("MusicIndex: " + MusicIndex);
                 }
-                Switche = false;
+                //Switche = false;
             }
             
 
@@ -421,29 +471,34 @@ namespace Silver_HTPC
             thisButton.Background = Brushes.White;
             thisButton.Height = 50;
             MusicButtonsGrids[MusicIndex].Height = 50;
+            //Console.WriteLine(MusicIndex + "a");
             if (MusicIndex != 0)
             {
                 MusicButtonsGrids[MusicIndex - 1].Height = 50;
+               // MusicIndex += 1;
                 
             }
             else
             {
                 MusicButtonsGrids[MusicButtonsGrids.Count-1].Height = 50;
-                MusicButtonsGrids[MusicIndex + 1].Height = 50;
+                //MusicIndex = 0;
+                //MusicButtonsGrids[MusicIndex + 1].Height = 50;
             }
 
-            if(MusicIndex < MusicButtonsGrids.Count - 1)
-            {
-                MusicButtonsGrids[MusicIndex + 1].Height = 50;
-            }
-            else
-            {
-                MusicButtonsGrids[0].Height = 50;
-            }
+            //if(MusicIndex < MusicButtonsGrids.Count - 1)
+            //{
+             //   MusicButtonsGrids[MusicIndex + 1].Height = 50;
+            //}
+            //else
+            //{
+             //   MusicButtonsGrids[0].Height = 50;
+            //}
+            
+            //Switche = false;
 
-          
+
             //MusicButtonsList[MusicIndex].Focusable = false;
-            Console.WriteLine("LostMusicFocus " + MusicIndex);
+            //Console.WriteLine("LostMusicFocus " + MusicIndex); Stack overflow
 
             /**
             if (MusicIndex!=0 && MusicIndex < MusicButtonsList.Count - 1)
