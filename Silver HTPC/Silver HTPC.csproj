@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="LiveTV.xaml.cs">
+      <DependentUpon>LiveTV.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Music.xaml.cs">
       <DependentUpon>Music.xaml</DependentUpon>
     </Compile>
@@ -68,6 +71,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+
+    <Page Include="LiveTV.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  
     <Page Include="OtherApplications.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -390,6 +398,60 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Image\spiderman_OST.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\conviction.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\sherlock.png" />
+    <Resource Include="Image\topgear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\sherlock_live.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\topgear_live.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\tsn_logo.png" />
+    <Resource Include="Image\tsn_show.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\espn_logo.png" />
+    <Resource Include="Image\espn_show.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\nbcgolf_show.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\nbcgolf_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\tsn_show2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\fox_sports_logo.png" />
+    <Resource Include="Image\fox_sports_show.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\greys_anatomy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\ctv_logo.png" />
+    <Resource Include="Image\masterchef.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\shark_tank.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\the_nest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\espn_show3.png" />
+    <Resource Include="Image\tsn_show3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\espn_show2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
