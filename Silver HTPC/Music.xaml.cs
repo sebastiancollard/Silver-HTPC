@@ -22,6 +22,7 @@ namespace Silver_HTPC
     {
         private static List<Button> MusicButtonsList = new List<Button>();
         private static List<Grid> MusicButtonsGrids = new List<Grid>();
+        private static List<String> CoverPhotosList = new List<String>();
         private int MusicIndex=0;
         private Button play;
         private Button delete;
@@ -45,6 +46,11 @@ namespace Silver_HTPC
             MusicButtonsGrids.Add(ButtonGrid2);
             MusicButtonsGrids.Add(ButtonGrid3);
             MusicButtonsGrids.Add(ButtonGrid4);
+
+            CoverPhotosList.Add("Image/PokerFace.png");
+            CoverPhotosList.Add("Image/WalkTheLine.jpg");
+            CoverPhotosList.Add("Image/helpBeatles.jpg");
+            CoverPhotosList.Add("Image/inmylifeBeatles.jpg");
             // https://stackoverflow.com/questions/43676458/set-focus-on-passwordbox-when-application-starts
             this.Loaded += new RoutedEventHandler(Login_Focus);
             Console.WriteLine("dada");
@@ -87,6 +93,7 @@ namespace Silver_HTPC
                 play.KeyDown += Play_KeyDown;
                 play.GotFocus += Play_GotFocus;
                 play.LostFocus += Play_LostFocus;
+                play.KeyUp += Play_KeyUp;
                 Grid.SetColumn(play, 1);
                 Grid.SetColumnSpan(play, 2);
                 Grid.SetRow(play, 0);
@@ -408,8 +415,38 @@ namespace Silver_HTPC
             }
             
 
+
+
         }
-        private void Delete_KeyDown(object sender, KeyEventArgs e)
+        private void Play_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                Console.WriteLine("Paste Image");
+                Image CoverPhoto = new Image();
+                CoverPhoto.Source = new BitmapImage(new Uri(CoverPhotosList[MusicIndex], UriKind.RelativeOrAbsolute));
+                CoverPhoto.Width = 180;
+                CoverPhoto.Height = 140;
+                CoverPhoto.VerticalAlignment = VerticalAlignment.Stretch;
+                CoverPhoto.HorizontalAlignment = HorizontalAlignment.Stretch;
+                CoverPhoto.Stretch = Stretch.Uniform;
+                //Grid.SetRow(CoverPhoto, 0);
+                //Grid.SetColumn(CoverPhoto ,0);
+                Cover.Children.Clear();
+
+                Border br = new Border();
+                br.BorderBrush = Brushes.Black;
+                br.BorderThickness = new Thickness(1);
+                br.Child = CoverPhoto;
+                
+                Cover.Children.Add(br);
+                // new BitmapImage(new Uri(@"pack://application:,,,/Image/spotify-download-logo.png", UriKind.RelativeOrAbsolute));
+            }
+
+        }
+
+
+            private void Delete_KeyDown(object sender, KeyEventArgs e)
         {
             Console.WriteLine("Delete_KEYDOWN");
 
