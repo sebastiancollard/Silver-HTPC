@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:System="clr-namespace:System;assembly=mscorlib" 
         xmlns:local="clr-namespace:Silver_HTPC"
         mc:Ignorable="d"
         Title="Search" Height="450" Width="800" KeyDown="Window_KeyDown">
@@ -61,11 +62,11 @@
                 <GradientStop Color="White"/>
             </LinearGradientBrush>
         </Canvas.Background>
-        <ScrollViewer x:Name="scroll" HorizontalAlignment="Left" Height="348"  VerticalAlignment="Top" Width="792" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Visible" Canvas.Top="61">
+        <ScrollViewer x:Name="scroll"  HorizontalAlignment="Right" Height="348" Width="792" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Visible" Canvas.Top="61" RenderTransformOrigin="0,-0.5">
             <StackPanel x:Name="stack"  Orientation="Horizontal">
             </StackPanel>
         </ScrollViewer>
-        <ComboBox x:Name="filter" HorizontalAlignment="Left" Margin="609,46,0,0" VerticalAlignment="Top" Width="120" Height="43" IsReadOnly="True" IsSynchronizedWithCurrentItem="False" SelectedIndex="0">
+        <ComboBox x:Name="filter" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="43" IsReadOnly="True" IsSynchronizedWithCurrentItem="False" SelectedIndex="0" SelectionChanged="filter_SelectionChanged" Canvas.Left="164" Canvas.Top="58">
             <ComboBoxItem Content="All" HorizontalAlignment="Left" RenderTransformOrigin="0.5,0.5"/>
             <ComboBoxItem Content="Live TV"/>
             <ComboBoxItem Content="Movies/Shows"/>
@@ -73,12 +74,83 @@
             <ComboBoxItem Content="Photos/Videos"/>
             <ComboBoxItem Content="Recordings"/>
         </ComboBox>
-        <Button HorizontalAlignment="Left" Margin="35,46,0,0" VerticalAlignment="Top" Width="52" Height="43">
-            <Image Source="search--v2.png" HorizontalAlignment="Left" Height="43" VerticalAlignment="Top" Width="42"/>
-        </Button>
-        <TextBox x:Name="searchBox" Height="43" Margin="87,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="471" HorizontalAlignment="Left" Foreground="Black" TextChanged="TextBox_TextChanged" KeyDown="SearchBar_KeyDown"/>
+        <TextBox x:Name="searchBox" Focusable="False" Height="43" TextWrapping="Wrap" VerticalAlignment="Top" Width="493" HorizontalAlignment="Left" Foreground="Black" TextChanged="TextBox_TextChanged" Canvas.Top="58" Canvas.Left="289"/>
         <Label Canvas.Left="404" Canvas.Top="10"/>
         <Button x:Name="dummy" Content="Button" Canvas.Top="-149" Width="75" Background="#00DDDDDD" BorderBrush="#00707070" Foreground="#00000000"/>
+        <Image HorizontalAlignment="Left" Height="50" Margin="0,1,0,0" VerticalAlignment="Top" Width="58" RenderTransformOrigin="0.148,-0.221" Source="Image/search_icon.jpg" />
+        <Label x:Name="Recording_Label" Content="Search" Height="74" Width="220" RenderTransformOrigin="0.22,1.006" FontFamily="Segoe UI Black" FontSize="36" Margin="58,0,0,0" Cursor="None" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="Black"/>
+
+        <DockPanel Height="325" x:Name="keypad" Width="264" LastChildFill="True" Canvas.Top="58" Canvas.Left="20" KeyDown="KeyPad_KeyDown">
+            <Grid DockPanel.Dock="Top" Canvas.Left="447" Canvas.Top="-99" Height="48">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*" />
+                </Grid.RowDefinitions>
+                <Button Grid.Row="2" KeyDown="KeyPad_KeyDown2">Clear</Button>
+                <Button Grid.Column="1" Grid.Row="2" KeyDown="KeyPad_KeyDown2">Space</Button>
+                <Button Grid.Column="2" Grid.Row="2" KeyDown="KeyPad_KeyDown2">Backspace</Button>
+            </Grid>
+            <Grid DockPanel.Dock="Top" Canvas.Left="248" Canvas.Top="174" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="2*" />
+                </Grid.RowDefinitions>
+                <Button Grid.Row="0" KeyDown="KeyPad_KeyDown">a</Button>
+                <Button Grid.Column="1" Grid.Row="0" KeyDown="KeyPad_KeyDown">b</Button>
+                <Button Grid.Column="2" Grid.Row="0" KeyDown="KeyPad_KeyDown">c</Button>
+                <Button Grid.Column="3" Grid.Row="0" KeyDown="KeyPad_KeyDown">d</Button>
+                <Button Grid.Column="4" Grid.Row="0" KeyDown="KeyPad_KeyDown">e</Button>
+                <Button Grid.Column="5" Grid.Row="0" KeyDown="KeyPad_KeyDown">f</Button>
+                <Button Grid.Row="1" KeyDown="KeyPad_KeyDown">g</Button>
+                <Button Grid.Column="1" Grid.Row="1" KeyDown="KeyPad_KeyDown">h</Button>
+                <Button Grid.Column="2" Grid.Row="1" KeyDown="KeyPad_KeyDown">i</Button>
+                <Button Grid.Column="3" Grid.Row="1" KeyDown="KeyPad_KeyDown">j</Button>
+                <Button Grid.Column="4" Grid.Row="1" KeyDown="KeyPad_KeyDown">k</Button>
+                <Button Grid.Column="5" Grid.Row="1" KeyDown="KeyPad_KeyDown">l</Button>
+                <Button Grid.Row="2" KeyDown="KeyPad_KeyDown">m</Button>
+                <Button Grid.Column="1" Grid.Row="2" KeyDown="KeyPad_KeyDown">n</Button>
+                <Button Grid.Column="2" Grid.Row="2" KeyDown="KeyPad_KeyDown">o</Button>
+                <Button Grid.Column="3" Grid.Row="2" KeyDown="KeyPad_KeyDown">p</Button>
+                <Button Grid.Column="4" Grid.Row="2" KeyDown="KeyPad_KeyDown">q</Button>
+                <Button Grid.Column="5" Grid.Row="2" KeyDown="KeyPad_KeyDown">r</Button>
+                <Button Grid.Row="3" KeyDown="KeyPad_KeyDown">s</Button>
+                <Button Grid.Column="1" Grid.Row="3" KeyDown="KeyPad_KeyDown">t</Button>
+                <Button Grid.Column="2" Grid.Row="3" KeyDown="KeyPad_KeyDown">u</Button>
+                <Button Grid.Column="3" Grid.Row="3" KeyDown="KeyPad_KeyDown">v</Button>
+                <Button Grid.Column="4" Grid.Row="3" KeyDown="KeyPad_KeyDown">w</Button>
+                <Button Grid.Column="5" Grid.Row="3" KeyDown="KeyPad_KeyDown">x</Button>
+                <Button Grid.Row="4" KeyDown="KeyPad_KeyDown">y</Button>
+                <Button Grid.Column="1" Grid.Row="4" KeyDown="KeyPad_KeyDown">z</Button>
+                <Button Grid.Column="2" Grid.Row="4" KeyDown="KeyPad_KeyDown">1</Button>
+                <Button Grid.Column="3" Grid.Row="4" KeyDown="KeyPad_KeyDown">2</Button>
+                <Button Grid.Column="4" Grid.Row="4" KeyDown="KeyPad_KeyDown">3</Button>
+                <Button Grid.Column="5" Grid.Row="4" KeyDown="KeyPad_KeyDown">4</Button>
+                <Button Grid.Row="5" KeyDown="KeyPad_KeyDown">5</Button>
+                <Button Grid.Column="1" Grid.Row="5" KeyDown="KeyPad_KeyDown">6</Button>
+                <Button Grid.Column="2" Grid.Row="5" KeyDown="KeyPad_KeyDown">7</Button>
+                <Button Grid.Column="3" Grid.Row="5" KeyDown="KeyPad_KeyDown">8</Button>
+                <Button Grid.Column="4" Grid.Row="5" KeyDown="KeyPad_KeyDown">9</Button>
+                <Button Grid.Column="5" Grid.Row="5" KeyDown="KeyPad_KeyDown">0</Button>
+            </Grid>
+        </DockPanel>
+
+
         <!--<Button HorizontalAlignment="Left" Margin="35,30,0,0" VerticalAlignment="Top" Width="100" Height="200" Grid.Row="1" BorderThickness="1" BorderBrush="Red" SnapsToDevicePixels="True" FontFamily="REVOLUTION" Foreground="Black">
             <Button.Background>
                 <ImageBrush ImageSource="inception poster.jpg" Opacity="0.1"/>

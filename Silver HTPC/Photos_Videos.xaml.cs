@@ -48,6 +48,11 @@ namespace Silver_HTPC
                 img_1.Opacity = 1.0;
             }
         }
+
+        private void ImgGotFocus(object sender, RoutedEventArgs e)
+        {
+
+        }
         // How do we want to implement functionality? Using keys? Using mouse for the prototype?
         // Having a hard time implementing button functionality.
         // Have images turn different colour when hovering?
