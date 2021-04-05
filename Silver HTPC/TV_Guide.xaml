@@ -257,56 +257,64 @@
                             <GradientStop Color="#FF5B5A5A" Offset="1"/>
                         </LinearGradientBrush>
                     </Grid.Background>
-                    <TextBlock FontSize="20" TextWrapping="WrapWithOverflow" TextAlignment="Center" Foreground="White" Margin="0,10,0,89">
-                        Would you like to set a reminder for this show?
-                    </TextBlock>
-               
-
-                        <Grid Margin="10,95,115,20" x:Name="set_reminder_button" Height="49" Width="88" >
-                                <Grid.Background>
-                                    <RadialGradientBrush>
-                                        <GradientStop Color="#FFBDBDBD" Offset="0"/>
-                                        <GradientStop Color="#FF747474" Offset="1"/>
-                                    </RadialGradientBrush>
-                                </Grid.Background>
-                                
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="13*"/>
-                                    <RowDefinition Height="9*"/>
-                                </Grid.RowDefinitions>
+                    <TextBlock x:Name="textblock" FontSize="20" TextWrapping="WrapWithOverflow" TextAlignment="Center" Foreground="White" Margin="0,10,0,89"
+                               Text="Would you like to set a reminder for this show?"/>
 
 
-                                <Image Grid.Row="0" Source="image/reminder_icon.png" Margin="12,0,12,0"  />
-                                <TextBox Grid.Row="1" Foreground="White" Background="{x:Null}" HorizontalContentAlignment="Center" BorderBrush="{x:Null}" >Set Reminder</TextBox>
 
-                        <Border Grid.RowSpan="2" BorderThickness="1" Opacity="{Binding setReminderBorder, Mode = TwoWay}" BorderBrush="White">
-                        </Border>
+                    <Border Margin="10,95,115,20"  BorderThickness="1"  BorderBrush="White">
+                        <Grid  x:Name="set_reminder_button" >
+                            <Grid.Background>
+                                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                                    <!--
+                                    <GradientStop Color="#FF3C3B3B" Offset="1"/>
+                                    <GradientStop Color="#FFDEDEDE" Offset="0"/>
+                                    -->
+                                    <GradientStop Color="#FF515578" Offset="1"/>
+                                    <GradientStop Color="#FFD3D6FF" Offset="0"/>
+                                    
+                                </LinearGradientBrush>
+                            </Grid.Background>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="13*"/>
+                                <RowDefinition Height="9*"/>
+                            </Grid.RowDefinitions>
+
+
+                            <Image Grid.Row="0" Source="image/reminder_icon.png" Margin="12,0,12,0"  />
+                            <TextBox Grid.Row="1" Foreground="White" Background="{x:Null}" HorizontalContentAlignment="Center" BorderBrush="{x:Null}" >Set Reminder</TextBox>
+
+
+
                         </Grid>
-                        
-                    
-                   
-                        <Grid Margin="117,95,10,20" x:Name="cancel_button" Width="85" Height="50"  >
-                                <Grid.Background>
-                                    <RadialGradientBrush>
-                                        <GradientStop Color="#FFBDBDBD" Offset="0"/>
-                                        <GradientStop Color="#FF747474" Offset="1"/>
-                                    </RadialGradientBrush>
-                                </Grid.Background>
-                                
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="13*"/>
-                                    <RowDefinition Height="9*"/>
-                                </Grid.RowDefinitions>
+                    </Border>
 
 
-                                <Image Grid.Row="0" Source="image/cancel_icon.png" Margin="10,5,10,0"  />
-                                <TextBox Grid.Row="1" Foreground="White" Background="{x:Null}" HorizontalContentAlignment="Center" BorderBrush="{x:Null}" >Cancel</TextBox>
+                    <Border Margin="117,95,10,20" BorderThickness="1" BorderBrush="White" >
+                        <Grid  x:Name="cancel_button"  >
+                            <Grid.Background>
+                                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                                    <GradientStop Color="#FF3C3B3B" Offset="1"/>
+                                    <GradientStop Color="#FFDEDEDE" Offset="0"/>
+                                </LinearGradientBrush>
+                            </Grid.Background>
 
-                            <Border Grid.RowSpan="2" BorderThickness="1" Opacity="{Binding CancelBorder, Mode = TwoWay}" BorderBrush="White" >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="13*"/>
+                                <RowDefinition Height="9*"/>
+                            </Grid.RowDefinitions>
 
-                            </Border>
+
+                            <Image Grid.Row="0" Source="image/cancel_icon.png" Margin="10,5,10,0"  />
+                            <TextBox Grid.Row="1" Foreground="White" Background="{x:Null}" HorizontalContentAlignment="Center" BorderBrush="{x:Null}" >Cancel</TextBox>
+
+
+
+
                         </Grid>
-   
+                    </Border>
+
 
                 </Grid>
             </Popup>

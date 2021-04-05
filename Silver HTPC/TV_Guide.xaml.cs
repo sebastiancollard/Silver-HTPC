@@ -29,7 +29,16 @@ namespace Silver_HTPC
         private ScrollViewer sv;
         private Grid setReminder;
         private Grid cancel;
-        
+        RadialGradientBrush offbrush;
+        RadialGradientBrush onbrush;
+        GradientStop offgradientstop1;
+        GradientStop offgradientstop2;
+        GradientStop ongradientstop1;
+        GradientStop ongradientstop2;
+        TextBlock message;
+        bool reminder_selected;
+        bool cancel_selected; 
+
 
         //max index of list_box_items
         private const int MAX_LBI_INDEX = 7;
@@ -61,18 +70,35 @@ namespace Silver_HTPC
 
             lb = List_boxes[0];
 
+            offgradientstop1 = new GradientStop((Color)ColorConverter.ConvertFromString("#FF3C3B3B"), 1);
+            offgradientstop2 = new GradientStop((Color)ColorConverter.ConvertFromString("#FFDEDEDE"), 0);
+            ongradientstop1 = new GradientStop((Color)ColorConverter.ConvertFromString("#FF515578"), 1);
+            ongradientstop2 = new GradientStop((Color)ColorConverter.ConvertFromString("#FFD3D6FF"), 0);
+
+            onbrush = new RadialGradientBrush();
+            offbrush = new RadialGradientBrush();
+
+            offbrush.GradientStops.Add(offgradientstop1);
+            offbrush.GradientStops.Add(offgradientstop2);
+            onbrush.GradientStops.Add(ongradientstop1);
+            onbrush.GradientStops.Add(ongradientstop2);
+
             setReminder = set_reminder_button;
             cancel = cancel_button;
 
-            //cancel.Focus();
-            CancelBorder = 100;
-            SetReminderBorder = 0;
-
+            setReminder.Background = offbrush;
+            cancel.Background = onbrush;
+            
             Popup_IsOpen = false;
 
+            cancel_selected = true;
 
+            message = textblock;
 
+   
 
+            
+            
 
         }
 
@@ -86,9 +112,10 @@ namespace Silver_HTPC
                 case Key.Right:
                     if (Popup_IsOpen)
                     {
-                        cancel.Focus();
-                        CancelBorder = 100;
-                        SetReminderBorder = 0;
+                        setReminder.Background = offbrush;
+                        cancel.Background = onbrush;
+                        reminder_selected = false;
+                        cancel_selected = true;
                     }
                     else
                     {
@@ -100,9 +127,10 @@ namespace Silver_HTPC
                 case Key.Left:
                     if (Popup_IsOpen)
                     {
-                        setReminder.Focus();
-                        CancelBorder = 0;
-                        SetReminderBorder = 100;
+                        setReminder.Background = onbrush;
+                        cancel.Background = offbrush;
+                        reminder_selected = true;
+                        cancel_selected = false;
                     }
                     else
                     {
@@ -111,54 +139,89 @@ namespace Silver_HTPC
                     }
                     break;
                 case Key.Down:
-                    lb.SelectedIndex = 0;
-                    lb.ScrollIntoView(lb.SelectedItem);
-                    lb.SelectedIndex = -1;
-
-                    if (lb_index < MAX_LB_INDEX) lb_index += 1;
-                    lb = List_boxes[lb_index];
-                    lb.SelectedIndex = 0;
-                    lb.ScrollIntoView(lb.SelectedItem);
-                    lb.BringIntoView();
-
-                    break;
-                case Key.Up:
-                    lb.SelectedIndex = 0;
-                    lb.ScrollIntoView(lb.SelectedItem);
-                    lb.SelectedIndex = -1;
-
-                    if (lb_index > 0) lb_index -= 1;
-                    lb = List_boxes[lb_index];
-                    lb.SelectedIndex = 0;
-                    lb.ScrollIntoView(lb.SelectedItem);
-                    lb.BringIntoView();
-
-
-                    break;
-                case Key.Enter:
-                    /*
-                    if (lb == List_boxes[0] && lb.SelectedIndex == 0) channel = 1;
-                    else channel = 2;
-                    LiveTV livetv = new LiveTV(channel);
-                    livetv.Show();
-                    */
-                    if (!Popup_IsOpen)
+                    if (Popup_IsOpen)
                     {
-                        Popup_IsOpen = true;
-                        
 
                     }
                     else
                     {
-                        Popup_IsOpen = false;
-                        if (setReminder.IsFocused) 
-                        {
-                            //reminder set
-                        }
+                        lb.SelectedIndex = 0;
+                        lb.ScrollIntoView(lb.SelectedItem);
+                        lb.SelectedIndex = -1;
+
+                        if (lb_index < MAX_LB_INDEX) lb_index += 1;
+                        lb = List_boxes[lb_index];
+                        lb.SelectedIndex = 0;
+                        lb.ScrollIntoView(lb.SelectedItem);
+                        lb.BringIntoView();
                     }
-                    
+                    break;
+                case Key.Up:
+                    if (Popup_IsOpen)
+                    {
+
+                    }
+                    else
+                    {
+                        lb.SelectedIndex = 0;
+                        lb.ScrollIntoView(lb.SelectedItem);
+                        lb.SelectedIndex = -1;
+
+                        if (lb_index > 0) lb_index -= 1;
+                        lb = List_boxes[lb_index];
+                        lb.SelectedIndex = 0;
+                        lb.ScrollIntoView(lb.SelectedItem);
+                        lb.BringIntoView();
+                    }
+
 
                     break;
+                case Key.Enter:
+
+                    if (!Popup_IsOpen) {
+
+                        //Selected sherlock
+                        if (lb == List_boxes[0] && lb.SelectedIndex == 0)
+                        {
+                            channel = 1;
+                            LiveTV livetv = new LiveTV(channel);
+                            livetv.Show();
+                        }
+                        else
+                        {   
+                            //Selected Topgear or one of first two shows in any category
+                            if ((lb == List_boxes[0] && lb.SelectedIndex == 1) || lb.SelectedIndex < 2)
+                            {
+                                channel = 2;
+                                LiveTV livetv = new LiveTV(channel);
+                                livetv.Show();
+                            }//else show is not on
+                            else
+                            {
+                                Popup_IsOpen = true; 
+                            }
+                        }
+                    }
+                    //Pop is open
+                    else
+                    {
+                        if (reminder_selected)
+                        {
+                           
+                            message.Text = "Reminder has been set!";
+                      
+                        }
+                        else
+                        {
+                            Popup_IsOpen = false;
+                            reminder_selected = false;
+                            cancel_selected = true;
+                        }
+                        
+                    }
+
+                    break;
+
                 default:
                     break;
             }
@@ -167,23 +230,7 @@ namespace Silver_HTPC
 
 
         public static readonly DependencyProperty Popup_IsOpenProperty = DependencyProperty.Register("Popup_IsOpen", typeof(bool), typeof(TV_Guide));
-        public static readonly DependencyProperty SetReminderBorderProperty = DependencyProperty.Register("SetReminderBorder", typeof(int), typeof(LiveTV));
-        public static readonly DependencyProperty CancelBorderProperty = DependencyProperty.Register("CancelBorder", typeof(int), typeof(LiveTV));
-
-
-
-
-        public int SetReminderBorder
-        {
-            get { return (int)GetValue(SetReminderBorderProperty); }
-            set { SetValue(SetReminderBorderProperty, value); }
-        }
-
-        public int CancelBorder
-        {
-            get { return (int)GetValue(CancelBorderProperty); }
-            set { SetValue(CancelBorderProperty, value); }
-        }
+       
 
         public bool Popup_IsOpen
         {

@@ -24,7 +24,7 @@ namespace Silver_HTPC
         Grid sidemenu;
         Grid record;
         Grid reminder;
-
+    
 
         public LiveTV(int x)
         {
@@ -42,9 +42,10 @@ namespace Silver_HTPC
             reminder = reminder_button;
 
 
-            RecordBorder = 100;
             
-            
+
+
+
 
 
 
