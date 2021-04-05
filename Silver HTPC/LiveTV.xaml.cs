@@ -21,11 +21,15 @@ namespace Silver_HTPC
     {
 
         bool hidden = true;
-        StackPanel sidemenu;
+        Grid sidemenu;
+        Grid record;
+        Grid reminder;
+
 
         public LiveTV(int x)
         {
             InitializeComponent();
+            this.DataContext = this;
             Image nowPlaying = image1;
             BitmapImage bi = new BitmapImage();
             bi.BeginInit();
@@ -33,7 +37,18 @@ namespace Silver_HTPC
             else bi.UriSource = new Uri("image/topgear_live.png", UriKind.Relative);
             bi.EndInit();
             nowPlaying.Source = bi;
-            sidemenu = stackpanel;
+            sidemenu = panel;
+            record = record_button;
+            reminder = reminder_button;
+
+
+            RecordBorder = 100;
+            
+            
+
+
+
+
 
         }
 
@@ -51,6 +66,48 @@ namespace Silver_HTPC
                 sidemenu.Margin = new Thickness(0, 0, 0, 0);
                 hidden = false;
             }
+            else if (e.Key == Key.Right)
+            {
+                
+                RecordBorder = 0;
+                ReminderBorder = 100;
+            
+                
+            }
+            else if (e.Key == Key.Left)
+            {
+                RecordBorder = 100;
+                ReminderBorder = 0;
+             
+            }
         }
+
+
+
+        public static readonly DependencyProperty RecordBorderProperty = DependencyProperty.Register("RecordBorder", typeof(int), typeof(LiveTV));
+        public static readonly DependencyProperty ReminderBorderProperty = DependencyProperty.Register("ReminderBorder", typeof(int), typeof(LiveTV));
+       
+
+
+
+        public int RecordBorder
+            {
+                get { return (int)GetValue(RecordBorderProperty); }
+                set { SetValue(RecordBorderProperty, value); }
+            }
+
+        public int ReminderBorder
+            {
+                get { return (int)GetValue(ReminderBorderProperty); }
+                set { SetValue(ReminderBorderProperty, value); }
+            }
+
+    
+
+
+
+
     }
+
+
 }

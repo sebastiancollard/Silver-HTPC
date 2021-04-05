@@ -26,12 +26,14 @@ namespace Silver_HTPC
         private ListBoxItem[,] List_box_items;
         private ListBox lb;
         private int channel;
+        private ScrollViewer sv;
+        bool popup_enable;
 
         //max index of list_box_items
         private const int MAX_LBI_INDEX = 7;
 
         //max index of list_boxes (not to be confused with MAX_LBI_INDEX)
-        private const int MAX_LB_INDEX = 3;
+        private const int MAX_LB_INDEX = 2;
 
 
 
@@ -48,26 +50,14 @@ namespace Silver_HTPC
             { listbox2item1, listbox2item2, listbox2item3, listbox2item4, listbox2item5, listbox2item6, listbox2item7, listbox2item8 }
             };
 
+            sv = scrollviewer;
+
             List_boxes[0].SelectedIndex = 0;
-            List_boxes[1].SelectedIndex = 0;
-            List_boxes[2].SelectedIndex = 0;
+            List_boxes[1].SelectedIndex = -1;
+            List_boxes[2].SelectedIndex = -1;
 
             lb = List_boxes[0];
-            lb.Focus();
-
             
-            
-
-
-
-
-
-
-
-
-
-
-
 
         }
 
@@ -79,29 +69,38 @@ namespace Silver_HTPC
             switch (e.Key)
             {
                 case Key.Right:
-                    if(lb.SelectedIndex < MAX_LBI_INDEX - 1) lb.SelectedIndex += 1;
-              
+                    if(lb.SelectedIndex < MAX_LBI_INDEX) lb.SelectedIndex += 1;
+                    lb.ScrollIntoView(lb.SelectedItem);
+
                     break;
                 case Key.Left:
                     if(lb.SelectedIndex > 0) lb.SelectedIndex -= 1;
+                    lb.ScrollIntoView(lb.SelectedItem);
 
                     break;
                 case Key.Down:
                     lb.SelectedIndex = 0;
                     lb.ScrollIntoView(lb.SelectedItem);
-                    if (lb_index < MAX_LB_INDEX - 1) lb_index += 1;
+                    lb.SelectedIndex = -1;
+
+                    if (lb_index < MAX_LB_INDEX) lb_index += 1;
                     lb = List_boxes[lb_index];
                     lb.SelectedIndex = 0;
-                    lb.Focus();
-                    
+                    lb.ScrollIntoView(lb.SelectedItem);
+                    lb.BringIntoView();
+
                     break;
                 case Key.Up:
                     lb.SelectedIndex = 0;
+                    lb.ScrollIntoView(lb.SelectedItem);
+                    lb.SelectedIndex = -1;
+
                     if (lb_index > 0) lb_index -= 1;
                     lb = List_boxes[lb_index];
                     lb.SelectedIndex = 0;
-                    lb.Focus();
-                    
+                    lb.ScrollIntoView(lb.SelectedItem);
+                    lb.BringIntoView();
+
 
                     break;
                 case Key.Enter:
@@ -116,6 +115,7 @@ namespace Silver_HTPC
             }
 
         }
+
     }
 
 
