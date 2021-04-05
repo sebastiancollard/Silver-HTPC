@@ -27,7 +27,9 @@ namespace Silver_HTPC
         private ListBox lb;
         private int channel;
         private ScrollViewer sv;
-        bool popup_enable;
+        private Grid setReminder;
+        private Grid cancel;
+        
 
         //max index of list_box_items
         private const int MAX_LBI_INDEX = 7;
@@ -41,6 +43,7 @@ namespace Silver_HTPC
         public TV_Guide()
         {
             InitializeComponent();
+            this.DataContext = this;
 
 
             List_boxes = new ListBox[] { listbox1, listbox2,listbox3 };
@@ -57,7 +60,19 @@ namespace Silver_HTPC
             List_boxes[2].SelectedIndex = -1;
 
             lb = List_boxes[0];
-            
+
+            setReminder = set_reminder_button;
+            cancel = cancel_button;
+
+            //cancel.Focus();
+            CancelBorder = 100;
+            SetReminderBorder = 0;
+
+            Popup_IsOpen = false;
+
+
+
+
 
         }
 
@@ -69,14 +84,31 @@ namespace Silver_HTPC
             switch (e.Key)
             {
                 case Key.Right:
-                    if(lb.SelectedIndex < MAX_LBI_INDEX) lb.SelectedIndex += 1;
-                    lb.ScrollIntoView(lb.SelectedItem);
+                    if (Popup_IsOpen)
+                    {
+                        cancel.Focus();
+                        CancelBorder = 100;
+                        SetReminderBorder = 0;
+                    }
+                    else
+                    {
+                        if (lb.SelectedIndex < MAX_LBI_INDEX) lb.SelectedIndex += 1;
+                        lb.ScrollIntoView(lb.SelectedItem);
+                    }
 
                     break;
                 case Key.Left:
-                    if(lb.SelectedIndex > 0) lb.SelectedIndex -= 1;
-                    lb.ScrollIntoView(lb.SelectedItem);
-
+                    if (Popup_IsOpen)
+                    {
+                        setReminder.Focus();
+                        CancelBorder = 0;
+                        SetReminderBorder = 100;
+                    }
+                    else
+                    {
+                        if (lb.SelectedIndex > 0) lb.SelectedIndex -= 1;
+                        lb.ScrollIntoView(lb.SelectedItem);
+                    }
                     break;
                 case Key.Down:
                     lb.SelectedIndex = 0;
@@ -104,10 +136,27 @@ namespace Silver_HTPC
 
                     break;
                 case Key.Enter:
+                    /*
                     if (lb == List_boxes[0] && lb.SelectedIndex == 0) channel = 1;
                     else channel = 2;
                     LiveTV livetv = new LiveTV(channel);
                     livetv.Show();
+                    */
+                    if (!Popup_IsOpen)
+                    {
+                        Popup_IsOpen = true;
+                        
+
+                    }
+                    else
+                    {
+                        Popup_IsOpen = false;
+                        if (setReminder.IsFocused) 
+                        {
+                            //reminder set
+                        }
+                    }
+                    
 
                     break;
                 default:
@@ -115,6 +164,33 @@ namespace Silver_HTPC
             }
 
         }
+
+
+        public static readonly DependencyProperty Popup_IsOpenProperty = DependencyProperty.Register("Popup_IsOpen", typeof(bool), typeof(TV_Guide));
+        public static readonly DependencyProperty SetReminderBorderProperty = DependencyProperty.Register("SetReminderBorder", typeof(int), typeof(LiveTV));
+        public static readonly DependencyProperty CancelBorderProperty = DependencyProperty.Register("CancelBorder", typeof(int), typeof(LiveTV));
+
+
+
+
+        public int SetReminderBorder
+        {
+            get { return (int)GetValue(SetReminderBorderProperty); }
+            set { SetValue(SetReminderBorderProperty, value); }
+        }
+
+        public int CancelBorder
+        {
+            get { return (int)GetValue(CancelBorderProperty); }
+            set { SetValue(CancelBorderProperty, value); }
+        }
+
+        public bool Popup_IsOpen
+        {
+            get { return (bool)GetValue(Popup_IsOpenProperty); }
+            set { SetValue(Popup_IsOpenProperty, value); }
+        }
+
 
     }
 
