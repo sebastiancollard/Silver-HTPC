@@ -93,9 +93,10 @@
 
 
         </Grid>
-        
-            <StackPanel x:Name="ProfilePopup" Orientation="Horizontal" HorizontalAlignment="Center" Height="236" Grid.RowSpan="3" VerticalAlignment="Top" Width="700" Grid.ColumnSpan="3" Margin="6,113,6,15" Background="DarkSlateGray" Visibility="Hidden">
 
-            </StackPanel>
+        <StackPanel x:Name="ProfilePopup" Orientation="Horizontal" HorizontalAlignment="Center" Height="236" Grid.RowSpan="3" VerticalAlignment="Top" Width="700" Grid.ColumnSpan="3" Margin="6,113,6,15" Background="DarkSlateGray" Visibility="Hidden">
+
+        </StackPanel>
+        <Label x:Name="Profiles_header" Content="Profiles" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="51,114,0,0" Width="121" Height="40" FontSize="25" Foreground="White" Visibility="Hidden"/>
     </Grid>
 </Window>

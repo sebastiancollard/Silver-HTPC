@@ -24,11 +24,13 @@ namespace Silver_HTPC
     public partial class MainWindow : Window
     {
         private static int currentButtonSelectionIndex=0;
+        private static int profileIndex = 0;
         private static Button[] menuButtonList;
         private static StackPanel[] stackPanelList;
         private static string[,] content;
         private static Label selectedLabel;
         private static string[] profiles;
+        private static List<Button> profileBtns = new List<Button>();
         public MainWindow()
         {
             InitializeComponent();
@@ -163,6 +165,28 @@ namespace Silver_HTPC
             button.Height /= 1.2;
         }
 
+        public void setProfileButtonFocus(int button_index)
+        {
+            //currentButtonSelectionIndex = button_index;
+            Button button = profileBtns[button_index];
+            button.Background = Brushes.DarkBlue;
+            //if (button_index != 9) //not profile button
+            //{
+            button.Foreground = Brushes.WhiteSmoke;
+            
+            
+            //}
+            button.Foreground = Brushes.White;
+            button.Height *= 1.2;
+        }
+        public void resetProfileButtonFocus(int button_index)
+        {
+            Button button = profileBtns[button_index];
+            button.ClearValue(Button.BackgroundProperty);
+            button.ClearValue(Button.ForegroundProperty);
+            
+            button.Height /= 1.2;
+        }
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
@@ -262,6 +286,7 @@ namespace Silver_HTPC
                                 MainGrid.Effect = new BlurEffect();
                                 dontClose = true;
                                 ProfilePopup.Visibility = Visibility.Visible;
+                                Profiles_header.Visibility = Visibility.Visible;
                                 for (int i = 0; i < profiles.Count<string>(); i++)
                                 {
                                     Button profile = new Button();
@@ -271,9 +296,11 @@ namespace Silver_HTPC
                                     profile.Width = 170;
                                     profile.FontSize = 20;
                                     ProfilePopup.Children.Add(profile);
+                                    profileBtns.Add(profile);
                                 }
                                 //ProfilePopup.Children.Add
 
+                                setProfileButtonFocus(profileIndex);
                                 break;
                         }
                         if (!dontClose) this.Close();
@@ -284,12 +311,33 @@ namespace Silver_HTPC
             }
             else
             {
-                if (e.Key == Key.Back)
-                {
-                    MainGrid.Effect = null;
-                    ProfilePopup.Children.Clear();
-                    ProfilePopup.Visibility = Visibility.Hidden;
-                    setButtonFocus(currentButtonSelectionIndex);
+                switch (e.Key) {
+                    case Key.Back:
+                
+                        MainGrid.Effect = null;
+                        ProfilePopup.Children.Clear();
+                        ProfilePopup.Visibility = Visibility.Hidden;
+                        Profiles_header.Visibility = Visibility.Hidden;
+                        setButtonFocus(currentButtonSelectionIndex);
+                        resetProfileButtonFocus(profileIndex);
+                        profileIndex = 0;
+                        break;
+                    case Key.Right:
+                
+                        resetProfileButtonFocus(profileIndex);
+                        profileIndex = (profileIndex + 1) % 4;
+                        setProfileButtonFocus(profileIndex);
+                        break;
+
+                    case Key.Left:
+                
+                        resetProfileButtonFocus(profileIndex);
+                        profileIndex = (profileIndex - 1);
+                        if (profileIndex == -1) profileIndex = 3;
+                        setProfileButtonFocus(profileIndex);
+                        break;
+                    default:
+                        break;
                 }
             }
             
