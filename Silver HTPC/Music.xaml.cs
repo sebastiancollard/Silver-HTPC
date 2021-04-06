@@ -231,12 +231,14 @@ namespace Silver_HTPC
         }
 
             private void Play_LostFocus(object sender, RoutedEventArgs e)
-        {
+            {
             Button thisButton = sender as Button;
             thisButton.Background = Brushes.Aqua;
             PlayFocused = false;
             Console.WriteLine("MusicIndexL" + MusicIndex);
             //ButtonGrid1.Children.Remove(thisButton);
+            //MusicButtonsGrids[MusicIndex].Children.Remove(play);
+            //MusicButtonsGrids[MusicIndex].Children.Remove(delete);
             if (MusicIndex != 0)
             {
                MusicButtonsGrids[MusicIndex - 1].Children.Remove(play);
@@ -307,7 +309,7 @@ namespace Silver_HTPC
                 
                 
             }
-            
+            /**
             else if (e.Key == Key.Right && !PlayFocused && !DeleteFocused)
             {
                
@@ -323,6 +325,7 @@ namespace Silver_HTPC
                
 
             }
+            **/
             else if (e.Key == Key.Up)
             {
                 
@@ -413,6 +416,11 @@ namespace Silver_HTPC
                 }
                 Switche = false;
             }
+            else if(e.Key == Key.Right)
+            {
+                //Keyboard.ClearFocus();
+                delete.Focus();
+            }
             
 
 
@@ -429,7 +437,7 @@ namespace Silver_HTPC
                 CoverPhoto.Height = 140;
                 CoverPhoto.VerticalAlignment = VerticalAlignment.Stretch;
                 CoverPhoto.HorizontalAlignment = HorizontalAlignment.Stretch;
-                CoverPhoto.Stretch = Stretch.Uniform;
+                CoverPhoto.Stretch = Stretch.UniformToFill;
                 //Grid.SetRow(CoverPhoto, 0);
                 //Grid.SetColumn(CoverPhoto ,0);
                 Cover.Children.Clear();
@@ -440,6 +448,38 @@ namespace Silver_HTPC
                 br.Child = CoverPhoto;
                 
                 Cover.Children.Add(br);
+
+                Image reverse = new Image();
+                reverse.Source = new BitmapImage(new Uri("Image/reverse.png", UriKind.RelativeOrAbsolute));
+                //reverse.Width = 50;
+                //reverse.Height = 30;
+                //reverse.VerticalAlignment = VerticalAlignment.Top;
+                //reverse.VerticalAlignment = VerticalAlignment.Stretch;
+                //reverse.HorizontalAlignment = HorizontalAlignment.Stretch;
+                reverse.Stretch = Stretch.Uniform;
+
+                Image playPause = new Image();
+                playPause.Source = new BitmapImage(new Uri("Image/PlayPause.png", UriKind.RelativeOrAbsolute));
+
+                //playPause.Source = new BitmapImage(new Uri("Image/"));
+
+                Button reverseMusic = new Button();
+                //playMusic.Content = "But";
+                reverseMusic.Height = 30;
+                reverseMusic.Width = 50;
+                //playMusic.Background = Brushes.Black;
+                reverseMusic.Content = reverse;
+                reverseMusic.GotFocus += Button_GotFocus;
+                //reverseMusic.Focusable = false;
+
+                MusicOptions.Children.Clear();
+                MusicOptions.Children.Add(reverseMusic);
+
+                Button playPauseMusic = new Button();
+                playPauseMusic.Height = 30;
+                playPauseMusic.Width = 50;
+                
+                //playMusic.Focus();
                 // new BitmapImage(new Uri(@"pack://application:,,,/Image/spotify-download-logo.png", UriKind.RelativeOrAbsolute));
             }
 
@@ -486,6 +526,7 @@ namespace Silver_HTPC
                 }
                 Switche = false;
             }
+            /**
             else if (e.Key == Key.Right)
             {
                 SortButton.Focus();
@@ -500,6 +541,7 @@ namespace Silver_HTPC
 
 
             }
+            **/
 
 
         }

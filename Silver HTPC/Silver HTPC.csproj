@@ -463,5 +463,14 @@
   <ItemGroup>
     <Resource Include="Image\inmylifeBeatles.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\forward.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\PlayPause.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\reverse.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
