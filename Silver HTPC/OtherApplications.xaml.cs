@@ -123,85 +123,9 @@ namespace Silver_HTPC
 
 
         //FOLLOWING CODE IS NOT BEING USED******************************************
-        public void setButtonFocus(int button_index)
-        {
-            //currentButtonSelectionIndex = button_index;
-            Button button = buttonList[button_index];
-            button.Background = Brushes.DarkBlue;
-            //if (button_index != 9) //not profile button
-            //{
-            
-            button.Foreground = Brushes.White;
-            //button.Focus();
-            //button.Height *= 1.2;
-
-        }
-        public void resetButtonFocus(int button_index)
-        {
-            Button button = buttonList[button_index];
-            button.ClearValue(Button.BackgroundProperty);
-            button.ClearValue(Button.ForegroundProperty);
-            //if (button_index != 9)
-            //{
-            
-            //}
-
-            //button.Height /= 1.2;
-        }
+        
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
-            /*switch (e.Key)
-            {
-                case Key.Right:
-                    if ((selectedIndex % 3) != 2)
-                    {
-                        resetButtonFocus(selectedIndex);
-                        selectedIndex = (selectedIndex + 1) % buttonList.Count;
-                        setButtonFocus(selectedIndex);
-                    }
-
-                    break;
-                case Key.Left:
-                    if ((selectedIndex % 3) != 0)
-                    {
-                        resetButtonFocus(selectedIndex);
-                        selectedIndex = (selectedIndex - 1) % buttonList.Count;
-                        setButtonFocus(selectedIndex);
-                    }
-
-                    break;
-                case Key.Down:
-                    //if (selectedIndex == buttonList.Count-1)
-                    //{
-                        //resetButtonFocus(selectedIndex);
-                        //selectedIndex = 0;
-                        //setButtonFocus(selectedIndex);
-                    //}
-                    //else if (selectedIndex < 6)
-                    //{
-                        resetButtonFocus(selectedIndex);
-                        selectedIndex = (selectedIndex + 3) % buttonList.Count;
-                        setButtonFocus(selectedIndex);
-                    //}
-
-                    break;
-                case Key.Up:
-                    if (selectedIndex >= 3 && selectedIndex != 9)
-                    {
-                        resetButtonFocus(selectedIndex);
-                        selectedIndex = (selectedIndex - 3) % 9;
-                        setButtonFocus(selectedIndex);
-                    }
-                    else
-                    {
-                        resetButtonFocus(selectedIndex);
-                        selectedIndex = 9;
-                        setButtonFocus(selectedIndex);
-                    }
-                    break;
-                default:
-                    break;
-            }*/
             if (e.Key == Key.Back)
             {
                 MainWindow mainWindow = new MainWindow();
@@ -210,39 +134,6 @@ namespace Silver_HTPC
             }
             
         }
-        private void OnGotFocusHandler(object sender, RoutedEventArgs e)
-        {
-            Button tb = sender as Button;
-            tb.Background = Brushes.Red;
-            //buttonList[selectedIndex].KeyDown += KeyDown;
-            //buttonList[selectedIndex].GotFocus += GotFocus;
-            //buttonList[selectedIndex].LostFocus += LostFocus;
-        }
-        // Raised when Button losses focus.
-        // Changes the color of the Button back to white.
-        private void OnLostFocusHandler(object sender, RoutedEventArgs e)
-        {
-            Button tb = sender as Button;
-            tb.Background = Brushes.White;
-        }
-        
-        /*private void munu_button11_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void OtherApplications_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Right)
-            {
-                if ((selectedIndex % 3) != 2)
-                {
-                    selectedIndex += 1;
-                    buttonList[selectedIndex].Focus();
-                }
-            }
-        }*/
-
-       
+              
     }
 }
