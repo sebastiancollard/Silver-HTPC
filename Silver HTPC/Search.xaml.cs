@@ -576,6 +576,8 @@ namespace Silver_HTPC
                 stack.Children.Clear();
                 isResultsOnScreen = false;
             }
+
+            counter.Text = stack.Children.Count.ToString() + " results";
         }
 
         private void result_selected(object sender, RoutedEventArgs e)
@@ -587,6 +589,8 @@ namespace Silver_HTPC
             ((Grid)btn.Parent).Width += 20;
             ((Grid)btn.Parent).Height += 20;
             scroll.ScrollToHorizontalOffset(btn.TranslatePoint(new Point(), stack).X - offset);
+
+            counter.Text = (stack.Children.IndexOf((Grid)btn.Parent)/2+1).ToString() + " of " + stack.Children.Count;
 
             /**if (keypad.Visibility != Visibility.Hidden)
             {
