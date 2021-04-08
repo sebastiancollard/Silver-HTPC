@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace Silver_HTPC
 {
@@ -22,11 +23,17 @@ namespace Silver_HTPC
         public static string[,] content;
         public List<Button> buttonList=new List<Button>();
         private static int selectedIndex=0;
-    public OtherApplications()
+        private DispatcherTimer dispatcherTimer;
+        public OtherApplications()
         {
             InitializeComponent();
             content = new string[,] { { "Live TV", "Image/tv_icon.png" }, { "Gallery", "Image/gallery_icon.png" }, { "Music", "Image/music_icon.png" }, { "Recordings", "Image/record_icon.png" }, { "Search", "Image/search_icon.jpg" }, { "Netflix", "Image/netflix_icon.png" }, { "Settings", "Image/settings_icon.png" }, { "Notification", "Image/notification_icon.png" }, { "Other Apps", "Image/apps_icon.png" }, { "John Doe", "Image/profile_icon.png" }, { "Live TV1", "Image/tv_icon.png" }, { "Gallery1", "Image/gallery_icon.png" }, { "Music1", "Image/music_icon.png" }, { "Recordings1", "Image/record_icon.png" }, { "Search1", "Image/search_icon.jpg" }, { "Netflix1", "Image/netflix_icon.png" }, { "Settings1", "Image/settings_icon.png" }, { "Notification1", "Image/notification_icon.png" }, { "Other Apps1", "Image/apps_icon.png" }, { "John Doe1", "Image/profile_icon.png" } };
-            bool populated = false;
+            //bool populated = false;
+            //For notification popup***********************************************
+            dispatcherTimer = new DispatcherTimer();                            
+            dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 5);
+            //**********************************************************************
 
             int numOfRows = 7;// (int)(content.Length / 3) + 1;
             Grid grid = new Grid();
@@ -132,8 +139,31 @@ namespace Silver_HTPC
                 mainWindow.Show();
                 this.Close();
             }
+            if (e.Key == Key.Z)
+            { //hardcoded to show notification
+                Notification_popup0.Visibility = Visibility.Visible;
+                dispatcherTimer.Start();
+            }
+            if (Notification_popup0.Visibility == Visibility.Visible)
+            {
+                if (e.Key==Key.O){
+                    LiveTV liveTV = new LiveTV(2);
+                    liveTV.Show();
+                    this.Close();
+                }
+            }
             
         }
-              
+
+        private void dispatcherTimer_Tick(object sender, EventArgs e)
+        {//For notification
+            //Things which happen after 1 timer interval
+            
+            Notification_popup0.Visibility = Visibility.Collapsed;
+
+            //Disable the timer
+            dispatcherTimer.IsEnabled = false;
+        }
+
     }
 }
