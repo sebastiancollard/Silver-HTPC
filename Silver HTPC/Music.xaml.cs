@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
+using System.Windows.Media.Effects;
 
 
 namespace Silver_HTPC
@@ -26,6 +28,18 @@ namespace Silver_HTPC
         private int MusicIndex=0;
         private Button play;
         private Button delete;
+        private Button reverseMusic;
+        private Button playPauseMusic;
+        private Button forwardMusic;
+        private DateTime startTime;
+        private DispatcherTimer timer;
+        private DateTime addonTimer;
+        private int timeInc = 0;
+        private int timeDec = 0;
+        private string songDuration;
+        //private Slider slideDuration;
+        private TextBlock currentMusicTimer;
+        private int totalSeconds = 0;
         private bool DeleteFocused = false;
         private bool PlayFocused = false;
         private bool Switche = false;
@@ -463,7 +477,45 @@ namespace Silver_HTPC
 
 
         }
-        private void Play_KeyUp(object sender, KeyEventArgs e)
+
+        private void PlayPauseMusicOption_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                if (timer.IsEnabled)
+                {
+                    timer.Stop();
+                }
+                else
+                {
+                    timer.Start();
+                }
+            }
+
+        }
+        private void ForwardMusicOption_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                DateTime tempStartTime = startTime.AddSeconds(15);
+                //if (tempStartTime.CompareTo(DateTime.Now.AddSeconds(timeInc)) >= 0)
+                //{
+                    timeInc += 15;
+                    Console.WriteLine(startTime);
+                    //addonTimer = DateTime.Now.AddSeconds(15);
+                    //Console.WriteLine("Adding Seconds" + startTime);
+                //}
+            }
+
+        }
+        private void ReverseMusicOption_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                timeDec += 15;
+            }
+        }
+            private void Play_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter && Start>0)
             {
@@ -508,7 +560,7 @@ namespace Silver_HTPC
                 MusicOptions.Children.Clear();
                 MusicDuration.Children.Clear();
 
-                Button reverseMusic = new Button();
+                reverseMusic = new Button();
                 //playMusic.Content = "But";
                 reverseMusic.Height = 30;
                 reverseMusic.Width = 50;
@@ -516,32 +568,56 @@ namespace Silver_HTPC
                 reverseMusic.Content = reverse;
                 reverseMusic.GotFocus += Button_GotFocus;
                 reverseMusic.LostFocus += ButtonMusicPlaying_LostFocus;
+                reverseMusic.KeyUp += ReverseMusicOption_KeyUp;
                 //reverseMusic.Focusable = false;
 
                 
                 MusicOptions.Children.Add(reverseMusic);
 
-                Button playPauseMusic = new Button();
+                playPauseMusic = new Button();
                 playPauseMusic.Height = 30;
                 playPauseMusic.Width = 50;
                 playPauseMusic.Content = playPause;
                 playPauseMusic.GotFocus += Button_GotFocus;
                 playPauseMusic.LostFocus += ButtonMusicPlaying_LostFocus;
+                playPauseMusic.KeyUp += PlayPauseMusicOption_KeyUp;
 
                 MusicOptions.Children.Add(playPauseMusic);
 
-                Button forwardMusic = new Button();
+                forwardMusic = new Button();
                 forwardMusic.Height = 30;
                 forwardMusic.Width = 50;
                 forwardMusic.Content = forward;
                 forwardMusic.GotFocus += Button_GotFocus;
                 forwardMusic.LostFocus += ButtonMusicPlaying_LostFocus;
+                forwardMusic.KeyUp += ForwardMusicOption_KeyUp;
 
                 MusicOptions.Children.Add(forwardMusic);
 
+
+                timer = new DispatcherTimer();
+                timer.Interval = TimeSpan.FromSeconds(1);
+                timer.Tick += timer_tick;
+                timer.Start();
+                startTime = DateTime.Now;
+                //subtractFromTime = DateTime.Now;
+
+                //currentMusicTimer = new TextBlock();
+                String searchFor = "SongDurationTb" + (MusicIndex + 1);
+                songDuration = ((TextBlock)MusicButtonsGrids[MusicIndex].FindName(searchFor)).Text;
+                songDuration = songDuration.Replace("m", "");
+                songDuration = songDuration.Replace("s", "");
+                MusicTime.Text = songDuration;
+
+
                 Slider slideDuration = new Slider();
                 slideDuration.Maximum = 100;
+                slideDuration.Focusable = false;
+                //MusicDuration.Children.Add(currentMusicTimer);
                 MusicDuration.Children.Add(slideDuration);
+                //MusicTime.Text = 
+                currentMusicTime.Visibility = Visibility.Visible;
+                MusicTime.Visibility = Visibility.Visible;
                 
                 //playMusic.Focus();
                 // new BitmapImage(new Uri(@"pack://application:,,,/Image/spotify-download-logo.png", UriKind.RelativeOrAbsolute));
@@ -550,15 +626,30 @@ namespace Silver_HTPC
 
         }
 
+        private void timer_tick(object sender, EventArgs e)
+        {
+            currentMusicTime.Text = (DateTime.Now.AddSeconds(timeInc) - startTime.AddSeconds(timeDec)).ToString(@"mm\:ss");
+            //Timespan difference = (DateTime.Now - startTime);
+        }
+
         private void Delete_KeyUp(object sender, KeyEventArgs e)
         {
             Button thisbutton = sender as Button;
             if(e.Key == Key.Enter)
             {
                 DeleteMessage.Visibility = Visibility.Visible;
+                //MusicGrid.Effect = new BlurEffect();
+                MusicList.Effect = new BlurEffect();
+                Cover.Effect = new BlurEffect();
+                MusicOptions.Effect = new BlurEffect();
+                MusicOptions.Effect = new BlurEffect();
+                SortButton.Effect = new BlurEffect();
+                DeleteMultiple.Effect = new BlurEffect();
+                MusicDuration.Effect = new BlurEffect();
+                //DeleteMessage.Effect = null;
                 //MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Are you sure?", "Delete Confirmation", System.Windows.MessageBoxButton.YesNo);
-                
-                
+
+
 
                 TextBlock DeleteMessageTb = new TextBlock();
                 DeleteMessageTb.Text = "Would you like to delete the following Song:";
@@ -632,15 +723,28 @@ namespace Silver_HTPC
         {
             if (e.Key==Key.Enter)
             {
+                MusicList.Effect = null;
+                Cover.Effect = null;
+                MusicOptions.Effect = null;
+                MusicOptions.Effect = null;
+                SortButton.Effect = null;
+                DeleteMultiple.Effect = null;
+                MusicDuration.Effect = null;
                 for (int i = 0; i < MusicButtonsList.Count; i++)
                 {
                     MusicButtonsList[i].Focusable = true;
                 }
                 DeleteMessage.Visibility = Visibility.Hidden;
+                //MusicGrid.Effect = null;
                 MusicList.Children.Remove(MusicButtonsList[MusicIndex]);
                 MusicButtonsList.RemoveAt(MusicIndex);
                 MusicButtonsGrids.RemoveAt(MusicIndex);
                 CoverPhotosList.RemoveAt(MusicIndex);
+                currentMusicTime.Visibility = Visibility.Hidden;
+                MusicTime.Visibility = Visibility.Hidden;
+                Cover.Children.Clear();
+                MusicOptions.Children.Clear();
+                MusicDuration.Children.Clear();
 
 
                 Keyboard.ClearFocus();
@@ -669,6 +773,13 @@ namespace Silver_HTPC
         {
             if (e.Key == Key.Enter)
             {
+                MusicList.Effect = null;
+                Cover.Effect = null;
+                MusicOptions.Effect = null;
+                MusicOptions.Effect = null;
+                SortButton.Effect = null;
+                DeleteMultiple.Effect = null;
+                MusicDuration.Effect = null;
                 for (int i = 0; i < MusicButtonsList.Count; i++)
                 {
                     MusicButtonsList[i].Focusable = true;

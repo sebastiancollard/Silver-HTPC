@@ -35,26 +35,26 @@
                     <RowDefinition Height="*" />
 
                 </Grid.RowDefinitions>
-                <Button Name="But_1" Margin="0 0 5 5" Grid.Column="0" Grid.Row="0" GotFocus="Image_GotFocus" LostFocus="Image_LostFocus">
+                <Button Name="But_1" Margin="0 0 5 5" Grid.Column="0" Grid.Row="0" GotFocus="Image_GotFocus" LostFocus="Image_LostFocus" KeyDown="ImageButton_KeyDown">
                     <Image Name="img_1" Grid.Column="0" Grid.Row="0" Source="Image/fam.jpg" Stretch="Fill" Margin="5 5 5 5"/>
                 </Button>
 
-                <Button Name="But_2"  Margin="0 0 5 5" Grid.Column="1" Grid.Row="0" GotFocus="Image_GotFocus" LostFocus="Image_LostFocus">
+                <Button Name="But_2"  Margin="0 0 5 5" Grid.Column="1" Grid.Row="0" GotFocus="Image_GotFocus" LostFocus="Image_LostFocus"  KeyDown="ImageButton_KeyDown">
                     <Image Name="img_2" Grid.Column="1" Grid.Row="0" Source="Image/fam1.jpg" Stretch="Fill" Margin="5 5 5 5"  />
                 </Button>
 
-                <Button Name="But_3" Margin="0 0 5 5" Grid.Column="2" Grid.Row="0" GotFocus="Image_GotFocus" LostFocus="Image_LostFocus">
+                <Button Name="But_3" Margin="0 0 5 5" Grid.Column="2" Grid.Row="0" GotFocus="Image_GotFocus" LostFocus="Image_LostFocus"  KeyDown="ImageButton_KeyDown">
                     <Image  Name="img_3" Grid.Column="2" Grid.Row="0" Source="Image/vid.jpg" Stretch="Fill" Margin="5 5 5 5"  />
                 </Button>
                 
                 <Image  Grid.Column="2" Grid.Row="0" Source="Image/PLAY.jpg" Margin="0 0 15 15" />
 
 
-                <Button Name="But_4" Margin="0 0 5 5" Grid.Column="3" Grid.Row="0" GotFocus="Image_GotFocus" LostFocus="Image_LostFocus">
+                <Button Name="But_4" Margin="0 0 5 5" Grid.Column="3" Grid.Row="0" GotFocus="Image_GotFocus" LostFocus="Image_LostFocus"  KeyDown="ImageButton_KeyDown">
                     <Image  Name="img_4" Grid.Column="3" Grid.Row="0" Source="Image/banff.jpg" Stretch="Fill" Margin="5 5 5 5"  />
                 </Button>
 
-                <Button Name="But_5" Margin="0 0 5 5" Grid.Column="0" Grid.Row="1" GotFocus="Image_GotFocus" LostFocus="Image_LostFocus">
+                <Button Name="But_5" Margin="0 0 5 5" Grid.Column="0" Grid.Row="1" GotFocus="Image_GotFocus" LostFocus="Image_LostFocus"  KeyDown="ImageButton_KeyDown">
                     <Image  Name="img_5" Grid.Column="0" Grid.Row="1" Source="Image/fam2.jpg" Stretch="Fill" Margin="5 5 5 5"  />
                 </Button>
                 <Image Grid.Column="0" Grid.Row="1" Source="Image/PLAY.jpg" Margin="0 0 15 15" />

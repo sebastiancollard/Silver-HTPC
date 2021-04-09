@@ -24,6 +24,7 @@ namespace Silver_HTPC
         bool delete_Single_Clicked = false;
         private static List<Button> ButtonsForImages = new List<Button>();
         private static List<Image> ImagesForButtons = new List<Image>();
+        private int ButtonIndex = 0;
         public Photos_Videos()
         {
             InitializeComponent();
@@ -57,34 +58,64 @@ namespace Silver_HTPC
 
         }
 
-
-        /**
-            private void Delete_Single_Click(object sender, RoutedEventArgs e)
+        private void ImageButton_KeyDown(object sender, KeyEventArgs e)
         {
-            delete_Single_Clicked = true;
+            if(e.Key== Key.Right && (ButtonIndex +1)%4!=0)
+            {
+                ButtonIndex += 1;
+            }
+            else if (e.Key == Key.Left && (ButtonIndex)%4!=0)
+            {
+                ButtonIndex -= 1;
+            }
+            else if(e.Key == Key.Down && (ButtonIndex+4 < ButtonsForImages.Count))
+            {
+                ButtonIndex += 4;
+            }
+            else if (e.Key == Key.Up && (ButtonIndex-4)>=0)
+            {
+                ButtonIndex -= 4;
+            }
+            
+            Console.WriteLine("ButtonIndex: " + ButtonIndex);
         }
 
-        private void img_1_Hovering(object sender, MouseEventArgs e)
+        private void ImageButton_KeyUp(object sender, KeyEventArgs e)
         {
-            if (delete_Single_Clicked)
+            if (e.Key == Key.Enter)
             {
-                img_1.Opacity = 0.5;
+
             }
         }
 
-        private void img_1_Leaving(object sender, MouseEventArgs e)
-        {
-            if (delete_Single_Clicked)
+
+            /**
+                private void Delete_Single_Click(object sender, RoutedEventArgs e)
             {
-                img_1.Opacity = 1.0;
+                delete_Single_Clicked = true;
             }
+
+            private void img_1_Hovering(object sender, MouseEventArgs e)
+            {
+                if (delete_Single_Clicked)
+                {
+                    img_1.Opacity = 0.5;
+                }
+            }
+
+            private void img_1_Leaving(object sender, MouseEventArgs e)
+            {
+                if (delete_Single_Clicked)
+                {
+                    img_1.Opacity = 1.0;
+                }
+            }
+            **/
+
+
+            // How do we want to implement functionality? Using keys? Using mouse for the prototype?
+            // Having a hard time implementing button functionality.
+            // Have images turn different colour when hovering?
+            // How do we want "selecting specific things" to look like?
         }
-        **/
-
-
-        // How do we want to implement functionality? Using keys? Using mouse for the prototype?
-        // Having a hard time implementing button functionality.
-        // Have images turn different colour when hovering?
-        // How do we want "selecting specific things" to look like?
-    }
 }
