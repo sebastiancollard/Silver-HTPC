@@ -24,7 +24,9 @@ namespace Silver_HTPC
         bool delete_Single_Clicked = false;
         private static List<Button> ButtonsForImages = new List<Button>();
         private static List<Image> ImagesForButtons = new List<Image>();
+        private static List<bool> isVideo = new List<bool>();
         private int ButtonIndex = 0;
+        private int Start = 0;
         public Photos_Videos()
         {
             InitializeComponent();
@@ -40,6 +42,13 @@ namespace Silver_HTPC
             ImagesForButtons.Add(img_3);
             ImagesForButtons.Add(img_4);
             ImagesForButtons.Add(img_5);
+
+            isVideo.Add(false);
+            isVideo.Add(false);
+            isVideo.Add(true);
+            isVideo.Add(false);
+            isVideo.Add(true);
+
             But_1.Focus();
             
         }
@@ -82,9 +91,53 @@ namespace Silver_HTPC
 
         private void ImageButton_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Enter)
+            if (e.Key == Key.Enter && Start!=0)
             {
-
+                for(int i=0; i<ButtonsForImages.Count; i++)
+                {
+                    ButtonsForImages[i].Focusable = false;
+                }
+                //Sort_Button.Focusable = false;
+                //Delete_Single.Focusable = false;
+                //Delete_Multiple.Focusable = false;
+                //scrollViewer.Focusable = false;
+                EnlargePhotoGrid.Visibility = Visibility.Visible;
+                Button buttonLargerImage = new Button();
+                buttonLargerImage.KeyDown += LargeImage_KeyDown;
+                buttonLargerImage.Background = Brushes.Black;
+                buttonLargerImage.Style = (Style)FindResource("ButtonStyle");
+                buttonLargerImage.KeyDown += LargeImage_KeyDown;
+                Image biggerImage = new Image();
+                biggerImage.Source = new BitmapImage(new Uri(ImagesForButtons[ButtonIndex].Source.ToString(), UriKind.RelativeOrAbsolute));
+                biggerImage.KeyDown += LargeImage_KeyDown;
+                // CoverPhoto.Source = new BitmapImage(new Uri(CoverPhotosList[MusicIndex], UriKind.RelativeOrAbsolute));
+                
+                EnlargePhotoGrid.Children.Clear();
+                EnlargePhotoGrid.Children.Add(buttonLargerImage);
+                EnlargePhotoGrid.Background = Brushes.Black;
+                EnlargePhotoGrid.Children.Add(biggerImage);
+                
+                if (isVideo[ButtonIndex])
+                {
+                    Image playIcon = new Image();
+                    playIcon.Source = new BitmapImage(new Uri("Image/Play.jpg", UriKind.RelativeOrAbsolute));
+                    EnlargePhotoGrid.Children.Add(playIcon);
+                }
+                buttonLargerImage.Focus();
+                
+            }
+            Start += 1;
+        }
+        private void LargeImage_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Key == Key.Back)
+            {
+                for (int i = 0; i < ButtonsForImages.Count; i++)
+                {
+                    ButtonsForImages[i].Focusable = true;
+                }
+                EnlargePhotoGrid.Visibility = Visibility.Hidden;
+                ButtonsForImages[ButtonIndex].Focus();
             }
         }
 
