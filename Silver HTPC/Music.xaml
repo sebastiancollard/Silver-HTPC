@@ -33,12 +33,12 @@
         <TextBlock HorizontalAlignment="Left" Height="31" Margin="635,306,-39,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="196" RenderTransformOrigin="0.406,-0.589" FontFamily="Segoe UI Emoji" FontSize="24"><Run Text="Total: "/><Run Text="250GB"/><InlineUIContainer>
               
             </InlineUIContainer></TextBlock>
-        <Button x:Name="SortButton" Content="Sort by" HorizontalAlignment="Left" Margin="355,62,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="9.63,-6.324" Height="44" FontFamily="Arial Rounded MT Bold" FontSize="18" GotFocus="Button_GotFocus" LostFocus="Button_LostFocus" KeyDown="Button_KeyDown" FocusVisualStyle="{x:Null}"/>
-        <Button Name="DeleteMultiple" Content="Delete &#xA;Multiple" HorizontalAlignment="Left" Margin="467,62,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="9.63,-6.324" Height="44" FontFamily="Arial Rounded MT Bold" FontSize="18" GotFocus="Button_GotFocus" LostFocus="Button_LostFocus" KeyDown="Button_KeyDown" FocusVisualStyle="{x:Null}"/>
+        <Button x:Name="SortButton" Content="Sort by" HorizontalAlignment="Left" Margin="355,62,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="9.63,-6.324" Height="44" FontFamily="Arial Rounded MT Bold" FontSize="18" GotFocus="Button_GotFocus" LostFocus="Button_LostFocus" KeyDown="Button_KeyDown" FocusVisualStyle="{x:Null}" Background="White"/>
+        <Button Name="DeleteMultiple" Content="Delete &#xA;Multiple" HorizontalAlignment="Left" Margin="467,62,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="9.63,-6.324" Height="44" FontFamily="Arial Rounded MT Bold" FontSize="18" GotFocus="Button_GotFocus" LostFocus="Button_LostFocus" KeyDown="Button_KeyDown" FocusVisualStyle="{x:Null}" Background="White"/>
 
         <ScrollViewer Name="ViewMusicList" HorizontalAlignment="Left" VerticalAlignment="top" Height="298" Margin="10,111,0,0"  Width="543" VerticalScrollBarVisibility="Hidden" >
             <StackPanel Name="MusicList" Orientation="Vertical" Height="684" RenderTransformOrigin="0.352,0.509">
-           
+
                 <!--<Grid Name="MusicGrid" HorizontalAlignment="Left" Height="431" VerticalAlignment="Top" Width="542" > 
                 <Grid.RowDefinitions>
                     <RowDefinition Height= "50"/>
@@ -67,7 +67,7 @@
                             <RowDefinition Height="0.1*"/>
                         </Grid.RowDefinitions>
 
-                        <TextBlock Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Text="Poker Face - Lady Gaga" VerticalAlignment="top"/>
+                        <TextBlock Name="SongNameTb1" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Text="Poker Face - Lady Gaga" VerticalAlignment="top"/>
                         <TextBlock Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" Text="3m:48s" HorizontalAlignment="Right" VerticalAlignment="top"/>
                         <Image Grid.Row="0" Grid.Column="0" Source="Image/music_icon_black.png" VerticalAlignment="top"/>
 
@@ -89,7 +89,7 @@
                             <RowDefinition Height="0.1*"/>
                         </Grid.RowDefinitions>
 
-                        <TextBlock Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Text="I Walk The Line - Johnny Cash" VerticalAlignment="Top"/>
+                        <TextBlock Name="SongNameTb2" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Text="I Walk The Line - Johnny Cash" VerticalAlignment="Top"/>
                         <TextBlock Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" Text="2m:45s" HorizontalAlignment="Right" VerticalAlignment="Top"/>
                         <Image Grid.Row="0" Grid.Column="0" Source="Image/music_icon_black.png" VerticalAlignment="Top"/>
 
@@ -111,7 +111,7 @@
                             <RowDefinition Height="0.1*"/>
                         </Grid.RowDefinitions>
 
-                        <TextBlock Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Text="Help - The Beatles" VerticalAlignment="Top"/>
+                        <TextBlock Name="SongNameTb3" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Text="Help - The Beatles" VerticalAlignment="Top"/>
                         <TextBlock Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" Text="2m:20s" HorizontalAlignment="Right" VerticalAlignment="Top"/>
                         <Image Grid.Row="0" Grid.Column="0" Source="Image/music_icon_black.png" VerticalAlignment="Top"/>
 
@@ -132,7 +132,7 @@
                             <RowDefinition Height="0.1*"/>
                         </Grid.RowDefinitions>
 
-                        <TextBlock Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Text="In My Life - The Beatles" VerticalAlignment="Top"/>
+                        <TextBlock Name="SongNameTb4" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Text="In My Life - The Beatles" VerticalAlignment="Top"/>
                         <TextBlock Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" Text="2m:27s" HorizontalAlignment="Right" VerticalAlignment="Top"/>
                         <Image Grid.Row="0" Grid.Column="0" Source="Image/music_icon_black.png" VerticalAlignment="Top"/>
 
@@ -154,7 +154,7 @@
                             <RowDefinition Height="0.1*"/>
                         </Grid.RowDefinitions>
 
-                        <TextBlock Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Text="Let's get Married - Jagged Edge" VerticalAlignment="Top"/>
+                        <TextBlock Name="SongNameTb5" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Text="Let's get Married - Jagged Edge" VerticalAlignment="Top"/>
                         <TextBlock Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" Text="4m:24s" HorizontalAlignment="Right" VerticalAlignment="Top"/>
                         <Image Grid.Row="0" Grid.Column="0" Source="Image/music_icon_black.png" VerticalAlignment="Top"/>
 
@@ -176,7 +176,7 @@
                             <RowDefinition Height="0.1*"/>
                         </Grid.RowDefinitions>
 
-                        <TextBlock Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Text="I Wish - Carl Thomas" VerticalAlignment="Top"/>
+                        <TextBlock Name="SongNameTb6" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Text="I Wish - Carl Thomas" VerticalAlignment="Top"/>
                         <TextBlock Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" Text="3m:52s" HorizontalAlignment="Right" VerticalAlignment="Top"/>
                         <Image Grid.Row="0" Grid.Column="0" Source="Image/music_icon_black.png" VerticalAlignment="Top"/>
 
@@ -185,19 +185,29 @@
                 </Button>
 
                 <!--</Grid> -->
-            
-        </StackPanel>
+
+            </StackPanel>
         </ScrollViewer>
 
         <Grid x:Name="Cover" HorizontalAlignment="Left" Height="140" Margin="588,73,0,0" VerticalAlignment="Top" Width="180"/>
         <StackPanel Name="MusicOptions" HorizontalAlignment="Left" Height="31" Margin="601,233,0,0" VerticalAlignment="Top" Width="154" Orientation="Horizontal"/>
         <StackPanel Name="MusicDuration" HorizontalAlignment="Left" Height="32" Margin="601,269,0,0" VerticalAlignment="Top" Width="154"/>
-        <Grid.RowDefinitions>
+        
+        
+            <Grid Name="DeleteMessage" HorizontalAlignment="Left" Height="157" Margin="161,155,0,0" VerticalAlignment="Top" Width="361" RenderTransformOrigin="0.495,0.51" Background="AliceBlue" Visibility="Hidden"  >
+                
+             <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+             <RowDefinition Height="*"/>
+             <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Border BorderBrush="Black" BorderThickness="2" Grid.RowSpan="3" Grid.ColumnSpan="2"/>
+        </Grid>
+        
     </Grid>
 </Window>
