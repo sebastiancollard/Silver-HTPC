@@ -5,32 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Silver_HTPC"
         mc:Ignorable="d"
-        Title="Settings" Height="450" Width="800">
-    <Grid>
-        <Grid.Background>
-            <LinearGradientBrush EndPoint="1,0" MappingMode="RelativeToBoundingBox" StartPoint="0,1">
-                <GradientStop Color="Black" Offset="1"/>
-                <GradientStop Color="White"/>
-            </LinearGradientBrush>
-        </Grid.Background>
-        <TextBlock HorizontalAlignment="Left" Margin="64,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="29" Width="109" FontSize="20" FontWeight="Bold"><Run Text="Settings"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="85,126,0,0" TextWrapping="Wrap" Text="Text size" VerticalAlignment="Top" Height="29" Width="109" FontSize="20"/>
-        <Slider Name="_slider_TextSize" HorizontalAlignment="Left" Margin="216,131,0,0" VerticalAlignment="Top" Width="196" Maximum="100" ValueChanged="TextSlider_ValueChanged"/>
-        <TextBlock HorizontalAlignment="Left" Margin="85,184,0,0" TextWrapping="Wrap" Text="Language" VerticalAlignment="Top" Height="29" Width="109" FontSize="20"/>
-        <ComboBox Name="_combobox_Language" HorizontalAlignment="Left" Height="29" Margin="216,184,0,0" VerticalAlignment="Top" Width="196">
-            <ComboBoxItem Content="English"></ComboBoxItem>
-            <ComboBoxItem Content="French"></ComboBoxItem>
-            <ComboBoxItem Content="Spanish"></ComboBoxItem>
-        </ComboBox>
-        <Button x:Name="_button_AdvanceSettings" Content="     Advanced Settings" HorizontalAlignment="Left" Height="113" Margin="-2,313,-0.444,-3.333" VerticalAlignment="Top" Width="798" FontWeight="Bold" FontSize="20" HorizontalContentAlignment="Left" Background="#FFD4D4D4" Click="AdSet_button_Click"/>
-        <TextBlock HorizontalAlignment="Left" Margin="85,244,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="29" Width="117" FontSize="20"><Run Text="Button "/><Run Text="guide"/></TextBlock>
-        <Button Content="Off" HorizontalAlignment="Left" Height="29" Margin="216,244,0,0" VerticalAlignment="Top" Width="44" Background="#FFEC2525"/>
-        <Button Content="On" HorizontalAlignment="Left" Height="29" Margin="260,244,0,0" VerticalAlignment="Top" Width="44" Background="#FFD4D4D4"/><!--#FF00CF55-->
-        <ToggleButton Content="ON LINE MODE" Style="{StaticResource ToggleButtonStyle1}" Margin="101,83,-100.444,-83.333"></ToggleButton>
-        <Image HorizontalAlignment="Left" Height="29" Margin="17,19,0,0" VerticalAlignment="Top" Width="32" Source="Settings gear.png"/>
-        <Rectangle HorizontalAlignment="Left" Height="5" Margin="0,60,-0.444,0" VerticalAlignment="Top" Width="796" Fill="#FF777A93"/>
+        Title="Settings" Height="450" Width="800" KeyDown="Window_KeyDown">
 
-    </Grid>
     <Window.Resources>
         <LinearGradientBrush x:Key="ButtonNormalBackground" EndPoint="0,1" StartPoint="0,0">
             <GradientStop Color="#F3F3F3" Offset="0"/>
@@ -77,4 +53,31 @@
             </Setter>
         </Style>
     </Window.Resources>
+
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="1,0" MappingMode="RelativeToBoundingBox" StartPoint="0,1">
+                <GradientStop Color="Black" Offset="1"/>
+                <GradientStop Color="White"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <TextBlock HorizontalAlignment="Left" Margin="64,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="29" Width="109" FontSize="20" FontWeight="Bold"><Run Text="Settings"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="85,126,0,0" TextWrapping="Wrap" Text="Text size" VerticalAlignment="Top" Height="29" Width="109" FontSize="20"/>
+        <Slider Name="_slider_TextSize" HorizontalAlignment="Left" Margin="216,131,0,0" VerticalAlignment="Top" Width="196" Maximum="100" ValueChanged="TextSlider_ValueChanged"/>
+        <TextBlock HorizontalAlignment="Left" Margin="85,184,0,0" TextWrapping="Wrap" Text="Language" VerticalAlignment="Top" Height="29" Width="109" FontSize="20"/>
+        <ComboBox Name="_combobox_Language" HorizontalAlignment="Left" Height="29" Margin="216,184,0,0" VerticalAlignment="Top" Width="196">
+            <ComboBoxItem Content="English"></ComboBoxItem>
+            <ComboBoxItem Content="French"></ComboBoxItem>
+            <ComboBoxItem Content="Spanish"></ComboBoxItem>
+        </ComboBox>
+        <Button x:Name="_button_AdvanceSettings" Content="     Advanced Settings" HorizontalAlignment="Left" Height="113" Margin="-2,313,-0.444,-3.333" VerticalAlignment="Top" Width="798" FontWeight="Bold" FontSize="20" HorizontalContentAlignment="Left" Background="#FFD4D4D4" Click="AdSet_button_Click"/>
+        <TextBlock HorizontalAlignment="Left" Margin="85,244,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="29" Width="117" FontSize="20"><Run Text="Button "/><Run Text="guide"/></TextBlock>
+        <Button Content="Off" HorizontalAlignment="Left" Height="29" Margin="216,244,0,0" VerticalAlignment="Top" Width="44" Background="#FFEC2525"/>
+        <Button Content="On" HorizontalAlignment="Left" Height="29" Margin="260,244,0,0" VerticalAlignment="Top" Width="44" Background="#FFD4D4D4"/>
+        <!--#FF00CF55-->
+        <ToggleButton Content="ON LINE MODE" Style="{StaticResource ToggleButtonStyle1}" Margin="101,83,-100.444,-83.333"></ToggleButton>
+        <Image HorizontalAlignment="Left" Height="29" Margin="17,19,0,0" VerticalAlignment="Top" Width="32" Source="Settings gear.png"/>
+        <Rectangle HorizontalAlignment="Left" Height="5" Margin="0,60,-0.444,0" VerticalAlignment="Top" Width="796" Fill="#FF777A93"/>
+
+    </Grid>
 </Window>

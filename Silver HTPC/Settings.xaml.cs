@@ -43,85 +43,17 @@ namespace Silver_HTPC
         {
             AdvancedSettings ASett_window = new AdvancedSettings();
             ASett_window.Show();
+            this.Close();
         }
 
         // Keyboard manouvering!
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
-            switch (e.Key)
+            if (e.Key == Key.Back)
             {
-                /**
-                case Key.Right:
-                    if (currentButtonSelectionIndex != 2 && currentButtonSelectionIndex != 5 && currentButtonSelectionIndex != 8 && currentButtonSelectionIndex != 9)
-                    {
-                        resetButtonFocus(currentButtonSelectionIndex);
-                        currentButtonSelectionIndex = (currentButtonSelectionIndex + 1) % 9;
-                        setButtonFocus(currentButtonSelectionIndex);
-                    }
-
-                    break;
-                case Key.Left:
-                    if (currentButtonSelectionIndex != 0 && currentButtonSelectionIndex != 3 && currentButtonSelectionIndex != 6 && currentButtonSelectionIndex != 9)
-                    {
-                        resetButtonFocus(currentButtonSelectionIndex);
-                        currentButtonSelectionIndex = (currentButtonSelectionIndex - 1) % 9;
-                        setButtonFocus(currentButtonSelectionIndex);
-                    }
-
-                    break;
-                
-                case Key.Down:
-                    if (CurrentSelection == 3)
-                    {
-                        ResetButtonFocus(CurrentSelection);
-                        CurrentSelection = 0;
-                        SetButtonFocus(CurrentSelection);
-                    }
-                    else if (CurrentSelection < 3)
-                    {
-                        ResetButtonFocus(CurrentSelection);
-                        CurrentSelection += 1;
-                        SetButtonFocus(CurrentSelection);
-                    }
-
-                    break;
-                /**
-                case Key.Up:
-                    if (currentButtonSelectionIndex >= 3 && currentButtonSelectionIndex != 9)
-                    {
-                        resetButtonFocus(currentButtonSelectionIndex);
-                        currentButtonSelectionIndex = (currentButtonSelectionIndex - 3) % 9;
-                        setButtonFocus(currentButtonSelectionIndex);
-                    }
-                    else
-                    {
-                        resetButtonFocus(currentButtonSelectionIndex);
-                        currentButtonSelectionIndex = 9;
-                        setButtonFocus(currentButtonSelectionIndex);
-                    }
-                    break;
-                **/
-                case Key.Back:
-                    {
-                        // Go back to main menu on backspace
-                        MainWindow mainWindow = new MainWindow();
-                        mainWindow.Show();
-                        this.Close();
-                    }
-                    break;
-                case Key.Enter:
-                    //bool dontClose = false;
-                    //resetButtonFocus(currentButtonSelectionIndex);
-                    //switch (content[currentButtonSelectionIndex, 0])
-                    //{
-                    //    case "Live TV":
-                    //        TV_Guide tv = new TV_Guide();
-                    //        tv.Show();
-                    //        break;
-                    //}
-                    break;
-                default:
-                    break;
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.Show();
+                this.Close();
             }
         }
 
