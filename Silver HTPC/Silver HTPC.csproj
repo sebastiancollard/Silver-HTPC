@@ -452,6 +452,13 @@
     <Resource Include="Image\espn_show2.png" />
   </ItemGroup>
   <ItemGroup>
+
+    <Resource Include="Image\reminder_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\cancel_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Resource Include="Image\PokerFace.png" />
   </ItemGroup>
   <ItemGroup>
@@ -477,6 +484,7 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Image\reverse.png" />
+
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Image\rightArrow.png" />

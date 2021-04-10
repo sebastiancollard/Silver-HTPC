@@ -27,7 +27,7 @@ namespace Silver_HTPC
         private static int profileIndex = 0;
         private static Button[] menuButtonList;
         private static StackPanel[] stackPanelList;
-        private static string[,] content;
+        private static string[,] content=new string[,] { { "Live TV", "Image/tv_icon.png" }, { "Gallery", "Image/gallery_icon.png" }, { "Music", "Image/music_icon.png" }, { "Recordings", "Image/record_icon.png" }, { "Search", "Image/search_icon.jpg" }, { "Netflix", "Image/netflix_icon.png" }, { "Settings", "Image/settings_icon.png" }, { "Notification", "Image/notification_icon.png" }, { "Other Apps", "Image/apps_icon.png" } , {"John Doe","Image/profile_icon.png" } };
         private static Label selectedLabel;
         private static string[] profiles;
         private static List<Button> profileBtns = new List<Button>();
@@ -51,7 +51,7 @@ namespace Silver_HTPC
                 btn.KeyDown += select;*/
 
             stackPanelList = new StackPanel[] { stackPan_Button1, stackPan_Button2, stackPan_Button3, stackPan_Button4, stackPan_Button5, stackPan_Button6, stackPan_Button7, stackPan_Button8, stackPan_Button9, stackPan_Profile };
-            content = new string[,] { { "Live TV", "Image/tv_icon.png" }, { "Gallery", "Image/gallery_icon.png" }, { "Music", "Image/music_icon.png" }, { "Recordings", "Image/record_icon.png" }, { "Search", "Image/search_icon.jpg" }, { "Netflix", "Image/netflix_icon.png" }, { "Settings", "Image/settings_icon.png" }, { "Notification", "Image/notification_icon.png" }, { "Other Apps", "Image/apps_icon.png" } , {"John Doe","Image/profile_icon.png" } };
+            //content = 
             //dynamically add content to static buttons
             for (int i = 0; i < 10; i++)
             {
@@ -151,6 +151,25 @@ namespace Silver_HTPC
             //}
             button.Foreground = Brushes.White;
             button.Height *= 1.2;
+        }
+
+        public void updateContent(int button_index)
+        {
+            if (button_index < 7)
+            {
+                for (int i = button_index; i > 0; i--)
+                {
+                    string tmp0 = content[i, 0];
+                    string tmp1 = content[i, 1];
+                    content[i, 0] = content[i - 1, 0];
+                    content[i, 1] = content[i - 1, 1];
+                    content[i - 1, 0] = tmp0;
+                    content[i - 1, 1] = tmp1;
+
+                }
+                
+            }
+            
         }
         public void resetButtonFocus(int button_index)
         {
@@ -303,7 +322,12 @@ namespace Silver_HTPC
                                 setProfileButtonFocus(profileIndex);
                                 break;
                         }
-                        if (!dontClose) this.Close();
+                        if (!dontClose) 
+                        {
+                            updateContent(currentButtonSelectionIndex);
+                            currentButtonSelectionIndex = 0;
+                            this.Close(); 
+                        }
                         break;
                     default:
                         break;
