@@ -21,11 +21,14 @@ namespace Silver_HTPC
     {
 
         bool hidden = true;
-        StackPanel sidemenu;
+        Grid sidemenu;
+        Grid record;
+    
 
         public LiveTV(int x)
         {
             InitializeComponent();
+            this.DataContext = this;
             Image nowPlaying = image1;
             BitmapImage bi = new BitmapImage();
             bi.BeginInit();
@@ -33,7 +36,19 @@ namespace Silver_HTPC
             else bi.UriSource = new Uri("image/topgear_live.png", UriKind.Relative);
             bi.EndInit();
             nowPlaying.Source = bi;
-            sidemenu = stackpanel;
+            sidemenu = panel;
+            record = record_button;
+  
+
+
+            
+
+
+
+
+
+
+
 
         }
 
@@ -51,6 +66,24 @@ namespace Silver_HTPC
                 sidemenu.Margin = new Thickness(0, 0, 0, 0);
                 hidden = false;
             }
+            else if (e.Key == Key.Right)
+            {
+
+                
+            }
+            else if (e.Key == Key.Left)
+            {
+             
+            }
         }
+
+
+    
+
+
+
+
     }
+
+
 }
