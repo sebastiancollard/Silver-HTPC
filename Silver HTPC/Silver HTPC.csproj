@@ -478,5 +478,11 @@
   <ItemGroup>
     <Resource Include="Image\reverse.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\rightArrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\leftArrow.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

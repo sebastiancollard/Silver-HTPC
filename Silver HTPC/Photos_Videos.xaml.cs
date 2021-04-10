@@ -27,6 +27,7 @@ namespace Silver_HTPC
         private static List<bool> isVideo = new List<bool>();
         private int ButtonIndex = 0;
         private int Start = 0;
+        private bool viewingEnlargaredImages = false;
         public Photos_Videos()
         {
             InitializeComponent();
@@ -57,6 +58,7 @@ namespace Silver_HTPC
         {
             Button thisButton = sender as Button;
             thisButton.Background = Brushes.Black;
+            
 
         }
 
@@ -85,7 +87,13 @@ namespace Silver_HTPC
             {
                 ButtonIndex -= 4;
             }
-            
+            else if (e.Key == Key.Back && !viewingEnlargaredImages)
+            {
+                MainWindow home = new MainWindow();
+                home.Show();
+                this.Close();
+            }
+
             Console.WriteLine("ButtonIndex: " + ButtonIndex);
         }
 
@@ -93,82 +101,152 @@ namespace Silver_HTPC
         {
             if (e.Key == Key.Enter && Start!=0)
             {
-                for(int i=0; i<ButtonsForImages.Count; i++)
-                {
-                    ButtonsForImages[i].Focusable = false;
-                }
-                //Sort_Button.Focusable = false;
-                //Delete_Single.Focusable = false;
-                //Delete_Multiple.Focusable = false;
-                //scrollViewer.Focusable = false;
-                EnlargePhotoGrid.Visibility = Visibility.Visible;
-                Button buttonLargerImage = new Button();
-                buttonLargerImage.KeyDown += LargeImage_KeyDown;
-                buttonLargerImage.Background = Brushes.Black;
-                buttonLargerImage.Style = (Style)FindResource("ButtonStyle");
-                buttonLargerImage.KeyDown += LargeImage_KeyDown;
-                Image biggerImage = new Image();
-                biggerImage.Source = new BitmapImage(new Uri(ImagesForButtons[ButtonIndex].Source.ToString(), UriKind.RelativeOrAbsolute));
-                biggerImage.KeyDown += LargeImage_KeyDown;
-                // CoverPhoto.Source = new BitmapImage(new Uri(CoverPhotosList[MusicIndex], UriKind.RelativeOrAbsolute));
-                
-                EnlargePhotoGrid.Children.Clear();
-                EnlargePhotoGrid.Children.Add(buttonLargerImage);
-                EnlargePhotoGrid.Background = Brushes.Black;
-                EnlargePhotoGrid.Children.Add(biggerImage);
-                
-                if (isVideo[ButtonIndex])
-                {
-                    Image playIcon = new Image();
-                    playIcon.Source = new BitmapImage(new Uri("Image/Play.jpg", UriKind.RelativeOrAbsolute));
-                    EnlargePhotoGrid.Children.Add(playIcon);
-                }
-                buttonLargerImage.Focus();
-                
+                EnlargePhotoScreen();
             }
+            
             Start += 1;
         }
         private void LargeImage_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.Key == Key.Back)
+            if (e.Key == Key.Back)
             {
+                
                 for (int i = 0; i < ButtonsForImages.Count; i++)
                 {
                     ButtonsForImages[i].Focusable = true;
                 }
+                Sort_Button.Focusable = true;
+                Delete_Single.Focusable = true;
+                Delete_Multiple.Focusable = true;
+                scrollViewer.Focusable = true;
                 EnlargePhotoGrid.Visibility = Visibility.Hidden;
                 ButtonsForImages[ButtonIndex].Focus();
+                viewingEnlargaredImages = false;
+
             }
+            else if (e.Key == Key.Right)
+            {
+                if (ButtonIndex < ButtonsForImages.Count-1)
+                {
+                    Console.WriteLine("ButtonIndexRight: " + ButtonIndex);
+                    ButtonIndex += 1;
+                    EnlargePhotoScreen();
+                    
+                }
+            }
+            else if (e.Key == Key.Left)
+            {
+                if (ButtonIndex != 0)
+                {
+                    ButtonIndex -= 1;
+                    EnlargePhotoScreen();
+                }
+            }
+            
+        }
+
+        private void LargeImage_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+
+            }
+
+        }
+
+            void EnlargePhotoScreen()
+        {
+            viewingEnlargaredImages = true;
+            for (int i = 0; i < ButtonsForImages.Count; i++)
+            {
+                ButtonsForImages[i].Focusable = false;
+            }
+            Sort_Button.Focusable = false;
+            Delete_Single.Focusable = false;
+            Delete_Multiple.Focusable = false;
+            scrollViewer.Focusable = false;
+            EnlargePhotoGrid.Visibility = Visibility.Visible;
+            Button buttonLargerImage = new Button();
+            buttonLargerImage.KeyDown += LargeImage_KeyDown;
+            buttonLargerImage.KeyUp += LargeImage_KeyUp;
+            buttonLargerImage.Background = Brushes.White;
+            buttonLargerImage.Style = (Style)FindResource("ButtonStyle");
+            //buttonLargerImage.KeyDown += LargeImage_KeyDown;
+            Grid.SetRowSpan(buttonLargerImage, 3);
+            Grid.SetColumnSpan(buttonLargerImage, 3);
+            Image biggerImage = new Image();
+            biggerImage.Source = new BitmapImage(new Uri(ImagesForButtons[ButtonIndex].Source.ToString(), UriKind.RelativeOrAbsolute));
+            //biggerImage.KeyDown += LargeImage_KeyDown;
+            Grid.SetRowSpan(biggerImage, 3);
+            Grid.SetColumnSpan(biggerImage, 3);
+            // CoverPhoto.Source = new BitmapImage(new Uri(CoverPhotosList[MusicIndex], UriKind.RelativeOrAbsolute));
+
+            Image rightArrow = new Image();
+            rightArrow.Source = new BitmapImage(new Uri("Image/rightArrow.png", UriKind.RelativeOrAbsolute));
+            Grid.SetRow(rightArrow, 1);
+            Grid.SetColumn(rightArrow, 2);
+            // Grid.SetRowSpan(rightArrow, 3);
+            // Grid.SetColumnSpan(rightArrow, 3);
+
+            Image leftArrow = new Image();
+            leftArrow.Source = new BitmapImage(new Uri("Image/leftArrow.png", UriKind.RelativeOrAbsolute));
+            Grid.SetRow(leftArrow, 1);
+            Grid.SetColumn(leftArrow, 0);
+
+
+            EnlargePhotoGrid.Children.Clear();
+            //EnlargePhotoGrid.Children.Add(rightArrow);
+            EnlargePhotoGrid.Children.Add(buttonLargerImage);
+            EnlargePhotoGrid.Background = Brushes.Black;
+            EnlargePhotoGrid.Children.Add(biggerImage);
+            EnlargePhotoGrid.Children.Add(rightArrow);
+            EnlargePhotoGrid.Children.Add(leftArrow);
+
+            if (isVideo[ButtonIndex])
+            {
+                Image playIcon = new Image();
+                playIcon.Source = new BitmapImage(new Uri("Image/Play.jpg", UriKind.RelativeOrAbsolute));
+                Grid.SetRowSpan(playIcon, 3);
+                Grid.SetColumnSpan(playIcon, 3);
+                EnlargePhotoGrid.Children.Add(playIcon);
+            }
+            buttonLargerImage.Focus();
+        }
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            //Console.WriteLine(viewingEnlargaredImages);
+            
         }
 
 
-            /**
-                private void Delete_Single_Click(object sender, RoutedEventArgs e)
-            {
-                delete_Single_Clicked = true;
-            }
-
-            private void img_1_Hovering(object sender, MouseEventArgs e)
-            {
-                if (delete_Single_Clicked)
-                {
-                    img_1.Opacity = 0.5;
-                }
-            }
-
-            private void img_1_Leaving(object sender, MouseEventArgs e)
-            {
-                if (delete_Single_Clicked)
-                {
-                    img_1.Opacity = 1.0;
-                }
-            }
-            **/
-
-
-            // How do we want to implement functionality? Using keys? Using mouse for the prototype?
-            // Having a hard time implementing button functionality.
-            // Have images turn different colour when hovering?
-            // How do we want "selecting specific things" to look like?
+        /**
+            private void Delete_Single_Click(object sender, RoutedEventArgs e)
+        {
+            delete_Single_Clicked = true;
         }
+
+        private void img_1_Hovering(object sender, MouseEventArgs e)
+        {
+            if (delete_Single_Clicked)
+            {
+                img_1.Opacity = 0.5;
+            }
+        }
+
+        private void img_1_Leaving(object sender, MouseEventArgs e)
+        {
+            if (delete_Single_Clicked)
+            {
+                img_1.Opacity = 1.0;
+            }
+        }
+        **/
+
+
+        // How do we want to implement functionality? Using keys? Using mouse for the prototype?
+        // Having a hard time implementing button functionality.
+        // Have images turn different colour when hovering?
+        // How do we want "selecting specific things" to look like?
+    }
 }
