@@ -71,11 +71,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-
     <Page Include="LiveTV.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
-  
     <Page Include="OtherApplications.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -454,10 +452,39 @@
     <Resource Include="Image\espn_show2.png" />
   </ItemGroup>
   <ItemGroup>
+
     <Resource Include="Image\reminder_icon.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Image\cancel_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\PokerFace.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\WalkTheLine.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\helpBeatles.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\inmylifeBeatles.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\forward.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\PlayPause.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\letsgetmarriedJaggedEdge.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\iwishCarlThomas.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\reverse.png" />
+
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

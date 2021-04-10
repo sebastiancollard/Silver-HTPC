@@ -149,6 +149,7 @@
                 <Button Grid.Column="5" Grid.Row="5" KeyDown="KeyPad_KeyDown">0</Button>
             </Grid>
         </DockPanel>
+        <TextBox x:Name="counter" Height="23" Canvas.Left="303" TextWrapping="Wrap" Canvas.Top="20" Width="120" Text="0 results" />
 
 
         <!--<Button HorizontalAlignment="Left" Margin="35,30,0,0" VerticalAlignment="Top" Width="100" Height="200" Grid.Row="1" BorderThickness="1" BorderBrush="Red" SnapsToDevicePixels="True" FontFamily="REVOLUTION" Foreground="Black">
