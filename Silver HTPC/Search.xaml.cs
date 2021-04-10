@@ -36,7 +36,7 @@ namespace Silver_HTPC
             MakeResults();
 
             ((Grid)keypad.Children[1]).Children[0].Focus();
-            filter.Visibility = Visibility.Hidden;
+            counter.Visibility = Visibility.Hidden;
             scroll.Width -= 270;
             scroll.Margin = new Thickness(270, 0, 0, 0);
 
@@ -628,7 +628,7 @@ namespace Silver_HTPC
 
                 if (keypad.Visibility == Visibility.Hidden)
                 {
-                    filter.Visibility = Visibility.Hidden;
+                    counter.Visibility = Visibility.Hidden;
                     keypad.Visibility = Visibility.Visible;
                     scroll.Width -= 270;
                     scroll.Margin = new Thickness(270, 0, 0, 0);
@@ -637,7 +637,7 @@ namespace Silver_HTPC
                 }
                 else if (keypad.Visibility == Visibility.Visible && update)
                 {
-                    filter.Visibility = Visibility.Visible;
+                    counter.Visibility = Visibility.Visible;
                     keypad.Visibility = Visibility.Hidden;
                     scroll.Width += 270;
                     scroll.Margin = new Thickness();
@@ -722,7 +722,7 @@ namespace Silver_HTPC
                 btn == ((Grid)keypad.Children[1]).Children[17] ||
                 btn == ((Grid)keypad.Children[1]).Children[23]) && stack.Children.Count > 0)
             {
-                filter.Visibility = Visibility.Visible;
+                counter.Visibility = Visibility.Visible;
                 keypad.Visibility = Visibility.Hidden;
                 scroll.Width += 270;
                 scroll.Margin = new Thickness();
@@ -743,7 +743,7 @@ namespace Silver_HTPC
             } 
             else if (e.Key == Key.Right && btn == ((Grid)keypad.Children[0]).Children[2])
             {
-                filter.Visibility = Visibility.Visible;
+                counter.Visibility = Visibility.Visible;
                 keypad.Visibility = Visibility.Hidden;
                 scroll.Width += 270;
                 scroll.Margin = new Thickness();
