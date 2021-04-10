@@ -15,6 +15,7 @@ using System.Windows.Threading;
 using System.Windows.Media.Effects;
 
 
+
 namespace Silver_HTPC
 {
     /// <summary>
@@ -75,6 +76,8 @@ namespace Silver_HTPC
             // https://stackoverflow.com/questions/43676458/set-focus-on-passwordbox-when-application-starts
             this.Loaded += new RoutedEventHandler(Login_Focus);
             Console.WriteLine("dada");
+
+            
 
          
 
@@ -417,7 +420,12 @@ namespace Silver_HTPC
             // scroll.ScrollToHorizontalOffset(btn.TranslatePoint(new Point(), stack).X - offset);
             if (e.Key == Key.Down)
             {
-                ViewMusicList.ScrollToVerticalOffset(thisbutton.TranslatePoint(new Point(), MusicList).Y-50);
+                //for (int a = 0; a < 100; a++) {
+                    ViewMusicList.ScrollToVerticalOffset(thisbutton.TranslatePoint(new Point(), MusicList).Y - 50);
+                //ViewMusicList.scrollto
+                
+               // }
+                
                 // for (int i = 0; i < MusicButtonsList.Count; i++)
                 //{
                 //   MusicButtonsList[i].Focusable = true;
@@ -519,6 +527,20 @@ namespace Silver_HTPC
         {
             if (e.Key == Key.Enter && Start>0)
             {
+                //String path = Environment.CurrentDirectory;
+                //Uri path = new Uri(@"pack://application:,,,/Sound/OkClick.wav", UriKind.RelativeOrAbsolute);
+                //Console.WriteLine(path);
+                //System.Media.SoundPlayer player = new System.Media.SoundPlayer(path.AbsolutePath);
+               
+                //player.Play();
+
+                //var uri = new Uri
+                //var Player = new MediaPlayer();
+                //player.
+
+              
+                
+               
                 Console.WriteLine("Paste Image");
                 Image CoverPhoto = new Image();
                 CoverPhoto.Source = new BitmapImage(new Uri(CoverPhotosList[MusicIndex], UriKind.RelativeOrAbsolute));

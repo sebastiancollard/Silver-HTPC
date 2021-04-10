@@ -452,7 +452,6 @@
     <Resource Include="Image\espn_show2.png" />
   </ItemGroup>
   <ItemGroup>
-
     <Resource Include="Image\reminder_icon.png" />
   </ItemGroup>
   <ItemGroup>
@@ -484,13 +483,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Image\reverse.png" />
-
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Image\rightArrow.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Image\leftArrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Sound\OkClick.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
