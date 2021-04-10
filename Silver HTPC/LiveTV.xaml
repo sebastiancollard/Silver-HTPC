@@ -67,78 +67,31 @@
                         <Image Source="image/espn_logo.png" Stretch="UniformToFill"></Image>
                     </Label>
 
-                    <TextBlock Grid.Column="1" Foreground="White" Margin="10,0,0,0">Sportscenter</TextBlock>
+                    <TextBlock Grid.Column="1" Foreground="White" Margin="10,0,0,0">Post-Show Show</TextBlock>
                     <TextBlock Grid.Column="1" Foreground="White" Grid.ColumnSpan="2" Margin="116,0,0,0">7:30pm</TextBlock>
                 </Grid>
             </StackPanel>
-            <Grid Grid.Row="2" Margin="0,144,0,0" Grid.RowSpan="2">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="98*"/>
-
-                    <ColumnDefinition Width="97*"/>
-                </Grid.ColumnDefinitions>
 
 
+                <Grid x:Name="record_button" Grid.Row="2" Margin="0,144,0,0" Grid.RowSpan="2" >
 
-               
-                
-                <Grid x:Name="reminder_button" Grid.Column="1">
-                        
-                        <Grid.Background>
-                            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                                <GradientStop Color="#FF171717" Offset="1"/>
-                                <GradientStop Color="#FF4B4B4B"/>
-                            </LinearGradientBrush>
-                        </Grid.Background>
+                    <Grid.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                            <GradientStop Color="#FF171717" Offset="1"/>
+                            <GradientStop Color="#FF4B4B4B"/>
+                        </LinearGradientBrush>
+                    </Grid.Background>
 
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="13*"/>
-                            <RowDefinition Height="9*"/>
-                        </Grid.RowDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="13*"/>
+                        <RowDefinition Height="9*"/>
+                    </Grid.RowDefinitions>
 
+                    <Image Grid.Column="0" Grid.Row="0" Source="image/recordImage.png" Margin="0,6,0,28" Grid.RowSpan="2" />
+                    <TextBox Grid.Column="0" Grid.Row="1" Foreground="White" Background="{x:Null}" HorizontalContentAlignment="Center" BorderBrush="{x:Null}">Record</TextBox>
 
-                        <Image Grid.Column="0" Grid.Row="0" Source="image/reminder_icon.png" Margin="5,10,5,0" />
-                        <TextBox Grid.Column="0" Grid.Row="1" Foreground="White" Background="{x:Null}" HorizontalContentAlignment="Center" BorderBrush="{x:Null}">Set Reminder</TextBox>
+                </Grid>
 
-                    </Grid>
-
-
-
-              
-                <Grid x:Name="record_button" Grid.Column="0" >
-                        
-                        <Grid.Background>
-                            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                                <GradientStop Color="#FF171717" Offset="1"/>
-                                <GradientStop Color="#FF4B4B4B"/>
-                            </LinearGradientBrush>
-                        </Grid.Background>
-
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="13*"/>
-                            <RowDefinition Height="9*"/>
-                        </Grid.RowDefinitions>
-
-                        <Image Grid.Column="0" Grid.Row="0" Source="image/recordImage.png" Margin="0,6,0,28" Grid.RowSpan="2" />
-                        <TextBox Grid.Column="0" Grid.Row="1" Foreground="White" Background="{x:Null}" HorizontalContentAlignment="Center" BorderBrush="{x:Null}">Record</TextBox>
-
-                    </Grid>
-
-               
-
-                
-                
-                <Border Grid.Column="1" BorderThickness="1"  Opacity="{Binding ReminderBorder, Mode = TwoWay}" BorderBrush="White">
-                  
-                </Border>
-
-                <Border Grid.Column="0" BorderThickness ="1"  BorderBrush="White" Opacity="{Binding RecordBorder, Mode = TwoWay}">
-                    
-                </Border>
-
-
-
-            </Grid>
         </Grid>
 
 

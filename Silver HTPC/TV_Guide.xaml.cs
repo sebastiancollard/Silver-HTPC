@@ -29,15 +29,18 @@ namespace Silver_HTPC
         private ScrollViewer sv;
         private Grid setReminder;
         private Grid cancel;
+        private Grid done;
+        private Border setReminder_border;
+        private Border cancel_border;
+        private Border done_border;
         RadialGradientBrush offbrush;
         RadialGradientBrush onbrush;
         GradientStop offgradientstop1;
         GradientStop offgradientstop2;
         GradientStop ongradientstop1;
         GradientStop ongradientstop2;
-        TextBlock message;
-        bool reminder_selected;
-        bool cancel_selected; 
+        TextBlock popup_message;
+        bool currently_on_set_reminder;
 
 
         //max index of list_box_items
@@ -85,15 +88,21 @@ namespace Silver_HTPC
 
             setReminder = set_reminder_button;
             cancel = cancel_button;
+            done = done_button;
+
+            setReminder_border = set_reminder_button_border;
+            cancel_border = cancel_button_border;
+            done_border = done_button_border;
 
             setReminder.Background = offbrush;
             cancel.Background = onbrush;
+            done.Background = onbrush;
+
+            done_border.Opacity = 0;
             
             Popup_IsOpen = false;
 
-            cancel_selected = true;
-
-            message = textblock;
+            popup_message = textblock;
 
    
 
@@ -114,8 +123,8 @@ namespace Silver_HTPC
                     {
                         setReminder.Background = offbrush;
                         cancel.Background = onbrush;
-                        reminder_selected = false;
-                        cancel_selected = true;
+                        currently_on_set_reminder = false;
+                        
                     }
                     else
                     {
@@ -129,8 +138,8 @@ namespace Silver_HTPC
                     {
                         setReminder.Background = onbrush;
                         cancel.Background = offbrush;
-                        reminder_selected = true;
-                        cancel_selected = false;
+                        currently_on_set_reminder = true;
+                        
                     }
                     else
                     {
@@ -205,17 +214,29 @@ namespace Silver_HTPC
                     //Pop is open
                     else
                     {
-                        if (reminder_selected)
-                        {
-                           
-                            message.Text = "Reminder has been set!";
-                      
+                        //when set reminder was pressed
+                        if (currently_on_set_reminder)
+                        {                          
+                            popup_message.Text = "Reminder has been set!";
+                            done_border.Opacity = 100;
+                            cancel_border.Opacity = 0;
+                            setReminder_border.Opacity = 0;
+                            currently_on_set_reminder = false;
+
+
                         }
                         else
                         {
+                            //back to default
+                            setReminder.Background = offbrush;
+                            cancel.Background = onbrush;
+                            setReminder_border.Opacity = 100;
+                            cancel_border.Opacity = 100;
+                            done_border.Opacity = 0;
+                            popup_message.Text = "Would you like to set a reminder for this show?";
                             Popup_IsOpen = false;
-                            reminder_selected = false;
-                            cancel_selected = true;
+
+
                         }
                         
                     }

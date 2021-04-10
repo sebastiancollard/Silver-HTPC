@@ -23,7 +23,6 @@ namespace Silver_HTPC
         bool hidden = true;
         Grid sidemenu;
         Grid record;
-        Grid reminder;
     
 
         public LiveTV(int x)
@@ -39,7 +38,7 @@ namespace Silver_HTPC
             nowPlaying.Source = bi;
             sidemenu = panel;
             record = record_button;
-            reminder = reminder_button;
+  
 
 
             
@@ -69,39 +68,15 @@ namespace Silver_HTPC
             }
             else if (e.Key == Key.Right)
             {
-                
-                RecordBorder = 0;
-                ReminderBorder = 100;
-            
+
                 
             }
             else if (e.Key == Key.Left)
             {
-                RecordBorder = 100;
-                ReminderBorder = 0;
              
             }
         }
 
-
-
-        public static readonly DependencyProperty RecordBorderProperty = DependencyProperty.Register("RecordBorder", typeof(int), typeof(LiveTV));
-        public static readonly DependencyProperty ReminderBorderProperty = DependencyProperty.Register("ReminderBorder", typeof(int), typeof(LiveTV));
-       
-
-
-
-        public int RecordBorder
-            {
-                get { return (int)GetValue(RecordBorderProperty); }
-                set { SetValue(RecordBorderProperty, value); }
-            }
-
-        public int ReminderBorder
-            {
-                get { return (int)GetValue(ReminderBorderProperty); }
-                set { SetValue(ReminderBorderProperty, value); }
-            }
 
     
 
