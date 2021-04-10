@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Media.Animation;
+
 
 namespace Silver_HTPC
 {
@@ -23,7 +25,10 @@ namespace Silver_HTPC
         bool hidden = true;
         Grid sidemenu;
         Grid record;
-    
+        //Storyboard slideRight;
+        //Storyboard slideLeft;
+        //Rectangle r;
+        
 
         public LiveTV(int x)
         {
@@ -38,10 +43,17 @@ namespace Silver_HTPC
             nowPlaying.Source = bi;
             sidemenu = panel;
             record = record_button;
-  
+            //slideRight = (Storyboard)TryFindResource("SlideRight");
+            //slideLeft = (Storyboard)TryFindResource("SlideLeft");
 
 
-            
+
+            //r = rect;
+
+
+
+
+
 
 
 
@@ -57,14 +69,20 @@ namespace Silver_HTPC
         {
             if(e.Key == Key.Enter && !hidden)
             {
-                sidemenu.Margin = new Thickness(-400, 0, 400, 0);
+                //sidemenu.Margin = new Thickness(-400, 0, 400, 0);
                 hidden = true;
-         
+
+                Storyboard sb = sidemenu.FindResource("SlideLeft") as Storyboard;
+                if (sb != null) { BeginStoryboard(sb); }
+
             }
             else if(e.Key == Key.Enter && hidden)
             {
-                sidemenu.Margin = new Thickness(0, 0, 0, 0);
+
+                //sidemenu.Margin = new Thickness(0, 0, 0, 0);
                 hidden = false;
+                Storyboard sb = sidemenu.FindResource("SlideRight") as Storyboard;
+                if (sb != null) { BeginStoryboard(sb); }
             }
             else if (e.Key == Key.Right)
             {
