@@ -31,9 +31,20 @@ namespace Silver_HTPC
         {
             if (e.Key == Key.Back)
             {
+                // Backspace = go back to previous screen (Settings)
                 Settings settings = new Settings();
                 settings.Show();
                 this.Close();
+            }
+            if (e.Key == Key.OemQuestion)
+            {
+                Settings settings = new Settings();
+                settings.Show();
+                this.Close();
+            }
+            if (e.Key == Key.Down)
+            {
+                //TODO
             }
         }
     }

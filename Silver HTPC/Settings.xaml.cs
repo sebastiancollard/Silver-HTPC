@@ -51,43 +51,18 @@ namespace Silver_HTPC
         {
             if (e.Key == Key.Back)
             {
+                // Backspace = go back to previous screen (Main menu?)
+                // TODO: hard code this for the demo to fake "saved state"
                 MainWindow mainWindow = new MainWindow();
                 mainWindow.Show();
                 this.Close();
             }
+            if (e.Key == Key.Down)
+            {
+                //Focus shifts to the next one down
+                CurrentSelection += 1;
+            }
         }
-
-        // TODO
-        /**
-        public void SetButtonFocus(int CurrentSelection)
-        {
-            //currentButtonSelectionIndex = button_index;
-            Button button = menuButtonList[CurrentSelection];
-            button.Background = Brushes.DarkBlue;
-            //if (button_index != 9) //not profile button
-            //{
-            selectedLabel = new Label();
-            selectedLabel.Name = "labelSelected";
-            selectedLabel.FontSize = 25;
-            selectedLabel.Foreground = Brushes.WhiteSmoke;
-            selectedLabel.Content = content[CurrentSelection, 0];
-            stackPanelList[CurrentSelection].Children.Add(selectedLabel);
-            //}
-            button.Foreground = Brushes.White;
-            button.Height *= 1.2;
-        }
-        public void ResetButtonFocus(int button_index)
-        {
-            Button button = menuButtonList[button_index];
-            button.ClearValue(Button.BackgroundProperty);
-            button.ClearValue(Button.ForegroundProperty);
-            //if (button_index != 9)
-            //{
-            stackPanelList[button_index].Children.Remove(selectedLabel);
-            //}
-
-            button.Height /= 1.2;
-        }
-        **/
+        
     }
 }

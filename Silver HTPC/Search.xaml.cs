@@ -619,6 +619,12 @@ namespace Silver_HTPC
                 mainWindow.Show();
                 this.Close();
             }
+            if (e.Key == Key.OemQuestion)
+            {
+                Settings settingsWindow = new Settings();
+                settingsWindow.Show();
+                this.Close();
+            }
             else if (e.Key == Key.S)
             {
 
