@@ -8,8 +8,16 @@
       mc:Ignorable="d" 
       UseLayoutRounding="True"
       Title="Photos_Videos" Height="484.677" Width="815.605">
+    <Window.Resources>
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        </Style>
+        </Window.Resources>
+        
 
-    <Grid>
+
+
+        <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="1,0" StartPoint="0,1">
                 <GradientStop Color="Black" Offset="0"/>
@@ -17,11 +25,14 @@
             </LinearGradientBrush>
         </Grid.Background>
 
+        
 
 
-        <Button x:Name="Sort_Button" Content="Sort by" HorizontalAlignment="Left" Margin="696,96,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="9.63,-6.324" Height="44" FontFamily="Arial Rounded MT Bold" FontSize="18"/>
-        <ScrollViewer VerticalScrollBarVisibility="Hidden" CanContentScroll="true">
-            <Grid HorizontalAlignment="Left" Height="367" Margin="21,73,0,0" VerticalAlignment="Top" Width="670">
+
+
+            <Button x:Name="Sort_Button" Content="Sort by" HorizontalAlignment="Left" Margin="696,68,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="9.63,-6.324" Height="44" FontFamily="Arial Rounded MT Bold" FontSize="18"/>
+        <ScrollViewer Name="scrollViewer" VerticalScrollBarVisibility="Hidden" CanContentScroll="true" Margin="0,56,137,30">
+            <Grid HorizontalAlignment="Left" Height="367" VerticalAlignment="Top" Width="667" RenderTransformOrigin="0.485,0.378" Margin="0 ,10,0,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
@@ -35,14 +46,29 @@
                     <RowDefinition Height="*" />
 
                 </Grid.RowDefinitions>
+                <Button Name="But_1" Margin="0 0 5 5" Grid.Column="0" Grid.Row="0" GotFocus="Image_GotFocus" LostFocus="Image_LostFocus" KeyDown="ImageButton_KeyDown" KeyUp="ImageButton_KeyUp">
+                    <Image Name="img_1" Grid.Column="0" Grid.Row="0" Source="Image/fam.jpg" Stretch="Fill" Margin="5 5 5 5"/>
+                </Button>
 
-                <Image Name="img_1" Grid.Column="0" Grid.Row="0" Source="Image/fam.jpg" Stretch="Fill" StretchDirection="Both" Margin="0 0 10 10" MouseEnter="img_1_Hovering" MouseLeave="img_1_Leaving" />
-                <Image Name="img_2" Grid.Column="1" Grid.Row="0" Source="Image/fam1.jpg" Stretch="Fill" StretchDirection="Both" Margin="0 0 10 10" />
-                <Image  Name="img_3" Grid.Column="2" Grid.Row="0" Source="Image/vid.jpg" Stretch="Fill" StretchDirection="Both" Margin="0 0 10 10" />
-                <Image  Name="img_4" Grid.Column="2" Grid.Row="0" Source="Image/PLAY.jpg" Margin="0 0 10 10" />
-                <Image  Name="img_5" Grid.Column="3" Grid.Row="0" Source="Image/banff.jpg" Stretch="Fill" StretchDirection="Both" Margin="0 0 10 10" />
-                <Image  Name="img_6" Grid.Column="0" Grid.Row="1" Source="Image/fam2.jpg" Stretch="Fill" StretchDirection="Both" Margin="0 0 10 10" />
-                <Image  Name="img_7" Grid.Column="0" Grid.Row="1" Source="Image/PLAY.jpg" Margin="0 0 10 10" />
+                <Button Name="But_2"  Margin="0 0 5 5" Grid.Column="1" Grid.Row="0" GotFocus="Image_GotFocus" LostFocus="Image_LostFocus"  KeyDown="ImageButton_KeyDown" KeyUp="ImageButton_KeyUp">
+                    <Image Name="img_2" Grid.Column="1" Grid.Row="0" Source="Image/fam1.jpg" Stretch="Fill" Margin="5 5 5 5"  />
+                </Button>
+
+                <Button Name="But_3" Margin="0 0 5 5" Grid.Column="2" Grid.Row="0" GotFocus="Image_GotFocus" LostFocus="Image_LostFocus"  KeyDown="ImageButton_KeyDown" KeyUp="ImageButton_KeyUp">
+                    <Image  Name="img_3" Grid.Column="2" Grid.Row="0" Source="Image/vid.jpg" Stretch="Fill" Margin="5 5 5 5"  />
+                </Button>
+
+                <Image  Grid.Column="2" Grid.Row="0" Source="Image/PLAY.jpg" Margin="0 0 15 15" />
+
+
+                <Button Name="But_4" Margin="0 0 5 5" Grid.Column="3" Grid.Row="0" GotFocus="Image_GotFocus" LostFocus="Image_LostFocus"  KeyDown="ImageButton_KeyDown" KeyUp="ImageButton_KeyUp">
+                    <Image  Name="img_4" Grid.Column="3" Grid.Row="0" Source="Image/banff.jpg" Stretch="Fill" Margin="5 5 5 5"  />
+                </Button>
+
+                <Button Name="But_5" Margin="0 0 5 5" Grid.Column="0" Grid.Row="1" GotFocus="Image_GotFocus" LostFocus="Image_LostFocus"  KeyDown="ImageButton_KeyDown" KeyUp="ImageButton_KeyUp">
+                    <Image  Name="img_5" Grid.Column="0" Grid.Row="1" Source="Image/fam2.jpg" Stretch="Fill" Margin="5 5 5 5"  />
+                </Button>
+                <Image Grid.Column="0" Grid.Row="1" Source="Image/PLAY.jpg" Margin="0 0 15 15" />
 
             </Grid>
         </ScrollViewer>
@@ -56,17 +82,31 @@
             </Label.OpacityMask>
         </Label>
 
-        <TextBlock Text="{Binding Source={x:Static system:DateTime.Now}, StringFormat=\{0:dddd\, MMMM dd\}}"  HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="291" RenderTransformOrigin="0.268,0.293" Margin="537,-6,-28,0" Background="{x:Null}" FontFamily="Segoe UI Black" FontSize="24" />
-        <TextBlock Text="{Binding Source={x:Static system:DateTime.Now}, StringFormat=\{0:HH:mm\}}" HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="73" RenderTransformOrigin="0.268,0.293" Margin="709,20,0,0" Background="{x:Null}" FontFamily="Segoe UI Black" FontSize="24" />
+        <TextBlock Text="{Binding Source={x:Static system:DateTime.Now}, StringFormat=\{0:dddd\, MMMM dd\}}" TextAlignment="Right"  HorizontalAlignment="Right" Height="31" VerticalAlignment="Top" Width="296" RenderTransformOrigin="0.268,0.293" Background="{x:Null}" FontFamily="Segoe UI Black" FontSize="24" Margin="0,-6,10,0" />
+        <TextBlock Text="{Binding Source={x:Static system:DateTime.Now}, StringFormat=\{0:HH:mm\}}" HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="65" RenderTransformOrigin="0.268,0.293" Margin="733,20,0,0" Background="{x:Null}" FontFamily="Segoe UI Black" FontSize="24" />
         <Image HorizontalAlignment="Left" Height="50" Margin="0,1,0,0" VerticalAlignment="Top" Width="58" RenderTransformOrigin="0.148,-0.221" Source="Image/photo.png" />
         <Line X1="0" Y1="55" X2="800" Y2="55" Stroke="LightSlateGray" StrokeThickness="7" Opacity="1"   />
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="112" Margin="749,328,0,0" Stroke="Black" VerticalAlignment="Top" Width="41"/>
         <Rectangle Fill="#FF00FF2E" HorizontalAlignment="Left" Height="11" Margin="749,429,0,0" Stroke="Black" VerticalAlignment="Top" Width="41"/>
 
-        <Button Content="Delete &#xA;Multiple"   HorizontalAlignment="Left" Margin="696,211,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="9.63,-6.324" Height="44" FontFamily="Arial Rounded MT Bold" FontSize="18"/>
-        <Button x:Name="Delete_Single" Content="Delete &#xA;Single" HorizontalAlignment="Left" Margin="696,152,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="9.63,-6.324" Height="46" FontFamily="Arial Rounded MT Bold" FontSize="18" Click="Delete_Single_Click"/>
+        <Button Name="Delete_Multiple" Content="Delete &#xA;Multiple"   HorizontalAlignment="Left" Margin="696,193,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="9.63,-6.324" Height="44" FontFamily="Arial Rounded MT Bold" FontSize="18" />
+        <Button x:Name="Delete_Single" Content="Delete &#xA;Single" HorizontalAlignment="Left" Margin="696,127,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="9.63,-6.324" Height="46" FontFamily="Arial Rounded MT Bold" FontSize="18"/>
         <TextBlock HorizontalAlignment="Left" Height="31" Margin="696,275,-62,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="166" RenderTransformOrigin="0.406,-0.589" FontFamily="Segoe UI Emoji" FontSize="18"><Run Text="Total: "/><Run Text="250GB"/></TextBlock>
         <TextBlock HorizontalAlignment="Left" Height="31" Margin="696,297,-62,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="166" RenderTransformOrigin="0.406,-0.589" FontFamily="Segoe UI Emoji" FontSize="18"><Run Text="Free"/><Run Text=": "/><Run Text="2"/><Run Text="25"/><Run Text="GB"/></TextBlock>
-    </Grid>
+        <Grid x:Name="EnlargePhotoGrid" HorizontalAlignment="Left" Height="373" Margin="63,51,0,0" VerticalAlignment="Top" Width="670" Visibility="Hidden" KeyDown="LargeImage_KeyDown">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*">
+                    
+                </ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*">
+                    
+                </RowDefinition>
+            </Grid.RowDefinitions>
+            
+        </Grid>
+        </Grid>
 
 </Window>

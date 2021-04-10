@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="LiveTV.xaml.cs">
+      <DependentUpon>LiveTV.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Music.xaml.cs">
       <DependentUpon>Music.xaml</DependentUpon>
     </Compile>
@@ -67,6 +70,9 @@
     <Page Include="Advanced Settings.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="LiveTV.xaml">
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="OtherApplications.xaml">
       <SubType>Designer</SubType>
@@ -157,118 +163,328 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="windows-8-touch-keyboard.png" />
+    <Resource Include="Image\windows-8-touch-keyboard.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="inception poster.jpg" />
+    <Resource Include="Image\inception poster.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="search--v2.png" />
+    <Resource Include="Image\search--v2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Inception_OST.jpg" />
+    <Resource Include="Image\Inception_OST.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="prime video.png" />
+    <Resource Include="Image\prime video.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="spotify-download-logo.png" />
+    <Resource Include="Image\spotify-download-logo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="apple tv.png" />
+    <Resource Include="Image\apple tv.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="live tv.png" />
+    <Resource Include="Image\live tv.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="netflix_PNG15.png" />
+    <Resource Include="Image\netflix_PNG15.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\TLC.png" />
+    <Resource Include="Image\TLC.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\recordImage.png" />
+    <Resource Include="Image\recordImage.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\trash.png" />
+    <Resource Include="Image\trash.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\abc.png" />
+    <Resource Include="Image\abc.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\bbc.png" />
+    <Resource Include="Image\bbc.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\photo.png" />
+    <Resource Include="Image\photo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\fam.jpg" />
+    <Resource Include="Image\fam.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\fam1.jpg" />
+    <Resource Include="Image\fam1.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\vid.jpg" />
+    <Resource Include="Image\vid.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\Play.jpg" />
+    <Resource Include="Image\Play.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\banff.jpg" />
+    <Resource Include="Image\banff.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\fam2.jpg" />
+    <Resource Include="Image\fam2.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\play2.jpg" />
+    <Resource Include="Image\play2.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\play2.png" />
+    <Resource Include="Image\play2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\live_tv.png" />
-    <Resource Include="Image\README.txt" />
+    <Resource Include="Image\live_tv.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\README.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\gallery_icon.png" />
-    <Resource Include="Image\music_icon.png" />
-    <Resource Include="Image\notification_icon.png" />
-    <Resource Include="Image\record_icon.png" />
-    <Resource Include="Image\search_icon.jpg" />
-    <Resource Include="Image\settings_icon.png" />
+    <Resource Include="Image\gallery_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\music_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\notification_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\record_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\search_icon.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\settings_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\netflix_icon.png" />
+    <Resource Include="Image\netflix_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\tv_icon.png" />
+    <Resource Include="Image\tv_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\apps_icon.png" />
+    <Resource Include="Image\apps_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\profile_icon.png" />
+    <Resource Include="Image\profile_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\download_icon.png" />
+    <Resource Include="Image\download_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\music_icon_black.png" />
+    <Resource Include="Image\music_icon_black.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Disney+.png" />
+    <Resource Include="Image\Disney+.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="youtube.png" />
+    <Resource Include="Image\youtube.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="spiderverse_1.jpg" />
+    <Resource Include="Image\spiderverse_1.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="spiderverse_OST.jpg" />
+    <Resource Include="Image\spiderverse_OST.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="spidermanfarfromhome.jpeg" />
+    <Resource Include="Image\spidermanfarfromhome.jpeg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\spidermanfarfromhome_OST.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\spidermanhomecoming.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\spidermanhomecoming_OST.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\theamazingspiderman2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\theamazingspiderman2_OST.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\theamazingspiderman.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\theamazingspiderman_OST.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\spiderman3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\spiderman3_OST.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\spiderman2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\spiderman2_OST.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\spiderman.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\spiderman_OST.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\conviction.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\sherlock.png" />
+    <Resource Include="Image\topgear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\sherlock_live.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\topgear_live.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\tsn_logo.png" />
+    <Resource Include="Image\tsn_show.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\espn_logo.png" />
+    <Resource Include="Image\espn_show.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\nbcgolf_show.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\nbcgolf_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\tsn_show2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\fox_sports_logo.png" />
+    <Resource Include="Image\fox_sports_show.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\greys_anatomy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\ctv_logo.png" />
+    <Resource Include="Image\masterchef.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\shark_tank.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\the_nest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\espn_show3.png" />
+    <Resource Include="Image\tsn_show3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\espn_show2.png" />
+  </ItemGroup>
+  <ItemGroup>
+
+    <Resource Include="Image\reminder_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\cancel_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\PokerFace.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\WalkTheLine.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\helpBeatles.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\inmylifeBeatles.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\forward.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\PlayPause.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\letsgetmarriedJaggedEdge.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\iwishCarlThomas.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\reverse.png" />
+
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

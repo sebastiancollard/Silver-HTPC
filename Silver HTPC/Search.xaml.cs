@@ -20,12 +20,12 @@ namespace Silver_HTPC
     /// </summary>
     public partial class Search : Window
     {
-        static List<Grid> Results = new List<Grid>();
-        static List<string> searches = new List<string> { "inception", "spidermanfarfromehome", "spidermanintothespiderverse", "spidermanhomecoming", "theamazingspiderman2", "theamazingspiderman", "spiderman3", "spiderman2", "spiderman" };
+        List<Grid> Results = new List<Grid>();
         const int WIDTH = 100;
         const int HEIGHT = 200;
         bool isResultsOnScreen = false;
         bool found = false;
+        bool update = true;
         const int offset = 340;
 
         public Search()
@@ -34,7 +34,11 @@ namespace Silver_HTPC
 
             MakeResults();
 
-            searchBox.Focus();
+            ((Grid)keypad.Children[1]).Children[0].Focus();
+            filter.Visibility = Visibility.Hidden;
+            scroll.Width -= 270;
+            scroll.Margin = new Thickness(270, 0, 0, 0);
+
         }
         private void MakeResults()
         {
@@ -49,41 +53,41 @@ namespace Silver_HTPC
                 //btn.Content = i.ToString();
                 var brush = new ImageBrush();
                 if (i < 6)
-                    brush.ImageSource = new BitmapImage(new Uri("inception poster.jpg", UriKind.RelativeOrAbsolute));
+                    brush.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/Image/inception poster.jpg", UriKind.RelativeOrAbsolute));
                 else if (i == 6)
-                    brush.ImageSource = new BitmapImage(new Uri("inception_OST.jpg", UriKind.RelativeOrAbsolute));
+                    brush.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/Image/inception_OST.jpg", UriKind.RelativeOrAbsolute));
                 else if (i > 6 && i < 9)
-                    brush.ImageSource = new BitmapImage(new Uri("spidermanfarfromhome.jpeg", UriKind.RelativeOrAbsolute));
+                    brush.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/Image/spidermanfarfromhome.jpeg", UriKind.RelativeOrAbsolute));
                 else if (i == 9)
-                    brush.ImageSource = new BitmapImage(new Uri("spidermanfarfromhome_OST.jpg", UriKind.RelativeOrAbsolute));
+                    brush.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/Image/spidermanfarfromhome_OST.jpg", UriKind.RelativeOrAbsolute));
                 else if (i > 9 && i < 13)
-                    brush.ImageSource = new BitmapImage(new Uri("spiderverse_1.jpg", UriKind.RelativeOrAbsolute));
+                    brush.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/Image/spiderverse_1.jpg", UriKind.RelativeOrAbsolute));
                 else if (i == 13)
-                    brush.ImageSource = new BitmapImage(new Uri("spiderverse_OST.jpg", UriKind.RelativeOrAbsolute));
+                    brush.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/Image/spiderverse_OST.jpg", UriKind.RelativeOrAbsolute));
                 else if (i > 13 && i < 17)
-                    brush.ImageSource = new BitmapImage(new Uri("spidermanhomecoming.jpg", UriKind.RelativeOrAbsolute));
+                    brush.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/Image/spidermanhomecoming.jpg", UriKind.RelativeOrAbsolute));
                 else if (i == 17)
-                    brush.ImageSource = new BitmapImage(new Uri("spidermanhomecoming_OST.jpg", UriKind.RelativeOrAbsolute));
+                    brush.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/Image/spidermanhomecoming_OST.jpg", UriKind.RelativeOrAbsolute));
                 else if (i > 17 && i < 21)
-                    brush.ImageSource = new BitmapImage(new Uri("theamazingspiderman2.jpg", UriKind.RelativeOrAbsolute));
+                    brush.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/Image/theamazingspiderman2.jpg", UriKind.RelativeOrAbsolute));
                 else if (i == 21)
-                    brush.ImageSource = new BitmapImage(new Uri("theamazingspiderman2_OST.jpg", UriKind.RelativeOrAbsolute));
+                    brush.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/Image/theamazingspiderman2_OST.jpg", UriKind.RelativeOrAbsolute));
                 else if (i > 21 && i < 24)
-                    brush.ImageSource = new BitmapImage(new Uri("theamazingspiderman.jpg", UriKind.RelativeOrAbsolute));
+                    brush.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/Image/theamazingspiderman.jpg", UriKind.RelativeOrAbsolute));
                 else if (i == 24)
-                    brush.ImageSource = new BitmapImage(new Uri("theamazingspiderman_OST.jpg", UriKind.RelativeOrAbsolute));
+                    brush.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/Image/theamazingspiderman_OST.jpg", UriKind.RelativeOrAbsolute));
                 else if (i > 24 && i < 27)
-                    brush.ImageSource = new BitmapImage(new Uri("spiderman3.jpg", UriKind.RelativeOrAbsolute));
+                    brush.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/Image/spiderman3.jpg", UriKind.RelativeOrAbsolute));
                 else if (i == 27)
-                    brush.ImageSource = new BitmapImage(new Uri("spiderman3_OST.jpg", UriKind.RelativeOrAbsolute));
+                    brush.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/Image/spiderman3_OST.jpg", UriKind.RelativeOrAbsolute));
                 else if (i > 27 && i < 30)
-                    brush.ImageSource = new BitmapImage(new Uri("spiderman2.jpg", UriKind.RelativeOrAbsolute));
+                    brush.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/Image/spiderman2.jpg", UriKind.RelativeOrAbsolute));
                 else if (i == 30)
-                    brush.ImageSource = new BitmapImage(new Uri("spiderman2_OST.jpg", UriKind.RelativeOrAbsolute));
+                    brush.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/Image/spiderman2_OST.jpg", UriKind.RelativeOrAbsolute));
                 else if (i > 30 && i < 34)
-                    brush.ImageSource = new BitmapImage(new Uri("spiderman.jpg", UriKind.RelativeOrAbsolute));
+                    brush.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/Image/spiderman.jpg", UriKind.RelativeOrAbsolute));
                 else if (i == 34)
-                    brush.ImageSource = new BitmapImage(new Uri("spiderman_OST.jpg", UriKind.RelativeOrAbsolute));
+                    brush.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/Image/spiderman_OST.jpg", UriKind.RelativeOrAbsolute));
 
                 btn.Content = new StackPanel();
                 btn.KeyDown += Window_KeyDown;
@@ -116,36 +120,46 @@ namespace Silver_HTPC
                 application.Height = 50;
                 application.Margin = new Thickness(0, 205, 0, 0);
 
-                if (i == 0 || i == 7 || i == 10 || i == 14 || i == 18 || i == 31) //Netflix
-                    application.Source = new BitmapImage(new Uri("netflix_PNG15.png", UriKind.RelativeOrAbsolute));
-                else if (i == 1 || i == 8 || i == 11 || i == 15 || i == 19 || i == 22 || i == 25 || i == 28 || i == 32) //Prime Video
-                    application.Source = new BitmapImage(new Uri("prime video.png", UriKind.RelativeOrAbsolute));
+                if (i == 0 || i == 7 || i == 10 || i == 14 || i == 18 || i == 31)
+                {//Netflix
+                    application.Source = new BitmapImage(new Uri(@"pack://application:,,,/Image/netflix_PNG15.png", UriKind.RelativeOrAbsolute));
+                    application.Name = "netflix";
+                }
+                else if (i == 1 || i == 8 || i == 11 || i == 15 || i == 19 || i == 22 || i == 25 || i == 28 || i == 32)
+                {//Prime Video
+                    application.Source = new BitmapImage(new Uri(@"pack://application:,,,/Image/prime video.png", UriKind.RelativeOrAbsolute));
+                    application.Name = "primevideo";
+                }
                 else if (i == 2)
                 {   //Apple TV
-                    application.Source = new BitmapImage(new Uri("apple tv.png", UriKind.RelativeOrAbsolute));
+                    application.Source = new BitmapImage(new Uri(@"pack://application:,,,/Image/apple tv.png", UriKind.RelativeOrAbsolute));
                     application.Width = 75;
                     application.Height = 75;
+                    application.Name = "appletv";
                 }
                 else if (i == 3)
                 {   //Disney+
-                    application.Source = new BitmapImage(new Uri("Disney+.png", UriKind.RelativeOrAbsolute));
+                    application.Source = new BitmapImage(new Uri(@"pack://application:,,,/Image/Disney+.png", UriKind.RelativeOrAbsolute));
                     application.Width = 100;
                     application.Height = 100;
                     application.Margin = new Thickness(0, 195, 0, 0);
+                    application.Name = "disneyplus";
                 }
                 else if (i == 4)
                 {   //Live TV
-                    application.Source = new BitmapImage(new Uri("live tv.png", UriKind.RelativeOrAbsolute));
+                    application.Source = new BitmapImage(new Uri(@"pack://application:,,,/Image/live tv.png", UriKind.RelativeOrAbsolute));
                     application.Width = 75;
                     application.Height = 75;
                     application.Margin = new Thickness(0, 195, 0, 0);
+                    application.Name = "livetv";
                 }
                 else if (i == 5 || i == 8 || i == 12 || i == 16 || i == 20 || i == 23 || i == 26 || i == 29 || i == 33)
                 {   //Youtube
-                    application.Source = new BitmapImage(new Uri("youtube.png", UriKind.RelativeOrAbsolute));
+                    application.Source = new BitmapImage(new Uri(@"pack://application:,,,/Image/youtube.png", UriKind.RelativeOrAbsolute));
                     application.Width = 100;
                     application.Height = 100;
                     application.Margin = new Thickness(0, 195, 0, 0);
+                    application.Name = "youtube";
                 }
                 else if (i == 6 || i == 9 || i == 13 || i == 17 || i == 21 || i == 24 || i == 27 || i == 30 || i == 34)
                 {   //Spotify
@@ -153,7 +167,8 @@ namespace Silver_HTPC
                     bg.Margin = new Thickness(0, 50, 0, 0);
                     btn.Height = 100;
                     btn.Margin = new Thickness(0, 50, 0, 0);
-                    application.Source = new BitmapImage(new Uri("spotify-download-logo.png", UriKind.RelativeOrAbsolute));
+                    application.Source = new BitmapImage(new Uri(@"pack://application:,,,/Image/spotify-download-logo.png", UriKind.RelativeOrAbsolute));
+                    application.Name = "spotify";
                 }
 
 
@@ -395,89 +410,126 @@ namespace Silver_HTPC
 
             //Inception Netflix result
             Results[0].Name = "inception";
+            ((Button)(Results[0].Children[1])).Name = "movie";
 
             //Inception Prime Video result
             Results[1].Name = "inception";
+            ((Button)(Results[1].Children[1])).Name = "movie";
 
             //Inception Apple TV result
             Results[2].Name = "inception";
+            ((Button)(Results[2].Children[1])).Name = "movie";
 
             //Inception Disney+ result
             Results[3].Name = "inception";
+            ((Button)(Results[3].Children[1])).Name = "movie";
 
             //Inception Live TV result
             Results[4].Name = "inception";
+            ((Button)(Results[4].Children[1])).Name = "livetv";
 
             //Inception Youtube result
             Results[5].Name = "inception";
+            ((Button)(Results[5].Children[1])).Name = "movie";
 
             //Inception Soundtrack Spotify result
             Results[6].Name = "inception";
+            ((Button)(Results[6].Children[1])).Name = "music";
 
             //Spider-Man: Far From Home Prime Video result
             Results[7].Name = "spiderman_far_from_home";
+            ((Button)(Results[7].Children[1])).Name = "movie";
 
             //Spider-Man: Far Frome Home Youtube result
             Results[8].Name = "spiderman_far_from_home";
+            ((Button)(Results[8].Children[1])).Name = "movie";
 
             //Spider-Man: Far From Home Spotify result
             Results[9].Name = "spiderman_far_from_home";
+            ((Button)(Results[6].Children[1])).Name = "music";
 
             //Spider-Verse Netflix result
             Results[10].Name = "spiderman_into_the_spiderverse";
+            ((Button)(Results[10].Children[1])).Name = "movie";
 
             //Spider-Verse Prime Video result
             Results[11].Name = "spiderman_into_the_spiderverse";
+            ((Button)(Results[11].Children[1])).Name = "movie";
 
             //Spider-Verse Youtube result
             Results[12].Name = "spiderman_into_the_spiderverse";
+            ((Button)(Results[12].Children[1])).Name = "movie";
 
             //Spider-Verse Spotify result
             Results[13].Name = "spiderman_into_the_spiderverse";
+            ((Button)(Results[13].Children[1])).Name = "music";
 
             //Spider-Man: Homecoming Netflix result
             Results[14].Name = "spiderman_homecoming";
+            ((Button)(Results[14].Children[1])).Name = "movie";
 
             //Spider-Man: Homecoming Prime Video result
             Results[15].Name = "spiderman_homecoming";
+            ((Button)(Results[15].Children[1])).Name = "movie";
 
             //Spider-Man: Homecoming Youtube result
             Results[16].Name = "spiderman_homecoming";
+            ((Button)(Results[16].Children[1])).Name = "movie";
 
             //Spider-Man: Homecoming Spotify result
             Results[17].Name = "spiderman_homecoming";
+            ((Button)(Results[17].Children[1])).Name = "music";
 
             //The Amazing Spider-Man 2 Netflix result
             Results[18].Name = "the_amazing_spiderman_2";
+            ((Button)(Results[18].Children[1])).Name = "movie";
 
             //The Amazing Spider-Man 2 Prime Video result
             Results[19].Name = "the_amazing_spiderman_2";
+            ((Button)(Results[19].Children[1])).Name = "movie";
 
             //The Amazing Spider-Man 2 Youtube result
             Results[20].Name = "the_amazing_spiderman_2";
+            ((Button)(Results[20].Children[1])).Name = "movie";
 
             //The Amazing Spider-Man 2 Spotify result
             Results[21].Name = "the_amazing_spiderman_2";
+            ((Button)(Results[21].Children[1])).Name = "music";
 
             //The Amazing Spider-Man Prime Video result
             Results[22].Name = "the_amazing_spiderman";
-            
+            ((Button)(Results[22].Children[1])).Name = "movie";
+
             //The Amazing Spider-Man Youtube result
             Results[23].Name = "the_amazing_spiderman";
-            
+            ((Button)(Results[23].Children[1])).Name = "movie";
+
             //The Amazing Spider-Man Spotify result
             Results[24].Name = "the_amazing_spiderman";
+            ((Button)(Results[24].Children[1])).Name = "music";
 
             Results[25].Name = "spiderman_3";
+            ((Button)(Results[25].Children[1])).Name = "movie";
             Results[26].Name = "spiderman_3";
+            ((Button)(Results[26].Children[1])).Name = "movie";
             Results[27].Name = "spiderman_3";
+            ((Button)(Results[27].Children[1])).Name = "music";
+
             Results[28].Name = "spiderman_2";
+            ((Button)(Results[28].Children[1])).Name = "movie";
             Results[29].Name = "spiderman_2";
+            ((Button)(Results[29].Children[1])).Name = "movie";
             Results[30].Name = "spiderman_2";
+            ((Button)(Results[30].Children[1])).Name = "music";
+
             Results[31].Name = "spiderman";
+            ((Button)(Results[31].Children[1])).Name = "movie";
             Results[32].Name = "spiderman";
+            ((Button)(Results[32].Children[1])).Name = "movie";
             Results[33].Name = "spiderman";
+            ((Button)(Results[33].Children[1])).Name = "movie";
             Results[34].Name = "spiderman";
+            ((Button)(Results[34].Children[1])).Name = "music";
 
 
         }
@@ -490,15 +542,33 @@ namespace Silver_HTPC
 
             stack.Children.Clear();
             stack.Children.Add(new Label { Width = 20 });
-            foreach (var res in Results)
+            string filterVal = RemoveSpecialCharacters(((ComboBoxItem)filter.SelectedItem).Content.ToString().ToLower());
+
+            if (filterVal.Equals("all"))
             {
-                if (RemoveSpecialCharacters(res.Name.ToLower()).Contains(parsed_search))
+                foreach (Grid res in Results)
                 {
-                    found = true;
-                    stack.Children.Add(res);
-                    stack.Children.Add(new Label { Width = 20 });
+                    if (RemoveSpecialCharacters(res.Name.ToLower()).Contains(RemoveSpecialCharacters(searchBox.Text)))
+                    {
+                        found = true;
+                        stack.Children.Add(res);
+                        stack.Children.Add(new Label { Width = 20 });
+                    }
                 }
             }
+            else
+            {
+                foreach (Grid res in Results)
+                {
+                    if (filterVal.Contains(((Button)res.Children[1]).Name) && RemoveSpecialCharacters(res.Name.ToLower()).Contains(RemoveSpecialCharacters(searchBox.Text)))
+                    {
+                        found = true;
+                        stack.Children.Add(res);
+                        stack.Children.Add(new Label { Width = 20 });
+                    }
+                }
+            }
+
             isResultsOnScreen = true;
 
             if (!found || (isResultsOnScreen && tb.Text.Equals("")))
@@ -506,6 +576,8 @@ namespace Silver_HTPC
                 stack.Children.Clear();
                 isResultsOnScreen = false;
             }
+
+            counter.Text = stack.Children.Count.ToString() + " results";
         }
 
         private void result_selected(object sender, RoutedEventArgs e)
@@ -516,16 +588,17 @@ namespace Silver_HTPC
             ((ImageBrush)btn.Background).Opacity = 0.1;
             ((Grid)btn.Parent).Width += 20;
             ((Grid)btn.Parent).Height += 20;
-            //if (btn.TranslatePoint(new Point(), this).X > this.Width)
             scroll.ScrollToHorizontalOffset(btn.TranslatePoint(new Point(), stack).X - offset);
-            //if (btn == (Button)(Results[0].Children[1]))
-            //{
-            //    scroll.ScrollToHorizontalOffset(0);
-            //}
-            //else if (btn == ((Grid)stack.Children[stack.Children.Count-1]).Children[0])
-            //{
-            //    scroll.ScrollToHorizontalOffset(100);
-            //}
+
+            counter.Text = (stack.Children.IndexOf((Grid)btn.Parent)/2+1).ToString() + " of " + stack.Children.Count;
+
+            /**if (keypad.Visibility != Visibility.Hidden)
+            {
+                filter.Visibility = Visibility.Visible;
+                keypad.Visibility = Visibility.Hidden;
+                scroll.Width += 270;
+                scroll.Margin = new Thickness();
+            }*/
         }
 
         private void result_nselected(object sender, RoutedEventArgs e)
@@ -546,20 +619,36 @@ namespace Silver_HTPC
                 mainWindow.Show();
                 this.Close();
             }
-        }
-
-        private void SearchBar_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Enter)
+            else if (e.Key == Key.S)
             {
-                Keyboard.ClearFocus();
-                if (stack.Children.Count > 0)
+
+                if (keypad.Visibility == Visibility.Hidden)
                 {
-                    ((Button)((Grid)stack.Children[1]).Children[1]).Focus();
+                    filter.Visibility = Visibility.Hidden;
+                    keypad.Visibility = Visibility.Visible;
+                    scroll.Width -= 270;
+                    scroll.Margin = new Thickness(270, 0, 0, 0);
+                    update = false;
+                    ((Grid)keypad.Children[1]).Children[0].Focus();
                 }
-                else
-                    dummy.Focus();
+                else if (keypad.Visibility == Visibility.Visible && update)
+                {
+                    filter.Visibility = Visibility.Visible;
+                    keypad.Visibility = Visibility.Hidden;
+                    scroll.Width += 270;
+                    scroll.Margin = new Thickness();
+                    if (stack.Children.Count > 0)
+                        ((Grid)stack.Children[1]).Children[1].Focus();
+                }
+                else update = true;
             }
+            /**else if (e.Key == Key.Back && keypad.Visibility == Visibility.Visible)
+            {
+                stack.Focusable = true;
+                keypad.Visibility = Visibility.Hidden;
+                scroll.Width += 270;
+                scroll.Margin = new Thickness();
+            }*/
         }
 
         private static string RemoveSpecialCharacters(string str)
@@ -573,6 +662,89 @@ namespace Silver_HTPC
                 }
             }
             return sb.ToString();
+        }
+
+        private void filter_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var combobox = sender as ComboBox;
+            found = false;
+            var filterVal = RemoveSpecialCharacters(((ComboBoxItem)combobox.SelectedItem).Content.ToString().ToLower());
+
+            stack.Children.Clear();
+            stack.Children.Add(new Label { Width = 20 });
+
+            if (filterVal.Equals("all"))
+            {
+                foreach (Grid res in Results)
+                {
+                    if (searchBox != null && RemoveSpecialCharacters(res.Name.ToLower()).Contains(RemoveSpecialCharacters(searchBox.Text)))
+                    {
+                        found = true;
+                        stack.Children.Add(res);
+                        stack.Children.Add(new Label { Width = 20 });
+                    }
+                }
+            }
+            else
+            {
+                foreach (Grid res in Results)
+                {
+                    if (filterVal.Contains(((Button)res.Children[1]).Name) && RemoveSpecialCharacters(res.Name.ToLower()).Contains(RemoveSpecialCharacters(searchBox.Text)))
+                    {
+                        found = true;
+                        stack.Children.Add(res);
+                        stack.Children.Add(new Label { Width = 20 });
+                    }
+                }
+            }
+
+            isResultsOnScreen = true;
+
+            if (!found)
+            {
+                stack.Children.Clear();
+                isResultsOnScreen = false;
+            }
+        }
+
+        private void KeyPad_KeyDown(object sender, KeyEventArgs e)
+        {
+            var btn = sender as Button;
+            if (e.Key == Key.E && btn != null)
+                searchBox.Text += btn.Content;
+            else if (e.Key == Key.Right &&
+                (btn == ((Grid)keypad.Children[1]).Children[5] ||
+                btn == ((Grid)keypad.Children[1]).Children[11] ||
+                btn == ((Grid)keypad.Children[1]).Children[17] ||
+                btn == ((Grid)keypad.Children[1]).Children[23]) && stack.Children.Count > 0)
+            {
+                filter.Visibility = Visibility.Visible;
+                keypad.Visibility = Visibility.Hidden;
+                scroll.Width += 270;
+                scroll.Margin = new Thickness();
+            }
+        }
+
+        private void KeyPad_KeyDown2(object sender, KeyEventArgs e)
+        {
+            var btn = sender as Button;
+            if (e.Key == Key.E && btn != null)
+            {
+                if (btn.Content.Equals("Clear"))
+                    searchBox.Text = "";
+                else if (btn.Content.Equals("Space"))
+                    searchBox.Text += " ";
+                else if (btn.Content.Equals("Backspace"))
+                    searchBox.Text = searchBox.Text.Substring(0, searchBox.Text.Length - 1);
+            } 
+            else if (e.Key == Key.Right && btn == ((Grid)keypad.Children[0]).Children[2])
+            {
+                filter.Visibility = Visibility.Visible;
+                keypad.Visibility = Visibility.Hidden;
+                scroll.Width += 270;
+                scroll.Margin = new Thickness();
+            }
+            
         }
     }
 }
