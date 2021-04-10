@@ -54,8 +54,9 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <ScaleTransform x:Key="windowScaleTransform" ScaleX="1" ScaleY="1" />
     </Window.Resources>
-    <Canvas x:Name="background">
+    <Canvas x:Name="background" LayoutTransform="{StaticResource windowScaleTransform}">
         <Canvas.Background>
             <LinearGradientBrush EndPoint="1,0" MappingMode="RelativeToBoundingBox" StartPoint="0,1">
                 <GradientStop Color="Black" Offset="1"/>
