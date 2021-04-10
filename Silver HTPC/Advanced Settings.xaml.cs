@@ -23,6 +23,18 @@ namespace Silver_HTPC
         public AdvancedSettings()
         {
             InitializeComponent();
+            _combobox_ColourBlind.Text = "Full spectrum"; // Set default text
+        }
+
+        /** Go back to Settings on backspace **/
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Back)
+            {
+                Settings settings = new Settings();
+                settings.Show();
+                this.Close();
+            }
         }
     }
 }
