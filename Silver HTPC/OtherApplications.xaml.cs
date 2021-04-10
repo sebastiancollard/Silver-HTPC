@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace Silver_HTPC
 {
@@ -19,12 +20,20 @@ namespace Silver_HTPC
     /// </summary>
     public partial class OtherApplications : Window
     {
-        public static string[,] content; 
-    public OtherApplications()
+        public static string[,] content;
+        public List<Button> buttonList=new List<Button>();
+        private static int selectedIndex=0;
+        private DispatcherTimer dispatcherTimer;
+        public OtherApplications()
         {
             InitializeComponent();
             content = new string[,] { { "Live TV", "Image/tv_icon.png" }, { "Gallery", "Image/gallery_icon.png" }, { "Music", "Image/music_icon.png" }, { "Recordings", "Image/record_icon.png" }, { "Search", "Image/search_icon.jpg" }, { "Netflix", "Image/netflix_icon.png" }, { "Settings", "Image/settings_icon.png" }, { "Notification", "Image/notification_icon.png" }, { "Other Apps", "Image/apps_icon.png" }, { "John Doe", "Image/profile_icon.png" }, { "Live TV1", "Image/tv_icon.png" }, { "Gallery1", "Image/gallery_icon.png" }, { "Music1", "Image/music_icon.png" }, { "Recordings1", "Image/record_icon.png" }, { "Search1", "Image/search_icon.jpg" }, { "Netflix1", "Image/netflix_icon.png" }, { "Settings1", "Image/settings_icon.png" }, { "Notification1", "Image/notification_icon.png" }, { "Other Apps1", "Image/apps_icon.png" }, { "John Doe1", "Image/profile_icon.png" } };
-            bool populated = false;
+            //bool populated = false;
+            //For notification popup***********************************************
+            dispatcherTimer = new DispatcherTimer();                            
+            dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 5);
+            //**********************************************************************
 
             int numOfRows = 7;// (int)(content.Length / 3) + 1;
             Grid grid = new Grid();
@@ -64,8 +73,8 @@ namespace Silver_HTPC
                 lbl.FontSize = 20;
                 stackPanelBtn.Children.Add(lbl);
                 btn.Content = stackPanelBtn;
-
-
+                buttonList.Add(btn);
+                //btn.Focusable = true;
                 Grid.SetColumn(btn, currColumn);
                 Grid.SetRow(btn, currRow);
                 grid.Children.Add(btn);
@@ -82,12 +91,79 @@ namespace Silver_HTPC
                 }
             }
             Other_StackPanel.Children.Add(grid);
+            //setButtonFocus(selectedIndex);
+            //grid.Focus();
+            foreach (Button btn in buttonList)
+            {
+                btn.GotFocus += select;
+                btn.LostFocus += nselect;
+            }
+
+            ((Grid)Other_StackPanel.Children[0]).Children[0].Focus();
         }
 
-
-        private void munu_button11_Click(object sender, RoutedEventArgs e)
+        private void select(object sender, RoutedEventArgs e)
         {
+            //MessageBox.Show("create one");
+            var btn = sender as Button;
+            //btn.Background = Brushes.Black;
+            //if (e.Key == Key.Enter)
+            //{
+            //  if (btn.Equals(buttonList[1]))
+            //{
+            Console.WriteLine("reached");
+            btn.Background = Brushes.Green;
+            btn.BorderBrush = Brushes.Red;
+            //}
+            //}
+            scroll.ScrollToVerticalOffset(btn.TranslatePoint(new Point(), Other_StackPanel).Y - 150);
 
         }
+
+        private void nselect(object sender, RoutedEventArgs e)
+        {
+            var btn = sender as Button;
+            btn.Background = Brushes.LightGray;
+            btn.BorderBrush = Brushes.Transparent;
+        }
+
+
+
+        //FOLLOWING CODE IS NOT BEING USED******************************************
+        
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Back)
+            {
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.Show();
+                this.Close();
+            }
+            if (e.Key == Key.Z)
+            { //hardcoded to show notification
+                Notification_popup0.Visibility = Visibility.Visible;
+                dispatcherTimer.Start();
+            }
+            if (Notification_popup0.Visibility == Visibility.Visible)
+            {
+                if (e.Key==Key.O){
+                    LiveTV liveTV = new LiveTV(2);
+                    liveTV.Show();
+                    this.Close();
+                }
+            }
+            
+        }
+
+        private void dispatcherTimer_Tick(object sender, EventArgs e)
+        {//For notification
+            //Things which happen after 1 timer interval
+            
+            Notification_popup0.Visibility = Visibility.Collapsed;
+
+            //Disable the timer
+            dispatcherTimer.IsEnabled = false;
+        }
+
     }
 }

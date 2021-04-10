@@ -12,8 +12,9 @@
             <GradientStop Color="White"/>
         </LinearGradientBrush>
     </Window.Background>
-
-    <Grid Margin="6,113,6,15">
+    <Grid>
+        
+        <Grid Margin="6,113,6,15" x:Name="MainGrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*" />
             <ColumnDefinition Width="1*" />
@@ -45,6 +46,7 @@
                 <TextBlock Text="Music" FontSize="25" HorizontalAlignment="Center"/>
             </StackPanel>
         </Button>
+
         <Button x:Name="munu_button4" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="80" Click="menu_button4_click">
             <StackPanel x:Name="stackPan_Button4">
                 <Image Source="Image/record_icon.png" Stretch="Fill" Height="40" Width="40" HorizontalAlignment="Center"/>
@@ -87,5 +89,14 @@
                 <TextBlock Text="John Doe" FontSize="25" HorizontalAlignment="Center"/>
             </StackPanel>
         </Button>
+
+
+
+        </Grid>
+
+        <StackPanel x:Name="ProfilePopup" Orientation="Horizontal" HorizontalAlignment="Center" Height="236" Grid.RowSpan="3" VerticalAlignment="Top" Width="700" Grid.ColumnSpan="3" Margin="6,113,6,15" Background="DarkSlateGray" Visibility="Hidden">
+
+        </StackPanel>
+        <Label x:Name="Profiles_header" Content="Profiles" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="51,114,0,0" Width="121" Height="40" FontSize="25" Foreground="White" Visibility="Hidden"/>
     </Grid>
 </Window>

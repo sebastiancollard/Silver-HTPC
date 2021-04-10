@@ -1,4 +1,5 @@
-﻿<Window x:Class="Silver_HTPC.Music"
+﻿<Window  x:Class="Silver_HTPC.Music"
+        Name="MusicWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -24,29 +25,21 @@
                 </LinearGradientBrush>
             </Label.OpacityMask>
         </Label>
-        <TextBlock HorizontalAlignment="Left" Height="31" TextWrapping="Wrap" VerticalAlignment="Top" Width="196" RenderTransformOrigin="0.406,-0.589" FontFamily="Segoe UI Emoji" FontSize="24" Margin="635,342,-39,0"><Run Text="Free:"/><Run Text=" "/><Run Text="225.2GB"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="31" TextWrapping="Wrap" VerticalAlignment="Top" Width="196" RenderTransformOrigin="0.406,-0.589" FontFamily="Segoe UI Emoji" FontSize="16" Margin="631,347,-35,0"><Run Text="Free:"/><Run Text=" "/><Run Text="225.2GB"/></TextBlock>
         <TextBlock Text="{Binding Source={x:Static System:DateTime.Now}, StringFormat=\{0:dddd\, MMMM dd\}}" TextAlignment="Right"  HorizontalAlignment="Right" Height="31" VerticalAlignment="Top" Width="296" RenderTransformOrigin="0.268,0.293" Background="{x:Null}" FontFamily="Segoe UI Black" FontSize="24" Margin="0,-6,10,0" />
-        <TextBlock Text="{Binding Source={x:Static System:DateTime.Now}, StringFormat=\{0:HH:mm\}}" HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="72" RenderTransformOrigin="0.268,0.293" Margin="720,20,0,0" Background="{x:Null}" FontFamily="Segoe UI Black" FontSize="24" />
+        <TextBlock Text="{Binding Source={x:Static System:DateTime.Now}, StringFormat=\{0:HH:mm\}}" HorizontalAlignment="Right" Height="31" VerticalAlignment="Top" Width="65" RenderTransformOrigin="0.268,0.293" Margin="0,20,10,0" Background="{x:Null}" FontFamily="Segoe UI Black" FontSize="24" />
         <Rectangle Fill="White" HorizontalAlignment="Left" Height="31" Margin="631,378,0,0" Stroke="Black" VerticalAlignment="Top" Width="151" RenderTransformOrigin="0.506,0.543"/>
         <Rectangle Fill="#FF00FF17" HorizontalAlignment="Left" Height="31" Margin="631,378,0,0" Stroke="Black" VerticalAlignment="Top" Width="13" RenderTransformOrigin="0.506,0.543"/>
-        <TextBlock HorizontalAlignment="Left" Height="31" Margin="635,306,-39,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="196" RenderTransformOrigin="0.406,-0.589" FontFamily="Segoe UI Emoji" FontSize="24"><Run Text="Total: "/><Run Text="250GB"/><InlineUIContainer>
+        <TextBlock HorizontalAlignment="Left" Height="31" Margin="631,330,-9,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" RenderTransformOrigin="0.406,-0.589" FontFamily="Segoe UI Emoji" FontSize="16"><Run Text="Total: "/><Run Text="250GB"/><InlineUIContainer>
               
             </InlineUIContainer></TextBlock>
-        <Button Name="SearchButton" Content="Search" HorizontalAlignment="Left" Margin="668,139,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="9.63,-6.324" Height="44" FontFamily="Arial Rounded MT Bold" FontSize="18" GotFocus="Button_GotFocus" LostFocus="Button_LostFocus" KeyDown="Button_KeyDown" FocusVisualStyle="{x:Null}"/>
-        <Button x:Name="SortButton" Content="Sort by" HorizontalAlignment="Left" Margin="668,80,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="9.63,-6.324" Height="44" FontFamily="Arial Rounded MT Bold" FontSize="18" GotFocus="Button_GotFocus" LostFocus="Button_LostFocus" KeyDown="Button_KeyDown" FocusVisualStyle="{x:Null}"/>
-        <Button Name="DeleteMultiple" Content="Delete &#xA;Multiple" HorizontalAlignment="Left" Margin="668,212,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="9.63,-6.324" Height="44" FontFamily="Arial Rounded MT Bold" FontSize="18" GotFocus="Button_GotFocus" LostFocus="Button_LostFocus" KeyDown="Button_KeyDown" FocusVisualStyle="{x:Null}"/>
-        <Label x:Name="Recording_Label_Copy" Content="All Music" Height="59" Width="195" RenderTransformOrigin="0.22,1.006" FontFamily="Segoe UI Historic" FontSize="30" Margin="83,65,0,0" Cursor="None" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="Black">
-            <Label.OpacityMask>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="Black" Offset="0"/>
-                    <GradientStop Color="White" Offset="1"/>
-                </LinearGradientBrush>
-            </Label.OpacityMask>
-        </Label>
-        <ScrollViewer HorizontalAlignment="Left" Height="298" Margin="58,111,0,0" VerticalAlignment="Top" Width="542" VerticalScrollBarVisibility="Hidden">
+        <Button x:Name="SortButton" Content="Sort by" HorizontalAlignment="Left" Margin="355,62,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="9.63,-6.324" Height="44" FontFamily="Arial Rounded MT Bold" FontSize="18" GotFocus="Button_GotFocus" LostFocus="Button_LostFocus" KeyDown="Button_KeyDown" FocusVisualStyle="{x:Null}" Background="White"/>
+        <Button Name="DeleteMultiple" Content="Delete &#xA;Multiple" HorizontalAlignment="Left" Margin="467,62,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="9.63,-6.324" Height="44" FontFamily="Arial Rounded MT Bold" FontSize="18" GotFocus="Button_GotFocus" LostFocus="Button_LostFocus" KeyDown="Button_KeyDown" FocusVisualStyle="{x:Null}" Background="White"/>
 
-            <StackPanel Orientation="Vertical" Height="684"> 
-            <!--<Grid Name="MusicGrid" HorizontalAlignment="Left" Height="431" VerticalAlignment="Top" Width="542" > 
+        <ScrollViewer Name="ViewMusicList" HorizontalAlignment="Left" VerticalAlignment="top" Height="298" Margin="10,111,0,0"  Width="543" VerticalScrollBarVisibility="Hidden" >
+            <StackPanel Name="MusicList" Orientation="Vertical" Height="684" RenderTransformOrigin="0.352,0.509">
+
+                <!--<Grid Name="MusicGrid" HorizontalAlignment="Left" Height="431" VerticalAlignment="Top" Width="542" > 
                 <Grid.RowDefinitions>
                     <RowDefinition Height= "50"/>
                     <RowDefinition Height="50"/>
@@ -74,8 +67,8 @@
                             <RowDefinition Height="0.1*"/>
                         </Grid.RowDefinitions>
 
-                        <TextBlock Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Text="Poker Face - Lady Gaga" VerticalAlignment="top"/>
-                        <TextBlock Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" Text="3m:48s" HorizontalAlignment="Right" VerticalAlignment="top"/>
+                        <TextBlock Name="SongNameTb1" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Text="Poker Face - Lady Gaga" VerticalAlignment="top"/>
+                        <TextBlock  Name="SongDurationTb1" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" Text="3m:48s" HorizontalAlignment="Right" VerticalAlignment="top"/>
                         <Image Grid.Row="0" Grid.Column="0" Source="Image/music_icon_black.png" VerticalAlignment="top"/>
 
 
@@ -96,8 +89,8 @@
                             <RowDefinition Height="0.1*"/>
                         </Grid.RowDefinitions>
 
-                        <TextBlock Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Text="I Walk The Line - Johnny Cash" VerticalAlignment="Top"/>
-                        <TextBlock Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" Text="2m:45s" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+                        <TextBlock Name="SongNameTb2" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Text="I Walk The Line - Johnny Cash" VerticalAlignment="Top"/>
+                        <TextBlock  Name="SongDurationTb2" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" Text="2m:45s" HorizontalAlignment="Right" VerticalAlignment="Top"/>
                         <Image Grid.Row="0" Grid.Column="0" Source="Image/music_icon_black.png" VerticalAlignment="Top"/>
 
 
@@ -118,8 +111,8 @@
                             <RowDefinition Height="0.1*"/>
                         </Grid.RowDefinitions>
 
-                        <TextBlock Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Text="Help - The Beatles" VerticalAlignment="Top"/>
-                        <TextBlock Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" Text="2m:20s" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+                        <TextBlock Name="SongNameTb3" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Text="Help - The Beatles" VerticalAlignment="Top"/>
+                        <TextBlock  Name="SongDurationTb3" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" Text="2m:20s" HorizontalAlignment="Right" VerticalAlignment="Top"/>
                         <Image Grid.Row="0" Grid.Column="0" Source="Image/music_icon_black.png" VerticalAlignment="Top"/>
 
 
@@ -139,18 +132,84 @@
                             <RowDefinition Height="0.1*"/>
                         </Grid.RowDefinitions>
 
-                        <TextBlock Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Text="In My Life - The Beatles" VerticalAlignment="Top"/>
-                        <TextBlock Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" Text="2m:27s" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+                        <TextBlock Name="SongNameTb4" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Text="In My Life - The Beatles" VerticalAlignment="Top"/>
+                        <TextBlock  Name="SongDurationTb4" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" Text="2m:27s" HorizontalAlignment="Right" VerticalAlignment="Top"/>
                         <Image Grid.Row="0" Grid.Column="0" Source="Image/music_icon_black.png" VerticalAlignment="Top"/>
 
 
                     </Grid>
                 </Button>
 
-            <!--</Grid> -->
+                <Button Name="music5" Height="40" Grid.Row="3" Grid.Column="0" Background="white"  FontSize="20" FontFamily="Segoe UI Semibold" Margin="0 5 0 0" GotFocus="Music_GotFocus"  LostFocus="Music_LostFocus" FocusVisualStyle="{x:Null}" KeyDown="Music_KeyDown">
+                    <Grid Name="ButtonGrid5" Width="532" Height="40">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="70"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
 
-            </StackPanel> 
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="0.1*"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Name="SongNameTb5" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Text="Let's get Married - Jagged Edge" VerticalAlignment="Top"/>
+                        <TextBlock  Name="SongDurationTb5" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" Text="4m:24s" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+                        <Image Grid.Row="0" Grid.Column="0" Source="Image/music_icon_black.png" VerticalAlignment="Top"/>
+
+
+                    </Grid>
+                </Button>
+
+                <Button Name="music6" Height="40" Grid.Row="3" Grid.Column="0" Background="white"  FontSize="20" FontFamily="Segoe UI Semibold" Margin="0 5 0 0" GotFocus="Music_GotFocus"  LostFocus="Music_LostFocus" FocusVisualStyle="{x:Null}" KeyDown="Music_KeyDown">
+                    <Grid Name="ButtonGrid6" Width="532" Height="40">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="70"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="0.1*"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Name="SongNameTb6" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Text="I Wish - Carl Thomas" VerticalAlignment="Top"/>
+                        <TextBlock Name="SongDurationTb6" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" Text="3m:52s" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+                        <Image Grid.Row="0" Grid.Column="0" Source="Image/music_icon_black.png" VerticalAlignment="Top"/>
+
+
+                    </Grid>
+                </Button>
+
+                <!--</Grid> -->
+
+            </StackPanel>
         </ScrollViewer>
+
+        <Grid x:Name="Cover" HorizontalAlignment="Left" Height="140" Margin="588,74,0,0" VerticalAlignment="Top" Width="180"/>
+        <StackPanel Name="MusicOptions" HorizontalAlignment="Left" Height="31" Margin="601,232,0,0" VerticalAlignment="Top" Width="154" Orientation="Horizontal"/>
+        <StackPanel Name="MusicDuration" HorizontalAlignment="Left" Height="19" Margin="616,277,0,0" VerticalAlignment="Top" Width="123"/>
+
+
+        <Grid Name="DeleteMessage" HorizontalAlignment="Left" Height="157" Margin="161,155,0,0" VerticalAlignment="Top" Width="361" RenderTransformOrigin="0.495,0.51" Background="AliceBlue" Visibility="Hidden"  >
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Border BorderBrush="Black" BorderThickness="2" Grid.RowSpan="3" Grid.ColumnSpan="2"/>
+        </Grid>
+        <TextBlock x:Name="currentMusicTime" HorizontalAlignment="Right" Height="19" Margin="0,277,176,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="44" RenderTransformOrigin="0.564,0.314" TextAlignment="Right" />
+        <TextBlock x:Name="MusicTime" HorizontalAlignment="Right" Height="19" Margin="0,277,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="44" RenderTransformOrigin="0.564,0.314" TextAlignment="Left" />
 
     </Grid>
 </Window>
