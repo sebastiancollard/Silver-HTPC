@@ -195,6 +195,7 @@ namespace Silver_HTPC
                             channel = 1;
                             LiveTV livetv = new LiveTV(channel);
                             livetv.Show();
+
                         }
                         else
                         {   
