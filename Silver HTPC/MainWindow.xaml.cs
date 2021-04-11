@@ -24,7 +24,7 @@ namespace Silver_HTPC
     public partial class MainWindow : Window
     {
         private static int currentButtonSelectionIndex=0;
-        private static int profileIndex = 0;
+        private int profileIndex = 0;
         private static Button[] menuButtonList;
         private static StackPanel[] stackPanelList;
         private DispatcherTimer dispatcherTimer;
@@ -320,6 +320,7 @@ namespace Silver_HTPC
                                     default://profile
                                         MainGrid.Effect = new BlurEffect();
                                         dontClose = true;
+                                        profileBtns.Clear();
                                         ProfilePopup.Visibility = Visibility.Visible;
                                         Profiles_header.Visibility = Visibility.Visible;
                                         for (int i = 0; i < profiles.Count<string>(); i++)
@@ -336,6 +337,7 @@ namespace Silver_HTPC
                                         //ProfilePopup.Children.Add
 
                                         setProfileButtonFocus(profileIndex);
+                                        //Console.WriteLine(profileIndex);
                                         break;
                                 }
                                 if (!dontClose)

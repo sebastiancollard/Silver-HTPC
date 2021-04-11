@@ -58,6 +58,9 @@
     <Compile Include="LiveTV.xaml.cs">
       <DependentUpon>LiveTV.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MainWindow2.xaml.cs">
+      <DependentUpon>MainWindow2.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Music.xaml.cs">
       <DependentUpon>Music.xaml</DependentUpon>
     </Compile>
@@ -72,6 +75,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="LiveTV.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow2.xaml">
+      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="OtherApplications.xaml">
@@ -491,7 +498,7 @@
     <Resource Include="Image\leftArrow.png" />
   </ItemGroup>
   <ItemGroup>
-	<Resource Include="Image\ok_button.png" />
+    <Resource Include="Image\ok_button.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Sound\OkClick.wav" />
