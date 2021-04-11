@@ -41,53 +41,53 @@
                                 </ItemsPanelTemplate>
                             </ListBox.ItemsPanel>
 
-                            <ListBoxItem x:Name="listbox1item1" Width="168">
-                                <StackPanel Width="158">
+                            <ListBoxItem x:Name="listbox1item1" Width="130">
+                                <StackPanel Width="120">
 
-                                    <Image Source="Image/sherlock.png" Stretch="Uniform" Height="67" Width="87" HorizontalAlignment="Center" Margin="29,0,29,0"/>
+                                    <Image Source="Image/sherlock.png" Stretch="Uniform" Height="67" Width="87" HorizontalAlignment="Center" Margin="0,0,0,0"/>
                                     <Image Source="Image/bbc.png" Stretch="Uniform" Height="20" Width="40" HorizontalAlignment="Center"/>
                                 </StackPanel>
                             </ListBoxItem>
 
-                            <ListBoxItem x:Name="listbox1item2" Width="168">
-                                <StackPanel Width="158">
-                                    <Image Source="Image/topgear.png" Stretch="UniformToFill" Height="67" Width="87" HorizontalAlignment="Center" Margin="29,0,29,0"/>
+                            <ListBoxItem x:Name="listbox1item2" Width="130">
+                                <StackPanel Width="120">
+                                    <Image Source="Image/topgear.png" Stretch="UniformToFill" Height="67" Width="87" HorizontalAlignment="Center" Margin="0,0,0,0"/>
                                     <Image Source="Image/bbc.png" Stretch="Uniform" Height="20" Width="40" HorizontalAlignment="Center"/>
                                 </StackPanel>
                             </ListBoxItem>
-                            <ListBoxItem x:Name="listbox1item3" Width="168">
-                                <StackPanel Width="158">
-                                    <Image Source="Image/conviction.png" Stretch="Fill" Height="67" Width="87" HorizontalAlignment="Center" Margin="29,0,29,0"/>
+                            <ListBoxItem x:Name="listbox1item3" Width="130">
+                                <StackPanel Width="120">
+                                    <Image Source="Image/conviction.png" Stretch="Fill" Height="67" Width="87" HorizontalAlignment="Center" Margin="0,0,0,0"/>
                                     <Image Source="Image/abc.png" Stretch="Uniform" Height="20" Width="40" HorizontalAlignment="Center"/>
                                 </StackPanel>
                             </ListBoxItem>
-                            <ListBoxItem x:Name="listbox1item4" Width="168">
-                                <StackPanel Width="158">
+                            <ListBoxItem x:Name="listbox1item4" Width="130">
+                                <StackPanel Width="120">
                                     <Image Source="Image/tv_icon.png" Stretch="Fill" Height="60" Width="60" HorizontalAlignment="Center"/>
                                     <Rectangle  Height="20" Width="40" />
 
                                 </StackPanel>
                             </ListBoxItem>
-                            <ListBoxItem x:Name="listbox1item5" Width="168">
-                                <StackPanel Width="158">
+                            <ListBoxItem x:Name="listbox1item5" Width="130">
+                                <StackPanel Width="120">
                                     <Image Source="Image/tv_icon.png" Stretch="Fill" Height="60" Width="60" HorizontalAlignment="Center"/>
                                     <Rectangle  Height="20" Width="40" />
                                 </StackPanel>
                             </ListBoxItem>
-                            <ListBoxItem x:Name="listbox1item6" Width="168">
-                                <StackPanel Width="158">
+                            <ListBoxItem x:Name="listbox1item6" Width="130">
+                                <StackPanel Width="120">
                                     <Image Source="Image/tv_icon.png" Stretch="Fill" Height="60" Width="60" HorizontalAlignment="Center"/>
                                     <Rectangle  Height="20" Width="40" />
                                 </StackPanel>
                             </ListBoxItem>
-                            <ListBoxItem x:Name="listbox1item7" Width="168">
-                                <StackPanel Width="158">
+                            <ListBoxItem x:Name="listbox1item7" Width="130">
+                                <StackPanel Width="120">
                                     <Image Source="Image/tv_icon.png" Stretch="Fill" Height="60" Width="60" HorizontalAlignment="Center"/>
                                     <Rectangle  Height="20" Width="40" />
                                 </StackPanel>
                             </ListBoxItem>
-                            <ListBoxItem x:Name="listbox1item8" Width="168">
-                                <StackPanel Width="158">
+                            <ListBoxItem x:Name="listbox1item8" Width="130">
+                                <StackPanel Width="120">
                                     <Image Source="Image/tv_icon.png" Stretch="Fill" Height="60" Width="60" HorizontalAlignment="Center"/>
                                     <Rectangle  Height="20" Width="40" />
                                 </StackPanel>
@@ -107,58 +107,58 @@
                                 </ItemsPanelTemplate>
                             </ListBox.ItemsPanel>
 
-                            <ListBoxItem x:Name="listbox2item1" Width="168">
-                                <StackPanel Width="158">
+                            <ListBoxItem x:Name="listbox2item1" Width="130">
+                                <StackPanel Width="120">
                                     <TextBlock Margin="38,0,0,0"></TextBlock>
-                                    <Image Source="Image/masterchef.png" Stretch="Uniform" Height="67" Width="87" HorizontalAlignment="Center" Margin="29,0,29,0"/>
+                                    <Image Source="Image/masterchef.png" Stretch="Uniform" Height="67" Width="87" HorizontalAlignment="Center" Margin="0,0,0,0"/>
                                     <Image Source="Image/ctv_logo.png" Stretch="Uniform" Height="20" Width="40" HorizontalAlignment="Center"/>
                                 </StackPanel>
                             </ListBoxItem>
 
-                            <ListBoxItem x:Name="listbox2item2" Width="168">
-                                <StackPanel Width="158">
+                            <ListBoxItem x:Name="listbox2item2" Width="130">
+                                <StackPanel Width="120">
                                     <TextBlock Margin="38,0,0,0"></TextBlock>
-                                    <Image Source="Image/shark_tank.png" Stretch="UniformToFill" Height="67" Width="87" HorizontalAlignment="Center" Margin="29,0,29,0"/>
+                                    <Image Source="Image/shark_tank.png" Stretch="UniformToFill" Height="67" Width="87" HorizontalAlignment="Center" Margin="0,0,0,0"/>
                                     <Image Source="Image/ctv_logo.png" Stretch="Uniform" Height="20" Width="40" HorizontalAlignment="Center"/>
                                 </StackPanel>
                             </ListBoxItem>
-                            <ListBoxItem x:Name="listbox2item3" Width="168">
-                                <StackPanel Width="158">
+                            <ListBoxItem x:Name="listbox2item3" Width="130">
+                                <StackPanel Width="120">
                                     <TextBlock Margin="38,0,0,0"></TextBlock>
-                                    <Image Source="Image/the_nest.png" Stretch="Fill" Height="67" Width="87" HorizontalAlignment="Center" Margin="29,0,29,0"/>
+                                    <Image Source="Image/the_nest.png" Stretch="Fill" Height="67" Width="87" HorizontalAlignment="Center" Margin="0,0,0,0"/>
                                     <Image Source="Image/bbc.png" Stretch="Uniform" Height="20" Width="40" HorizontalAlignment="Center"/>
                                 </StackPanel>
                             </ListBoxItem>
-                            <ListBoxItem x:Name="listbox2item4" Width="168">
-                                <StackPanel Width="158">
+                            <ListBoxItem x:Name="listbox2item4" Width="130">
+                                <StackPanel Width="120">
                                     <TextBlock Margin="38,0,0,0">7:00pm</TextBlock>
                                     <Image Source="Image/greys_anatomy.png" Stretch="Fill" Height="67" Width="87" HorizontalAlignment="Center"/>
                                     <Image Source="Image/abc.png" Stretch="Uniform" Height="20" Width="40" HorizontalAlignment="Center"/>
                                 </StackPanel>
                             </ListBoxItem>
-                            <ListBoxItem x:Name="listbox2item5" Width="168">
-                                <StackPanel Width="158">
+                            <ListBoxItem x:Name="listbox2item5" Width="130">
+                                <StackPanel Width="120">
                                     <TextBlock Margin="38,0,0,0"></TextBlock>
                                     <Image Source="Image/sherlock.png" Stretch="Fill" Height="67" Width="87" HorizontalAlignment="Center"/>
                                     <Image Source="Image/bbc.png" Stretch="Uniform" Height="20" Width="40" HorizontalAlignment="Center"/>
                                 </StackPanel>
                             </ListBoxItem>
-                            <ListBoxItem x:Name="listbox2item6" Width="168">
-                                <StackPanel Width="158">
+                            <ListBoxItem x:Name="listbox2item6" Width="130">
+                                <StackPanel Width="120">
                                     <TextBlock Margin="38,0,0,0"></TextBlock>
                                     <Image Source="Image/conviction.png" Stretch="Fill" Height="67" Width="87" HorizontalAlignment="Center"/>
                                     <Image Source="Image/abc.png" Stretch="Uniform" Height="20" Width="40" HorizontalAlignment="Center"/>
                                 </StackPanel>
                             </ListBoxItem>
-                            <ListBoxItem x:Name="listbox2item7" Width="168">
-                                <StackPanel Width="158">
+                            <ListBoxItem x:Name="listbox2item7" Width="130">
+                                <StackPanel Width="120">
                                     <TextBlock Margin="38,0,0,0">7:30pm</TextBlock>
                                     <Image Source="Image/espn_show.png" Stretch="Fill" Height="67" Width="87" HorizontalAlignment="Center"/>
                                     <Image Source="Image/espn_logo.png" Stretch="Uniform" Height="20" Width="40" HorizontalAlignment="Center"/>
                                 </StackPanel>
                             </ListBoxItem>
-                            <ListBoxItem x:Name="listbox2item8" Width="168">
-                                <StackPanel Width="158">
+                            <ListBoxItem x:Name="listbox2item8" Width="130">
+                                <StackPanel Width="120">
                                     <TextBlock Margin="38,0,0,0"></TextBlock>
                                     <Image Source="Image/topgear.png" Stretch="Fill" Height="67" Width="87" HorizontalAlignment="Center"/>
                                     <Image Source="Image/bbc.png" Stretch="Uniform" Height="20" Width="40" HorizontalAlignment="Center"/>
@@ -189,62 +189,62 @@
 
 
 
-                            <ListBoxItem x:Name="listbox3item1" Width="168">
-                                <StackPanel Width="158">
+                            <ListBoxItem x:Name="listbox3item1" Width="130">
+                                <StackPanel Width="120">
                                     <TextBlock Margin="38,0,0,0"></TextBlock>
-                                    <Image Source="Image/espn_show.png" Stretch="Uniform" Height="67" Width="87" HorizontalAlignment="Center" Margin="29,0,29,0"/>
+                                    <Image Source="Image/espn_show.png" Stretch="Uniform" Height="67" Width="87" HorizontalAlignment="Center" Margin="0,0,0,0"/>
                                     <Image Source="Image/espn_logo.png" Stretch="Uniform" Height="20" Width="40" HorizontalAlignment="Center"/>
                                 </StackPanel>
                             </ListBoxItem>
 
-                            <ListBoxItem x:Name="listbox3item2" Width="168">
-                                <StackPanel Width="158">
+                            <ListBoxItem x:Name="listbox3item2" Width="130">
+                                <StackPanel Width="120">
                                     <TextBlock Margin="38,0,0,0">7:00pm</TextBlock>
-                                    <Image Source="Image/tsn_show.png" Stretch="UniformToFill" Height="67" Width="87" HorizontalAlignment="Center" Margin="29,0,29,0"/>
+                                    <Image Source="Image/tsn_show.png" Stretch="UniformToFill" Height="67" Width="87" HorizontalAlignment="Center" Margin="0,0,0,0"/>
                                     <Image Source="Image/tsn_logo.png" Stretch="Uniform" Height="20" Width="40" HorizontalAlignment="Center"/>
                                 </StackPanel>
                             </ListBoxItem>
-                            <ListBoxItem x:Name="listbox3item3" Width="168">
-                                <StackPanel Width="158">
+                            <ListBoxItem x:Name="listbox3item3" Width="130">
+                                <StackPanel Width="120">
                                     <TextBlock Margin="38,0,0,0"></TextBlock>
                                     <Image Source="Image/nbcgolf_show.png" Stretch="Fill"
-                                       Height="67" Width="87" HorizontalAlignment="Center" Margin="29,0,29,0"/>
+                                       Height="67" Width="87" HorizontalAlignment="Center" Margin="0,0,0,0"/>
                                     <Image Source="Image/nbcgolf_logo.png" Stretch="Uniform" Height="20" Width="40" HorizontalAlignment="Center"/>
                                 </StackPanel>
                             </ListBoxItem>
 
 
 
-                            <ListBoxItem x:Name="listbox3item4" Width="168">
-                                <StackPanel Width="158">
+                            <ListBoxItem x:Name="listbox3item4" Width="130">
+                                <StackPanel Width="120">
                                     <TextBlock Margin="38,0,0,0">7:30pm</TextBlock>
                                     <Image Source="Image/fox_sports_show.png" Stretch="Fill" Height="67" Width="87" HorizontalAlignment="Center"/>
                                     <Image Source="Image/fox_sports_logo.png" Stretch="Uniform" Height="20" Width="40" HorizontalAlignment="Center"/>
                                 </StackPanel>
                             </ListBoxItem>
-                            <ListBoxItem x:Name="listbox3item5" Width="168">
-                                <StackPanel Width="158">
+                            <ListBoxItem x:Name="listbox3item5" Width="130">
+                                <StackPanel Width="120">
                                     <TextBlock Margin="38,0,0,0"></TextBlock>
                                     <Image Source="Image/tsn_show2.png" Stretch="Fill" Height="67" Width="87" HorizontalAlignment="Center"/>
                                     <Image Source="Image/tsn_logo.png" Stretch="Uniform" Height="20" Width="40" HorizontalAlignment="Center"/>
                                 </StackPanel>
                             </ListBoxItem>
-                            <ListBoxItem x:Name="listbox3item6" Width="168">
-                                <StackPanel Width="158">
+                            <ListBoxItem x:Name="listbox3item6" Width="130">
+                                <StackPanel Width="120">
                                     <TextBlock Margin="38,0,0,0"></TextBlock>
                                     <Image Source="Image/espn_show2.png" Stretch="Fill" Height="67" Width="87" HorizontalAlignment="Center"/>
                                     <Image Source="Image/espn_logo.png" Stretch="Uniform" Height="20" Width="40" HorizontalAlignment="Center"/>
                                 </StackPanel>
                             </ListBoxItem>
-                            <ListBoxItem x:Name="listbox3item7" Width="168">
-                                <StackPanel Width="158">
+                            <ListBoxItem x:Name="listbox3item7" Width="130">
+                                <StackPanel Width="120">
                                     <TextBlock Margin="38,0,0,0">8:00pm</TextBlock>
                                     <Image Source="Image/espn_show3.png" Stretch="Fill" Height="67" Width="87" HorizontalAlignment="Center"/>
                                     <Image Source="Image/espn_logo.png" Stretch="Uniform" Height="20" Width="40" HorizontalAlignment="Center"/>
                                 </StackPanel>
                             </ListBoxItem>
-                            <ListBoxItem x:Name="listbox3item8" Width="168">
-                                <StackPanel Width="158">
+                            <ListBoxItem x:Name="listbox3item8" Width="130">
+                                <StackPanel Width="120">
                                     <TextBlock Margin="38,0,0,0"></TextBlock>
                                     <Image Source="Image/tsn_show3.png" Stretch="Fill" Height="67" Width="87" HorizontalAlignment="Center"/>
                                     <Image Source="Image/tsn_logo.png" Stretch="Uniform" Height="20" Width="40" HorizontalAlignment="Center"/>
