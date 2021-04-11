@@ -48,6 +48,7 @@ namespace Silver_HTPC
         public Notification_tab()
         {
             InitializeComponent();
+            MainStack.Children.Clear();
             NotificationContent notify0 = new NotificationContent("Recording in progress: Calgary flames", "12:30pm", "14-Apr-2021", "Image/record_icon.png", "Recording", false, true, "Started at 12:30pm");
             NotificationContent notify01 = new NotificationContent("Downloading in progress: Something", "1:00pm", "14-Apr-2021", "Image/forward.png", "Downloading", false, true, "Progress: 65%");
             NotificationContent notify1 = new NotificationContent("Reminder: El classico","1:00pm","14-Apr-2021", "Image/live_tv.png","Reminder",true, false,null) ;
