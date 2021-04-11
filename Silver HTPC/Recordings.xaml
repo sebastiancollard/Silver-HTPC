@@ -6,14 +6,9 @@
         xmlns:system="clr-namespace:System;assembly=mscorlib"
         xmlns:local="clr-namespace:Silver_HTPC"
         mc:Ignorable="d"
-        Title="Recordings" Height="450" Width="800" >
+        Title="Recordings" Height="450" Width="800"
+        Background="{StaticResource WindowBackgroundBrush}">
     <Grid>
-        <Grid.Background>
-            <LinearGradientBrush EndPoint="1,0" MappingMode="RelativeToBoundingBox" StartPoint="0,1">
-                <GradientStop Color="Black" Offset="0"/>
-                <GradientStop Color="White" Offset="1"/>
-            </LinearGradientBrush>
-        </Grid.Background>
         <Label x:Name="Recording_Label" Content="Recordings" Height="74" Width="220" RenderTransformOrigin="0.22,1.006" FontFamily="Segoe UI Black" FontSize="36" Margin="46,-1,0,0" Cursor="None" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="Black">
             <Label.OpacityMask>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
