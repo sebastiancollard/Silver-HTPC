@@ -51,8 +51,11 @@ namespace Silver_HTPC
 
         public Music()
         {
+            Console.WriteLine("Starting Program");
             reverseMusic.Visibility = Visibility.Hidden;
             InitializeComponent();
+            Switche = false;
+            //Music.
             
             
             MusicButtonsList.Add(music1);
@@ -77,7 +80,7 @@ namespace Silver_HTPC
             CoverPhotosList.Add("Image/iwishCarlThomas.jpg");
             // https://stackoverflow.com/questions/43676458/set-focus-on-passwordbox-when-application-starts
             this.Loaded += new RoutedEventHandler(Login_Focus);
-            Console.WriteLine("dada");
+            Console.WriteLine("dada " + Switche);
 
             
 
@@ -92,14 +95,16 @@ namespace Silver_HTPC
 
         void Login_Focus(object sender , RoutedEventArgs e)
         {
+            //Keyboard.ClearFocus();
+            Console.WriteLine("dadae " + Switche);
             MusicButtonsList[MusicIndex].Focus();
+            
         }
 
         // https://docs.microsoft.com/en-us/dotnet/desktop/wpf/advanced/how-to-change-the-color-of-an-element-using-focus-events?view=netframeworkdesktop-4.8
         private void Music_GotFocus(object sender, RoutedEventArgs e)
         {
             Button thisButton = sender as Button;
-            
             Console.WriteLine(thisButton.Name.ToString() + Switche);
             thisButton.Height =80;
             MusicButtonsGrids[MusicIndex].Height = 80;
@@ -113,6 +118,7 @@ namespace Silver_HTPC
                 play.Name = "Play1";
                 play.Content = "Play";
                 play.Background = Brushes.Aqua;
+                play.VerticalContentAlignment = VerticalAlignment.Top;
                 play.VerticalContentAlignment = VerticalAlignment.Top;
                 play.HorizontalContentAlignment = HorizontalAlignment.Left;
                 play.VerticalAlignment = VerticalAlignment.Bottom;
@@ -212,7 +218,7 @@ namespace Silver_HTPC
         {
            
             Button thisButton = sender as Button;
-            //Console.WriteLine("HereP");
+            Console.WriteLine("HereP");
             thisButton.Background = Brushes.Red;
             
             //MusicButtonsGrids[MusicIndex].Children.
@@ -648,6 +654,7 @@ namespace Silver_HTPC
             }
             else if (e.Key == Key.Back)
             {
+                Switche = false;
                 MainWindow home = new MainWindow();
                 home.Show();
                 this.Close();
@@ -1100,6 +1107,15 @@ namespace Silver_HTPC
             thisButton.Background = Brushes.Red;
             Console.WriteLine("Here");
             //thisButton.Height = 60;
+        }
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Back)
+            {
+                MainWindow home = new MainWindow();
+                home.Show();
+                this.Close();
+            }
         }
     }
 }
