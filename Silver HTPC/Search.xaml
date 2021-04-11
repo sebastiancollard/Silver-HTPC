@@ -62,7 +62,7 @@
             <StackPanel x:Name="stack"  Orientation="Horizontal">
             </StackPanel>
         </ScrollViewer>
-        <ComboBox x:Name="filter" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="43" IsReadOnly="True" IsSynchronizedWithCurrentItem="False" SelectedIndex="0" SelectionChanged="filter_SelectionChanged" Canvas.Left="640" Canvas.Top="58" KeyDown="filter_KeyDown">
+        <ComboBox x:Name="filter" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="43" IsSynchronizedWithCurrentItem="False" SelectedIndex="0" SelectionChanged="filter_SelectionChanged" Canvas.Left="640" Canvas.Top="58" KeyDown="filter_KeyDown">
             <ComboBoxItem Content="All" HorizontalAlignment="Left" RenderTransformOrigin="0.5,0.5"/>
             <ComboBoxItem Content="Live TV"/>
             <ComboBoxItem Content="Movies/Shows"/>
@@ -86,9 +86,9 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="2*" />
                 </Grid.RowDefinitions>
-                <Button Grid.Row="2" KeyDown="KeyPad_KeyDown2">Clear</Button>
-                <Button Grid.Column="1" Grid.Row="2" KeyDown="KeyPad_KeyDown2">Space</Button>
-                <Button Grid.Column="2" Grid.Row="2" KeyDown="KeyPad_KeyDown2">Backspace</Button>
+                <Button Grid.Row="2" KeyDown="KeyPad_KeyDown2" Style="{StaticResource StandardButton}" GotFocus="keyPad_GotFocus" LostFocus="keyPad_LostFocus" KeyUp="KeyPad_KeyUp">Clear</Button>
+                <Button Grid.Column="1" Grid.Row="2" KeyDown="KeyPad_KeyDown2" Style="{StaticResource StandardButton}" GotFocus="keyPad_GotFocus" LostFocus="keyPad_LostFocus" KeyUp="KeyPad_KeyUp">Space</Button>
+                <Button Grid.Column="2" Grid.Row="2" KeyDown="KeyPad_KeyDown2" Style="{StaticResource StandardButton}" FontSize="15" GotFocus="keyPad_GotFocus" LostFocus="keyPad_LostFocus" KeyUp="KeyPad_KeyUp">Backspace</Button>
             </Grid>
             <Grid DockPanel.Dock="Top" Canvas.Left="248" Canvas.Top="174" >
                 <Grid.ColumnDefinitions>
@@ -107,45 +107,45 @@
                     <RowDefinition Height="2*" />
                     <RowDefinition Height="2*" />
                 </Grid.RowDefinitions>
-                <Button Grid.Row="0" KeyDown="KeyPad_KeyDown">a</Button>
-                <Button Grid.Column="1" Grid.Row="0" KeyDown="KeyPad_KeyDown">b</Button>
-                <Button Grid.Column="2" Grid.Row="0" KeyDown="KeyPad_KeyDown">c</Button>
-                <Button Grid.Column="3" Grid.Row="0" KeyDown="KeyPad_KeyDown">d</Button>
-                <Button Grid.Column="4" Grid.Row="0" KeyDown="KeyPad_KeyDown">e</Button>
-                <Button Grid.Column="5" Grid.Row="0" KeyDown="KeyPad_KeyDown">f</Button>
-                <Button Grid.Row="1" KeyDown="KeyPad_KeyDown">g</Button>
-                <Button Grid.Column="1" Grid.Row="1" KeyDown="KeyPad_KeyDown">h</Button>
-                <Button Grid.Column="2" Grid.Row="1" KeyDown="KeyPad_KeyDown">i</Button>
-                <Button Grid.Column="3" Grid.Row="1" KeyDown="KeyPad_KeyDown">j</Button>
-                <Button Grid.Column="4" Grid.Row="1" KeyDown="KeyPad_KeyDown">k</Button>
-                <Button Grid.Column="5" Grid.Row="1" KeyDown="KeyPad_KeyDown">l</Button>
-                <Button Grid.Row="2" KeyDown="KeyPad_KeyDown">m</Button>
-                <Button Grid.Column="1" Grid.Row="2" KeyDown="KeyPad_KeyDown">n</Button>
-                <Button Grid.Column="2" Grid.Row="2" KeyDown="KeyPad_KeyDown">o</Button>
-                <Button Grid.Column="3" Grid.Row="2" KeyDown="KeyPad_KeyDown">p</Button>
-                <Button Grid.Column="4" Grid.Row="2" KeyDown="KeyPad_KeyDown">q</Button>
-                <Button Grid.Column="5" Grid.Row="2" KeyDown="KeyPad_KeyDown">r</Button>
-                <Button Grid.Row="3" KeyDown="KeyPad_KeyDown">s</Button>
-                <Button Grid.Column="1" Grid.Row="3" KeyDown="KeyPad_KeyDown">t</Button>
-                <Button Grid.Column="2" Grid.Row="3" KeyDown="KeyPad_KeyDown">u</Button>
-                <Button Grid.Column="3" Grid.Row="3" KeyDown="KeyPad_KeyDown">v</Button>
-                <Button Grid.Column="4" Grid.Row="3" KeyDown="KeyPad_KeyDown">w</Button>
-                <Button Grid.Column="5" Grid.Row="3" KeyDown="KeyPad_KeyDown">x</Button>
-                <Button Grid.Row="4" KeyDown="KeyPad_KeyDown">y</Button>
-                <Button Grid.Column="1" Grid.Row="4" KeyDown="KeyPad_KeyDown">z</Button>
-                <Button Grid.Column="2" Grid.Row="4" KeyDown="KeyPad_KeyDown">1</Button>
-                <Button Grid.Column="3" Grid.Row="4" KeyDown="KeyPad_KeyDown">2</Button>
-                <Button Grid.Column="4" Grid.Row="4" KeyDown="KeyPad_KeyDown">3</Button>
-                <Button Grid.Column="5" Grid.Row="4" KeyDown="KeyPad_KeyDown">4</Button>
-                <Button Grid.Row="5" KeyDown="KeyPad_KeyDown">5</Button>
-                <Button Grid.Column="1" Grid.Row="5" KeyDown="KeyPad_KeyDown">6</Button>
-                <Button Grid.Column="2" Grid.Row="5" KeyDown="KeyPad_KeyDown">7</Button>
-                <Button Grid.Column="3" Grid.Row="5" KeyDown="KeyPad_KeyDown">8</Button>
-                <Button Grid.Column="4" Grid.Row="5" KeyDown="KeyPad_KeyDown">9</Button>
-                <Button Grid.Column="5" Grid.Row="5" KeyDown="KeyPad_KeyDown">0</Button>
+                <Button Grid.Row="0" KeyDown="KeyPad_KeyDown" Style="{StaticResource StandardButton}" GotFocus="keyPad_GotFocus" LostFocus="keyPad_LostFocus" KeyUp="KeyPad_KeyUp">a</Button>
+                <Button Grid.Column="1" Grid.Row="0" KeyDown="KeyPad_KeyDown" Style="{StaticResource StandardButton}" GotFocus="keyPad_GotFocus" LostFocus="keyPad_LostFocus" KeyUp="KeyPad_KeyUp">b</Button>
+                <Button Grid.Column="2" Grid.Row="0" KeyDown="KeyPad_KeyDown" Style="{StaticResource StandardButton}" GotFocus="keyPad_GotFocus" LostFocus="keyPad_LostFocus" KeyUp="KeyPad_KeyUp">c</Button>
+                <Button Grid.Column="3" Grid.Row="0" KeyDown="KeyPad_KeyDown" Style="{StaticResource StandardButton}" GotFocus="keyPad_GotFocus" LostFocus="keyPad_LostFocus" KeyUp="KeyPad_KeyUp">d</Button>
+                <Button Grid.Column="4" Grid.Row="0" KeyDown="KeyPad_KeyDown" Style="{StaticResource StandardButton}" GotFocus="keyPad_GotFocus" LostFocus="keyPad_LostFocus" KeyUp="KeyPad_KeyUp">e</Button>
+                <Button Grid.Column="5" Grid.Row="0" KeyDown="KeyPad_KeyDown" Style="{StaticResource StandardButton}" GotFocus="keyPad_GotFocus" LostFocus="keyPad_LostFocus" KeyUp="KeyPad_KeyUp">f</Button>
+                <Button Grid.Row="1" KeyDown="KeyPad_KeyDown" Style="{StaticResource StandardButton}" GotFocus="keyPad_GotFocus" LostFocus="keyPad_LostFocus" KeyUp="KeyPad_KeyUp">g</Button>
+                <Button Grid.Column="1" Grid.Row="1" KeyDown="KeyPad_KeyDown" Style="{StaticResource StandardButton}" GotFocus="keyPad_GotFocus" LostFocus="keyPad_LostFocus" KeyUp="KeyPad_KeyUp">h</Button>
+                <Button Grid.Column="2" Grid.Row="1" KeyDown="KeyPad_KeyDown" Style="{StaticResource StandardButton}" GotFocus="keyPad_GotFocus" LostFocus="keyPad_LostFocus" KeyUp="KeyPad_KeyUp">i</Button>
+                <Button Grid.Column="3" Grid.Row="1" KeyDown="KeyPad_KeyDown" Style="{StaticResource StandardButton}" GotFocus="keyPad_GotFocus" LostFocus="keyPad_LostFocus" KeyUp="KeyPad_KeyUp">j</Button>
+                <Button Grid.Column="4" Grid.Row="1" KeyDown="KeyPad_KeyDown" Style="{StaticResource StandardButton}" GotFocus="keyPad_GotFocus" LostFocus="keyPad_LostFocus" KeyUp="KeyPad_KeyUp">k</Button>
+                <Button Grid.Column="5" Grid.Row="1" KeyDown="KeyPad_KeyDown" Style="{StaticResource StandardButton}" GotFocus="keyPad_GotFocus" LostFocus="keyPad_LostFocus" KeyUp="KeyPad_KeyUp">l</Button>
+                <Button Grid.Row="2" KeyDown="KeyPad_KeyDown" Style="{StaticResource StandardButton}" GotFocus="keyPad_GotFocus" LostFocus="keyPad_LostFocus" KeyUp="KeyPad_KeyUp">m</Button>
+                <Button Grid.Column="1" Grid.Row="2" KeyDown="KeyPad_KeyDown" Style="{StaticResource StandardButton}" GotFocus="keyPad_GotFocus" LostFocus="keyPad_LostFocus" KeyUp="KeyPad_KeyUp">n</Button>
+                <Button Grid.Column="2" Grid.Row="2" KeyDown="KeyPad_KeyDown" Style="{StaticResource StandardButton}" GotFocus="keyPad_GotFocus" LostFocus="keyPad_LostFocus" KeyUp="KeyPad_KeyUp">o</Button>
+                <Button Grid.Column="3" Grid.Row="2" KeyDown="KeyPad_KeyDown" Style="{StaticResource StandardButton}" GotFocus="keyPad_GotFocus" LostFocus="keyPad_LostFocus" KeyUp="KeyPad_KeyUp">p</Button>
+                <Button Grid.Column="4" Grid.Row="2" KeyDown="KeyPad_KeyDown" Style="{StaticResource StandardButton}" GotFocus="keyPad_GotFocus" LostFocus="keyPad_LostFocus" KeyUp="KeyPad_KeyUp">q</Button>
+                <Button Grid.Column="5" Grid.Row="2" KeyDown="KeyPad_KeyDown" Style="{StaticResource StandardButton}" GotFocus="keyPad_GotFocus" LostFocus="keyPad_LostFocus" KeyUp="KeyPad_KeyUp">r</Button>
+                <Button Grid.Row="3" KeyDown="KeyPad_KeyDown" Style="{StaticResource StandardButton}" GotFocus="keyPad_GotFocus" LostFocus="keyPad_LostFocus" KeyUp="KeyPad_KeyUp">s</Button>
+                <Button Grid.Column="1" Grid.Row="3" KeyDown="KeyPad_KeyDown" Style="{StaticResource StandardButton}" GotFocus="keyPad_GotFocus" LostFocus="keyPad_LostFocus" KeyUp="KeyPad_KeyUp">t</Button>
+                <Button Grid.Column="2" Grid.Row="3" KeyDown="KeyPad_KeyDown" Style="{StaticResource StandardButton}" GotFocus="keyPad_GotFocus" LostFocus="keyPad_LostFocus" KeyUp="KeyPad_KeyUp">u</Button>
+                <Button Grid.Column="3" Grid.Row="3" KeyDown="KeyPad_KeyDown" Style="{StaticResource StandardButton}" GotFocus="keyPad_GotFocus" LostFocus="keyPad_LostFocus" KeyUp="KeyPad_KeyUp">v</Button>
+                <Button Grid.Column="4" Grid.Row="3" KeyDown="KeyPad_KeyDown" Style="{StaticResource StandardButton}" GotFocus="keyPad_GotFocus" LostFocus="keyPad_LostFocus" KeyUp="KeyPad_KeyUp">w</Button>
+                <Button Grid.Column="5" Grid.Row="3" KeyDown="KeyPad_KeyDown" Style="{StaticResource StandardButton}" GotFocus="keyPad_GotFocus" LostFocus="keyPad_LostFocus" KeyUp="KeyPad_KeyUp">x</Button>
+                <Button Grid.Row="4" KeyDown="KeyPad_KeyDown" Style="{StaticResource StandardButton}" GotFocus="keyPad_GotFocus" LostFocus="keyPad_LostFocus" KeyUp="KeyPad_KeyUp">y</Button>
+                <Button Grid.Column="1" Grid.Row="4" KeyDown="KeyPad_KeyDown" Style="{StaticResource StandardButton}" GotFocus="keyPad_GotFocus" LostFocus="keyPad_LostFocus" KeyUp="KeyPad_KeyUp">z</Button>
+                <Button Grid.Column="2" Grid.Row="4" KeyDown="KeyPad_KeyDown" Style="{StaticResource StandardButton}" GotFocus="keyPad_GotFocus" LostFocus="keyPad_LostFocus" KeyUp="KeyPad_KeyUp">1</Button>
+                <Button Grid.Column="3" Grid.Row="4" KeyDown="KeyPad_KeyDown" Style="{StaticResource StandardButton}" GotFocus="keyPad_GotFocus" LostFocus="keyPad_LostFocus" KeyUp="KeyPad_KeyUp">2</Button>
+                <Button Grid.Column="4" Grid.Row="4" KeyDown="KeyPad_KeyDown" Style="{StaticResource StandardButton}" GotFocus="keyPad_GotFocus" LostFocus="keyPad_LostFocus" KeyUp="KeyPad_KeyUp">3</Button>
+                <Button Grid.Column="5" Grid.Row="4" KeyDown="KeyPad_KeyDown" Style="{StaticResource StandardButton}" GotFocus="keyPad_GotFocus" LostFocus="keyPad_LostFocus" KeyUp="KeyPad_KeyUp">4</Button>
+                <Button Grid.Row="5" KeyDown="KeyPad_KeyDown" Style="{StaticResource StandardButton}" GotFocus="keyPad_GotFocus" LostFocus="keyPad_LostFocus" KeyUp="KeyPad_KeyUp">5</Button>
+                <Button Grid.Column="1" Grid.Row="5" KeyDown="KeyPad_KeyDown" Style="{StaticResource StandardButton}" GotFocus="keyPad_GotFocus" LostFocus="keyPad_LostFocus" KeyUp="KeyPad_KeyUp">6</Button>
+                <Button Grid.Column="2" Grid.Row="5" KeyDown="KeyPad_KeyDown" Style="{StaticResource StandardButton}" GotFocus="keyPad_GotFocus" LostFocus="keyPad_LostFocus" KeyUp="KeyPad_KeyUp">7</Button>
+                <Button Grid.Column="3" Grid.Row="5" KeyDown="KeyPad_KeyDown" Style="{StaticResource StandardButton}" GotFocus="keyPad_GotFocus" LostFocus="keyPad_LostFocus" KeyUp="KeyPad_KeyUp">8</Button>
+                <Button Grid.Column="4" Grid.Row="5" KeyDown="KeyPad_KeyDown" Style="{StaticResource StandardButton}" GotFocus="keyPad_GotFocus" LostFocus="keyPad_LostFocus" KeyUp="KeyPad_KeyUp">9</Button>
+                <Button Grid.Column="5" Grid.Row="5" KeyDown="KeyPad_KeyDown" Style="{StaticResource StandardButton}" GotFocus="keyPad_GotFocus" LostFocus="keyPad_LostFocus" KeyUp="KeyPad_KeyUp">0</Button>
             </Grid>
         </DockPanel>
-        <TextBox x:Name="counter" Height="43" Canvas.Left="158" TextWrapping="Wrap" Canvas.Top="58" Width="126" Text="0 results" />
+        <TextBox Visibility="Hidden" x:Name="counter" Height="43" Canvas.Left="158" TextWrapping="Wrap" Canvas.Top="58" Width="126" Text="0 results" FontFamily="Helvetica" />
 
 
         <!--<Button HorizontalAlignment="Left" Margin="35,30,0,0" VerticalAlignment="Top" Width="100" Height="200" Grid.Row="1" BorderThickness="1" BorderBrush="Red" SnapsToDevicePixels="True" FontFamily="REVOLUTION" Foreground="Black">
