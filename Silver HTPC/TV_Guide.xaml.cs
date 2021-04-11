@@ -195,6 +195,8 @@ namespace Silver_HTPC
                             channel = 1;
                             LiveTV livetv = new LiveTV(channel);
                             livetv.Show();
+                            this.Close();
+
                         }
                         else
                         {   
@@ -204,6 +206,7 @@ namespace Silver_HTPC
                                 channel = 2;
                                 LiveTV livetv = new LiveTV(channel);
                                 livetv.Show();
+                                this.Close();
                             }//else show is not on
                             else
                             {
@@ -211,6 +214,8 @@ namespace Silver_HTPC
                             }
                         }
                     }
+        
+                    
                     //Pop is open
                     else
                     {
@@ -241,6 +246,12 @@ namespace Silver_HTPC
                         
                     }
 
+                    break;
+
+                case Key.Back:
+                    MainWindow mainwindow = new MainWindow();
+                    mainwindow.Show();
+                    this.Close();
                     break;
 
                 default:
