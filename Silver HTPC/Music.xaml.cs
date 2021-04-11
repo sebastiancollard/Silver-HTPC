@@ -15,6 +15,8 @@ using System.Windows.Threading;
 using System.Windows.Media.Effects;
 
 
+
+
 namespace Silver_HTPC
 {
     /// <summary>
@@ -28,7 +30,7 @@ namespace Silver_HTPC
         private int MusicIndex=0;
         private Button play;
         private Button delete;
-        private Button reverseMusic;
+        private Button reverseMusic = new Button();
         private Button playPauseMusic;
         private Button forwardMusic;
         private DateTime startTime;
@@ -40,16 +42,20 @@ namespace Silver_HTPC
         //private Slider slideDuration;
         private TextBlock currentMusicTimer;
         private int totalSeconds = 0;
-        private bool DeleteFocused = false;
-        private bool PlayFocused = false;
         private bool Switche = false;
+        private bool keepPlayFocus = false;
+        private bool keepDeleteFocus = false;
         private int Start = 0;
         
 
 
         public Music()
         {
+            Console.WriteLine("Starting Program");
+            reverseMusic.Visibility = Visibility.Hidden;
             InitializeComponent();
+            Switche = false;
+            //Music.
             
             
             MusicButtonsList.Add(music1);
@@ -74,7 +80,9 @@ namespace Silver_HTPC
             CoverPhotosList.Add("Image/iwishCarlThomas.jpg");
             // https://stackoverflow.com/questions/43676458/set-focus-on-passwordbox-when-application-starts
             this.Loaded += new RoutedEventHandler(Login_Focus);
-            Console.WriteLine("dada");
+            Console.WriteLine("dada " + Switche);
+
+            
 
          
 
@@ -87,7 +95,10 @@ namespace Silver_HTPC
 
         void Login_Focus(object sender , RoutedEventArgs e)
         {
+            //Keyboard.ClearFocus();
+            Console.WriteLine("dadae " + Switche);
             MusicButtonsList[MusicIndex].Focus();
+            
         }
 
         // https://docs.microsoft.com/en-us/dotnet/desktop/wpf/advanced/how-to-change-the-color-of-an-element-using-focus-events?view=netframeworkdesktop-4.8
@@ -108,13 +119,13 @@ namespace Silver_HTPC
                 play.Content = "Play";
                 play.Background = Brushes.Aqua;
                 play.VerticalContentAlignment = VerticalAlignment.Top;
+                play.VerticalContentAlignment = VerticalAlignment.Top;
                 play.HorizontalContentAlignment = HorizontalAlignment.Left;
                 play.VerticalAlignment = VerticalAlignment.Bottom;
                 play.HorizontalAlignment = HorizontalAlignment.Left;
                 play.KeyDown += Play_KeyDown;
                 play.GotFocus += Play_GotFocus;
                 play.LostFocus += Play_LostFocus;
-                play.KeyUp += Play_KeyUp;
                 Grid.SetColumn(play, 1);
                 Grid.SetColumnSpan(play, 2);
                 Grid.SetRow(play, 0);
@@ -152,7 +163,6 @@ namespace Silver_HTPC
                 delete.KeyDown += Delete_KeyDown;
                 delete.GotFocus += Delete_GotFocus;
                 delete.LostFocus += Delete_LostFocus;
-                delete.KeyUp += Delete_KeyUp;
                 Grid.SetColumn(delete, 2);
                 Grid.SetColumnSpan(delete, 2);
                 Grid.SetRow(delete, 0);
@@ -172,9 +182,22 @@ namespace Silver_HTPC
             else
             {
                 thisButton.Background = Brushes.White;
+                Console.WriteLine("leaveWhite");
+                //play.Focus();
                 
             }
             Switche = true;
+
+            if (keepPlayFocus)
+            {
+                play.Focus();
+                keepPlayFocus = false;
+            }
+            else if (keepDeleteFocus)
+            {
+                delete.Focus();
+                keepDeleteFocus = false;
+            }
 
             //StackOverFlow???
             //if (Switche == false)
@@ -193,10 +216,11 @@ namespace Silver_HTPC
 
         private void Play_GotFocus(object sender, RoutedEventArgs e)
         {
+           
             Button thisButton = sender as Button;
-            //Console.WriteLine("HereP");
+            Console.WriteLine("HereP");
             thisButton.Background = Brushes.Red;
-            PlayFocused = true;
+            
             //MusicButtonsGrids[MusicIndex].Children.
             //play.back
            // ButtonGrid1.Children.Remove(play);
@@ -208,7 +232,7 @@ namespace Silver_HTPC
             Button thisButton = sender as Button;
             Console.WriteLine("HereD");
             thisButton.Background = Brushes.Red;
-            DeleteFocused = true;
+            
             //MusicButtonsGrids[MusicIndex].Children.
             //play.back
             // ButtonGrid1.Children.Remove(play);
@@ -220,7 +244,7 @@ namespace Silver_HTPC
             Console.WriteLine("Lost Delete Focus " + Switche);
             Button thisButton = sender as Button;
             thisButton.Background = Brushes.Aqua;
-            DeleteFocused = false;
+            
             //ButtonGrid1.Children.Remove(thisButton);
             if (MusicIndex != 0)
             {
@@ -257,7 +281,7 @@ namespace Silver_HTPC
             {
             Button thisButton = sender as Button;
             thisButton.Background = Brushes.Aqua;
-            PlayFocused = false;
+            
             Console.WriteLine("MusicIndexL" + MusicIndex);
             //ButtonGrid1.Children.Remove(thisButton);
             //MusicButtonsGrids[MusicIndex].Children.Remove(play);
@@ -394,8 +418,18 @@ namespace Silver_HTPC
                     MusicButtonsList[i].Focusable = true;
                 }
                 Keyboard.ClearFocus();
+                play.Focusable = true;
+                delete.Focusable = true;
+                Switche = false;
                 this.Loaded += new RoutedEventHandler(Login_Focus);
             }
+            else if (e.Key == Key.Back)
+            {
+                MainWindow home = new MainWindow();
+                home.Show();
+                this.Close();
+            }
+           
             /**
             if (e.Key == Key.Left)
             {
@@ -417,7 +451,12 @@ namespace Silver_HTPC
             // scroll.ScrollToHorizontalOffset(btn.TranslatePoint(new Point(), stack).X - offset);
             if (e.Key == Key.Down)
             {
-                ViewMusicList.ScrollToVerticalOffset(thisbutton.TranslatePoint(new Point(), MusicList).Y-50);
+                //for (int a = 0; a < 100; a++) {
+                    ViewMusicList.ScrollToVerticalOffset(thisbutton.TranslatePoint(new Point(), MusicList).Y - 50);
+                //ViewMusicList.scrollto
+                
+               // }
+                
                 // for (int i = 0; i < MusicButtonsList.Count; i++)
                 //{
                 //   MusicButtonsList[i].Focusable = true;
@@ -471,54 +510,44 @@ namespace Silver_HTPC
                 Switche = false;
                 
             }
-            
-            
-
-
-
-        }
-
-        private void PlayPauseMusicOption_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Enter)
+            else if(e.Key == Key.Left)
             {
-                if (timer.IsEnabled)
+                keepPlayFocus = true;
+            }
+
+            else if (e.Key == Key.O)
+            {
+                // Only worked because we move okclick.wav to the debug file
+                //String path = System.IO.Directory.GetCurrentDirectory() + "/OkClick.wav";
+                //Uri path = new Uri(@"pack://application:,,,/Sound/OkClick.wav", UriKind.RelativeOrAbsolute);
+                // Console.WriteLine(path);
+                System.Media.SoundPlayer player = new System.Media.SoundPlayer("/Sound/OkClick.wav");
+                Console.WriteLine(player.SoundLocation);
+
+                //MediaPlayer a = new MediaPlayer();
+                // a.Source = new Uri("/Sound/OkClick.wav", UriKind.RelativeOrAbsolute);
+                //Bitmap
+
+
+                //var uri = new Uri
+                //var Player = new MediaPlayer();
+                //player.
+
+                /**
+                var sri = Application.GetResourceStream(new Uri("pack://application:,,,/Sound/OkClick.wav"));
+                var ssad = sri.Stream;
+
+                using (ssad = sri.Stream)
                 {
-                    timer.Stop();
+                    System.Media.SoundPlayer player = new System.Media.SoundPlayer(ssad);
+                    player.Load();
+                    player.Play();
                 }
-                else
-                {
-                    timer.Start();
-                }
-            }
+                **/
 
-        }
-        private void ForwardMusicOption_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Enter)
-            {
-                DateTime tempStartTime = startTime.AddSeconds(15);
-                //if (tempStartTime.CompareTo(DateTime.Now.AddSeconds(timeInc)) >= 0)
-                //{
-                    timeInc += 15;
-                    Console.WriteLine(startTime);
-                    //addonTimer = DateTime.Now.AddSeconds(15);
-                    //Console.WriteLine("Adding Seconds" + startTime);
-                //}
-            }
 
-        }
-        private void ReverseMusicOption_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Enter)
-            {
-                timeDec += 15;
-            }
-        }
-            private void Play_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Enter && Start>0)
-            {
+
+
                 Console.WriteLine("Paste Image");
                 Image CoverPhoto = new Image();
                 CoverPhoto.Source = new BitmapImage(new Uri(CoverPhotosList[MusicIndex], UriKind.RelativeOrAbsolute));
@@ -535,7 +564,7 @@ namespace Silver_HTPC
                 br.BorderBrush = Brushes.Black;
                 br.BorderThickness = new Thickness(1);
                 br.Child = CoverPhoto;
-                
+
                 Cover.Children.Add(br);
 
                 Image reverse = new Image();
@@ -560,18 +589,19 @@ namespace Silver_HTPC
                 MusicOptions.Children.Clear();
                 MusicDuration.Children.Clear();
 
-                reverseMusic = new Button();
+                //reverseMusic = new Button();
                 //playMusic.Content = "But";
                 reverseMusic.Height = 30;
                 reverseMusic.Width = 50;
+                reverseMusic.Visibility = Visibility.Visible;
                 //playMusic.Background = Brushes.Black;
                 reverseMusic.Content = reverse;
                 reverseMusic.GotFocus += Button_GotFocus;
                 reverseMusic.LostFocus += ButtonMusicPlaying_LostFocus;
-                reverseMusic.KeyUp += ReverseMusicOption_KeyUp;
+                reverseMusic.KeyDown += ReverseMusicOption_KeyDown;
                 //reverseMusic.Focusable = false;
 
-                
+
                 MusicOptions.Children.Add(reverseMusic);
 
                 playPauseMusic = new Button();
@@ -580,7 +610,7 @@ namespace Silver_HTPC
                 playPauseMusic.Content = playPause;
                 playPauseMusic.GotFocus += Button_GotFocus;
                 playPauseMusic.LostFocus += ButtonMusicPlaying_LostFocus;
-                playPauseMusic.KeyUp += PlayPauseMusicOption_KeyUp;
+                playPauseMusic.KeyDown += PlayPauseMusicOption_KeyDown;
 
                 MusicOptions.Children.Add(playPauseMusic);
 
@@ -590,7 +620,7 @@ namespace Silver_HTPC
                 forwardMusic.Content = forward;
                 forwardMusic.GotFocus += Button_GotFocus;
                 forwardMusic.LostFocus += ButtonMusicPlaying_LostFocus;
-                forwardMusic.KeyUp += ForwardMusicOption_KeyUp;
+                forwardMusic.KeyDown += ForwardMusicOption_KeyDown;
 
                 MusicOptions.Children.Add(forwardMusic);
 
@@ -618,13 +648,114 @@ namespace Silver_HTPC
                 //MusicTime.Text = 
                 currentMusicTime.Visibility = Visibility.Visible;
                 MusicTime.Visibility = Visibility.Visible;
-                
+
                 //playMusic.Focus();
                 // new BitmapImage(new Uri(@"pack://application:,,,/Image/spotify-download-logo.png", UriKind.RelativeOrAbsolute));
             }
+            else if (e.Key == Key.Back)
+            {
+                Switche = false;
+                MainWindow home = new MainWindow();
+                home.Show();
+                this.Close();
+            }
             Start += 1;
 
+
+
+
+
         }
+
+        private void PlayPauseMusicOption_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.O)
+            {
+                if (timer.IsEnabled)
+                {
+                    timer.Stop();
+                }
+                else
+                {
+                    timer.Start();
+                }
+            }
+            else if (e.Key == Key.Back)
+            {
+                MainWindow home = new MainWindow();
+                home.Show();
+                this.Close();
+            }
+            else if (e.Key == Key.Left)
+            {
+                reverseMusic.Focusable = true;
+                reverseMusic.Focus();
+            }
+
+        }
+        private void ForwardMusicOption_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.O)
+            {
+                DateTime tempStartTime = startTime.AddSeconds(15);
+                //if (tempStartTime.CompareTo(DateTime.Now.AddSeconds(timeInc)) >= 0)
+                //{
+                    timeInc += 15;
+                    Console.WriteLine(startTime);
+                    //addonTimer = DateTime.Now.AddSeconds(15);
+                    //Console.WriteLine("Adding Seconds" + startTime);
+                //}
+            }
+            else if (e.Key == Key.Back)
+            {
+                MainWindow home = new MainWindow();
+                home.Show();
+                this.Close();
+            }
+            else if(e.Key == Key.Right)
+            {
+                Console.WriteLine("goRight");
+                reverseMusic.Focusable = false;
+                playPauseMusic.Focusable = false;
+                
+            }
+            else if (e.Key == Key.Left)
+            {
+                playPauseMusic.Focusable = true;
+                playPauseMusic.Focus();
+            }
+
+        }
+        private void ReverseMusicOption_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.O)
+            {
+                timeDec += 15;
+            }
+            else if (e.Key == Key.Back)
+            {
+                MainWindow home = new MainWindow();
+                home.Show();
+                this.Close();
+            }
+            else if(e.Key == Key.Left)
+            {
+                for (int i = 0; i < MusicButtonsList.Count; i++)
+                {
+                    MusicButtonsList[i].Focusable = true;
+                }
+                Keyboard.ClearFocus();
+                play.Focusable = true;
+                delete.Focusable = true;
+                Switche = false;
+                this.Loaded += new RoutedEventHandler(Login_Focus);
+
+                //delete.Focus();
+
+
+            }
+        }
+          
 
         private void timer_tick(object sender, EventArgs e)
         {
@@ -632,96 +763,11 @@ namespace Silver_HTPC
             //Timespan difference = (DateTime.Now - startTime);
         }
 
-        private void Delete_KeyUp(object sender, KeyEventArgs e)
+       
+
+        private void Yes_KeyDown(object sender, KeyEventArgs e)
         {
-            Button thisbutton = sender as Button;
-            if(e.Key == Key.Enter)
-            {
-                DeleteMessage.Visibility = Visibility.Visible;
-                //MusicGrid.Effect = new BlurEffect();
-                MusicList.Effect = new BlurEffect();
-                Cover.Effect = new BlurEffect();
-                MusicOptions.Effect = new BlurEffect();
-                MusicOptions.Effect = new BlurEffect();
-                SortButton.Effect = new BlurEffect();
-                DeleteMultiple.Effect = new BlurEffect();
-                MusicDuration.Effect = new BlurEffect();
-                //DeleteMessage.Effect = null;
-                //MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Are you sure?", "Delete Confirmation", System.Windows.MessageBoxButton.YesNo);
-
-
-
-                TextBlock DeleteMessageTb = new TextBlock();
-                DeleteMessageTb.Text = "Would you like to delete the following Song:";
-                Grid.SetRow(DeleteMessageTb, 0);
-                Grid.SetColumn(DeleteMessageTb, 0);
-                Grid.SetColumnSpan(DeleteMessageTb, 2);
-                DeleteMessageTb.VerticalAlignment = VerticalAlignment.Center;
-                DeleteMessageTb.HorizontalAlignment = HorizontalAlignment.Center;
-                DeleteMessageTb.FontFamily = new FontFamily("Segoe UI Black");
-                DeleteMessageTb.FontSize = 16;
-
-                String searchFor = "SongNameTb" + (MusicIndex +1); 
-                String songName = ((TextBlock)MusicButtonsGrids[MusicIndex].FindName(searchFor)).Text;
-
-                TextBlock DeleteSongTb = new TextBlock();
-                DeleteSongTb.Text = songName;
-                Grid.SetRow(DeleteSongTb,1);
-                Grid.SetColumn(DeleteSongTb, 0);
-                Grid.SetColumnSpan(DeleteSongTb, 2);
-                DeleteSongTb.VerticalAlignment = VerticalAlignment.Center;
-                DeleteSongTb.HorizontalAlignment = HorizontalAlignment.Center;
-                DeleteSongTb.FontSize = 14;
-
-                Button yes = new Button();
-                yes.Width = 50;
-                yes.Content = "Yes";
-                yes.GotFocus += Button_GotFocus;
-                yes.LostFocus += Button_LostFocus;
-                yes.KeyUp += Yes_KeyUp;
-                Grid.SetRow(yes, 2);
-                Grid.SetColumn(yes, 0);
-                yes.VerticalAlignment = VerticalAlignment.Center;
-                yes.HorizontalAlignment = HorizontalAlignment.Center;
-
-                Button no = new Button();
-                no.Width = 50;
-                no.Content = "No";
-                no.GotFocus += Button_GotFocus;
-                no.LostFocus += Button_LostFocus;
-                no.KeyUp += No_KeyUp;
-                Grid.SetRow(no, 2);
-                Grid.SetColumn(no, 1);
-                no.VerticalAlignment = VerticalAlignment.Center;
-                no.HorizontalAlignment = HorizontalAlignment.Center;
-
-
-
-                DeleteMessage.Children.Clear();
-                DeleteMessage.Children.Add(DeleteMessageTb);
-                DeleteMessage.Children.Add(DeleteSongTb);
-                DeleteMessage.Children.Add(yes);
-                DeleteMessage.Children.Add(no);
-
-                for (int i = 0; i < MusicButtonsList.Count; i++)
-                {
-                    MusicButtonsList[i].Focusable = false;
-                }
-
-                Keyboard.ClearFocus();
-                MusicButtonsGrids[MusicIndex].Children.Remove(play);
-                MusicButtonsGrids[MusicIndex].Children.Remove(delete);
-                MusicButtonsGrids[MusicIndex].Height = 50;
-                MusicButtonsList[MusicIndex].Height = 50;
-                yes.Focus();
-                //Popup a = new Popup();
-                Console.Write("Delete Entered on");
-            }
-        }
-
-        private void Yes_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (e.Key==Key.Enter)
+            if (e.Key==Key.O)
             {
                 MusicList.Effect = null;
                 Cover.Effect = null;
@@ -766,12 +812,13 @@ namespace Silver_HTPC
                 //this.Loaded+= new RoutedEventHandler(Login_Focus);
 
             }
+            
 
         }
 
-        private void No_KeyUp(object sender, KeyEventArgs e)
+        private void No_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Enter)
+            if (e.Key == Key.O)
             {
                 MusicList.Effect = null;
                 Cover.Effect = null;
@@ -825,6 +872,30 @@ namespace Silver_HTPC
                 //MusicButtonsList[MusicIndex].Focus();
                 Switche = false;
             }
+            else if (e.Key == Key.Right)
+            {
+                if (reverseMusic.IsVisible)
+                {
+                    Keyboard.ClearFocus();
+                    for (int i = 0; i < MusicButtonsList.Count; i++)
+                    {
+                         MusicButtonsList[i].Focusable = false;
+                    }
+
+                    play.Focusable = false;
+                    delete.Focusable = false;
+                    reverseMusic.Focus();
+
+                    MusicButtonsGrids[MusicIndex].Children.Remove(play);
+                    MusicButtonsGrids[MusicIndex].Children.Remove(delete);
+
+                }
+                else
+                {
+                    
+                    keepDeleteFocus = true;
+                }
+            }
             else if (e.Key == Key.Up)
             {
                 ViewMusicList.ScrollToVerticalOffset(thisbutton.TranslatePoint(new Point(), MusicList).Y - 150);
@@ -851,6 +922,94 @@ namespace Silver_HTPC
                 }
                 //Switche = false;
                 Switche = false;
+            }
+            if (e.Key == Key.O)
+            {
+                DeleteMessage.Visibility = Visibility.Visible;
+                //MusicGrid.Effect = new BlurEffect();
+                MusicList.Effect = new BlurEffect();
+                Cover.Effect = new BlurEffect();
+                MusicOptions.Effect = new BlurEffect();
+                MusicOptions.Effect = new BlurEffect();
+                SortButton.Effect = new BlurEffect();
+                DeleteMultiple.Effect = new BlurEffect();
+                MusicDuration.Effect = new BlurEffect();
+                //DeleteMessage.Effect = null;
+                //MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Are you sure?", "Delete Confirmation", System.Windows.MessageBoxButton.YesNo);
+
+
+
+                TextBlock DeleteMessageTb = new TextBlock();
+                DeleteMessageTb.Text = "Would you like to delete the following Song:";
+                Grid.SetRow(DeleteMessageTb, 0);
+                Grid.SetColumn(DeleteMessageTb, 0);
+                Grid.SetColumnSpan(DeleteMessageTb, 2);
+                DeleteMessageTb.VerticalAlignment = VerticalAlignment.Center;
+                DeleteMessageTb.HorizontalAlignment = HorizontalAlignment.Center;
+                DeleteMessageTb.FontFamily = new FontFamily("Segoe UI Black");
+                DeleteMessageTb.FontSize = 16;
+
+                String searchFor = "SongNameTb" + (MusicIndex + 1);
+                String songName = ((TextBlock)MusicButtonsGrids[MusicIndex].FindName(searchFor)).Text;
+
+                TextBlock DeleteSongTb = new TextBlock();
+                DeleteSongTb.Text = songName;
+                Grid.SetRow(DeleteSongTb, 1);
+                Grid.SetColumn(DeleteSongTb, 0);
+                Grid.SetColumnSpan(DeleteSongTb, 2);
+                DeleteSongTb.VerticalAlignment = VerticalAlignment.Center;
+                DeleteSongTb.HorizontalAlignment = HorizontalAlignment.Center;
+                DeleteSongTb.FontSize = 14;
+
+                Button yes = new Button();
+                yes.Width = 50;
+                yes.Content = "Yes";
+                yes.GotFocus += Button_GotFocus;
+                yes.LostFocus += Button_LostFocus;
+                yes.KeyDown += Yes_KeyDown;
+                Grid.SetRow(yes, 2);
+                Grid.SetColumn(yes, 0);
+                yes.VerticalAlignment = VerticalAlignment.Center;
+                yes.HorizontalAlignment = HorizontalAlignment.Center;
+
+                Button no = new Button();
+                no.Width = 50;
+                no.Content = "No";
+                no.GotFocus += Button_GotFocus;
+                no.LostFocus += Button_LostFocus;
+                no.KeyDown += No_KeyDown;
+                Grid.SetRow(no, 2);
+                Grid.SetColumn(no, 1);
+                no.VerticalAlignment = VerticalAlignment.Center;
+                no.HorizontalAlignment = HorizontalAlignment.Center;
+
+
+
+                DeleteMessage.Children.Clear();
+                DeleteMessage.Children.Add(DeleteMessageTb);
+                DeleteMessage.Children.Add(DeleteSongTb);
+                DeleteMessage.Children.Add(yes);
+                DeleteMessage.Children.Add(no);
+
+                for (int i = 0; i < MusicButtonsList.Count; i++)
+                {
+                    MusicButtonsList[i].Focusable = false;
+                }
+
+                Keyboard.ClearFocus();
+                MusicButtonsGrids[MusicIndex].Children.Remove(play);
+                MusicButtonsGrids[MusicIndex].Children.Remove(delete);
+                MusicButtonsGrids[MusicIndex].Height = 50;
+                MusicButtonsList[MusicIndex].Height = 50;
+                yes.Focus();
+                //Popup a = new Popup();
+                Console.Write("Delete Entered on");
+            }
+            else if (e.Key == Key.Back)
+            {
+                MainWindow home = new MainWindow();
+                home.Show();
+                this.Close();
             }
             /**
             else if (e.Key == Key.Right)
@@ -939,13 +1098,24 @@ namespace Silver_HTPC
         {
             Button thisButton = sender as Button;
             thisButton.Background = Brushes.White;
-            
+            Console.WriteLine("bye");
+
         }
         private void Button_GotFocus(object sender, RoutedEventArgs e)
         {
             Button thisButton = sender as Button;
             thisButton.Background = Brushes.Red;
+            Console.WriteLine("Here");
             //thisButton.Height = 60;
+        }
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Back)
+            {
+                MainWindow home = new MainWindow();
+                home.Show();
+                this.Close();
+            }
         }
     }
 }

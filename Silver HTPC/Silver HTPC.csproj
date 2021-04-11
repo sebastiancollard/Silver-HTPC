@@ -58,6 +58,9 @@
     <Compile Include="LiveTV.xaml.cs">
       <DependentUpon>LiveTV.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MainWindow2.xaml.cs">
+      <DependentUpon>MainWindow2.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Music.xaml.cs">
       <DependentUpon>Music.xaml</DependentUpon>
     </Compile>
@@ -72,6 +75,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="LiveTV.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow2.xaml">
+      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="OtherApplications.xaml">
@@ -452,7 +459,6 @@
     <Resource Include="Image\espn_show2.png" />
   </ItemGroup>
   <ItemGroup>
-
     <Resource Include="Image\reminder_icon.png" />
   </ItemGroup>
   <ItemGroup>
@@ -484,7 +490,21 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Image\reverse.png" />
-
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\rightArrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\leftArrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\ok_button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Sound\OkClick.wav" />
+    <Resource Include="Sound\OkClick.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

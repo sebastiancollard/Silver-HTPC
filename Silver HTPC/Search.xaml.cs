@@ -10,6 +10,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Media.Animation;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
@@ -23,10 +24,12 @@ namespace Silver_HTPC
         List<Grid> Results = new List<Grid>();
         const int WIDTH = 100;
         const int HEIGHT = 200;
-        bool isResultsOnScreen = false;
-        bool found = false;
-        bool update = true;
+        static bool isResultsOnScreen = false;
+        private static string text = "";
+        static bool found = false;
+        static bool update = true;
         const int offset = 340;
+        bool o = true;
 
         public Search()
         {
@@ -35,9 +38,12 @@ namespace Silver_HTPC
             MakeResults();
 
             ((Grid)keypad.Children[1]).Children[0].Focus();
-            filter.Visibility = Visibility.Hidden;
+            counter.Visibility = Visibility.Hidden;
             scroll.Width -= 270;
             scroll.Margin = new Thickness(270, 0, 0, 0);
+            searchBox.Text = text;
+
+            foreach (ComboBoxItem i in filter.Items) i.KeyDown += comboboxItem_KeyDown;
 
         }
         private void MakeResults()
@@ -90,7 +96,7 @@ namespace Silver_HTPC
                     brush.ImageSource = new BitmapImage(new Uri(@"pack://application:,,,/Image/spiderman_OST.jpg", UriKind.RelativeOrAbsolute));
 
                 btn.Content = new StackPanel();
-                btn.KeyDown += Window_KeyDown;
+                btn.KeyDown += Button_KeyDown;
                 btn.Background = brush;
                 btn.BorderBrush = new SolidColorBrush(Colors.Black);
                 btn.Name = "Button" + i.ToString();
@@ -577,7 +583,7 @@ namespace Silver_HTPC
                 isResultsOnScreen = false;
             }
 
-            counter.Text = stack.Children.Count.ToString() + " results";
+            counter.Text = (stack.Children.Count / 2).ToString() + " results";
         }
 
         private void result_selected(object sender, RoutedEventArgs e)
@@ -590,7 +596,10 @@ namespace Silver_HTPC
             ((Grid)btn.Parent).Height += 20;
             scroll.ScrollToHorizontalOffset(btn.TranslatePoint(new Point(), stack).X - offset);
 
-            counter.Text = (stack.Children.IndexOf((Grid)btn.Parent)/2+1).ToString() + " of " + stack.Children.Count;
+            //double d = scroll.HorizontalOffset;
+            //double d1 = btn.TranslatePoint(new Point(), stack).X - offset;
+
+            counter.Text = (stack.Children.IndexOf((Grid)btn.Parent)/2+1).ToString() + " of " + stack.Children.Count / 2;
 
             /**if (keypad.Visibility != Visibility.Hidden)
             {
@@ -615,6 +624,13 @@ namespace Silver_HTPC
         {
             if (e.Key == Key.Back)
             {
+                text = "";
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.Show();
+                this.Close();
+            }
+            else if (e.Key == Key.H)
+            {
                 MainWindow mainWindow = new MainWindow();
                 mainWindow.Show();
                 this.Close();
@@ -630,7 +646,7 @@ namespace Silver_HTPC
 
                 if (keypad.Visibility == Visibility.Hidden)
                 {
-                    filter.Visibility = Visibility.Hidden;
+                    counter.Visibility = Visibility.Hidden;
                     keypad.Visibility = Visibility.Visible;
                     scroll.Width -= 270;
                     scroll.Margin = new Thickness(270, 0, 0, 0);
@@ -639,7 +655,7 @@ namespace Silver_HTPC
                 }
                 else if (keypad.Visibility == Visibility.Visible && update)
                 {
-                    filter.Visibility = Visibility.Visible;
+                    counter.Visibility = Visibility.Visible;
                     keypad.Visibility = Visibility.Hidden;
                     scroll.Width += 270;
                     scroll.Margin = new Thickness();
@@ -648,13 +664,18 @@ namespace Silver_HTPC
                 }
                 else update = true;
             }
-            /**else if (e.Key == Key.Back && keypad.Visibility == Visibility.Visible)
+            else if (e.Key == Key.OemQuestion)
             {
-                stack.Focusable = true;
-                keypad.Visibility = Visibility.Hidden;
-                scroll.Width += 270;
-                scroll.Margin = new Thickness();
-            }*/
+                Settings settings = new Settings();
+                settings.Show();
+                this.Close();
+            }
+            else if (e.Key == Key.G)
+            {
+                TV_Guide guide = new TV_Guide();
+                guide.Show();
+                this.Close();
+            }
         }
 
         private static string RemoveSpecialCharacters(string str)
@@ -704,6 +725,9 @@ namespace Silver_HTPC
                 }
             }
 
+            if (stack.Children.Count > 1)
+                ((Grid)stack.Children[1]).Children[1].Focus();
+
             isResultsOnScreen = true;
 
             if (!found)
@@ -716,15 +740,18 @@ namespace Silver_HTPC
         private void KeyPad_KeyDown(object sender, KeyEventArgs e)
         {
             var btn = sender as Button;
-            if (e.Key == Key.E && btn != null)
+            if (e.Key == Key.O && btn != null)
+            {
+                text += btn.Content;
                 searchBox.Text += btn.Content;
+            }
             else if (e.Key == Key.Right &&
                 (btn == ((Grid)keypad.Children[1]).Children[5] ||
                 btn == ((Grid)keypad.Children[1]).Children[11] ||
                 btn == ((Grid)keypad.Children[1]).Children[17] ||
                 btn == ((Grid)keypad.Children[1]).Children[23]) && stack.Children.Count > 0)
             {
-                filter.Visibility = Visibility.Visible;
+                counter.Visibility = Visibility.Visible;
                 keypad.Visibility = Visibility.Hidden;
                 scroll.Width += 270;
                 scroll.Margin = new Thickness();
@@ -734,23 +761,75 @@ namespace Silver_HTPC
         private void KeyPad_KeyDown2(object sender, KeyEventArgs e)
         {
             var btn = sender as Button;
-            if (e.Key == Key.E && btn != null)
+            if (e.Key == Key.O && btn != null)
             {
                 if (btn.Content.Equals("Clear"))
+                {
                     searchBox.Text = "";
+                    text = "";
+                }
                 else if (btn.Content.Equals("Space"))
+                {
                     searchBox.Text += " ";
+                    text += " ";
+                }
                 else if (btn.Content.Equals("Backspace"))
+                {
                     searchBox.Text = searchBox.Text.Substring(0, searchBox.Text.Length - 1);
+                    text = text.Substring(0, text.Length - 1);
+                }
             } 
             else if (e.Key == Key.Right && btn == ((Grid)keypad.Children[0]).Children[2])
             {
-                filter.Visibility = Visibility.Visible;
+                counter.Visibility = Visibility.Visible;
                 keypad.Visibility = Visibility.Hidden;
                 scroll.Width += 270;
                 scroll.Margin = new Thickness();
             }
             
         }
+
+        private void filter_KeyDown(object sender, KeyEventArgs e)
+        {
+
+            var combobox = sender as ComboBox;
+            if (e.Key == Key.O && !filter.IsDropDownOpen && o)
+            {
+                filter.IsDropDownOpen = true;
+            }
+            else if (e.Key == Key.Down && stack.Children.Count > 1)
+                ((Grid)stack.Children[1]).Children[1].Focus();
+            o = true;
+
+        }
+
+        private void comboboxItem_KeyDown(object sender, KeyEventArgs e)
+        {
+
+            var comboboxItem = sender as ComboBoxItem;
+
+            if (e.Key == Key.O)
+            {
+                filter.SelectedItem = comboboxItem;
+                filter.IsDropDownOpen = false;
+                o = false;
+                if (stack.Children.Count > 1)
+                    ((Grid)stack.Children[1]).Children[1].Focus();
+                else
+                {
+                    filter.Focus();
+                }
+            }
+        }
+
+        private void Button_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Up)
+            {
+                filter.Focus();
+                //filter.IsDropDownOpen = true;
+            }
+        }
+
     }
 }

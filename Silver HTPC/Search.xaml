@@ -54,8 +54,9 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <ScaleTransform x:Key="windowScaleTransform" ScaleX="1" ScaleY="1" />
     </Window.Resources>
-    <Canvas x:Name="background">
+    <Canvas x:Name="background" LayoutTransform="{StaticResource windowScaleTransform}">
         <Canvas.Background>
             <LinearGradientBrush EndPoint="1,0" MappingMode="RelativeToBoundingBox" StartPoint="0,1">
                 <GradientStop Color="Black" Offset="1"/>
@@ -66,7 +67,7 @@
             <StackPanel x:Name="stack"  Orientation="Horizontal">
             </StackPanel>
         </ScrollViewer>
-        <ComboBox x:Name="filter" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="43" IsReadOnly="True" IsSynchronizedWithCurrentItem="False" SelectedIndex="0" SelectionChanged="filter_SelectionChanged" Canvas.Left="164" Canvas.Top="58">
+        <ComboBox x:Name="filter" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="43" IsReadOnly="True" IsSynchronizedWithCurrentItem="False" SelectedIndex="0" SelectionChanged="filter_SelectionChanged" Canvas.Left="640" Canvas.Top="58" KeyDown="filter_KeyDown">
             <ComboBoxItem Content="All" HorizontalAlignment="Left" RenderTransformOrigin="0.5,0.5"/>
             <ComboBoxItem Content="Live TV"/>
             <ComboBoxItem Content="Movies/Shows"/>
@@ -74,7 +75,7 @@
             <ComboBoxItem Content="Photos/Videos"/>
             <ComboBoxItem Content="Recordings"/>
         </ComboBox>
-        <TextBox x:Name="searchBox" Focusable="False" Height="43" TextWrapping="Wrap" VerticalAlignment="Top" Width="493" HorizontalAlignment="Left" Foreground="Black" TextChanged="TextBox_TextChanged" Canvas.Top="58" Canvas.Left="289"/>
+        <TextBox x:Name="searchBox" Focusable="False" Height="43" TextWrapping="Wrap" VerticalAlignment="Top" Width="346" HorizontalAlignment="Left" Foreground="Black" TextChanged="TextBox_TextChanged" Canvas.Top="58" Canvas.Left="289"/>
         <Label Canvas.Left="404" Canvas.Top="10"/>
         <Button x:Name="dummy" Content="Button" Canvas.Top="-149" Width="75" Background="#00DDDDDD" BorderBrush="#00707070" Foreground="#00000000"/>
         <Image HorizontalAlignment="Left" Height="50" Margin="0,1,0,0" VerticalAlignment="Top" Width="58" RenderTransformOrigin="0.148,-0.221" Source="Image/search_icon.jpg" />
@@ -149,7 +150,7 @@
                 <Button Grid.Column="5" Grid.Row="5" KeyDown="KeyPad_KeyDown">0</Button>
             </Grid>
         </DockPanel>
-        <TextBox x:Name="counter" Height="23" Canvas.Left="303" TextWrapping="Wrap" Canvas.Top="20" Width="120" Text="0 results" />
+        <TextBox x:Name="counter" Height="43" Canvas.Left="158" TextWrapping="Wrap" Canvas.Top="58" Width="126" Text="0 results" />
 
 
         <!--<Button HorizontalAlignment="Left" Margin="35,30,0,0" VerticalAlignment="Top" Width="100" Height="200" Grid.Row="1" BorderThickness="1" BorderBrush="Red" SnapsToDevicePixels="True" FontFamily="REVOLUTION" Foreground="Black">

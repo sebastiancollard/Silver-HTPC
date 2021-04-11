@@ -45,20 +45,78 @@ namespace Silver_HTPC
     {
         private static List<NotificationContent> notificationContents=new List<NotificationContent>();
         private static List<Button> notifyButtonList = new List<Button>();
+        private int buttonInd = 0;
         public Notification_tab()
         {
             InitializeComponent();
-            NotificationContent notify0 = new NotificationContent("Recording in progress: Calgary flames", "1:00pm", "14-Apr-2021", "Image/record_icon.png", "Recording", false, true, "Started at 12:30pm");
+            MainStack.Children.Clear();
+            NotificationContent notify0 = new NotificationContent("Recording in progress: Calgary flames", "12:30pm", "14-Apr-2021", "Image/record_icon.png", "Recording", false, true, "Started at 12:30pm");
             NotificationContent notify01 = new NotificationContent("Downloading in progress: Something", "1:00pm", "14-Apr-2021", "Image/forward.png", "Downloading", false, true, "Progress: 65%");
             NotificationContent notify1 = new NotificationContent("Reminder: El classico","1:00pm","14-Apr-2021", "Image/live_tv.png","Reminder",true, false,null) ;
             NotificationContent notify2 = new NotificationContent("Recording scheduled: FRIENDS", "6:00pm", "14-Apr-2021", "Image/record_icon.png", "Recording", true, false,null);
+            NotificationContent notify3 = new NotificationContent("Reminder: DDT News special", "10:00pm", "14-Apr-2021", "Image/live_tv.png", "Reminder", true, false, null);
 
             notificationContents.Add(notify0);
-            notificationContents.Add(notify01);
+            //notificationContents.Add(notify01);
             notificationContents.Add(notify1);
             notificationContents.Add(notify2);
+            notificationContents.Add(notify3);
             createButtons();
             displayButtons();
+            foreach (Button btn in notifyButtonList)
+            {
+                btn.GotFocus += select;
+                btn.LostFocus += nselect;
+            }
+            MainStack.Children[0].Focus();
+            
+        }
+
+        private void select(object sender, RoutedEventArgs e)
+        {
+            //MessageBox.Show("create one");
+            Button button = sender as Button;
+            //btn.Background = Brushes.Black;
+            //if (e.Key == Key.Enter)
+            //{
+            //  if (btn.Equals(buttonList[1]))
+            //{
+            Console.WriteLine("reached");
+            button.Background = Brushes.Green;
+            button.BorderBrush = Brushes.Red;
+            //}
+            //}
+            
+            button.Height += 25;
+            scroll.ScrollToVerticalOffset(button.TranslatePoint(new Point(), MainStack).Y - 150);
+
+
+
+        }
+
+        private void nselect(object sender, RoutedEventArgs e)
+        {
+            var btn = sender as Button;
+            btn.Background = Brushes.LightGray;
+            btn.BorderBrush = Brushes.Transparent;
+            btn.Height -= 25;
+        }
+
+        private void resetButtons()
+        {
+            buttonInd = 0;
+            MainStack.Children.Clear();
+            notificationContents.RemoveAt(notificationContents.Count - 1);
+            notifyButtonList.Clear();
+            createButtons();
+            displayButtons();
+            foreach (Button btn in notifyButtonList)
+            {
+                btn.GotFocus += select;
+                btn.LostFocus += nselect;
+            }
+            MainStack.Children[0].Focus();
+
         }
 
         private void displayButtons()
@@ -85,7 +143,7 @@ namespace Silver_HTPC
                 StackPanel outerSP = new StackPanel();
 
                 Grid outerGrid = new Grid();
-                outerGrid.Background = Brushes.Green;
+                //outerGrid.Background = Brushes.Green;
                 outerGrid.Height = 80;
                 outerGrid.Width = 800;
                 ColumnDefinition colDef1 = new ColumnDefinition();
@@ -158,13 +216,29 @@ namespace Silver_HTPC
                 outerSP.Children.Add(outerGrid);
                 if (notificationContents[i].NeedButton)
                 {
-                    TextBlock buttonText = new TextBlock();
+                    Label buttonText = new Label();
+                    StackPanel inLabel = new StackPanel();
+                    inLabel.Orientation = Orientation.Horizontal;
+                    inLabel.HorizontalAlignment = HorizontalAlignment.Center;
+                    Image okButton_img = new Image();
+                    Uri imgUri = new Uri("Image/ok_button.png", UriKind.Relative);
+                    okButton_img.Source = new BitmapImage(imgUri);
+                    okButton_img.Height = 20;
+                    okButton_img.Width = 20;
+                    
                     buttonText.Name = "buttonText" + i.ToString();
-                    buttonText.Text = "Press Ok to continue";
+                    buttonText.Content = "Press Ok to continue";
+                    //buttonText.Foreground=Brushes.
                     buttonText.FontSize = 15;
-                    buttonText.Height = 20;
+                    //buttonText.Height = 20;
+                    //buttonText.Width = 800;
+                    buttonText.FontWeight = FontWeights.Bold;
+                    buttonText.HorizontalContentAlignment = HorizontalAlignment.Center;
+                    //buttonText.VerticalAlignment = VerticalAlignment.Top;
                     //buttonText.Visibility = Visibility.Collapsed;
-                    outerSP.Children.Add(buttonText);
+                    inLabel.Children.Add(okButton_img);
+                    inLabel.Children.Add(buttonText);
+                    outerSP.Children.Add(inLabel);
 
                 }
                 btn.Content = outerSP;
@@ -193,6 +267,24 @@ namespace Silver_HTPC
                 MainWindow home = new MainWindow();
                 home.Show();
                 this.Close();
+            }else if (e.Key == Key.Z)
+            {
+                resetButtons();
+            }
+            else if (e.Key == Key.Down)
+            {
+                buttonInd += 1%notificationContents.Count;
+            }
+            else if (e.Key == Key.Up)
+            {
+                if (buttonInd == 0)
+                {
+                    buttonInd = notificationContents.Count - 1;
+                }
+                else
+                {
+                    buttonInd -= 1 % notificationContents.Count;
+                }
             }
         }
     }
