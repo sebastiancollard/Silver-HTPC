@@ -491,7 +491,9 @@
     <Resource Include="Image\leftArrow.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Sound\OkClick.wav" />
+    <Resource Include="Sound\OkClick.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

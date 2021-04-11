@@ -93,19 +93,14 @@ namespace Silver_HTPC
                 home.Show();
                 this.Close();
             }
+            else if (e.Key == Key.O)
+            {
+                EnlargePhotoScreen();
+            }
 
             Console.WriteLine("ButtonIndex: " + ButtonIndex);
         }
 
-        private void ImageButton_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Enter && Start!=0)
-            {
-                EnlargePhotoScreen();
-            }
-            
-            Start += 1;
-        }
         private void LargeImage_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Back)
@@ -145,14 +140,7 @@ namespace Silver_HTPC
             
         }
 
-        private void LargeImage_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Enter)
-            {
-
-            }
-
-        }
+      
 
             void EnlargePhotoScreen()
         {
@@ -168,7 +156,7 @@ namespace Silver_HTPC
             EnlargePhotoGrid.Visibility = Visibility.Visible;
             Button buttonLargerImage = new Button();
             buttonLargerImage.KeyDown += LargeImage_KeyDown;
-            buttonLargerImage.KeyUp += LargeImage_KeyUp;
+            //buttonLargerImage.KeyUp += LargeImage_KeyUp;
             buttonLargerImage.Background = Brushes.White;
             buttonLargerImage.Style = (Style)FindResource("ButtonStyle");
             //buttonLargerImage.KeyDown += LargeImage_KeyDown;
