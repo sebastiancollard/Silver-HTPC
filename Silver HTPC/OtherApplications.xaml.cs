@@ -27,7 +27,8 @@ namespace Silver_HTPC
         public OtherApplications()
         {
             InitializeComponent();
-            content = new string[,] { { "Live TV", "Image/tv_icon.png" }, { "Gallery", "Image/gallery_icon.png" }, { "Music", "Image/music_icon.png" }, { "Recordings", "Image/record_icon.png" }, { "Search", "Image/search_icon.jpg" }, { "Netflix", "Image/netflix_icon.png" }, { "Settings", "Image/settings_icon.png" }, { "Notification", "Image/notification_icon.png" }, { "Other Apps", "Image/apps_icon.png" }, { "John Doe", "Image/profile_icon.png" }, { "Live TV1", "Image/tv_icon.png" }, { "Gallery1", "Image/gallery_icon.png" }, { "Music1", "Image/music_icon.png" }, { "Recordings1", "Image/record_icon.png" }, { "Search1", "Image/search_icon.jpg" }, { "Netflix1", "Image/netflix_icon.png" }, { "Settings1", "Image/settings_icon.png" }, { "Notification1", "Image/notification_icon.png" }, { "Other Apps1", "Image/apps_icon.png" }, { "John Doe1", "Image/profile_icon.png" } };
+            content = new string[,] { { "Prime Videos", "Image/tv_icon.png" }, { "Hulu", "Image/gallery_icon.png" }, { "Kanopy", "Image/music_icon.png" }, { "HBO", "Image/record_icon.png" }, { "Spotify", "Image/search_icon.jpg" }, { "Paramount+", "Image/netflix_icon.png" }, { "YouTube", "Image/settings_icon.png" }, { "Crackle", "Image/notification_icon.png" }, { "Disney+", "Image/apps_icon.png" }, { "Apple TV", "Image/profile_icon.png" }, { "Discovery+", "Image/tv_icon.png" } };
+            /*{ "Gallery1", "Image/gallery_icon.png" }, { "Music1", "Image/music_icon.png" }, { "Recordings1", "Image/record_icon.png" }, { "Search1", "Image/search_icon.jpg" }, { "Netflix1", "Image/netflix_icon.png" }, { "Settings1", "Image/settings_icon.png" }, { "Notification1", "Image/notification_icon.png" }, { "Other Apps1", "Image/apps_icon.png" }, { "John Doe1", "Image/profile_icon.png" }*/
             //bool populated = false;
             //For notification popup***********************************************
             dispatcherTimer = new DispatcherTimer();                            
@@ -35,7 +36,7 @@ namespace Silver_HTPC
             dispatcherTimer.Interval = new TimeSpan(0, 0, 5);
             //**********************************************************************
 
-            int numOfRows = 7;// (int)(content.Length / 3) + 1;
+            int numOfRows = 4;// (int)(content.Length / 3) + 1;
             Grid grid = new Grid();
             grid.Name = "Other_grid";
             grid.Height = 97 * numOfRows;
@@ -55,7 +56,7 @@ namespace Silver_HTPC
             int currColumn = 0;
             int currRow = 0;
             
-            for (int i =0; i < 20; i++)
+            for (int i =0; i < 11; i++)
             {
                 Button btn = new Button();
                 btn.Name = "otherBtn" + i.ToString();
@@ -146,12 +147,21 @@ namespace Silver_HTPC
                 Notification_popup0.Visibility = Visibility.Visible;
                 dispatcherTimer.Start();
             }
+            
             if (Notification_popup0.Visibility == Visibility.Visible)
             {
                 if (e.Key==Key.O){
                     LiveTV liveTV = new LiveTV(2);
                     liveTV.Show();
                     this.Close();
+                }
+            }else
+            {
+                if (e.Key == Key.O)
+                {
+                    content[selectedIndex, 0] = "Settings";
+                    content[selectedIndex, 1] = "Image/settings_icon.png";
+                    /* amazon prime page*/
                 }
             }
             

@@ -27,6 +27,7 @@ namespace Silver_HTPC
         private static int profileIndex = 0;
         private static Button[] menuButtonList;
         private static StackPanel[] stackPanelList;
+        private DispatcherTimer dispatcherTimer;
         public static string[,] content=new string[,] { { "Live TV", "Image/tv_icon.png" }, { "Gallery", "Image/gallery_icon.png" }, { "Music", "Image/music_icon.png" }, { "Recordings", "Image/record_icon.png" }, { "Search", "Image/search_icon.jpg" }, { "Netflix", "Image/netflix_icon.png" }, { "Settings", "Image/settings_icon.png" }, { "Notification", "Image/notification_icon.png" }, { "Other Apps", "Image/apps_icon.png" } , {"John Doe","Image/profile_icon.png" } };
         private static Label selectedLabel;
         private static string[] profiles;
@@ -34,6 +35,10 @@ namespace Silver_HTPC
         public MainWindow()
         {
             InitializeComponent();
+            dispatcherTimer = new DispatcherTimer();
+            dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 5); 
+
             DispatcherTimer timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
             {
                 this.time_label.Content = DateTime.Now.ToString("hh:mm tt");
@@ -209,7 +214,7 @@ namespace Silver_HTPC
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
-            if (ProfilePopup.Visibility==Visibility.Hidden){ 
+            if (ProfilePopup.Visibility==Visibility.Hidden){
                 switch (e.Key)
                 {
                     case Key.Right:
@@ -259,74 +264,95 @@ namespace Silver_HTPC
                             setButtonFocus(currentButtonSelectionIndex);
                         }
                         break;
-                    case Key.Enter:
-                        /*{ "Live TV", "Image/tv_icon.png" }, { "Gallery", "Image/gallery_icon.png" }, { "Music", "Image/music_icon.png" }, { "Recordings", "Image/record_icon.png" }, { "Search", "Image/search_icon.jpg" }, { "Netflix", "Image/netflix_icon.png" }, { "Settings", "Image/settings_icon.png" }, { "Notification", "Image/notification_icon.png" }, { "Other Apps", "Image/apps_icon.png" } , {"John Doe","Image/profile_icon.png" }*/
-                        bool dontClose = false;
-                        resetButtonFocus(currentButtonSelectionIndex);
-                        switch (content[currentButtonSelectionIndex, 0])
-                        {
-                            case "Live TV":
-                                TV_Guide tv = new TV_Guide();
-                                tv.Show();
-                                break;
-                            case "Gallery":
-                                Photos_Videos gallery = new Photos_Videos();
-                                gallery.Show();
-                                break;
-                            case "Music":
-                                Music music = new Music();
-                                music.Show();
-                                break;
-                            case "Recordings":
-                                Recordings rec = new Recordings();
-                                rec.Show();
-                                break;
-                            case "Search":
-                                Search search = new Search();
-                                search.Show();
-                                break;
-                            case "Netflix":
-                                dontClose = true;
-                                MessageBox.Show("No screens made for third party");
-                                break;
-                            case "Settings":
-                                Settings settings = new Settings();
-                                settings.Show();
-                                break;
-                            case "Notification":
-                                Notification_tab notif = new Notification_tab();
-                                notif.Show();
-                                break;
-                            case "Other Apps":
-                                OtherApplications otherApp = new OtherApplications();
-                                otherApp.Show();
-                                break;
-                            default://profile
-                                MainGrid.Effect = new BlurEffect();
-                                dontClose = true;
-                                ProfilePopup.Visibility = Visibility.Visible;
-                                Profiles_header.Visibility = Visibility.Visible;
-                                for (int i = 0; i < profiles.Count<string>(); i++)
-                                {
-                                    Button profile = new Button();
-                                    profile.Name = "profile" + i.ToString();
-                                    profile.Content = profiles[i];
-                                    profile.Height = 80;
-                                    profile.Width = 170;
-                                    profile.FontSize = 20;
-                                    ProfilePopup.Children.Add(profile);
-                                    profileBtns.Add(profile);
-                                }
-                                //ProfilePopup.Children.Add
-
-                                setProfileButtonFocus(profileIndex);
-                                break;
+                    case Key.Z:
+                        if (e.Key == Key.Z)
+                        { //hardcoded to show notification
+                            Notification_popup0.Visibility = Visibility.Visible;
+                            dispatcherTimer.Start();
                         }
-                        if (!dontClose) 
+                        break;
+                    case Key.O:
+                        /*{ "Live TV", "Image/tv_icon.png" }, { "Gallery", "Image/gallery_icon.png" }, { "Music", "Image/music_icon.png" }, { "Recordings", "Image/record_icon.png" }, { "Search", "Image/search_icon.jpg" }, { "Netflix", "Image/netflix_icon.png" }, { "Settings", "Image/settings_icon.png" }, { "Notification", "Image/notification_icon.png" }, { "Other Apps", "Image/apps_icon.png" } , {"John Doe","Image/profile_icon.png" }*/
+                        if (Notification_popup0.Visibility!=Visibility.Visible){
+                            bool dontClose = false;
+                                resetButtonFocus(currentButtonSelectionIndex);
+                                switch (content[currentButtonSelectionIndex, 0])
+                                {
+                                    case "Live TV":
+                                        TV_Guide tv = new TV_Guide();
+                                        tv.Show();
+                                        break;
+                                    case "Gallery":
+                                        Photos_Videos gallery = new Photos_Videos();
+                                        gallery.Show();
+                                        break;
+                                    case "Music":
+                                        Music music = new Music();
+                                        music.Show();
+                                        break;
+                                    case "Recordings":
+                                        Recordings rec = new Recordings();
+                                        rec.Show();
+                                        break;
+                                    case "Search":
+                                        Search search = new Search();
+                                        search.Show();
+                                        break;
+                                    case "Netflix":
+                                        dontClose = true;
+                                        MessageBox.Show("No screens made for third party");
+                                        break;
+                                    case "Settings":
+                                        Settings settings = new Settings();
+                                        settings.Show();
+                                        break;
+                                    case "Notification":
+                                        Notification_tab notif = new Notification_tab();
+                                        notif.Show();
+                                        break;
+                                    case "Other Apps":
+                                        OtherApplications otherApp = new OtherApplications();
+                                        otherApp.Show();
+                                        content[6, 0] = "Prime Videos";
+                                        content[6, 1] = "Image/netflix_icon.png";
+                                        updateContent(6);
+                                        break;
+                                    default://profile
+                                        MainGrid.Effect = new BlurEffect();
+                                        dontClose = true;
+                                        ProfilePopup.Visibility = Visibility.Visible;
+                                        Profiles_header.Visibility = Visibility.Visible;
+                                        for (int i = 0; i < profiles.Count<string>(); i++)
+                                        {
+                                            Button profile = new Button();
+                                            profile.Name = "profile" + i.ToString();
+                                            profile.Content = profiles[i];
+                                            profile.Height = 80;
+                                            profile.Width = 170;
+                                            profile.FontSize = 20;
+                                            ProfilePopup.Children.Add(profile);
+                                            profileBtns.Add(profile);
+                                        }
+                                        //ProfilePopup.Children.Add
+
+                                        setProfileButtonFocus(profileIndex);
+                                        break;
+                                }
+                                if (!dontClose)
+                                {
+                                    updateContent(currentButtonSelectionIndex);
+                                    currentButtonSelectionIndex = 0;
+                                    this.Close();
+                                }
+                        }
+                        else
                         {
-                            updateContent(currentButtonSelectionIndex);
-                            currentButtonSelectionIndex = 0;
-                            this.Close(); 
+                            if (e.Key == Key.O)
+                            {
+                                LiveTV liveTV = new LiveTV(2);
+                                liveTV.Show();
+                                this.Close();
+                            }
                         }
                         break;
                     default:
@@ -414,6 +440,15 @@ namespace Silver_HTPC
             this.Close();*/
         }
 
+        private void dispatcherTimer_Tick(object sender, EventArgs e)
+        {//For notification
+         //Things which happen after 1 timer interval
+
+            Notification_popup0.Visibility = Visibility.Collapsed;
+
+            //Disable the timer
+            dispatcherTimer.IsEnabled = false;
+        }
         //bin xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
         /*Popup popup = new Popup();
                             //popup.Visibility = (System.Windows.Visibility)50;

@@ -45,6 +45,7 @@ namespace Silver_HTPC
     {
         private static List<NotificationContent> notificationContents=new List<NotificationContent>();
         private static List<Button> notifyButtonList = new List<Button>();
+        private int buttonInd = 0;
         public Notification_tab()
         {
             InitializeComponent();
@@ -74,7 +75,7 @@ namespace Silver_HTPC
         private void select(object sender, RoutedEventArgs e)
         {
             //MessageBox.Show("create one");
-            var button = sender as Button;
+            Button button = sender as Button;
             //btn.Background = Brushes.Black;
             //if (e.Key == Key.Enter)
             //{
@@ -87,9 +88,9 @@ namespace Silver_HTPC
             //}
             
             button.Height += 25;
-            StackPanel stackp;
-            
             scroll.ScrollToVerticalOffset(button.TranslatePoint(new Point(), MainStack).Y - 150);
+
+
 
         }
 
@@ -103,6 +104,7 @@ namespace Silver_HTPC
 
         private void resetButtons()
         {
+            buttonInd = 0;
             MainStack.Children.Clear();
             notificationContents.RemoveAt(notificationContents.Count - 1);
             notifyButtonList.Clear();
@@ -268,6 +270,21 @@ namespace Silver_HTPC
             }else if (e.Key == Key.Z)
             {
                 resetButtons();
+            }
+            else if (e.Key == Key.Down)
+            {
+                buttonInd += 1%notificationContents.Count;
+            }
+            else if (e.Key == Key.Up)
+            {
+                if (buttonInd == 0)
+                {
+                    buttonInd = notificationContents.Count - 1;
+                }
+                else
+                {
+                    buttonInd -= 1 % notificationContents.Count;
+                }
             }
         }
     }
