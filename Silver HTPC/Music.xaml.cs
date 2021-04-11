@@ -30,7 +30,7 @@ namespace Silver_HTPC
         private int MusicIndex=0;
         private Button play;
         private Button delete;
-        private Button reverseMusic;
+        private Button reverseMusic = new Button();
         private Button playPauseMusic;
         private Button forwardMusic;
         private DateTime startTime;
@@ -42,15 +42,16 @@ namespace Silver_HTPC
         //private Slider slideDuration;
         private TextBlock currentMusicTimer;
         private int totalSeconds = 0;
-        private bool DeleteFocused = false;
-        private bool PlayFocused = false;
         private bool Switche = false;
+        private bool keepPlayFocus = false;
+        private bool keepDeleteFocus = false;
         private int Start = 0;
         
 
 
         public Music()
         {
+            reverseMusic.Visibility = Visibility.Hidden;
             InitializeComponent();
             
             
@@ -98,6 +99,7 @@ namespace Silver_HTPC
         private void Music_GotFocus(object sender, RoutedEventArgs e)
         {
             Button thisButton = sender as Button;
+            
             Console.WriteLine(thisButton.Name.ToString() + Switche);
             thisButton.Height =80;
             MusicButtonsGrids[MusicIndex].Height = 80;
@@ -174,9 +176,22 @@ namespace Silver_HTPC
             else
             {
                 thisButton.Background = Brushes.White;
+                Console.WriteLine("leaveWhite");
+                //play.Focus();
                 
             }
             Switche = true;
+
+            if (keepPlayFocus)
+            {
+                play.Focus();
+                keepPlayFocus = false;
+            }
+            else if (keepDeleteFocus)
+            {
+                delete.Focus();
+                keepDeleteFocus = false;
+            }
 
             //StackOverFlow???
             //if (Switche == false)
@@ -195,10 +210,11 @@ namespace Silver_HTPC
 
         private void Play_GotFocus(object sender, RoutedEventArgs e)
         {
+           
             Button thisButton = sender as Button;
             //Console.WriteLine("HereP");
             thisButton.Background = Brushes.Red;
-            PlayFocused = true;
+            
             //MusicButtonsGrids[MusicIndex].Children.
             //play.back
            // ButtonGrid1.Children.Remove(play);
@@ -210,7 +226,7 @@ namespace Silver_HTPC
             Button thisButton = sender as Button;
             Console.WriteLine("HereD");
             thisButton.Background = Brushes.Red;
-            DeleteFocused = true;
+            
             //MusicButtonsGrids[MusicIndex].Children.
             //play.back
             // ButtonGrid1.Children.Remove(play);
@@ -222,7 +238,7 @@ namespace Silver_HTPC
             Console.WriteLine("Lost Delete Focus " + Switche);
             Button thisButton = sender as Button;
             thisButton.Background = Brushes.Aqua;
-            DeleteFocused = false;
+            
             //ButtonGrid1.Children.Remove(thisButton);
             if (MusicIndex != 0)
             {
@@ -259,7 +275,7 @@ namespace Silver_HTPC
             {
             Button thisButton = sender as Button;
             thisButton.Background = Brushes.Aqua;
-            PlayFocused = false;
+            
             Console.WriteLine("MusicIndexL" + MusicIndex);
             //ButtonGrid1.Children.Remove(thisButton);
             //MusicButtonsGrids[MusicIndex].Children.Remove(play);
@@ -396,6 +412,9 @@ namespace Silver_HTPC
                     MusicButtonsList[i].Focusable = true;
                 }
                 Keyboard.ClearFocus();
+                play.Focusable = true;
+                delete.Focusable = true;
+                Switche = false;
                 this.Loaded += new RoutedEventHandler(Login_Focus);
             }
             else if (e.Key == Key.Back)
@@ -404,6 +423,7 @@ namespace Silver_HTPC
                 home.Show();
                 this.Close();
             }
+           
             /**
             if (e.Key == Key.Left)
             {
@@ -484,6 +504,10 @@ namespace Silver_HTPC
                 Switche = false;
                 
             }
+            else if(e.Key == Key.Left)
+            {
+                keepPlayFocus = true;
+            }
 
             else if (e.Key == Key.O)
             {
@@ -559,10 +583,11 @@ namespace Silver_HTPC
                 MusicOptions.Children.Clear();
                 MusicDuration.Children.Clear();
 
-                reverseMusic = new Button();
+                //reverseMusic = new Button();
                 //playMusic.Content = "But";
                 reverseMusic.Height = 30;
                 reverseMusic.Width = 50;
+                reverseMusic.Visibility = Visibility.Visible;
                 //playMusic.Background = Brushes.Black;
                 reverseMusic.Content = reverse;
                 reverseMusic.GotFocus += Button_GotFocus;
@@ -654,6 +679,11 @@ namespace Silver_HTPC
                 home.Show();
                 this.Close();
             }
+            else if (e.Key == Key.Left)
+            {
+                reverseMusic.Focusable = true;
+                reverseMusic.Focus();
+            }
 
         }
         private void ForwardMusicOption_KeyDown(object sender, KeyEventArgs e)
@@ -675,6 +705,18 @@ namespace Silver_HTPC
                 home.Show();
                 this.Close();
             }
+            else if(e.Key == Key.Right)
+            {
+                Console.WriteLine("goRight");
+                reverseMusic.Focusable = false;
+                playPauseMusic.Focusable = false;
+                
+            }
+            else if (e.Key == Key.Left)
+            {
+                playPauseMusic.Focusable = true;
+                playPauseMusic.Focus();
+            }
 
         }
         private void ReverseMusicOption_KeyDown(object sender, KeyEventArgs e)
@@ -688,6 +730,22 @@ namespace Silver_HTPC
                 MainWindow home = new MainWindow();
                 home.Show();
                 this.Close();
+            }
+            else if(e.Key == Key.Left)
+            {
+                for (int i = 0; i < MusicButtonsList.Count; i++)
+                {
+                    MusicButtonsList[i].Focusable = true;
+                }
+                Keyboard.ClearFocus();
+                play.Focusable = true;
+                delete.Focusable = true;
+                Switche = false;
+                this.Loaded += new RoutedEventHandler(Login_Focus);
+
+                //delete.Focus();
+
+
             }
         }
           
@@ -806,6 +864,30 @@ namespace Silver_HTPC
                 //MusicButtonsGrids[MusicIndex].Children.Remove(play);
                 //MusicButtonsList[MusicIndex].Focus();
                 Switche = false;
+            }
+            else if (e.Key == Key.Right)
+            {
+                if (reverseMusic.IsVisible)
+                {
+                    Keyboard.ClearFocus();
+                    for (int i = 0; i < MusicButtonsList.Count; i++)
+                    {
+                         MusicButtonsList[i].Focusable = false;
+                    }
+
+                    play.Focusable = false;
+                    delete.Focusable = false;
+                    reverseMusic.Focus();
+
+                    MusicButtonsGrids[MusicIndex].Children.Remove(play);
+                    MusicButtonsGrids[MusicIndex].Children.Remove(delete);
+
+                }
+                else
+                {
+                    
+                    keepDeleteFocus = true;
+                }
             }
             else if (e.Key == Key.Up)
             {
@@ -1009,12 +1091,14 @@ namespace Silver_HTPC
         {
             Button thisButton = sender as Button;
             thisButton.Background = Brushes.White;
-            
+            Console.WriteLine("bye");
+
         }
         private void Button_GotFocus(object sender, RoutedEventArgs e)
         {
             Button thisButton = sender as Button;
             thisButton.Background = Brushes.Red;
+            Console.WriteLine("Here");
             //thisButton.Height = 60;
         }
     }

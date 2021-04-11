@@ -190,7 +190,7 @@
         </ScrollViewer>
 
         <Grid x:Name="Cover" HorizontalAlignment="Left" Height="140" Margin="588,74,0,0" VerticalAlignment="Top" Width="180"/>
-        <StackPanel Name="MusicOptions" HorizontalAlignment="Left" Height="31" Margin="601,232,0,0" VerticalAlignment="Top" Width="154" Orientation="Horizontal"/>
+        <StackPanel Name="MusicOptions" HorizontalAlignment="Left" Height="31" Margin="601,232,0,0" VerticalAlignment="Top" Width="154" Orientation="Horizontal" />
         <StackPanel Name="MusicDuration" HorizontalAlignment="Left" Height="19" Margin="616,277,0,0" VerticalAlignment="Top" Width="123"/>
 
 
