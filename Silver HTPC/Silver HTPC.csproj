@@ -491,7 +491,9 @@
     <Resource Include="Image\leftArrow.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Image\ok_button.png" />
+	<Resource Include="Image\ok_button.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Sound\OkClick.wav" />
     <Resource Include="Sound\OkClick.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
