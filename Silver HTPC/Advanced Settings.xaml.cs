@@ -23,7 +23,9 @@ namespace Silver_HTPC
         public AdvancedSettings()
         {
             InitializeComponent();
-            _combobox_ColourBlind.Text = "Full spectrum"; // Set default text
+            
+            // Set default text for ComboBox
+            _combobox_ColourBlind.Text = "Full spectrum"; //Not working :(
         }
 
         /** Go back to Settings on backspace **/
@@ -36,15 +38,22 @@ namespace Silver_HTPC
                 settings.Show();
                 this.Close();
             }
-            if (e.Key == Key.OemQuestion)
+            else if (e.Key == Key.OemQuestion)
             {
                 Settings settings = new Settings();
                 settings.Show();
                 this.Close();
             }
-            if (e.Key == Key.Down)
+            else if (e.Key == Key.S) // "remote" clicks s = search
+            {
+                Search search = new Search();
+                search.Show();
+                this.Close();
+            }
+            else if (e.Key == Key.Down)
             {
                 //TODO
+                // Shift focus
             }
         }
     }

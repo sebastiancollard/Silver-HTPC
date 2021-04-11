@@ -25,17 +25,19 @@ namespace Silver_HTPC
         public Settings()
         {
             InitializeComponent();
-            _combobox_Language.Text = "English"; // Set default text
 
-            //SetButtonFocus(CurrentSelection); // Make cursor visible
+            // Set default text for ComboBox
+            _combobox_Language.Text = "English";
+
+            // Sets keyboard focus on the first Button in the sample.
+            Keyboard.Focus(_slider_TextSize);
         }
 
         // When someone moves the slider, text (theoretically) changes everywhere
         private void TextSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            // (From the example on https://www.wpf-tutorial.com/misc-controls/the-slider-control/)
-            //Color color = Color.FromRgb((byte)slColorR.Value, (byte)slColorG.Value, (byte)slColorB.Value);
-            //this.Background = new SolidColorBrush(color);
+            //TODO
+            // Alter the App.xaml to make text bigger?
         }
 
         // Get the bottom button to take you to the next screen
@@ -57,12 +59,33 @@ namespace Silver_HTPC
                 mainWindow.Show();
                 this.Close();
             }
-            if (e.Key == Key.Down)
+            else if (e.Key == Key.S) // "remote" clicks s = search
+            {
+                Search search = new Search();
+                search.Show();
+                this.Close();
+            }
+            else if (e.Key == Key.Down)
             {
                 //Focus shifts to the next one down
-                CurrentSelection += 1;
+                // Let's make different functions for each?
             }
         }
-        
+
+        private void TextBoxGotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            TextBox source = e.Source as TextBox;
+
+            if (source != null)
+            {
+                // Change the TextBox color when it obtains focus.
+                source.Background = Brushes.LightBlue;
+
+                // Clear the TextBox.
+                source.Clear();
+            }
+        }
+
+
     }
 }

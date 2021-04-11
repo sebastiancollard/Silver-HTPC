@@ -10,15 +10,53 @@
             <GradientStop Offset="1" Color="Gray"/>
         </LinearGradientBrush>
 
+        <Style x:Key="TextBlockHeaderStyle" TargetType="TextBlock">
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="Margin" Value="64,19,0,0"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Width" Value="400"/>
+            <Setter Property="FontFamily" Value="Helvetica"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="25"/>
+        </Style>
+
+        <!--All you need to include is content (text) and margin (position)-->
+        <Style x:Key="TextBlockBodyStyle" TargetType="TextBlock">
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Width" Value="120"/>
+            <Setter Property="FontFamily" Value="Helvetica"/>
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+
         <LinearGradientBrush x:Key="ButtonNormalBackground" EndPoint="0,1" StartPoint="0,0">
             <GradientStop Color="#F3F3F3" Offset="0"/>
             <GradientStop Color="#EBEBEB" Offset="0.5"/>
             <GradientStop Color="#DDDDDD" Offset="0.5"/>
             <GradientStop Color="#CDCDCD" Offset="1"/>
         </LinearGradientBrush>
-        
+
+        <LinearGradientBrush x:Key="ButtonHoverBackground" EndPoint="0,1" StartPoint="0,0">
+            <GradientStop Color="#F0F8FF" Offset="0"/>
+            <GradientStop Color="#E0EBFF" Offset="0.5"/>
+            <GradientStop Color="#C0DEFF" Offset="0.5"/>
+            <GradientStop Color="#A0CEFF" Offset="1"/>
+        </LinearGradientBrush>
+
         <SolidColorBrush x:Key="ButtonNormalBorder" Color="#FF707070"/>
-        
+
+        <Style x:Key="StandardButton" TargetType="{x:Type Button}">
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Background" Value="{DynamicResource ButtonNormalBackground}"/>
+        </Style>
+
         <Style x:Key="ToggleButtonStyle1" TargetType="{x:Type ToggleButton}">
             <Setter Property="Background" Value="{StaticResource ButtonNormalBackground}"/>
             <Setter Property="BorderBrush" Value="{StaticResource ButtonNormalBorder}"/>
@@ -54,7 +92,7 @@
                             </Trigger>
                             <Trigger Property="IsFocused" Value="True">
                                 <Trigger.Setters>
-                                    <Setter TargetName="on" Property="Background" Value="LightBlue"/>
+                                    <Setter TargetName="on" Property="Background" Value="{StaticResource ButtonHoverBackground}"/>
                                 </Trigger.Setters>
                             </Trigger>
                         </ControlTemplate.Triggers>
