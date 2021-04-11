@@ -67,7 +67,7 @@
             <StackPanel x:Name="stack"  Orientation="Horizontal">
             </StackPanel>
         </ScrollViewer>
-        <ComboBox x:Name="filter" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="43" IsReadOnly="True" IsSynchronizedWithCurrentItem="False" SelectedIndex="0" SelectionChanged="filter_SelectionChanged" Canvas.Left="640" Canvas.Top="58">
+        <ComboBox x:Name="filter" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="43" IsReadOnly="True" IsSynchronizedWithCurrentItem="False" SelectedIndex="0" SelectionChanged="filter_SelectionChanged" Canvas.Left="640" Canvas.Top="58" KeyDown="filter_KeyDown">
             <ComboBoxItem Content="All" HorizontalAlignment="Left" RenderTransformOrigin="0.5,0.5"/>
             <ComboBoxItem Content="Live TV"/>
             <ComboBoxItem Content="Movies/Shows"/>
