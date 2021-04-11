@@ -5,9 +5,9 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
 
-        <LinearGradientBrush x:Key="WindowBackgroundBrush">
-            <GradientStop Offset="0" Color="Silver"/>
-            <GradientStop Offset="1" Color="Gray"/>
+        <LinearGradientBrush x:Key="WindowBackgroundBrush" StartPoint="0.5,0" EndPoint="0.5,1">
+            <GradientStop Offset="0" Color="#EEEEEE"/>
+            <GradientStop Offset="1" Color="#CCCCCC"/>
         </LinearGradientBrush>
 
         <Style x:Key="TextBlockHeaderStyle" TargetType="TextBlock">
@@ -34,10 +34,10 @@
         </Style>
 
         <LinearGradientBrush x:Key="ButtonNormalBackground" EndPoint="0,1" StartPoint="0,0">
-            <GradientStop Color="#F3F3F3" Offset="0"/>
+            <GradientStop Color="#F9F9F9" Offset="0"/>
             <GradientStop Color="#EBEBEB" Offset="0.5"/>
-            <GradientStop Color="#DDDDDD" Offset="0.5"/>
-            <GradientStop Color="#CDCDCD" Offset="1"/>
+            <GradientStop Color="#E1E1E1" Offset="0.5"/>
+            <GradientStop Color="#DDDDDD" Offset="1"/>
         </LinearGradientBrush>
 
         <LinearGradientBrush x:Key="ButtonHoverBackground" EndPoint="0,1" StartPoint="0,0">
@@ -54,6 +54,8 @@
             <Setter Property="VerticalAlignment" Value="Top"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter Property="FontSize" Value="20"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="Background" Value="{DynamicResource ButtonNormalBackground}"/>
         </Style>
 

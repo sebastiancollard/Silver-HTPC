@@ -6,7 +6,8 @@
         xmlns:System="clr-namespace:System;assembly=mscorlib" 
         xmlns:local="clr-namespace:Silver_HTPC"
         mc:Ignorable="d"
-        Title="Search" Height="450" Width="800" KeyDown="Window_KeyDown">
+        Title="Search" Height="450" Width="800" KeyDown="Window_KeyDown"
+        Background="{StaticResource WindowBackgroundBrush}">
     <Window.Resources>
         <!-- This style is used for buttons, to remove the WPF default 'animated' mouse over effect -->
         <Style x:Key="MyButtonStyle" TargetType="Button">
@@ -57,12 +58,6 @@
         <ScaleTransform x:Key="windowScaleTransform" ScaleX="1" ScaleY="1" />
     </Window.Resources>
     <Canvas x:Name="background" LayoutTransform="{StaticResource windowScaleTransform}">
-        <Canvas.Background>
-            <LinearGradientBrush EndPoint="1,0" MappingMode="RelativeToBoundingBox" StartPoint="0,1">
-                <GradientStop Color="Black" Offset="1"/>
-                <GradientStop Color="White"/>
-            </LinearGradientBrush>
-        </Canvas.Background>
         <ScrollViewer x:Name="scroll"  HorizontalAlignment="Right" Height="348" Width="792" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Visible" Canvas.Top="61" RenderTransformOrigin="0,-0.5">
             <StackPanel x:Name="stack"  Orientation="Horizontal">
             </StackPanel>
