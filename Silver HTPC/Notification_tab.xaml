@@ -12,11 +12,11 @@
             <GradientStop Color="White"/>
         </LinearGradientBrush>
     </Window.Background>
-    <StackPanel HorizontalAlignment="Left" Height="420" Margin="-4,0,-4,-1" VerticalAlignment="Top" Width="800" CanVerticallyScroll="True">
+    <StackPanel x:Name="windowStack" HorizontalAlignment="Left" Height="420" Margin="-4,0,-4,-1" VerticalAlignment="Top" Width="800" CanVerticallyScroll="True">
         <Border BorderBrush="Black" BorderThickness="2" Height="100">
             <Label x:Name="Notification_title_label" Content="Notifications" Height="62" FontSize="30" Foreground="White"/>
         </Border>
-        <ScrollViewer VerticalScrollBarVisibility="Hidden">
+        <ScrollViewer x:Name="scroll" VerticalScrollBarVisibility="Hidden">
         <StackPanel x:Name="MainStack">
             
         </StackPanel>

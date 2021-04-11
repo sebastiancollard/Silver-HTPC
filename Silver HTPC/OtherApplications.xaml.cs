@@ -114,6 +114,8 @@ namespace Silver_HTPC
             Console.WriteLine("reached");
             btn.Background = Brushes.Green;
             btn.BorderBrush = Brushes.Red;
+            MainWindow mainWindow = new MainWindow();
+            
             //}
             //}
             scroll.ScrollToVerticalOffset(btn.TranslatePoint(new Point(), Other_StackPanel).Y - 150);

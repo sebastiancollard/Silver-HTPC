@@ -27,7 +27,7 @@ namespace Silver_HTPC
         private static int profileIndex = 0;
         private static Button[] menuButtonList;
         private static StackPanel[] stackPanelList;
-        private static string[,] content=new string[,] { { "Live TV", "Image/tv_icon.png" }, { "Gallery", "Image/gallery_icon.png" }, { "Music", "Image/music_icon.png" }, { "Recordings", "Image/record_icon.png" }, { "Search", "Image/search_icon.jpg" }, { "Netflix", "Image/netflix_icon.png" }, { "Settings", "Image/settings_icon.png" }, { "Notification", "Image/notification_icon.png" }, { "Other Apps", "Image/apps_icon.png" } , {"John Doe","Image/profile_icon.png" } };
+        public static string[,] content=new string[,] { { "Live TV", "Image/tv_icon.png" }, { "Gallery", "Image/gallery_icon.png" }, { "Music", "Image/music_icon.png" }, { "Recordings", "Image/record_icon.png" }, { "Search", "Image/search_icon.jpg" }, { "Netflix", "Image/netflix_icon.png" }, { "Settings", "Image/settings_icon.png" }, { "Notification", "Image/notification_icon.png" }, { "Other Apps", "Image/apps_icon.png" } , {"John Doe","Image/profile_icon.png" } };
         private static Label selectedLabel;
         private static string[] profiles;
         private static List<Button> profileBtns = new List<Button>();

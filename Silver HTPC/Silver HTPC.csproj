@@ -491,6 +491,7 @@
     <Resource Include="Image\leftArrow.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Image\ok_button.png" />
     <Content Include="Sound\OkClick.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
