@@ -33,7 +33,7 @@
         <TextBlock HorizontalAlignment="Left" Height="31" Margin="631,330,-9,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" RenderTransformOrigin="0.406,-0.589" FontFamily="Segoe UI Emoji" FontSize="16"><Run Text="Total: "/><Run Text="250GB"/><InlineUIContainer>
               
             </InlineUIContainer></TextBlock>
-        <Button x:Name="SortButton" Content="Sort by" HorizontalAlignment="Left" Margin="355,62,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="9.63,-6.324" Height="44" FontFamily="Arial Rounded MT Bold" FontSize="18" GotFocus="Button_GotFocus" LostFocus="Button_LostFocus" KeyDown="Button_KeyDown" FocusVisualStyle="{x:Null}" Background="White"/>
+        <Button x:Name="SortButton" Content="Sort by" HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="9.63,-6.324" Height="44" FontFamily="Arial Rounded MT Bold" FontSize="18" GotFocus="Button_GotFocus" LostFocus="Button_LostFocus" KeyDown="Button_KeyDown" FocusVisualStyle="{x:Null}" Background="White"/>
         <Button Name="DeleteMultiple" Content="Delete &#xA;Multiple" HorizontalAlignment="Left" Margin="467,62,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="9.63,-6.324" Height="44" FontFamily="Arial Rounded MT Bold" FontSize="18" GotFocus="Button_GotFocus" LostFocus="Button_LostFocus" KeyDown="Button_KeyDown" FocusVisualStyle="{x:Null}" Background="White"/>
 
         <ScrollViewer Name="ViewMusicList" HorizontalAlignment="Left" VerticalAlignment="top" Height="298" Margin="10,111,0,0"  Width="543" VerticalScrollBarVisibility="Hidden"  >
@@ -190,7 +190,7 @@
         </ScrollViewer>
 
         <Grid x:Name="Cover" HorizontalAlignment="Left" Height="140" Margin="588,74,0,0" VerticalAlignment="Top" Width="180"/>
-        <StackPanel Name="MusicOptions" HorizontalAlignment="Left" Height="31" Margin="601,232,0,0" VerticalAlignment="Top" Width="154" Orientation="Horizontal"/>
+        <StackPanel Name="MusicOptions" HorizontalAlignment="Left" Height="31" Margin="601,232,0,0" VerticalAlignment="Top" Width="154" Orientation="Horizontal" />
         <StackPanel Name="MusicDuration" HorizontalAlignment="Left" Height="19" Margin="616,277,0,0" VerticalAlignment="Top" Width="123"/>
 
 

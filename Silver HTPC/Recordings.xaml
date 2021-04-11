@@ -60,41 +60,12 @@
                         <RowDefinition Height="25*" />
                     </Grid.RowDefinitions>
 
-                    <Image Grid.Column="0"  Grid.Row="0" Source="Image/TLC.png" Grid.RowSpan="3" VerticalAlignment="Top" Height="37" />
+                    <Image Grid.Column="0"  Grid.Row="0" Source="Image/TLC.png" Grid.RowSpan="2" VerticalAlignment="Top" Height="37" />
                     <TextBlock Grid.Row="0" Grid.Column="1"  Text="90 Day Fiance - Into Your Arms" FontSize="17" FontFamily="Segoe UI Black" Margin="38,0,0,0" VerticalAlignment="Top" Height="23" Grid.RowSpan="2" />
                     <TextBlock Grid.Row="1" Grid.Column="1" Text="Recorded: 03/11/2020 at 14:20" VerticalAlignment="top" TextAlignment="Center" Height="16" />
                     <TextBlock Grid.Row="0" Grid.Column="2" Text="1:23:45" FontSize="15" TextAlignment="Center" Padding="10" Grid.RowSpan="3" Margin="34,0,-34,0" VerticalAlignment="top" Height="40"/>
 
-                    <!-- <Button Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="center" Margin="29,20,0,10" Grid.ColumnSpan="2" Width="165" HorizontalContentAlignment="left" Height="30"  FontFamily="Segoe UI Black">
-                            <Grid Height="20" Width="165">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
 
-
-                                <TextBlock Grid.Column="0"> Play</TextBlock>
-                                <Image Source="Image/Play2.png" Grid.Column="1" HorizontalAlignment="Left" Margin="46,-9,0,-9" Width="36" RenderTransformOrigin="-0.111,0.5"/>
-
-                            </Grid>
-
-                        </Button>
-                        -->
-
-                    <!--<Button  Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="center" Margin="235,20,0,10" Grid.ColumnSpan="2" Width="165" HorizontalContentAlignment="left" Height="30"  FontFamily="Segoe UI Black">
-                            <Grid Height="20" Width="165">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
-
-                                <TextBlock Grid.Column="0"> Delete</TextBlock>
-                                <Image Source="Image/trash.png" Grid.Column="1" HorizontalAlignment="Left" Margin="57,0,-15,0" RenderTransformOrigin="0.85,0.55" Width="40"/>
-                            </Grid>
-
-
-                        </Button>
-                        -->
 
 
                 </Grid>
@@ -111,19 +82,20 @@
                 <Grid x:Name="GridRecord2" Width="513" Height="60">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="84" />
-                        <ColumnDefinition Width="259" />
+                        <ColumnDefinition Width="316" MinWidth="316" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
 
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="*" />
+                        <RowDefinition Height="18*" />
+                        <RowDefinition Height="17*" />
+                        <RowDefinition Height="25*" />
                     </Grid.RowDefinitions>
 
                     <Image Grid.Column="0"  Grid.Row="0" Source="Image/abc.png" Grid.RowSpan="2" />
-                    <TextBlock Grid.Row="0" Grid.Column="1"  Text="Grey's Anatomy - No Time for Despair" FontSize="17" FontFamily="Segoe UI Black" Grid.ColumnSpan="2" Margin="0,0,45,0" />
-                    <TextBlock Grid.Row="1" Grid.Column="1" Text="Recorded: 03/07/2020 at 9:20" TextAlignment="center" Grid.ColumnSpan="2" Margin="0,0,50,0" />
-                    <TextBlock Grid.Row="0" Grid.Column="2" Text="0:43:49" FontSize="15" TextAlignment="Center" Margin="61,0,-60,0" Padding="10" Grid.RowSpan="2"/>
+                    <TextBlock Grid.Row="0" Grid.Column="1"  Text="Grey's Anatomy - No Time for Despair" FontSize="17" FontFamily="Segoe UI Black" Grid.ColumnSpan="2" Margin="0,0,45,0" VerticalAlignment="Top" Height="23" Grid.RowSpan="2" />
+                    <TextBlock Grid.Row="1" Grid.Column="1" Text="Recorded: 03/07/2020 at 9:20" VerticalAlignment="top" TextAlignment="Center" Height="16" />
+                    <TextBlock Grid.Row="0" Grid.Column="2" Text="0:43:49" FontSize="15" TextAlignment="Center"  Padding="10" Grid.RowSpan="3"  Margin="34,0,-34,0" VerticalAlignment="top" Height="40"/>
 
                 </Grid>
             </Button>
@@ -132,19 +104,20 @@
                 <Grid x:Name="GridRecord3" Width="513" Height="60">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="84" />
-                        <ColumnDefinition Width="259" />
+                        <ColumnDefinition Width="316" MinWidth="316" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
 
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="*" />
+                        <RowDefinition Height="18*" />
+                        <RowDefinition Height="17*" />
+                        <RowDefinition Height="25*" />
                     </Grid.RowDefinitions>
 
                     <Image Grid.Column="0"  Grid.Row="0" Source="Image/BBC.png" Grid.RowSpan="2" />
-                    <TextBlock Grid.Row="0" Grid.Column="1"  Text="The Coroner - Black Dog" FontSize="17" FontFamily="Segoe UI Black" Grid.ColumnSpan="2" Margin="62,0,46,0" />
-                    <TextBlock Grid.Row="1" Grid.Column="1" Text="Recorded: 03/01/2020 at 18:00" TextAlignment="center" Grid.ColumnSpan="2" Margin="34,0,74,0" />
-                    <TextBlock Grid.Row="0" Grid.Column="2" Text="0:43:02" FontSize="15" TextAlignment="Center" Margin="0,0,-123,0" Padding="10" Grid.RowSpan="2"/>
+                    <TextBlock Grid.Row="0" Grid.Column="1"  Text="The Coroner - Black Dog" FontSize="17" FontFamily="Segoe UI Black"  Margin="55,0,96,0" VerticalAlignment="Top" Height="23" Grid.RowSpan="2" Grid.ColumnSpan="2" />
+                    <TextBlock Grid.Row="1" Grid.Column="1" Text="Recorded: 03/01/2020 at 18:00" VerticalAlignment="top" TextAlignment="Center" Height="16" />
+                    <TextBlock Grid.Row="0" Grid.Column="2" Text="0:43:02" FontSize="15" TextAlignment="Center"  Padding="10" Grid.RowSpan="3"  Margin="34,0,-34,0" VerticalAlignment="top" Height="40"/>
 
                 </Grid>
             </Button>

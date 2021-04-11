@@ -77,16 +77,19 @@ namespace Silver_HTPC
         }
         private void Recording_GotFocus(object sender, RoutedEventArgs e)
         {
+            Button thisButton = sender as Button;
+            Console.WriteLine(showRecordingButtons);
             Sort_Button.Focusable = false;
-            DeleteMultiple_Button.Focusable = false; 
-            
-            if (showRecordingButtons==false)
+            DeleteMultiple_Button.Focusable = false;
+            thisButton.Height = 100;
+            RecordButtonsGrids[RecordIndex].Height = 100;
+
+            if (showRecordingButtons == false)
             {
-                Button thisButton = e.Source as Button;
+
                 Console.WriteLine("Focusing");
-                thisButton.Background = Brushes.Red;
-                thisButton.Height = 100;
-                RecordButtonsGrids[RecordIndex].Height = 100;
+                //thisButton.Background = Brushes.Red;
+
 
                 play = new Button();
                 play.Width = 100;
@@ -119,34 +122,70 @@ namespace Silver_HTPC
                 delete.HorizontalContentAlignment = HorizontalAlignment.Left;
                 delete.VerticalAlignment = VerticalAlignment.Top;
                 delete.HorizontalAlignment = HorizontalAlignment.Right;
-                //delete.KeyDown += Delete_KeyDown;
-                //delete.GotFocus += Delete_GotFocus;
-                //delete.LostFocus += Delete_LostFocus;
+                delete.KeyDown += Delete_KeyDown;
+                delete.GotFocus += Delete_GotFocus;
+                delete.LostFocus += Delete_LostFocus;
                 //delete.KeyUp += Delete_KeyUp;
                 Grid.SetColumn(delete, 1);
                 //Grid.SetColumnSpan(delete, 2);
                 Grid.SetRow(delete, 2);
                 //Grid.SetRowSpan(delete, 1);
-
+                Console.WriteLine("Adding");
 
                 RecordButtonsGrids[RecordIndex].Children.Add(play);
                 RecordButtonsGrids[RecordIndex].Children.Add(delete);
                 showRecordingButtons = true;
                 play.Focus();
-                
+
             }
-            showRecordingButtons = true;
+            else
+            {
+                showRecordingButtons = true;
+                thisButton.Background = Brushes.White;
+            }
         }
 
         private void Recording_LostFocus(object sender, RoutedEventArgs e)
         {
             Button thisButton = e.Source as Button;
-            //Console.WriteLine(thisButton.Name.ToString());
+            Console.WriteLine("Lost");
             thisButton.Background = Brushes.White;
+            // This works for some weird reason
+            play.Background = Brushes.Aqua;
+            delete.Background = Brushes.Aqua;
+
             //thisButton.Height = 60;
             Console.WriteLine("R: " + RecordIndex);
             //RecordButtonsGrids[RecordIndex].Height = 60;
             //RecordButtonsGrids[RecordIndex].Children.Remove(play);
+            if (RecordIndex != 0)
+            {
+                RecordButtonsGrids[RecordIndex - 1].Height = 60;
+                RecordButtonsList[RecordIndex - 1].Height = 60;
+                //MusicButtonsGrids[MusicIndex - 1].Children.Remove((Button) FindName("Play1"));
+
+            }
+            else
+            {
+                RecordButtonsGrids[RecordButtonsGrids.Count - 1].Height = 60;
+                RecordButtonsList[RecordButtonsGrids.Count - 1].Height = 60;
+
+                //MusicButtonsGrids[MusicButtonsGrids.Count - 1].Children.Remove((Button) FindName("Play1"));
+            }
+
+            if (RecordIndex != RecordButtonsGrids.Count - 1)
+            {
+                RecordButtonsGrids[RecordIndex + 1].Height = 60;
+                RecordButtonsList[RecordIndex + 1].Height = 60;
+                // MusicButtonsGrids[MusicIndex + 1].Children.Remove((Button) FindName("Play1"));
+            }
+            else
+            {
+                RecordButtonsGrids[0].Height = 60;
+                RecordButtonsList[0].Height = 60;
+                // MusicButtonsGrids[0].Children.Remove((Button) FindName("Play1"));
+
+            }
 
         }
 
@@ -156,6 +195,18 @@ namespace Silver_HTPC
             Button thisButton = sender as Button;
             thisButton.Background = Brushes.Red;
            
+        }
+        private void Delete_GotFocus(object sender, RoutedEventArgs e)
+        {
+            Button thisButton = sender as Button;
+            Console.WriteLine("HereD");
+            thisButton.Background = Brushes.Red;
+
+            //MusicButtonsGrids[MusicIndex].Children.
+            //play.back
+            // ButtonGrid1.Children.Remove(play);
+            //MusicButtonsGrids[MusicIndex].Children.Remove(play);
+            //MusicButtonsGrids[MusicIndex].Children()
         }
         private void Play_LostFocus(object sender, RoutedEventArgs e)
         {
@@ -197,11 +248,84 @@ namespace Silver_HTPC
 
             }
             
+            
 
 
 
         }
-        private void Play_KeyDown(object sender, KeyEventArgs e)
+        private void Delete_LostFocus(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine("Lost Delete Focus ");
+            Button thisButton = sender as Button;
+            thisButton.Background = Brushes.Aqua;
+
+            //ButtonGrid1.Children.Remove(thisButton);
+            
+            if (RecordIndex != 0)
+            {
+                RecordButtonsGrids[RecordIndex - 1].Children.Remove(play);
+                RecordButtonsGrids[RecordIndex - 1].Children.Remove(delete);
+                //MusicButtonsGrids[MusicIndex - 1].Children.Remove((Button) FindName("Play1"));
+
+            }
+            else
+            {
+                RecordButtonsGrids[RecordButtonsGrids.Count - 1].Children.Remove(play);
+                RecordButtonsGrids[RecordButtonsGrids.Count - 1].Children.Remove(delete);
+
+                //MusicButtonsGrids[MusicButtonsGrids.Count - 1].Children.Remove((Button) FindName("Play1"));
+            }
+
+            if (RecordIndex != RecordButtonsGrids.Count - 1)
+            {
+                RecordButtonsGrids[RecordIndex + 1].Children.Remove(play);
+                RecordButtonsGrids[RecordIndex + 1].Children.Remove(delete);
+                // MusicButtonsGrids[MusicIndex + 1].Children.Remove((Button) FindName("Play1"));
+            }
+            else
+            {
+                RecordButtonsGrids[0].Children.Remove(play);
+                RecordButtonsGrids[0].Children.Remove(delete);
+                // MusicButtonsGrids[0].Children.Remove((Button) FindName("Play1"));
+
+            }
+            
+
+        }
+        private void Delete_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Down)
+            {
+                if (RecordIndex < RecordButtonsList.Count - 1)
+                {
+                    RecordIndex += 1;
+                    Console.WriteLine("RecordIndex: " + RecordIndex);
+                }
+                else
+                {
+                    RecordIndex = 0;
+                    Console.WriteLine("RecordIndex: " + RecordIndex);
+                }
+                showRecordingButtons = false;
+            }
+            else if (e.Key == Key.Up)
+            {
+
+                if (RecordIndex != 0)
+                {
+                    RecordIndex -= 1;
+                    Console.WriteLine("RecordIndex: " + RecordIndex);
+                }
+                else
+                {
+                    RecordIndex = RecordButtonsList.Count - 1;
+                    Console.WriteLine("RecordIndex: " + RecordIndex);
+                }
+                showRecordingButtons = false;
+            }
+
+        }
+            private void Play_KeyDown(object sender, KeyEventArgs e)
         {
             Button thisbutton = sender as Button;
             Console.WriteLine("Play_KEYDOWN");
@@ -235,6 +359,7 @@ namespace Silver_HTPC
                 }
                 showRecordingButtons = false;
             }
+            
 
 
 
