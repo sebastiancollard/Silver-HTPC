@@ -93,6 +93,12 @@ namespace Silver_HTPC
             {
              
             }
+            else if(e.Key == Key.Back)
+            {
+                TV_Guide tvguide = new TV_Guide();
+                tvguide.Show();
+                this.Close();
+            }
         }
 
 
