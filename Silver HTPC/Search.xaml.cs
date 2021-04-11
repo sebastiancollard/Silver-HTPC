@@ -740,8 +740,11 @@ namespace Silver_HTPC
         private void KeyPad_KeyDown(object sender, KeyEventArgs e)
         {
             var btn = sender as Button;
+            
             if (e.Key == Key.O && btn != null)
             {
+                btn.Background = (LinearGradientBrush)FindResource("ButtonSelectedBackground");
+                btn.Foreground = Brushes.White;
                 text += btn.Content;
                 searchBox.Text += btn.Content;
             }
@@ -763,6 +766,9 @@ namespace Silver_HTPC
             var btn = sender as Button;
             if (e.Key == Key.O && btn != null)
             {
+                btn.Background = (LinearGradientBrush)FindResource("ButtonSelectedBackground");
+                btn.Foreground = Brushes.White;
+
                 if (btn.Content.Equals("Clear"))
                 {
                     searchBox.Text = "";
@@ -831,5 +837,23 @@ namespace Silver_HTPC
             }
         }
 
+        private void keyPad_GotFocus(object sender, RoutedEventArgs e)
+        {
+            var btn = sender as Button;
+            btn.Background = (LinearGradientBrush)FindResource("ButtonHoverBackground");
+        }
+
+        private void keyPad_LostFocus(object sender, RoutedEventArgs e)
+        {
+            var btn = sender as Button;
+            btn.Background = (LinearGradientBrush)FindResource("ButtonNormalBackground");
+        }
+
+        private void KeyPad_KeyUp(object sender, KeyEventArgs e)
+        {
+            var btn = sender as Button;
+            btn.Background = (LinearGradientBrush)FindResource("ButtonHoverBackground");
+            btn.Foreground = Brushes.Black;
+        }
     }
 }
