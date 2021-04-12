@@ -7,7 +7,8 @@
         xmlns:local="clr-namespace:Silver_HTPC"
         mc:Ignorable="d"
         Title="Recordings" Height="450" Width="800"
-        Background="{StaticResource WindowBackgroundBrush}">
+        Background="{StaticResource WindowBackgroundBrush}"
+        KeyDown="Window_KeyDown">
     <Grid>
         <TextBlock x:Name="Recording_Label" Text="Recordings" Height="41" Width="220" RenderTransformOrigin="0.22,1.006"  Margin="46,10,0,0" Cursor="None" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="Black" Style="{StaticResource TextBlockHeaderStyle}" FontSize="30">
 
@@ -19,10 +20,10 @@
         <Line X1="0" Y1="55" X2="800" Y2="55" Stroke="LightSlateGray" StrokeThickness="7" Opacity="1"   />
         <!-- https://www.iconsdb.com/red-icons/record-icon.html -->
         <Image HorizontalAlignment="Left" Height="50" Margin="0,1,0,0" VerticalAlignment="Top" Width="58" RenderTransformOrigin="0.148,-0.221" Source="Image/recordimage.png" />
-        <Button x:Name="Sort_Button" Content="Sort by" HorizontalAlignment="Left" Margin="651,88,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="9.63,-6.324" Height="44" Style="{StaticResource StandardButton}"/>
-        <Button Name="DeleteMultiple_Button" Content="Delete &#xD;&#xA;Multiple" HorizontalAlignment="Left" Margin="651,176,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="9.63,-6.324" Height="44" FontSize="15" Style="{StaticResource StandardButton}"/>
+        <Button x:Name="Sort_Button" Content="Sort by" HorizontalAlignment="Left" Margin="651,88,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="9.63,-6.324" Height="44" Style="{StaticResource StandardButton}" GotFocus="Button_GotFocus" LostFocus="Button_LostFocus" KeyDown="Button_KeyDown"/>
+        <Button Name="DeleteMultiple_Button" Content="Delete &#xD;&#xA;Multiple" HorizontalAlignment="Left" Margin="651,176,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="9.63,-6.324" Height="44" FontSize="15" Style="{StaticResource StandardButton}" GotFocus="Button_GotFocus" LostFocus="Button_LostFocus" KeyDown="Button_KeyDown"/>
 
-        <StackPanel Height="318" Margin="46,78,0,0" VerticalAlignment="Top" Width="523" HorizontalAlignment="Left">
+        <StackPanel Name="RecordingList" Height="318" Margin="46,78,0,0" VerticalAlignment="Top" Width="523" HorizontalAlignment="Left">
             <!-- https://stackoverflow.com/questions/50457409/using-viewbox-to-scale-grid-containing-labels-and-textboxes -->
             <!-- <Grid>
                 <Grid.ColumnDefinitions>
@@ -50,7 +51,7 @@
                     </Grid.RowDefinitions>
 
                     <Image Grid.Column="0"  Grid.Row="0" Source="Image/TLC.png" Grid.RowSpan="2" VerticalAlignment="Top" Height="37" />
-                    <TextBlock Grid.Row="0" Grid.Column="1"  Text="90 Day Fiance - Into Your Arms" FontSize="17" FontFamily="Segoe UI Black"  Margin="38,-5,0,0" VerticalAlignment="Top" Height="23" />
+                    <TextBlock Name="RecordName1" Grid.Row="0" Grid.Column="1"  Text="90 Day Fiance - Into Your Arms" FontSize="17" FontFamily="Segoe UI Black"  Margin="38,-5,0,0" VerticalAlignment="Top" Height="23" />
                     <TextBlock Grid.Row="1" Grid.Column="1" FontSize="15" Text="Recorded: 03/11/2020 at 14:20" VerticalAlignment="top" TextAlignment="Center" Height="16" Style="{StaticResource TextBlockBodyStyle}" Width="316" />
                     <TextBlock Grid.Row="0" Grid.Column="2" Text="1:23:45" FontSize="15" TextAlignment="Right" Padding="10" Grid.RowSpan="3" Margin="53,0,0,0" VerticalAlignment="top" Height="40" RenderTransformOrigin="0.8,0.525"/>
 
@@ -82,7 +83,7 @@
                     </Grid.RowDefinitions>
 
                     <Image Grid.Column="0"  Grid.Row="0" Source="Image/abc.png" Grid.RowSpan="2" />
-                    <TextBlock Grid.Row="0" Grid.Column="1"  Text="Grey's Anatomy - No Time for Despair" FontSize="17" FontFamily="Segoe UI Black" Grid.ColumnSpan="2" Margin="0,-5,45,0" VerticalAlignment="Top" Height="23" />
+                    <TextBlock Name="RecordName2" Grid.Row="0" Grid.Column="1"  Text="Grey's Anatomy - No Time for Despair" FontSize="17" FontFamily="Segoe UI Black" Grid.ColumnSpan="2" Margin="0,-5,45,0" VerticalAlignment="Top" Height="23" />
                     <TextBlock Grid.Row="1" Grid.Column="1" FontSize="15" Text="Recorded: 03/07/2020 at 9:20" VerticalAlignment="top" TextAlignment="Center" Height="16" Style="{StaticResource TextBlockBodyStyle}" Width="316" />
                     <TextBlock Grid.Row="0" Grid.Column="2" Text="0:43:49" FontSize="15" TextAlignment="Right"  Padding="10" Grid.RowSpan="3"  Margin="53,0,0,0" VerticalAlignment="top" Height="40"/>
 
@@ -104,7 +105,7 @@
                     </Grid.RowDefinitions>
 
                     <Image Grid.Column="0"  Grid.Row="0" Source="Image/BBC.png" Grid.RowSpan="2" />
-                    <TextBlock Grid.Row="0" Grid.Column="1" TextAlignment="Center" FontSize="17" FontFamily="Segoe UI Black"  Text="The Coroner - Black Dog"   Margin="10,-5,0,0" VerticalAlignment="Top" Height="23" Style="{StaticResource TextBlockBodyStyle}" Width="306" />
+                    <TextBlock Name="RecordName3" Grid.Row="0" Grid.Column="1" TextAlignment="Center" FontSize="17" FontFamily="Segoe UI Black"  Text="The Coroner - Black Dog"   Margin="10,-5,0,0" VerticalAlignment="Top" Height="23" Style="{StaticResource TextBlockBodyStyle}" Width="306" />
                     <TextBlock Grid.Row="1" Grid.Column="1" FontSize="15" Text="Recorded: 03/01/2020 at 18:00" VerticalAlignment="top" TextAlignment="Center" Height="16" Style="{StaticResource TextBlockBodyStyle}" Width="316" Grid.ColumnSpan="2" Margin="5,0,0,0" />
                     <TextBlock Grid.Row="0" Grid.Column="2"  Text="0:43:02" FontSize="15" TextAlignment="Right"  Padding="10" Grid.RowSpan="3"  Margin="22,0,-7,0" VerticalAlignment="top" Height="40" Style="{StaticResource TextBlockBodyStyle}" Width="98"/>
 
@@ -135,6 +136,154 @@
         <TextBlock HorizontalAlignment="Left" Height="31" Margin="595,365,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="114" RenderTransformOrigin="0.406,-0.589" Style="{StaticResource TextBlockBodyStyle}"><Run Text="Total: "/><Run Text="250GB"/></TextBlock>
         <TextBlock HorizontalAlignment="Left" Height="31" Margin="660,318,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="49" RenderTransformOrigin="0.406,-0.589"  Text="15%" Style="{StaticResource TextBlockBodyStyle}"/>
         <TextBlock Text="{Binding Source={x:Static system:DateTime.Now}, StringFormat=\{0:HH:mm\}}" HorizontalAlignment="Right" Height="31" VerticalAlignment="Top" Width="65" RenderTransformOrigin="0.268,0.293" Margin="0,20,0,0" Background="{x:Null}"  Style="{StaticResource TextBlockHeaderStyle}" />
+        <Image x:Name="ShowRecording" HorizontalAlignment="Left" Height="418" Margin="0,1,0,0" VerticalAlignment="Top" Width="792" Visibility="Hidden" Source="Image/90DayFiance.jpg" Stretch="UniformToFill"/>
+        <Grid x:Name ="panel"  Background="{StaticResource WindowBackgroundBrush}" Margin="-264,-6,797,6" Visibility="Hidden" >
+
+            <Grid.Resources>
+
+                <Storyboard x:Key="SlideRight" >
+                    <ThicknessAnimationUsingKeyFrames DecelerationRatio="0.6" Storyboard.TargetName="panel" Storyboard.TargetProperty="Margin" BeginTime="00:00:00">
+                        <SplineThicknessKeyFrame KeyTime="00:00:00"  Value="-259,-10,792,10"/>
+                        <SplineThicknessKeyFrame KeyTime="00:00:00.25" Value="0,0,550,0" />
+                    </ThicknessAnimationUsingKeyFrames>
+                </Storyboard>
+
+                <Storyboard x:Key="SlideLeft">
+                    <ThicknessAnimationUsingKeyFrames DecelerationRatio="0.6"  Storyboard.TargetName="panel" Storyboard.TargetProperty="Margin" BeginTime="00:00:00">
+                        <SplineThicknessKeyFrame KeyTime="00:00:00" Value="0,0,550,0" />
+                        <SplineThicknessKeyFrame KeyTime="00:00:00.25" Value="-259,-10,792,10" />
+                    </ThicknessAnimationUsingKeyFrames>
+                </Storyboard>
+
+            </Grid.Resources>
+            
+            
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="11*"/>
+                <RowDefinition Height="132"/>
+                <RowDefinition Height="22*"/>
+                <RowDefinition Height="8*"/>
+
+            </Grid.RowDefinitions>
+
+
+            <Label Grid.Row="0" xml:space="preserve" HorizontalContentAlignment="Center" >
+                    Date:  
+                    Time:       
+                </Label>
+            <StackPanel Grid.Row="1">
+                <Label Foreground="Black" FontSize="14">
+                    Description
+                </Label>
+                <Label Height="90" VerticalContentAlignment="Center">
+                    <Label.Background>
+                        <SolidColorBrush Color="Black" Opacity="0.5"/>
+                    </Label.Background>
+                    <TextBlock Foreground="White" TextWrapping="WrapWithOverflow" Height="80">
+                    
+                Big Ed takes Rose on a vacation to a romantic resort
+                and besides the Candle-lit dinners, the two get to finally spend some time in the pool!
+                    </TextBlock>
+                </Label>
+            </StackPanel>
+
+            <StackPanel Grid.Row="2">
+                <Label Foreground="Black" FontSize="14">
+                    Reminders
+                </Label>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="34*"/>
+                        <ColumnDefinition Width="123*"/>
+                        <ColumnDefinition Width="41*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" >
+                        <Label.Background>
+                            <SolidColorBrush Color="White"/>
+                        </Label.Background>
+                        <Image Source="image/espn_logo.png" Stretch="UniformToFill"></Image>
+                    </Label>
+
+                    <TextBlock Grid.Column="1" Foreground="Black" Margin="10,0,0,0">Post-Show Show</TextBlock>
+                    <TextBlock Grid.Column="1" Foreground="Black" Grid.ColumnSpan="2" Margin="116,0,0,0">7:30pm</TextBlock>
+                </Grid>
+            </StackPanel>
+
+
+            <Grid x:Name="record_button" Grid.Row="2" Margin="0,144,0,-10" Grid.RowSpan="2" >
+
+                <Grid.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                        <GradientStop Color="#FF171717" Offset="1"/>
+                        <GradientStop Color="#FF4B4B4B"/>
+                    </LinearGradientBrush>
+                </Grid.Background>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="13*"/>
+                    <RowDefinition Height="9*"/>
+                </Grid.RowDefinitions>
+
+
+
+            </Grid>
+
+        </Grid>
+        <StackPanel Name="RecordingStartingSp" HorizontalAlignment="Left" Height="115" VerticalAlignment="Top" Width="634" Margin="75,294,0,0" Background="Black" Opacity="0.8" Visibility="Hidden">
+            <Label Name="Recording__Name" Height="37" Foreground="White" FontSize="18">90 Day Fiance - Into your Arms</Label>
+            <Grid Height="75">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" Grid.Column="0" Foreground="White" FontSize="16" HorizontalAlignment="Left" Margin="10 0 0 0">0:00</TextBlock>
+                <TextBlock Grid.Row="0" Grid.Column="2" Foreground="White" FontSize="16" HorizontalAlignment="Right" Margin="0 0 10 0">1:23:45</TextBlock>
+
+                <Slider Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Margin="30 0 30 0"/>
+
+            </Grid>
+
+        </StackPanel>
+        <Grid Name="DeleteMessage" HorizontalAlignment="Left" Height="157" Margin="161,155,0,0" VerticalAlignment="Top" Width="361" RenderTransformOrigin="0.495,0.51" Background="AliceBlue" Visibility="Hidden"  >
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Border BorderBrush="Black" BorderThickness="2" Grid.RowSpan="3" Grid.ColumnSpan="2"/>
+        </Grid>
+
+        <StackPanel  HorizontalAlignment="Left" Height="102" VerticalAlignment="Top" Width="368" Margin="424,0,0,0" Background="Black" Opacity="0.8" x:Name="Notification_popup0">
+            <Label Name="NotificationTitle" Height="30" Foreground="White" FontSize="18">Music</Label>
+            <Grid Height="45">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="45"/>
+                    <ColumnDefinition Width="323"/>
+                    <ColumnDefinition Width="*"/>
+
+                </Grid.ColumnDefinitions>
+                <Image Grid.Row="0"  HorizontalAlignment="Left" Height="45" VerticalAlignment="Center" Width="70"  Grid.Column="0" Source="Image/music_icon.png" Stretch="Uniform" />
+                <Label Name="MusicDeleteMessage" Grid.Column="1" Foreground="White" FontSize="15">El-Classico</Label>
+
+            </Grid>
+
+        </StackPanel>
+
     </Grid>
     <!--
         REFERNCES: https://tvtonight.com.au/2017/05/what-do-older-viewers-watch.html

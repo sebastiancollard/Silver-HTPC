@@ -19,7 +19,8 @@
 
 
     <Grid>
-
+        <TextBlock Text="{Binding Source={x:Static system:DateTime.Now}, StringFormat=\{0:HH:mm\}}" HorizontalAlignment="Right" Height="31" VerticalAlignment="Top" Width="65" RenderTransformOrigin="0.268,0.293" Margin="0,20,0,0" Background="{x:Null}"  Style="{StaticResource TextBlockHeaderStyle}" />
+        <TextBlock HorizontalAlignment="Left" Height="31" Margin="700,393,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="49" RenderTransformOrigin="0.406,-0.589"  Text="15%" Style="{StaticResource TextBlockBodyStyle}"/>
 
         <Button x:Name="Sort_Button" Content="Sort by" HorizontalAlignment="Left" Margin="696,68,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="9.63,-6.324" Height="44" Style="{StaticResource StandardButton}"/>
         <ScrollViewer Name="scrollViewer" VerticalScrollBarVisibility="Hidden" CanContentScroll="true" Margin="0,56,128,30">
@@ -98,8 +99,7 @@
             </Grid.RowDefinitions>
 
         </Grid>
-        <TextBlock Text="{Binding Source={x:Static system:DateTime.Now}, StringFormat=\{0:HH:mm\}}" HorizontalAlignment="Right" Height="31" VerticalAlignment="Top" Width="65" RenderTransformOrigin="0.268,0.293" Margin="0,20,0,0" Background="{x:Null}"  Style="{StaticResource TextBlockHeaderStyle}" />
-        <TextBlock HorizontalAlignment="Left" Height="31" Margin="700,393,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="49" RenderTransformOrigin="0.406,-0.589"  Text="15%" Style="{StaticResource TextBlockBodyStyle}"/>
+       
     </Grid>
 
 </Window>

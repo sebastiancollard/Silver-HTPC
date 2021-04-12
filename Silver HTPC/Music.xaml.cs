@@ -313,8 +313,11 @@ namespace Silver_HTPC
             }
             else
             {
-                MusicButtonsGrids[MusicButtonsGrids.Count-1].Children.Remove(play);
-                MusicButtonsGrids[MusicButtonsGrids.Count - 1].Children.Remove(delete);
+                if (MusicButtonsGrids.Count != 1)
+                {
+                    MusicButtonsGrids[MusicButtonsGrids.Count - 1].Children.Remove(play);
+                    MusicButtonsGrids[MusicButtonsGrids.Count - 1].Children.Remove(delete);
+                }
 
                 //MusicButtonsGrids[MusicButtonsGrids.Count - 1].Children.Remove((Button) FindName("Play1"));
             }
@@ -327,8 +330,11 @@ namespace Silver_HTPC
             }
             else
             {
-                MusicButtonsGrids[0].Children.Remove(play);
-                MusicButtonsGrids[0].Children.Remove(delete);
+                if (MusicButtonsGrids.Count != 1)
+                {
+                    MusicButtonsGrids[0].Children.Remove(play);
+                    MusicButtonsGrids[0].Children.Remove(delete);
+                }
                 // MusicButtonsGrids[0].Children.Remove((Button) FindName("Play1"));
 
             }
@@ -829,13 +835,12 @@ namespace Silver_HTPC
 
                 Keyboard.ClearFocus();
                 Switche = false;
-                if (MusicButtonsList.Count == MusicIndex)
+                if (MusicButtonsList.Count !=0 && MusicButtonsList.Count == MusicIndex)
                 {
                     MusicIndex -= 1;
                     MusicButtonsList[MusicIndex].Focus();
                 }
-                else if (MusicButtonsList.Count > 0) {
-                    //MusicIndex += 1;
+                else if(MusicButtonsList.Count != 0){
                     MusicButtonsList[MusicIndex].Focus();
                 }
                 else

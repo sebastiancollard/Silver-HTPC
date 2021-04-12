@@ -501,6 +501,7 @@
     <Resource Include="Image\ok_button.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Image\90DayFiance.jpg" />
     <Content Include="Sound\OkClick.wav" />
     <Resource Include="Sound\OkClick.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
