@@ -20,8 +20,8 @@ namespace Silver_HTPC
     /// </summary>
     public partial class Recordings : Window
     {
-        private static List<Button> RecordButtonsList = new List<Button>();
-        private static List<Grid> RecordButtonsGrids = new List<Grid>();
+        private List<Button> RecordButtonsList = new List<Button>();
+        private List<Grid> RecordButtonsGrids = new List<Grid>();
         private int RecordIndex = 0;
         private Button play;
         private Button delete;
@@ -80,6 +80,7 @@ namespace Silver_HTPC
             Button thisButton = sender as Button;
             Console.WriteLine(showRecordingButtons);
             Sort_Button.Focusable = false;
+            thisButton.Background = (LinearGradientBrush)FindResource("ButtonHoverBackground");
             DeleteMultiple_Button.Focusable = false;
             thisButton.Height = 100;
             RecordButtonsGrids[RecordIndex].Height = 100;
@@ -96,13 +97,13 @@ namespace Silver_HTPC
                 play.Height = 30;
                 play.Name = "Play1";
                 play.Content = "Play";
-                play.Background = Brushes.Aqua;
+                play.Style = (Style)FindResource("StandardButton");
+                this.Background = (LinearGradientBrush)FindResource("ButtonNormalBackground");
                 play.VerticalContentAlignment = VerticalAlignment.Top;
                 play.HorizontalContentAlignment = HorizontalAlignment.Left;
                 play.VerticalAlignment = VerticalAlignment.Top;
                 play.HorizontalAlignment = HorizontalAlignment.Left;
                 play.Margin = new Thickness(0, 0, 0, 10);
-                play.FontSize = 13;
                 play.KeyDown += Play_KeyDown;
                 play.GotFocus += Play_GotFocus;
                 play.LostFocus += Play_LostFocus;
@@ -117,7 +118,8 @@ namespace Silver_HTPC
                 delete.Height = 30;
                 delete.Name = "Delete1";
                 delete.Content = "Delete";
-                delete.Background = Brushes.Aqua;
+                delete.Style = (Style)FindResource("StandardButton");
+                delete.Background = (LinearGradientBrush)FindResource("ButtonNormalBackground");
                 delete.VerticalContentAlignment = VerticalAlignment.Top;
                 delete.HorizontalContentAlignment = HorizontalAlignment.Left;
                 delete.VerticalAlignment = VerticalAlignment.Top;
@@ -125,6 +127,7 @@ namespace Silver_HTPC
                 delete.KeyDown += Delete_KeyDown;
                 delete.GotFocus += Delete_GotFocus;
                 delete.LostFocus += Delete_LostFocus;
+                delete.FontSize = 20;
                 //delete.KeyUp += Delete_KeyUp;
                 Grid.SetColumn(delete, 1);
                 //Grid.SetColumnSpan(delete, 2);
@@ -141,7 +144,9 @@ namespace Silver_HTPC
             else
             {
                 showRecordingButtons = true;
-                thisButton.Background = Brushes.White;
+                thisButton.Style = (Style)FindResource("StandardButton");
+                thisButton.Background = (LinearGradientBrush)FindResource("ButtonNormalBackground");
+
             }
         }
 
@@ -149,10 +154,10 @@ namespace Silver_HTPC
         {
             Button thisButton = e.Source as Button;
             Console.WriteLine("Lost");
-            thisButton.Background = Brushes.White;
+            thisButton.Style = (Style)FindResource("StandardButton");
+            thisButton.Background = (LinearGradientBrush)FindResource("ButtonNormalBackground");
             // This works for some weird reason
-            play.Background = Brushes.Aqua;
-            delete.Background = Brushes.Aqua;
+            
 
             //thisButton.Height = 60;
             Console.WriteLine("R: " + RecordIndex);
@@ -193,14 +198,14 @@ namespace Silver_HTPC
         {
             
             Button thisButton = sender as Button;
-            thisButton.Background = Brushes.Red;
-           
+            thisButton.Background = (LinearGradientBrush)FindResource("ButtonHoverBackground");
+
         }
         private void Delete_GotFocus(object sender, RoutedEventArgs e)
         {
             Button thisButton = sender as Button;
             Console.WriteLine("HereD");
-            thisButton.Background = Brushes.Red;
+            thisButton.Background = (LinearGradientBrush)FindResource("ButtonHoverBackground");
 
             //MusicButtonsGrids[MusicIndex].Children.
             //play.back
@@ -211,7 +216,8 @@ namespace Silver_HTPC
         private void Play_LostFocus(object sender, RoutedEventArgs e)
         {
             Button thisButton = sender as Button;
-            thisButton.Background = Brushes.Aqua;
+            thisButton.Style = (Style)FindResource("StandardButton");
+            thisButton.Background = (LinearGradientBrush)FindResource("ButtonNormalBackground");
             Console.WriteLine("RecordIndexL" + RecordIndex);
             //RecordButtonsGrids[RecordIndex].Children.Remove(play);
 
@@ -257,10 +263,11 @@ namespace Silver_HTPC
         {
             Console.WriteLine("Lost Delete Focus ");
             Button thisButton = sender as Button;
-            thisButton.Background = Brushes.Aqua;
+            thisButton.Style = (Style)FindResource("StandardButton");
+            thisButton.Background = (LinearGradientBrush)FindResource("ButtonNormalBackground");
 
             //ButtonGrid1.Children.Remove(thisButton);
-            
+
             if (RecordIndex != 0)
             {
                 RecordButtonsGrids[RecordIndex - 1].Children.Remove(play);
@@ -359,7 +366,13 @@ namespace Silver_HTPC
                 }
                 showRecordingButtons = false;
             }
-            
+            else if (e.Key == Key.Back)
+            {
+                MainWindow home = new MainWindow();
+                home.Show();
+                this.Close();
+            }
+
 
 
 

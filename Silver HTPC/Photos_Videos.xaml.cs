@@ -22,9 +22,9 @@ namespace Silver_HTPC
     public partial class Photos_Videos : Window
     {
         bool delete_Single_Clicked = false;
-        private static List<Button> ButtonsForImages = new List<Button>();
-        private static List<Image> ImagesForButtons = new List<Image>();
-        private static List<bool> isVideo = new List<bool>();
+        private List<Button> ButtonsForImages = new List<Button>();
+        private List<Image> ImagesForButtons = new List<Image>();
+        private List<bool> isVideo = new List<bool>();
         private int ButtonIndex = 0;
         private int Start = 0;
         private bool viewingEnlargaredImages = false;
@@ -58,14 +58,15 @@ namespace Silver_HTPC
         {
             Button thisButton = sender as Button;
             thisButton.Background = Brushes.Black;
-            
+            //thisButton.Background = (LinearGradientBrush)FindResource("ButtonHoverBackground");
 
         }
 
         private void Image_LostFocus(object sender, RoutedEventArgs e)
         {
             Button thisButton = sender as Button;
-            thisButton.Background = Brushes.Gray;
+            thisButton.Style = (Style)FindResource("StandardButton");
+            thisButton.Background = (LinearGradientBrush)FindResource("ButtonNormalBackground");
 
         }
 
