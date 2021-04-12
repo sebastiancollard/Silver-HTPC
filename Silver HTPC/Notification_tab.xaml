@@ -5,13 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Silver_HTPC"
         mc:Ignorable="d"
-        Title="Notification_tab" Height="450" Width="800" KeyDown="Window_KeyDown">
-    <Window.Background>
-        <LinearGradientBrush EndPoint="0,1" StartPoint="1,0">
-            <GradientStop Color="Black" Offset="1"/>
-            <GradientStop Color="White"/>
-        </LinearGradientBrush>
-    </Window.Background>
+        Title="Notification_tab" Height="450" Width="800" KeyDown="Window_KeyDown"
+        Background="{StaticResource WindowBackgroundBrush}">
+    
     <Grid x:Name="windowStack" HorizontalAlignment="Left" Height="420" Margin="-4,0,-4,-1" VerticalAlignment="Top" Width="800">
         <TextBlock Style="{StaticResource TextBlockHeaderStyle}" Text="Notifications"/>
         <Rectangle HorizontalAlignment="Left" Height="5" Margin="0,60,-0.444,0" VerticalAlignment="Top" Width="796" Fill="#FF777A93"/>
