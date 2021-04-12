@@ -13,6 +13,7 @@
         </LinearGradientBrush>
     </Window.Background>
     <Grid>
+        <Rectangle HorizontalAlignment="Left" Height="5" Margin="0,88,-4,0" VerticalAlignment="Top" Width="796" Fill="#FF777A93"/>
         
         <Grid Margin="6,113,6,15" x:Name="MainGrid">
         <Grid.ColumnDefinitions>
