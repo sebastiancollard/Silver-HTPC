@@ -7,85 +7,85 @@
         mc:Ignorable="d"
         Title="Home Page" Height="450" Width="800" KeyDown="Window_KeyDown"
         Background="{StaticResource WindowBackgroundBrush}">
-    
+
     <Grid>
         <Rectangle HorizontalAlignment="Left" Height="5" Margin="0,88,-4,0" VerticalAlignment="Top" Width="796" Fill="#FF777A93"/>
-        
+
         <Grid Margin="6,113,6,15" x:Name="MainGrid">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*" />
-            <ColumnDefinition Width="1*" />
-            <ColumnDefinition Width="1*" />
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="1*" />
-            <RowDefinition Height="1*" />
-            <RowDefinition Height="1*" />
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
 
-        </Grid.RowDefinitions>
-        <Label x:Name="time_label" Grid.ColumnSpan="2" Content="Time" Grid.Column="1" HorizontalAlignment="Left" Height="50" Margin="242,-108,-6,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" Width="284" FontWeight="Medium" FontSize="30px"  FontFamily="Arial" />
-        <Label x:Name="date_label" Grid.ColumnSpan="2" Content="Date" Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="242,-58,-6,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" Width="284" FontWeight="Medium" FontSize="15px"  FontFamily="Arial"/>
-        <Button x:Name="munu_button1" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="80">
-            <StackPanel x:Name="stackPan_Button1">
-                <Image Source="Image/tv_icon.png" Stretch="Fill" Height="40" Width="40" HorizontalAlignment="Center"/>
-                <TextBlock Text="Live TV" FontSize="25"/>
-            </StackPanel>
-        </Button>
-        <Button x:Name="munu_button2" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="80" Click="menu_button2_click">
-            <StackPanel x:Name="stackPan_Button2">
-                <Image Source="Image/gallery_icon.png" Stretch="Fill" Height="40" Width="40"/>
-                <TextBlock Text="Photos - Videos" FontSize="25"/>
-            </StackPanel>
-        </Button>
-        <Button x:Name="munu_button3" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="80" Click="menu_button3_click">
-            <StackPanel x:Name="stackPan_Button3">
-                <Image Source="Image/music_icon.png" Stretch="Fill" Height="40" Width="40"/>
-                <TextBlock Text="Music" FontSize="25" HorizontalAlignment="Center"/>
-            </StackPanel>
-        </Button>
+            </Grid.RowDefinitions>
+            <Label x:Name="time_label" Grid.ColumnSpan="2" Content="Time" Grid.Column="1" HorizontalAlignment="Left" Height="50" Margin="242,-108,-6,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" Width="284" FontWeight="Medium" FontSize="30px"  FontFamily="Arial" />
+            <Label x:Name="date_label" Grid.ColumnSpan="2" Content="Date" Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="242,-58,-6,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" Width="284" FontWeight="Medium" FontSize="15px"  FontFamily="Arial"/>
+            <Button x:Name="munu_button1" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="80">
+                <StackPanel x:Name="stackPan_Button1">
+                    <Image Source="Image/tv_icon.png" Stretch="Fill" Height="40" Width="40" HorizontalAlignment="Center"/>
+                    <TextBlock Text="Live TV" FontSize="25"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="munu_button2" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="80" Click="menu_button2_click">
+                <StackPanel x:Name="stackPan_Button2">
+                    <Image Source="Image/gallery_icon.png" Stretch="Fill" Height="40" Width="40"/>
+                    <TextBlock Text="Photos - Videos" FontSize="25"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="munu_button3" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="80" Click="menu_button3_click">
+                <StackPanel x:Name="stackPan_Button3">
+                    <Image Source="Image/music_icon.png" Stretch="Fill" Height="40" Width="40"/>
+                    <TextBlock Text="Music" FontSize="25" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Button>
 
-        <Button x:Name="munu_button4" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="80" Click="menu_button4_click">
-            <StackPanel x:Name="stackPan_Button4">
-                <Image Source="Image/record_icon.png" Stretch="Fill" Height="40" Width="40" HorizontalAlignment="Center"/>
-                <TextBlock Text="Recordings" FontSize="25"/>
-            </StackPanel>
-        </Button>
-        <Button x:Name="munu_button5" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="80" Click="menu_button5_click">
-            <StackPanel x:Name="stackPan_Button5">
-                <Image Source="Image/search_icon.jpg" Stretch="Fill" Height="40" Width="40"/>
-                <TextBlock Text="Search" FontSize="25"/>
-            </StackPanel>
-        </Button>
-        <Button x:Name="munu_button9" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="80">
-            <StackPanel x:Name="stackPan_Button9">
-                <Image Source="Image/apps_icon.png" Stretch="Fill" Height="40" Width="40"/>
-                <TextBlock Text="Other Apps" FontSize="25" HorizontalAlignment="Center"/>
-            </StackPanel>
-        </Button>
-        <Button x:Name="munu_button7" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="80" Click="menu_button7_click">
-            <StackPanel x:Name="stackPan_Button7">
-                <Image Source="Image/settings_icon.png" Stretch="Fill" Height="40" Width="40" HorizontalAlignment="Center"/>
-                <TextBlock Text="Setting" FontSize="25"/>
-            </StackPanel>
-        </Button>
-        <Button x:Name="munu_button8" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="80" Click="munu_button8_Click">
-            <StackPanel x:Name="stackPan_Button8">
-                <Image Source="Image\notification_icon.png" Stretch="Fill" Height="40" Width="40"/>
-                <TextBlock Text="Notification" FontSize="25"/>
-            </StackPanel>
-        </Button>
-        <Button x:Name="munu_button6" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="80">
-            <StackPanel x:Name="stackPan_Button6">
-                <Image Source="Image\netflix_icon.png" Stretch="Fill" Height="40" Width="40"/>
-                <TextBlock Text="Netflix" FontSize="25" HorizontalAlignment="Center"/>
-            </StackPanel>
-        </Button>
-        <Button x:Name="profile_button" HorizontalAlignment="Left" Margin="1,-108,0,0" VerticalAlignment="Top" Width="148" Height="35" FontSize="20">
-            <StackPanel x:Name="stackPan_Profile" Orientation="Horizontal">
-                <Image Source="Image\profile_icon.png" Stretch="Fill" Height="25" Width="25"/>
-                <TextBlock Text="John Doe" FontSize="25" HorizontalAlignment="Center"/>
-            </StackPanel>
-        </Button>
+            <Button x:Name="munu_button4" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="80" Click="menu_button4_click">
+                <StackPanel x:Name="stackPan_Button4">
+                    <Image Source="Image/record_icon.png" Stretch="Fill" Height="40" Width="40" HorizontalAlignment="Center"/>
+                    <TextBlock Text="Recordings" FontSize="25"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="munu_button5" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="80" Click="menu_button5_click">
+                <StackPanel x:Name="stackPan_Button5">
+                    <Image Source="Image/search_icon.jpg" Stretch="Fill" Height="40" Width="40"/>
+                    <TextBlock Text="Search" FontSize="25"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="munu_button9" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="80">
+                <StackPanel x:Name="stackPan_Button9">
+                    <Image Source="Image/apps_icon.png" Stretch="Fill" Height="40" Width="40"/>
+                    <TextBlock Text="Other Apps" FontSize="25" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="munu_button7" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="80" Click="menu_button7_click">
+                <StackPanel x:Name="stackPan_Button7">
+                    <Image Source="Image/settings_icon.png" Stretch="Fill" Height="40" Width="40" HorizontalAlignment="Center"/>
+                    <TextBlock Text="Setting" FontSize="25"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="munu_button8" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="80" Click="munu_button8_Click">
+                <StackPanel x:Name="stackPan_Button8">
+                    <Image Source="Image\notification_icon.png" Stretch="Fill" Height="40" Width="40"/>
+                    <TextBlock Text="Notification" FontSize="25"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="munu_button6" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="80">
+                <StackPanel x:Name="stackPan_Button6">
+                    <Image Source="Image\netflix_icon.png" Stretch="Fill" Height="40" Width="40"/>
+                    <TextBlock Text="Netflix" FontSize="25" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="profile_button" HorizontalAlignment="Left" Margin="1,-108,0,0" VerticalAlignment="Top" Width="148" Height="35" FontSize="20">
+                <StackPanel x:Name="stackPan_Profile" Orientation="Horizontal">
+                    <Image Source="Image\profile_icon.png" Stretch="Fill" Height="25" Width="25"/>
+                    <TextBlock Text="John Doe" FontSize="25" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Button>
 
 
 
@@ -94,6 +94,91 @@
         <StackPanel x:Name="ProfilePopup" Orientation="Horizontal" HorizontalAlignment="Center" Height="236" Grid.RowSpan="3" VerticalAlignment="Top" Width="700" Grid.ColumnSpan="3" Margin="6,113,6,15" Background="DarkSlateGray" Visibility="Hidden">
 
         </StackPanel>
+        <!--<StackPanel x:Name="addingProfilePopup" Margin="220,190,408,133" >
+            <Image Source="Image/profile_icon.png" Stretch="Fill" Height="55" Width="55"/>
+            <TextBox Width="140" FontSize="20" BorderBrush="Blue" BorderThickness="2" Text="Profile Name" Foreground="Gray"/>
+        </StackPanel>-->
+        <StackPanel x:Name="addingProfilePopup" Margin="220,190,408,133" Visibility="Hidden">
+            <Image Source="Image/profile_icon.png" Stretch="Fill" Height="55" Width="55"/>
+            <Button Style="{StaticResource StandardButton}" Background="White" Width="149" Height="35" BorderBrush="Blue" BorderThickness="1">
+                <StackPanel Orientation="Horizontal">
+                    <TextBox Width="120" FontSize="20" Text="Profile Name" Foreground="Gray" BorderThickness="0"/>
+                    <Image Source="Image/ok_button.png" Stretch="Fill" Height="25" Width="25"/>
+
+                </StackPanel>
+            </Button>
+
+        </StackPanel>
+        <Image x:Name="BackOption" Source="Image/ok_button.png" Stretch="Fill" Margin="220,188,538,198" Visibility="Hidden"/>
+        <DockPanel Height="325" x:Name="keypad" Width="264" LastChildFill="True" Canvas.Top="58" Canvas.Left="20"  Margin="399,80,129,14" Visibility="Hidden">
+            <Grid DockPanel.Dock="Top" Canvas.Left="447" Canvas.Top="-99" Height="48">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*" />
+                </Grid.RowDefinitions>
+                <Button Grid.Row="2"  Style="{StaticResource StandardButton}" >Clear</Button>
+                <Button Grid.Column="1" Grid.Row="2" Style="{StaticResource StandardButton}" >Space</Button>
+                <Button Grid.Column="2" Grid.Row="2" Style="{StaticResource StandardButton}" FontSize="15" >Backspace</Button>
+            </Grid>
+            <Grid DockPanel.Dock="Top" Canvas.Left="248" Canvas.Top="174" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="2*" />
+                </Grid.RowDefinitions>
+                <Button Grid.Row="0" Style="{StaticResource StandardButton}" Background="LightSteelBlue">a</Button>
+                <Button Grid.Column="1" Grid.Row="0" Style="{StaticResource StandardButton}" >b</Button>
+                <Button Grid.Column="2" Grid.Row="0" Style="{StaticResource StandardButton}">c</Button>
+                <Button Grid.Column="3" Grid.Row="0" Style="{StaticResource StandardButton}">d</Button>
+                <Button Grid.Column="4" Grid.Row="0" Style="{StaticResource StandardButton}">e</Button>
+                <Button Grid.Column="5" Grid.Row="0" Style="{StaticResource StandardButton}">f</Button>
+                <Button Grid.Row="1" Style="{StaticResource StandardButton}">g</Button>
+                <Button Grid.Column="1" Grid.Row="1" Style="{StaticResource StandardButton}">h</Button>
+                <Button Grid.Column="2" Grid.Row="1" Style="{StaticResource StandardButton}">i</Button>
+                <Button Grid.Column="3" Grid.Row="1" Style="{StaticResource StandardButton}">j</Button>
+                <Button Grid.Column="4" Grid.Row="1" Style="{StaticResource StandardButton}">k</Button>
+                <Button Grid.Column="5" Grid.Row="1" Style="{StaticResource StandardButton}">l</Button>
+                <Button Grid.Row="2" Style="{StaticResource StandardButton}">m</Button>
+                <Button Grid.Column="1" Grid.Row="2" Style="{StaticResource StandardButton}">n</Button>
+                <Button Grid.Column="2" Grid.Row="2" Style="{StaticResource StandardButton}">o</Button>
+                <Button Grid.Column="3" Grid.Row="2" Style="{StaticResource StandardButton}">p</Button>
+                <Button Grid.Column="4" Grid.Row="2" Style="{StaticResource StandardButton}">q</Button>
+                <Button Grid.Column="5" Grid.Row="2" Style="{StaticResource StandardButton}">r</Button>
+                <Button Grid.Row="3" Style="{StaticResource StandardButton}">s</Button>
+                <Button Grid.Column="1" Grid.Row="3" Style="{StaticResource StandardButton}">t</Button>
+                <Button Grid.Column="2" Grid.Row="3" Style="{StaticResource StandardButton}">u</Button>
+                <Button Grid.Column="3" Grid.Row="3" Style="{StaticResource StandardButton}">v</Button>
+                <Button Grid.Column="4" Grid.Row="3" Style="{StaticResource StandardButton}">w</Button>
+                <Button Grid.Column="5" Grid.Row="3" Style="{StaticResource StandardButton}">x</Button>
+                <Button Grid.Row="4" Style="{StaticResource StandardButton}">y</Button>
+                <Button Grid.Column="1" Grid.Row="4" Style="{StaticResource StandardButton}">z</Button>
+                <Button Grid.Column="2" Grid.Row="4" Style="{StaticResource StandardButton}">1</Button>
+                <Button Grid.Column="3" Grid.Row="4" Style="{StaticResource StandardButton}">2</Button>
+                <Button Grid.Column="4" Grid.Row="4" Style="{StaticResource StandardButton}">3</Button>
+                <Button Grid.Column="5" Grid.Row="4" Style="{StaticResource StandardButton}">4</Button>
+                <Button Grid.Row="5" Style="{StaticResource StandardButton}">5</Button>
+                <Button Grid.Column="1" Grid.Row="5" Style="{StaticResource StandardButton}">6</Button>
+                <Button Grid.Column="2" Grid.Row="5" Style="{StaticResource StandardButton}">7</Button>
+                <Button Grid.Column="3" Grid.Row="5" Style="{StaticResource StandardButton}">8</Button>
+                <Button Grid.Column="4" Grid.Row="5" Style="{StaticResource StandardButton}">9</Button>
+                <Button Grid.Column="5" Grid.Row="5" Style="{StaticResource StandardButton}">0</Button>
+            </Grid>
+        </DockPanel>
         <Label x:Name="Profiles_header" Content="Profiles" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="51,114,0,0" Width="121" Height="40" FontSize="25" Foreground="White" Visibility="Hidden"/>
 
         <StackPanel HorizontalAlignment="Left" Height="102" VerticalAlignment="Top" Width="368" Margin="422,10,0,0" Background="Black" Opacity="0.8" x:Name="Notification_popup0" Visibility="Hidden">

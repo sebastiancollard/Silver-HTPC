@@ -339,7 +339,9 @@ namespace Silver_HTPC
                                         sPanel1.Children.Add(image);
                                         profile.Name = "profile" + i.ToString();
                                         TextBox textBox = new TextBox();
+                                        textBox.Background = Brushes.Transparent;
                                             textBox.Text = profiles[i,0];
+                                        textBox.BorderBrush = Brushes.Transparent;
                                             profile.Height = 90;
                                             profile.Width = 170;
                                             textBox.FontSize = 20;
@@ -380,28 +382,49 @@ namespace Silver_HTPC
             {
                 switch (e.Key) {
                     case Key.Back:
-                
-                        MainGrid.Effect = null;
-                        ProfilePopup.Children.Clear();
-                        ProfilePopup.Visibility = Visibility.Hidden;
-                        Profiles_header.Visibility = Visibility.Hidden;
-                        setButtonFocus(currentButtonSelectionIndex);
-                        resetProfileButtonFocus(profileIndex);
-                        profileIndex = 0;
+
+                        if (addingProfilePopup.Visibility==Visibility.Hidden) {
+                            MainGrid.Effect = null;
+                            ProfilePopup.Children.Clear();
+                            ProfilePopup.Visibility = Visibility.Hidden;
+                            Profiles_header.Visibility = Visibility.Hidden;
+                            setButtonFocus(currentButtonSelectionIndex);
+                            resetProfileButtonFocus(profileIndex);
+                            profileIndex = 0;
+                        }
+                        else
+                        {
+                            ProfilePopup.Effect = null;
+                            addingProfilePopup.Visibility = Visibility.Hidden;
+                            keypad.Visibility = Visibility.Hidden;
+                            BackOption.Visibility = Visibility.Hidden;
+                        }
                         break;
                     case Key.Right:
-                
-                        resetProfileButtonFocus(profileIndex);
-                        profileIndex = (profileIndex + 1) % 2;
-                        setProfileButtonFocus(profileIndex);
+                        if (addingProfilePopup.Visibility == Visibility.Hidden)
+                        {
+                            resetProfileButtonFocus(profileIndex);
+                            profileIndex = (profileIndex + 1) % 2;
+                            setProfileButtonFocus(profileIndex);    
+                        }
                         break;
-
                     case Key.Left:
-                
-                        resetProfileButtonFocus(profileIndex);
-                        profileIndex = (profileIndex - 1);
-                        if (profileIndex == -1) profileIndex = 1;
-                        setProfileButtonFocus(profileIndex);
+                        if (addingProfilePopup.Visibility == Visibility.Hidden)
+                        {
+                            resetProfileButtonFocus(profileIndex);
+                            profileIndex = (profileIndex - 1);
+                            if (profileIndex == -1) profileIndex = 1;
+                            setProfileButtonFocus(profileIndex);
+                        }
+                        break;
+                    case Key.O:
+                        if (addingProfilePopup.Visibility == Visibility.Hidden)
+                        {
+                            ProfilePopup.Effect = new BlurEffect();
+                            addingProfilePopup.Visibility = Visibility.Visible;
+                            keypad.Visibility = Visibility.Visible;
+                            BackOption.Visibility = Visibility.Visible;
+                        }
                         break;
                     default:
                         break;

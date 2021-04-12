@@ -11,7 +11,7 @@
     <Grid>
         <TextBlock Style="{StaticResource TextBlockHeaderStyle}" Text="Other Applications"/>
         <Rectangle HorizontalAlignment="Left" Height="5" Margin="0,60,-4,0" VerticalAlignment="Top" Width="796" Fill="#FF777A93"/>
-        <ScrollViewer x:Name="scroll" Margin="0,49,0,0" VerticalScrollBarVisibility="Hidden">
+        <ScrollViewer x:Name="scroll" Margin="0,80,0,0" VerticalScrollBarVisibility="Hidden">
             <StackPanel x:Name="Other_StackPanel">
 
 
