@@ -46,21 +46,27 @@ namespace Silver_HTPC
         private static List<NotificationContent> notificationContents=new List<NotificationContent>();
         private static List<Button> notifyButtonList = new List<Button>();
         private int buttonInd = 0;
+        private static bool uptodate = false;
         public Notification_tab()
         {
             InitializeComponent();
             MainStack.Children.Clear();
-            NotificationContent notify0 = new NotificationContent("Recording in progress: Calgary flames", "12:30pm", "14-Apr-2021", "Image/record_icon.png", "Recording", false, true, "Started at 12:30pm");
-            NotificationContent notify01 = new NotificationContent("Downloading in progress: Something", "1:00pm", "14-Apr-2021", "Image/forward.png", "Downloading", false, true, "Progress: 65%");
-            NotificationContent notify1 = new NotificationContent("Reminder: El classico","1:00pm","14-Apr-2021", "Image/live_tv.png","Reminder",true, false,null) ;
-            NotificationContent notify2 = new NotificationContent("Recording scheduled: FRIENDS", "6:00pm", "14-Apr-2021", "Image/record_icon.png", "Recording", true, false,null);
-            NotificationContent notify3 = new NotificationContent("Reminder: DDT News special", "10:00pm", "14-Apr-2021", "Image/live_tv.png", "Reminder", true, false, null);
+            if (!uptodate)
+            {
+                NotificationContent notify0 = new NotificationContent("Recording in progress: Calgary flames", "12:30pm", "14-Apr-2021", "Image/record_icon.png", "Recording", false, true, "Started at 12:30pm");
+                NotificationContent notify01 = new NotificationContent("Downloading in progress: Something", "1:00pm", "14-Apr-2021", "Image/forward.png", "Downloading", false, true, "Progress: 65%");
+                NotificationContent notify1 = new NotificationContent("Reminder: El classico", "1:00pm", "14-Apr-2021", "Image/live_tv.png", "Reminder", true, false, null);
+                NotificationContent notify2 = new NotificationContent("Recording scheduled: FRIENDS", "6:00pm", "14-Apr-2021", "Image/record_icon.png", "Recording", true, false, null);
+                NotificationContent notify3 = new NotificationContent("Reminder: DDT News special", "10:00pm", "14-Apr-2021", "Image/live_tv.png", "Reminder", true, false, null);
 
-            notificationContents.Add(notify0);
-            //notificationContents.Add(notify01);
-            notificationContents.Add(notify1);
-            notificationContents.Add(notify2);
-            notificationContents.Add(notify3);
+                notificationContents.Add(notify0);
+                //notificationContents.Add(notify01);
+                notificationContents.Add(notify1);
+                notificationContents.Add(notify2);
+                notificationContents.Add(notify3);
+                uptodate = true;
+            }
+            
             createButtons();
             displayButtons();
             foreach (Button btn in notifyButtonList)
@@ -82,11 +88,11 @@ namespace Silver_HTPC
             //  if (btn.Equals(buttonList[1]))
             //{
             Console.WriteLine("reached");
-            button.Background = Brushes.Green;
-            button.BorderBrush = Brushes.Red;
+            button.Background = (LinearGradientBrush)FindResource("ButtonHoverBackground");
+            //button.BorderBrush = Brushes.Red;
             //}
             //}
-            
+
             button.Height += 25;
             scroll.ScrollToVerticalOffset(button.TranslatePoint(new Point(), MainStack).Y - 150);
 
@@ -97,8 +103,8 @@ namespace Silver_HTPC
         private void nselect(object sender, RoutedEventArgs e)
         {
             var btn = sender as Button;
-            btn.Background = Brushes.LightGray;
-            btn.BorderBrush = Brushes.Transparent;
+            btn.Background = (LinearGradientBrush)FindResource("ButtonNormalBackground");
+            //btn.BorderBrush = Brushes.Transparent;
             btn.Height -= 25;
         }
 
@@ -121,6 +127,7 @@ namespace Silver_HTPC
 
         private void displayButtons()
         {
+            MainStack.Children.Clear();
             int length = notifyButtonList.Count;
             for (int i=0; i < length; i++)
             {
@@ -139,7 +146,7 @@ namespace Silver_HTPC
                 btn.Name = "notifyBtn" + i.ToString();
                 btn.Height = 85;
                 btn.HorizontalContentAlignment = HorizontalAlignment.Left;
-                btn.Background = Brushes.White;
+                btn.Background = (LinearGradientBrush)FindResource("ButtonNormalBackground");
                 StackPanel outerSP = new StackPanel();
 
                 Grid outerGrid = new Grid();
@@ -266,6 +273,9 @@ namespace Silver_HTPC
             {
                 MainWindow home = new MainWindow();
                 home.Show();
+                MainStack.Children.Clear();
+                notifyButtonList.Clear();
+                //notificationContents.Clear();
                 this.Close();
             }else if (e.Key == Key.Z)
             {

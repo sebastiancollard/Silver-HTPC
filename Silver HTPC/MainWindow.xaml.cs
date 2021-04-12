@@ -30,7 +30,7 @@ namespace Silver_HTPC
         private DispatcherTimer dispatcherTimer;
         public static string[,] content=new string[,] { { "Live TV", "Image/tv_icon.png" }, { "Gallery", "Image/gallery_icon.png" }, { "Music", "Image/music_icon.png" }, { "Recordings", "Image/record_icon.png" }, { "Search", "Image/search_icon.jpg" }, { "Netflix", "Image/netflix_icon.png" }, { "Settings", "Image/settings_icon.png" }, { "Notification", "Image/notification_icon.png" }, { "Other Apps", "Image/apps_icon.png" } , {"John Doe","Image/profile_icon.png" } };
         private static Label selectedLabel;
-        private static string[] profiles;
+        private static string[,] profiles;
         private static List<Button> profileBtns = new List<Button>();
         public MainWindow()
         {
@@ -48,12 +48,12 @@ namespace Silver_HTPC
             //list of buttons, stack panels and content
             //content=> possible mitigation -> reading from a file (log file)
             menuButtonList = new Button[] { munu_button1, munu_button2, munu_button3, munu_button4, munu_button5,munu_button6,munu_button7,munu_button8,munu_button9,profile_button};
-            profiles = new String[] { "John Doe", "Super Tiger", "Mr Beast","Add Profile"};
+            profiles = new String[,] { { "John Doe", "Image/profile_icon.png" }, { "Add Profile", "Image/cancel_icon.png" } };
             //profiles.Append<string>("Add profile");
             
 
-            /*foreach (Button btn in menuButtonList)
-                btn.KeyDown += select;*/
+            foreach (Button btn in menuButtonList)
+                btn.Background=  (LinearGradientBrush)FindResource("ButtonNormalBackground"); 
 
             stackPanelList = new StackPanel[] { stackPan_Button1, stackPan_Button2, stackPan_Button3, stackPan_Button4, stackPan_Button5, stackPan_Button6, stackPan_Button7, stackPan_Button8, stackPan_Button9, stackPan_Profile };
             //content = 
@@ -144,17 +144,17 @@ namespace Silver_HTPC
         {
             //currentButtonSelectionIndex = button_index;
             Button button = menuButtonList[button_index];
-            button.Background = Brushes.DarkBlue;
+            button.Background = (LinearGradientBrush)FindResource("ButtonHoverBackground");
             //if (button_index != 9) //not profile button
             //{
-                selectedLabel = new Label();
+            selectedLabel = new Label();
                 selectedLabel.Name = "labelSelected";
                 selectedLabel.FontSize = 25;
-                selectedLabel.Foreground = Brushes.WhiteSmoke;
+                //selectedLabel.Foreground = Brushes.WhiteSmoke;
                 selectedLabel.Content = content[button_index, 0];
                 stackPanelList[button_index].Children.Add(selectedLabel);
             //}
-            button.Foreground = Brushes.White;
+            //button.Foreground = Brushes.White;
             button.Height *= 1.2;
         }
 
@@ -179,11 +179,12 @@ namespace Silver_HTPC
         public void resetButtonFocus(int button_index)
         {
             Button button = menuButtonList[button_index];
-            button.ClearValue(Button.BackgroundProperty); 
-            button.ClearValue(Button.ForegroundProperty);
+            //button.ClearValue(Button.BackgroundProperty); 
+            //button.ClearValue(Button.ForegroundProperty);
             //if (button_index != 9)
             //{
-                stackPanelList[button_index].Children.Remove(selectedLabel);
+            button.Background= (LinearGradientBrush)FindResource("ButtonNormalBackground");
+            stackPanelList[button_index].Children.Remove(selectedLabel);
             //}
             
             button.Height /= 1.2;
@@ -193,22 +194,22 @@ namespace Silver_HTPC
         {
             //currentButtonSelectionIndex = button_index;
             Button button = profileBtns[button_index];
-            button.Background = Brushes.DarkBlue;
+            button.Background = (LinearGradientBrush)FindResource("ButtonHoverBackground");
             //if (button_index != 9) //not profile button
             //{
-            button.Foreground = Brushes.WhiteSmoke;
+            //button.Foreground = Brushes.WhiteSmoke;
             
             
             //}
-            button.Foreground = Brushes.White;
+            //button.Foreground = Brushes.White;
             button.Height *= 1.2;
         }
         public void resetProfileButtonFocus(int button_index)
         {
             Button button = profileBtns[button_index];
-            button.ClearValue(Button.BackgroundProperty);
-            button.ClearValue(Button.ForegroundProperty);
-            
+            //button.ClearValue(Button.BackgroundProperty);
+            //button.ClearValue(Button.ForegroundProperty);
+            button.Background = (LinearGradientBrush)FindResource("ButtonNormalBackground");
             button.Height /= 1.2;
         }
 
@@ -323,16 +324,30 @@ namespace Silver_HTPC
                                         profileBtns.Clear();
                                         ProfilePopup.Visibility = Visibility.Visible;
                                         Profiles_header.Visibility = Visibility.Visible;
-                                        for (int i = 0; i < profiles.Count<string>(); i++)
+                                        for (int i = 0; i <2; i++)
                                         {
                                             Button profile = new Button();
-                                            profile.Name = "profile" + i.ToString();
-                                            profile.Content = profiles[i];
-                                            profile.Height = 80;
+                                        profile.HorizontalContentAlignment = HorizontalAlignment.Center;
+                                            StackPanel sPanel1 = new StackPanel();
+                                        sPanel1.HorizontalAlignment = HorizontalAlignment.Center;
+                                            sPanel1.Orientation = Orientation.Vertical;
+                                        Image image = new Image();    
+                                        Uri imageUri = new Uri(profiles[i, 1], UriKind.Relative);
+                                            image.Source = new BitmapImage(imageUri);
+                                        image.Height = 55;
+                                        image.Width = 55;
+                                        sPanel1.Children.Add(image);
+                                        profile.Name = "profile" + i.ToString();
+                                        TextBox textBox = new TextBox();
+                                            textBox.Text = profiles[i,0];
+                                            profile.Height = 90;
                                             profile.Width = 170;
-                                            profile.FontSize = 20;
-                                            ProfilePopup.Children.Add(profile);
-                                            profileBtns.Add(profile);
+                                            textBox.FontSize = 20;
+                                            sPanel1.Children.Add(textBox);
+                                        profile.Content = sPanel1;
+                                        profile.Background = (LinearGradientBrush)FindResource("ButtonNormalBackground");
+                                        profileBtns.Add(profile);
+                                        ProfilePopup.Children.Add(profile);
                                         }
                                         //ProfilePopup.Children.Add
 
@@ -377,7 +392,7 @@ namespace Silver_HTPC
                     case Key.Right:
                 
                         resetProfileButtonFocus(profileIndex);
-                        profileIndex = (profileIndex + 1) % 4;
+                        profileIndex = (profileIndex + 1) % 2;
                         setProfileButtonFocus(profileIndex);
                         break;
 
@@ -385,7 +400,7 @@ namespace Silver_HTPC
                 
                         resetProfileButtonFocus(profileIndex);
                         profileIndex = (profileIndex - 1);
-                        if (profileIndex == -1) profileIndex = 3;
+                        if (profileIndex == -1) profileIndex = 1;
                         setProfileButtonFocus(profileIndex);
                         break;
                     default:
