@@ -7,7 +7,8 @@
       xmlns:local="clr-namespace:Silver_HTPC"
       mc:Ignorable="d" 
       UseLayoutRounding="True"
-      Title="Photos_Videos" Height="484.677" Width="815.605">
+      Title="Photos_Videos" Height="484.677" Width="815.605"
+      Background="{StaticResource WindowBackgroundBrush}">
     <Window.Resources>
         <Style x:Key="ButtonStyle" TargetType="Button">
             <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
@@ -18,16 +19,6 @@
 
 
     <Grid>
-        <Grid.Background>
-            <LinearGradientBrush EndPoint="1,0" StartPoint="0,1">
-                <GradientStop Color="Black" Offset="0"/>
-                <GradientStop Color="White" Offset="1"/>
-            </LinearGradientBrush>
-        </Grid.Background>
-
-
-
-
 
 
         <Button x:Name="Sort_Button" Content="Sort by" HorizontalAlignment="Left" Margin="696,68,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="9.63,-6.324" Height="44" FontFamily="Arial Rounded MT Bold" FontSize="18"/>

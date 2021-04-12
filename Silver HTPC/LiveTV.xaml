@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Silver_HTPC"
         mc:Ignorable="d"
-        Title="LiveTV" Height="450" Width="800" KeyDown="Window_KeyDown">
+        Title="LiveTV" Height="450" Width="800" KeyDown="Window_KeyDown"
+        Background="{StaticResource WindowBackgroundBrush}">
 
 
    
@@ -22,7 +23,7 @@
 
 
 
-        <Grid x:Name ="panel" Margin="-200, 0,200,0">
+        <Grid x:Name ="panel" Margin="-200, 0,200,0" Background="{StaticResource WindowBackgroundBrush}">
 
             <Grid.Resources>
 
@@ -41,13 +42,7 @@
                 </Storyboard>
 
             </Grid.Resources>
-
-            <Grid.Background>
-                <LinearGradientBrush EndPoint="1,1" StartPoint="0,1" Opacity="0.8">
-                    <GradientStop Color="Black" Offset="0"/>
-                    <GradientStop Color="#FFA2A2A2" Offset="1"/>
-                </LinearGradientBrush>
-            </Grid.Background>
+            
             <Grid.RowDefinitions>
                 <RowDefinition Height="11*"/>
                 <RowDefinition Height="132"/>
@@ -62,7 +57,7 @@
                     Time:       
                 </Label>
             <StackPanel Grid.Row="1">
-                <Label Foreground="White" FontSize="14">
+                <Label Foreground="Black" FontSize="14">
                     Description
                 </Label>
                 <Label Height="90" VerticalContentAlignment="Center">
@@ -78,7 +73,7 @@
             </StackPanel>
 
             <StackPanel Grid.Row="2">
-                <Label Foreground="White" FontSize="14">
+                <Label Foreground="Black" FontSize="14">
                     Reminders
                 </Label>
 
@@ -95,8 +90,8 @@
                         <Image Source="image/espn_logo.png" Stretch="UniformToFill"></Image>
                     </Label>
 
-                    <TextBlock Grid.Column="1" Foreground="White" Margin="10,0,0,0">Post-Show Show</TextBlock>
-                    <TextBlock Grid.Column="1" Foreground="White" Grid.ColumnSpan="2" Margin="116,0,0,0">7:30pm</TextBlock>
+                    <TextBlock Grid.Column="1" Foreground="Black" Margin="10,0,0,0">Post-Show Show</TextBlock>
+                    <TextBlock Grid.Column="1" Foreground="Black" Grid.ColumnSpan="2" Margin="116,0,0,0">7:30pm</TextBlock>
                 </Grid>
             </StackPanel>
 
