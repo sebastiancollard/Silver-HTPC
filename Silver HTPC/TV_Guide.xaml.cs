@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace Silver_HTPC
 {
@@ -49,13 +50,24 @@ namespace Silver_HTPC
         //max index of list_boxes (not to be confused with MAX_LBI_INDEX)
         private const int MAX_LB_INDEX = 2;
 
-
+        // For clock
+        private DispatcherTimer dispatcherTimer;
 
 
         public TV_Guide()
         {
             InitializeComponent();
             this.DataContext = this;
+
+            // Thanks Aifaz
+            // Display the date & time
+            dispatcherTimer = new DispatcherTimer();
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 5);
+            DispatcherTimer timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
+            {
+                this.guide_time.Content = DateTime.Now.ToString("hh:mm tt");
+                this.guide_date.Content = DateTime.Now.ToString("MMMM dd, yyyy");
+            }, this.Dispatcher);
 
 
             List_boxes = new ListBox[] { listbox1, listbox2,listbox3 };
@@ -269,7 +281,6 @@ namespace Silver_HTPC
             get { return (bool)GetValue(Popup_IsOpenProperty); }
             set { SetValue(Popup_IsOpenProperty, value); }
         }
-
 
     }
 

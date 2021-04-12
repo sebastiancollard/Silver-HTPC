@@ -5,7 +5,7 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
 
-        <LinearGradientBrush x:Key="WindowBackgroundBrush" StartPoint="0.5,0" EndPoint="0.5,1">
+        <LinearGradientBrush x:Key="WindowBackgroundBrush" StartPoint="1,0" EndPoint="1,1">
             <GradientStop Offset="0" Color="#EEEEEE"/>
             <GradientStop Offset="1" Color="#CCCCCC"/>
         </LinearGradientBrush>
@@ -31,6 +31,32 @@
             <Setter Property="Width" Value="120"/>
             <Setter Property="FontFamily" Value="Helvetica"/>
             <Setter Property="FontSize" Value="20"/>
+        </Style>
+
+        <Style x:Key="TimeLabel" TargetType="Label">
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="Width" Value="284"/>
+            <Setter Property="Margin" Value="500,0,0,0"/>
+            <Setter Property="HorizontalContentAlignment" Value="Right"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="FontFamily" Value="Helvetica"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontWeight" Value="Medium"/>
+        </Style>
+
+        <Style x:Key="DateLabel" TargetType="Label">
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Width" Value="284"/>
+            <Setter Property="Margin" Value="500,0,0,0"/>
+            <Setter Property="HorizontalContentAlignment" Value="Right"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="FontFamily" Value="Helvetica"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="Medium"/>
         </Style>
 
         <LinearGradientBrush x:Key="ButtonNormalBackground" EndPoint="0,1" StartPoint="0,0">
