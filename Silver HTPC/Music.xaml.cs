@@ -48,11 +48,23 @@ namespace Silver_HTPC
         private bool keepDeleteFocus = false;
         private int Start = 0;
 
+        private DispatcherTimer dispatcherTimerTime;
+
         // (Style)FindResource("MyButtonStyle");
         //  (LinearGradientBrush)FindResource("ButtonHoverBackground");
 
         public Music()
         {
+            dispatcherTimerTime = new DispatcherTimer();
+            dispatcherTimerTime.Interval = new TimeSpan(0, 0, 5);
+            DispatcherTimer timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
+            {
+                this.guide_time.Content = DateTime.Now.ToString("hh:mm tt");
+                this.guide_date.Content = DateTime.Now.ToString("MMMM dd, yyyy");
+            }, this.Dispatcher);
+
+
+
             Console.WriteLine("Starting Program");
             reverseMusic.Visibility = Visibility.Hidden;
             InitializeComponent();
@@ -126,6 +138,7 @@ namespace Silver_HTPC
                 play.HorizontalContentAlignment = HorizontalAlignment.Left;
                 play.VerticalAlignment = VerticalAlignment.Bottom;
                 play.HorizontalAlignment = HorizontalAlignment.Left;
+                play.Style = (Style)FindResource("StandardButton");
                 play.KeyDown += Play_KeyDown;
                 play.GotFocus += Play_GotFocus;
                 play.LostFocus += Play_LostFocus;
@@ -167,6 +180,7 @@ namespace Silver_HTPC
                 delete.KeyDown += Delete_KeyDown;
                 delete.GotFocus += Delete_GotFocus;
                 delete.LostFocus += Delete_LostFocus;
+                delete.Style = (Style)FindResource("StandardButton");
                 Grid.SetColumn(delete, 2);
                 Grid.SetColumnSpan(delete, 2);
                 Grid.SetRow(delete, 0);

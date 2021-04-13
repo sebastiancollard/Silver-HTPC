@@ -34,9 +34,17 @@ namespace Silver_HTPC
         private DispatcherTimer dispatcherTimer;
         private DispatcherTimer dispatcherTimerNotification;
         Grid sidemenu;
+        private DispatcherTimer dispatcherTimerTime;
 
         public Recordings()
         {
+            dispatcherTimerTime = new DispatcherTimer();
+            dispatcherTimerTime.Interval = new TimeSpan(0, 0, 5);
+            DispatcherTimer timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
+            {
+                this.guide_time.Content = DateTime.Now.ToString("hh:mm tt");
+                this.guide_date.Content = DateTime.Now.ToString("MMMM dd, yyyy");
+            }, this.Dispatcher);
 
             dispatcherTimer = new DispatcherTimer();
             dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);

@@ -28,18 +28,13 @@ namespace Silver_HTPC
         private ListBox lb;
         private int channel;
         private ScrollViewer sv;
-        private Grid setReminder;
-        private Grid cancel;
-        private Grid done;
+        private Button setReminder;
+        private Button cancel;
+        private Button done;
         private Border setReminder_border;
         private Border cancel_border;
         private Border done_border;
-        RadialGradientBrush offbrush;
-        RadialGradientBrush onbrush;
-        GradientStop offgradientstop1;
-        GradientStop offgradientstop2;
-        GradientStop ongradientstop1;
-        GradientStop ongradientstop2;
+
         TextBlock popup_message;
         bool currently_on_set_reminder;
 
@@ -85,18 +80,8 @@ namespace Silver_HTPC
 
             lb = List_boxes[0];
 
-            offgradientstop1 = new GradientStop((Color)ColorConverter.ConvertFromString("#FF3C3B3B"), 1);
-            offgradientstop2 = new GradientStop((Color)ColorConverter.ConvertFromString("#FFDEDEDE"), 0);
-            ongradientstop1 = new GradientStop((Color)ColorConverter.ConvertFromString("#FF515578"), 1);
-            ongradientstop2 = new GradientStop((Color)ColorConverter.ConvertFromString("#FFD3D6FF"), 0);
-
-            onbrush = new RadialGradientBrush();
-            offbrush = new RadialGradientBrush();
-
-            offbrush.GradientStops.Add(offgradientstop1);
-            offbrush.GradientStops.Add(offgradientstop2);
-            onbrush.GradientStops.Add(ongradientstop1);
-            onbrush.GradientStops.Add(ongradientstop2);
+            
+           
 
             setReminder = set_reminder_button;
             cancel = cancel_button;
@@ -106,9 +91,9 @@ namespace Silver_HTPC
             cancel_border = cancel_button_border;
             done_border = done_button_border;
 
-            setReminder.Background = offbrush;
-            cancel.Background = onbrush;
-            done.Background = onbrush;
+            setReminder.Background = (LinearGradientBrush)FindResource("ButtonNormalBackground"); ;
+            cancel.Background = (LinearGradientBrush)FindResource("ButtonHoverBackground"); ;
+            done.Background = (LinearGradientBrush)FindResource("ButtonHoverBackground"); ;
 
             done_border.Opacity = 0;
             
@@ -133,8 +118,8 @@ namespace Silver_HTPC
                 case Key.Right:
                     if (Popup_IsOpen)
                     {
-                        setReminder.Background = offbrush;
-                        cancel.Background = onbrush;
+                        setReminder.Background = (LinearGradientBrush)FindResource("ButtonNormalBackground"); ;
+                        cancel.Background = (LinearGradientBrush)FindResource("ButtonHoverBackground"); ;
                         currently_on_set_reminder = false;
                         
                     }
@@ -148,8 +133,8 @@ namespace Silver_HTPC
                 case Key.Left:
                     if (Popup_IsOpen)
                     {
-                        setReminder.Background = onbrush;
-                        cancel.Background = offbrush;
+                        setReminder.Background = (LinearGradientBrush)FindResource("ButtonHoverBackground"); ;
+                        cancel.Background = (LinearGradientBrush)FindResource("ButtonNormalBackground"); ;
                         currently_on_set_reminder = true;
                         
                     }
@@ -197,7 +182,7 @@ namespace Silver_HTPC
 
 
                     break;
-                case Key.Enter:
+                case Key.O:
 
                     if (!Popup_IsOpen) {
 
@@ -245,8 +230,8 @@ namespace Silver_HTPC
                         else
                         {
                             //back to default
-                            setReminder.Background = offbrush;
-                            cancel.Background = onbrush;
+                            setReminder.Background = (LinearGradientBrush)FindResource("ButtonNormalBackground");
+                            cancel.Background = (LinearGradientBrush)FindResource("ButtonHoverBackground");
                             setReminder_border.Opacity = 100;
                             cancel_border.Opacity = 100;
                             done_border.Opacity = 0;

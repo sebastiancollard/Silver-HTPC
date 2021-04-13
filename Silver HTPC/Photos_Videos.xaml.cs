@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace Silver_HTPC
 {
@@ -28,8 +29,18 @@ namespace Silver_HTPC
         private int ButtonIndex = 0;
         private int Start = 0;
         private bool viewingEnlargaredImages = false;
+        private DispatcherTimer dispatcherTimerTime;
         public Photos_Videos()
         {
+
+            dispatcherTimerTime = new DispatcherTimer();
+            dispatcherTimerTime.Interval = new TimeSpan(0, 0, 5);
+            DispatcherTimer timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
+            {
+                this.guide_time.Content = DateTime.Now.ToString("hh:mm tt");
+                this.guide_date.Content = DateTime.Now.ToString("MMMM dd, yyyy");
+            }, this.Dispatcher); 
+
             InitializeComponent();
             //img_1.GotFocus += Image_GotFocus;
             ButtonsForImages.Add(But_1);
