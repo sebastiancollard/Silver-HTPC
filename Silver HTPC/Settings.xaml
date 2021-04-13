@@ -34,8 +34,8 @@
                 FontWeight="Bold"
                 GotFocus="OnButtonGotFocusHandler" LostFocus="OnButtonLostFocusHandler" 
                 Click="AdSet_button_Click"/>
-        <Image HorizontalAlignment="Left" Height="29" Margin="17,19,0,0" VerticalAlignment="Top" Width="32" Source="Settings gear.png"/>
-        <Rectangle Style="{StaticResource GreyDivider}"/>
+        <Image HorizontalAlignment="Left" Height="29" Margin="17,23,0,0" VerticalAlignment="Top" Width="32" Source="Settings gear.png"/>
+        <Line X1="0" Y1="78" X2="800" Y2="78" Stroke="Black" StrokeThickness="6" Opacity="1"   />
 
     </Grid>
 </Window>
