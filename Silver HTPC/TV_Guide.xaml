@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="TV_Guide" Height="450" Width="800" KeyDown="Window_KeyDown"
         Background="{StaticResource WindowBackgroundBrush}">
-   
+
     <Canvas>
 
         <Grid Height="419">
@@ -22,7 +22,6 @@
                 <Label Content="TV Guide" HorizontalAlignment="Left" VerticalAlignment="Top" Height="55" Width="192" FontSize="30" VerticalContentAlignment="Center"/>
                 <Label Name="guide_time"  Content="Time:" Style="{StaticResource TimeLabel}"/>
                 <Label Name="guide_date" Content="Date:" Style="{StaticResource DateLabel}" Margin="500,36,0,0"/>
-                <Line X1="0" Y1="78" X2="800" Y2="78" Stroke="LightSlateGray" StrokeThickness="7" Opacity="1"   />
             </Grid>
 
 
@@ -36,8 +35,8 @@
                     <Label Content="Recommendations / Continue watching" Height="40" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="15"  Grid.ColumnSpan="2"/>
 
                     <StackPanel HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="792" Orientation="Horizontal" Grid.ColumnSpan="2"  >
-                        
-                        
+
+
 
                         <ListBox x:Name="listbox1" Width="791" ItemContainerStyle="{StaticResource SimpleListBoxItem}" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Disabled">
                             <ListBox.ItemsPanel>
@@ -114,7 +113,7 @@
 
                             <ListBoxItem x:Name="listbox2item1" Width="130" Background="{DynamicResource ButtonNormalBackground}">
                                 <StackPanel Width="120">
-                                    <TextBlock Margin="38,0,0,0"></TextBlock>
+                                    <TextBlock Margin="18,0,0,0"></TextBlock>
                                     <Image Source="Image/masterchef.png" Stretch="Uniform" Height="67" Width="87" HorizontalAlignment="Center" Margin="0,0,0,0"/>
                                     <Image Source="Image/ctv_logo.png" Stretch="Uniform" Height="20" Width="40" HorizontalAlignment="Center"/>
                                 </StackPanel>
@@ -122,49 +121,49 @@
 
                             <ListBoxItem x:Name="listbox2item2" Width="130" Background="{DynamicResource ButtonNormalBackground}">
                                 <StackPanel Width="120">
-                                    <TextBlock Margin="38,0,0,0"></TextBlock>
+                                    <TextBlock Margin="18,0,0,0"></TextBlock>
                                     <Image Source="Image/shark_tank.png" Stretch="UniformToFill" Height="67" Width="87" HorizontalAlignment="Center" Margin="0,0,0,0"/>
                                     <Image Source="Image/ctv_logo.png" Stretch="Uniform" Height="20" Width="40" HorizontalAlignment="Center"/>
                                 </StackPanel>
                             </ListBoxItem>
                             <ListBoxItem x:Name="listbox2item3" Width="130" Background="{DynamicResource ButtonNormalBackground}">
                                 <StackPanel Width="120">
-                                    <TextBlock Margin="38,0,0,0"></TextBlock>
+                                    <TextBlock Margin="18,0,0,0"></TextBlock>
                                     <Image Source="Image/the_nest.png" Stretch="Fill" Height="67" Width="87" HorizontalAlignment="Center" Margin="0,0,0,0"/>
                                     <Image Source="Image/bbc.png" Stretch="Uniform" Height="20" Width="40" HorizontalAlignment="Center"/>
                                 </StackPanel>
                             </ListBoxItem>
                             <ListBoxItem x:Name="listbox2item4" Width="130" Background="{DynamicResource ButtonNormalBackground}">
                                 <StackPanel Width="120">
-                                    <TextBlock Margin="38,0,0,0">7:00pm</TextBlock>
+                                    <TextBlock Margin="18,0,0,0">7:00pm</TextBlock>
                                     <Image Source="Image/greys_anatomy.png" Stretch="Fill" Height="67" Width="87" HorizontalAlignment="Center"/>
                                     <Image Source="Image/abc.png" Stretch="Uniform" Height="20" Width="40" HorizontalAlignment="Center"/>
                                 </StackPanel>
                             </ListBoxItem>
                             <ListBoxItem x:Name="listbox2item5" Width="130" Background="{DynamicResource ButtonNormalBackground}">
                                 <StackPanel Width="120">
-                                    <TextBlock Margin="38,0,0,0"></TextBlock>
+                                    <TextBlock Margin="28,0,0,0"></TextBlock>
                                     <Image Source="Image/sherlock.png" Stretch="Fill" Height="67" Width="87" HorizontalAlignment="Center"/>
                                     <Image Source="Image/bbc.png" Stretch="Uniform" Height="20" Width="40" HorizontalAlignment="Center"/>
                                 </StackPanel>
                             </ListBoxItem>
                             <ListBoxItem x:Name="listbox2item6" Width="130" Background="{DynamicResource ButtonNormalBackground}">
                                 <StackPanel Width="120">
-                                    <TextBlock Margin="38,0,0,0"></TextBlock>
+                                    <TextBlock Margin="28,0,0,0"></TextBlock>
                                     <Image Source="Image/conviction.png" Stretch="Fill" Height="67" Width="87" HorizontalAlignment="Center"/>
                                     <Image Source="Image/abc.png" Stretch="Uniform" Height="20" Width="40" HorizontalAlignment="Center"/>
                                 </StackPanel>
                             </ListBoxItem>
                             <ListBoxItem x:Name="listbox2item7" Width="130" Background="{DynamicResource ButtonNormalBackground}">
                                 <StackPanel Width="120">
-                                    <TextBlock Margin="38,0,0,0">7:30pm</TextBlock>
+                                    <TextBlock Margin="18,0,0,0">7:30pm</TextBlock>
                                     <Image Source="Image/espn_show.png" Stretch="Fill" Height="67" Width="87" HorizontalAlignment="Center"/>
                                     <Image Source="Image/espn_logo.png" Stretch="Uniform" Height="20" Width="40" HorizontalAlignment="Center"/>
                                 </StackPanel>
                             </ListBoxItem>
                             <ListBoxItem x:Name="listbox2item8" Width="130" Background="{DynamicResource ButtonNormalBackground}">
                                 <StackPanel Width="120">
-                                    <TextBlock Margin="38,0,0,0"></TextBlock>
+                                    <TextBlock Margin="18,0,0,0"></TextBlock>
                                     <Image Source="Image/topgear.png" Stretch="Fill" Height="67" Width="87" HorizontalAlignment="Center"/>
                                     <Image Source="Image/bbc.png" Stretch="Uniform" Height="20" Width="40" HorizontalAlignment="Center"/>
                                 </StackPanel>
@@ -196,7 +195,7 @@
 
                             <ListBoxItem x:Name="listbox3item1" Width="130" Background="{DynamicResource ButtonNormalBackground}">
                                 <StackPanel Width="120">
-                                    <TextBlock Margin="38,0,0,0"></TextBlock>
+                                    <TextBlock Margin="18,0,0,0"></TextBlock>
                                     <Image Source="Image/espn_show.png" Stretch="Uniform" Height="67" Width="87" HorizontalAlignment="Center" Margin="0,0,0,0"/>
                                     <Image Source="Image/espn_logo.png" Stretch="Uniform" Height="20" Width="40" HorizontalAlignment="Center"/>
                                 </StackPanel>
@@ -204,14 +203,14 @@
 
                             <ListBoxItem x:Name="listbox3item2" Width="130" Background="{DynamicResource ButtonNormalBackground}">
                                 <StackPanel Width="120">
-                                    <TextBlock Margin="38,0,0,0">7:00pm</TextBlock>
+                                    <TextBlock Margin="18,0,0,0">7:00pm</TextBlock>
                                     <Image Source="Image/tsn_show.png" Stretch="UniformToFill" Height="67" Width="87" HorizontalAlignment="Center" Margin="0,0,0,0"/>
                                     <Image Source="Image/tsn_logo.png" Stretch="Uniform" Height="20" Width="40" HorizontalAlignment="Center"/>
                                 </StackPanel>
                             </ListBoxItem>
                             <ListBoxItem x:Name="listbox3item3" Width="130" Background="{DynamicResource ButtonNormalBackground}">
                                 <StackPanel Width="120">
-                                    <TextBlock Margin="38,0,0,0"></TextBlock>
+                                    <TextBlock Margin="18,0,0,0"></TextBlock>
                                     <Image Source="Image/nbcgolf_show.png" Stretch="Fill"
                                        Height="67" Width="87" HorizontalAlignment="Center" Margin="0,0,0,0"/>
                                     <Image Source="Image/nbcgolf_logo.png" Stretch="Uniform" Height="20" Width="40" HorizontalAlignment="Center"/>
@@ -222,35 +221,35 @@
 
                             <ListBoxItem x:Name="listbox3item4" Width="130" Background="{DynamicResource ButtonNormalBackground}">
                                 <StackPanel Width="120">
-                                    <TextBlock Margin="38,0,0,0">7:30pm</TextBlock>
+                                    <TextBlock Margin="18,0,0,0">7:30pm</TextBlock>
                                     <Image Source="Image/fox_sports_show.png" Stretch="Fill" Height="67" Width="87" HorizontalAlignment="Center"/>
                                     <Image Source="Image/fox_sports_logo.png" Stretch="Uniform" Height="20" Width="40" HorizontalAlignment="Center"/>
                                 </StackPanel>
                             </ListBoxItem>
                             <ListBoxItem x:Name="listbox3item5" Width="130" Background="{DynamicResource ButtonNormalBackground}">
                                 <StackPanel Width="120">
-                                    <TextBlock Margin="38,0,0,0"></TextBlock>
+                                    <TextBlock Margin="18,0,0,0"></TextBlock>
                                     <Image Source="Image/tsn_show2.png" Stretch="Fill" Height="67" Width="87" HorizontalAlignment="Center"/>
                                     <Image Source="Image/tsn_logo.png" Stretch="Uniform" Height="20" Width="40" HorizontalAlignment="Center"/>
                                 </StackPanel>
                             </ListBoxItem>
                             <ListBoxItem x:Name="listbox3item6" Width="130" Background="{DynamicResource ButtonNormalBackground}">
                                 <StackPanel Width="120">
-                                    <TextBlock Margin="38,0,0,0"></TextBlock>
+                                    <TextBlock Margin="18,0,0,0"></TextBlock>
                                     <Image Source="Image/espn_show2.png" Stretch="Fill" Height="67" Width="87" HorizontalAlignment="Center"/>
                                     <Image Source="Image/espn_logo.png" Stretch="Uniform" Height="20" Width="40" HorizontalAlignment="Center"/>
                                 </StackPanel>
                             </ListBoxItem>
                             <ListBoxItem x:Name="listbox3item7" Width="130" Background="{DynamicResource ButtonNormalBackground}">
                                 <StackPanel Width="120">
-                                    <TextBlock Margin="38,0,0,0">8:00pm</TextBlock>
+                                    <TextBlock Margin="18,0,0,0">8:00pm</TextBlock>
                                     <Image Source="Image/espn_show3.png" Stretch="Fill" Height="67" Width="87" HorizontalAlignment="Center"/>
                                     <Image Source="Image/espn_logo.png" Stretch="Uniform" Height="20" Width="40" HorizontalAlignment="Center"/>
                                 </StackPanel>
                             </ListBoxItem>
                             <ListBoxItem x:Name="listbox3item8" Width="130" Background="{DynamicResource ButtonNormalBackground}">
                                 <StackPanel Width="120">
-                                    <TextBlock Margin="38,0,0,0"></TextBlock>
+                                    <TextBlock Margin="18,0,0,0"></TextBlock>
                                     <Image Source="Image/tsn_show3.png" Stretch="Fill" Height="67" Width="87" HorizontalAlignment="Center"/>
                                     <Image Source="Image/tsn_logo.png" Stretch="Uniform" Height="20" Width="40" HorizontalAlignment="Center"/>
                                 </StackPanel>
@@ -270,86 +269,92 @@
 
         </Grid>
         <Grid Height="10" Width="226" Canvas.Left="286" Canvas.Top="120">
+
             <Popup IsOpen="{Binding Popup_IsOpen, Mode = TwoWay}" AllowsTransparency="True" >
                 <Border BorderBrush="Black" BorderThickness="1">
                     <Grid Height="172" Width="216" Background="{StaticResource WindowBackgroundBrush}">
-                    
 
-                    <!--
+
+                        <!--
                     <Grid.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="Black" Offset="0"/>
                             <GradientStop Color="#FF5B5A5A" Offset="1"/>
                         </LinearGradientBrush>
                     </Grid.Background>
-                    <TextBlock x:Name="textblock" FontSize="20" TextWrapping="WrapWithOverflow" TextAlignment="Center" Foreground="White" Margin="0,25,0,89"
+                    -->
+                        <TextBlock x:Name="textblock" FontSize="20" TextWrapping="WrapWithOverflow" TextAlignment="Center" Foreground="Black" Margin="0,25,0,89"
                                Text="Would you like to set a reminder for this show?"/>
 
 
-         <Button x:Name="set_reminder_button" Margin="10,95,115,20"  Style="{StaticResource StandardButton}">
-                            <Grid  >
-                            
 
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="13*"/>
-                                <RowDefinition Height="9*"/>
-                            </Grid.RowDefinitions>
+                        <Border x:Name="set_reminder_button_border"  Margin="10,95,115,20"  BorderThickness="1">
+                            <Button x:Name="set_reminder_button" Style="{StaticResource StandardButton}">
+                                <Grid  >
 
 
-                            <Image Grid.Row="0" Source="image/reminder_icon.png" Margin="12,0,12,0"  />
-                            <TextBox Grid.Row="1" Foreground="White" Background="{x:Null}" HorizontalContentAlignment="Center" BorderBrush="{x:Null}" >Set Reminder</TextBox>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="13*"/>
+                                        <RowDefinition Height="9*"/>
+                                    </Grid.RowDefinitions>
 
 
-
-                        </Grid>
-                        </Button>
-                 
-
-                   
-                            <Button x:Name="cancel_button" Margin="117,95,10,20"  Style="{StaticResource StandardButton}">
-                            <Grid  >
-                              
-
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="13*"/>
-                                <RowDefinition Height="9*"/>
-                            </Grid.RowDefinitions>
-
-
-                            <Image Grid.Row="0" Source="image/cancel_icon.png" Margin="10,5,10,0"  />
-                            <TextBox Grid.Row="1" Foreground="White" Background="{x:Null}" HorizontalContentAlignment="Center" BorderBrush="{x:Null}" >Cancel</TextBox>
+                                    <Image Grid.Row="0" Source="image/reminder_icon.png" Margin="12,0,12,0"  />
+                                    <TextBox Grid.Row="1" Foreground="Black" FontSize="13" Background="{x:Null}" HorizontalContentAlignment="Center" BorderBrush="{x:Null}" >Set Reminder</TextBox>
 
 
 
-
-                        </Grid>
-                        </Button>
-                    
-
-                            <Button x:Name="done_button" Opacity="100" Margin="58,95,58,20"  Style="{StaticResource StandardButton}">
-                            <Grid  >
-                                
-
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="13*"/>
-                                <RowDefinition Height="9*"/>
-                            </Grid.RowDefinitions>
+                                </Grid>
+                            </Button>
+                        </Border>
 
 
-                            <Image Grid.Row="0" Source="image/cancel_icon.png" Margin="10,5,10,0"  />
-                            <TextBox Grid.Row="1" Foreground="White" Background="{x:Null}" HorizontalContentAlignment="Center" BorderBrush="{x:Null}" >Done</TextBox>
+                        <Border x:Name="cancel_button_border" Margin="117,95,10,20" BorderThickness="1" >
+                            <Button x:Name="cancel_button" Style="{StaticResource StandardButton}">
+                                <Grid  >
 
 
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="13*"/>
+                                        <RowDefinition Height="9*"/>
+                                    </Grid.RowDefinitions>
 
-                            </Grid>
-                        </Button>
-                    </Border>
+
+                                    <Image Grid.Row="0" Source="image/cancel_icon.png" Margin="10,5,10,0"  />
+                                    <TextBox Grid.Row="1" Foreground="Black" FontSize="13" Background="{x:Null}" HorizontalContentAlignment="Center" BorderBrush="{x:Null}" >Cancel</TextBox>
 
 
 
 
+                                </Grid>
+                            </Button>
+                        </Border>
 
-                </Grid>
+                        <Border x:Name="done_button_border" Opacity="0" Margin="58,95,0,0" HorizontalAlignment="left" Height="57" VerticalAlignment="Top" Width="95" BorderThickness="1" >
+                            <Button x:Name="done_button" Style="{StaticResource StandardButton}">
+                                <Grid  >
+
+
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="13*"/>
+                                        <RowDefinition Height="9*"/>
+                                    </Grid.RowDefinitions>
+
+
+                                    <Image Grid.Row="0" Source="image/cancel_icon.png" Margin="10,5,10,0"  />
+                                    <TextBox Grid.Row="1" Foreground="Black" FontSize="13" Background="{x:Null}" HorizontalContentAlignment="Center" BorderBrush="{x:Null}" >Done</TextBox>
+
+
+
+                                </Grid>
+                            </Button>
+                        </Border>
+
+
+
+
+
+                    </Grid>
                 </Border>
             </Popup>
         </Grid>
