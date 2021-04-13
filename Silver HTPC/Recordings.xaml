@@ -268,8 +268,8 @@
             <Border BorderBrush="Black" BorderThickness="2" Grid.RowSpan="3" Grid.ColumnSpan="2"/>
         </Grid>
 
-        <StackPanel  HorizontalAlignment="Left" Height="102" VerticalAlignment="Top" Width="368" Margin="424,0,0,0" Background="Black" Opacity="0.8" x:Name="Notification_popup0">
-            <Label Name="NotificationTitle" Height="30" Foreground="White" FontSize="18">Music</Label>
+        <StackPanel  HorizontalAlignment="Left" Height="102" VerticalAlignment="Top" Width="368" Margin="424,1,0,0" Background="Black" Opacity="0.8" x:Name="Notification_popup0" Visibility="Hidden" >
+            <Label Name="NotificationTitle" Height="35" Foreground="White" FontSize="18">Recordings</Label>
             <Grid Height="45">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="45"/>
@@ -277,8 +277,8 @@
                     <ColumnDefinition Width="*"/>
 
                 </Grid.ColumnDefinitions>
-                <Image Grid.Row="0"  HorizontalAlignment="Left" Height="45" VerticalAlignment="Center" Width="70"  Grid.Column="0" Source="Image/music_icon.png" Stretch="Uniform" />
-                <Label Name="MusicDeleteMessage" Grid.Column="1" Foreground="White" FontSize="15">El-Classico</Label>
+                <Image Grid.Row="0"  HorizontalAlignment="Left" Height="45" VerticalAlignment="Center" Width="70"  Grid.Column="0" Source="Image/record_icon.png" Stretch="Uniform" />
+                <Label Name="RecordingsDeleteMessage" Grid.Column="1" Foreground="White" FontSize="13">El-Classico</Label>
 
             </Grid>
 

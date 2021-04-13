@@ -32,6 +32,7 @@ namespace Silver_HTPC
         private bool showRecordingButtons = false;
         private bool recordingStarted = false;
         private DispatcherTimer dispatcherTimer;
+        private DispatcherTimer dispatcherTimerNotification;
         Grid sidemenu;
 
         public Recordings()
@@ -40,6 +41,10 @@ namespace Silver_HTPC
             dispatcherTimer = new DispatcherTimer();
             dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
             dispatcherTimer.Interval = new TimeSpan(0, 0, 5);
+
+            dispatcherTimerNotification = new DispatcherTimer();
+            dispatcherTimerNotification.Tick += new EventHandler(dispatcherTimerNotification_Tick);
+            dispatcherTimerNotification.Interval = new TimeSpan(0, 0, 5);
 
             InitializeComponent();
             RecordButtonsList.Add(record1);
@@ -403,11 +408,11 @@ namespace Silver_HTPC
                 char a = RecordButtonsGrids[RecordIndex].Name[10];
                 String searchFor = "RecordName" + a;
                 //Console.WriteLine("Search for: " + a);
-                String songName = ((TextBlock)RecordButtonsGrids[RecordIndex].FindName(searchFor)).Text;
+                String recordName = ((TextBlock)RecordButtonsGrids[RecordIndex].FindName(searchFor)).Text;
                 //MusicIndex -= 1;
 
                 TextBlock DeleteSongTb = new TextBlock();
-                DeleteSongTb.Text = songName;
+                DeleteSongTb.Text = recordName;
                 
                 //TextBlock DeleteSongTb = new TextBlock();
                 Grid.SetRow(DeleteSongTb, 1);
@@ -539,11 +544,19 @@ namespace Silver_HTPC
         {
             if (e.Key == Key.O)
             {
+
                 //char a = MusicButtonsGrids[MusicIndex].Name[10];
                 //String searchFor = "SongNameTb" + a;
                 //String songName = ((TextBlock)MusicButtonsGrids[MusicIndex].FindName(searchFor)).Text;
                 //MusicDeleteMessage.Content = songName + " has been deleted.";
                 //Notification_popup0.Visibility = Visibility.Visible; dispatcherTimer.Start();
+                char a = RecordButtonsGrids[RecordIndex].Name[10];
+                String searchFor = "RecordName" + a;
+                //Console.WriteLine("Search for: " + a);
+                String recordName = ((TextBlock)RecordButtonsGrids[RecordIndex].FindName(searchFor)).Text;
+                RecordingsDeleteMessage.Content = recordName + " has been deleted.";
+                //MusicIndex -= 1;
+                Notification_popup0.Visibility = Visibility.Visible; dispatcherTimerNotification.Start();
                 RecordingList.Effect = null;
                 Sort_Button.Effect = null;
                 DeleteMultiple_Button.Effect = null;
@@ -722,5 +735,14 @@ namespace Silver_HTPC
             dispatcherTimer.IsEnabled = false;
         }
 
+        private void dispatcherTimerNotification_Tick(object sender, EventArgs e)
+        {//For notification
+         //Things which happen after 1 timer interval
+
+            Notification_popup0.Visibility = Visibility.Collapsed;
+
+            //Disable the timer
+            dispatcherTimerNotification.IsEnabled = false;
+        }
     }
 }

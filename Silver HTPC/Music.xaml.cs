@@ -453,7 +453,11 @@ namespace Silver_HTPC
                 home.Show();
                 this.Close();
             }
-           
+            else if (e.Key == Key.O)
+            {
+                MessageBox.Show("Sorry this feature has not been implemented! We aplogize for the inconvenience.", "Silver HTPC", MessageBoxButton.OK);
+            }
+
             /**
             if (e.Key == Key.Left)
             {
