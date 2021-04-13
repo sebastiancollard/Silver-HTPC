@@ -22,9 +22,9 @@
         <TextBlock Text="{Binding Source={x:Static system:DateTime.Now}, StringFormat=\{0:HH:mm\}}" HorizontalAlignment="Right" Height="31" VerticalAlignment="Top" Width="65" RenderTransformOrigin="0.268,0.293" Margin="0,20,0,0" Background="{x:Null}"  Style="{StaticResource TextBlockHeaderStyle}" />
         <TextBlock HorizontalAlignment="Left" Height="31" Margin="700,393,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="49" RenderTransformOrigin="0.406,-0.589"  Text="15%" Style="{StaticResource TextBlockBodyStyle}"/>
 
-        <Button x:Name="Sort_Button" Content="Sort by" HorizontalAlignment="Left" Margin="696,68,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="9.63,-6.324" Height="44" Style="{StaticResource StandardButton}"/>
-        <ScrollViewer Name="scrollViewer" VerticalScrollBarVisibility="Hidden" CanContentScroll="true" Margin="0,56,128,30">
-            <Grid HorizontalAlignment="Left" Height="367" VerticalAlignment="Top" Width="680" RenderTransformOrigin="0.485,0.378">
+        <Button x:Name="Sort_Button" Content="Sort by" HorizontalAlignment="Left" Margin="700,74,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="9.63,-6.324" Height="44" Style="{StaticResource StandardButton}" GotFocus="Button_GotFocus" LostFocus="Button_LostFocus" KeyDown="Button_KeyDown"/>
+        <ScrollViewer Name="scrollViewer" VerticalScrollBarVisibility="Hidden" CanContentScroll="true" Margin="0,56,117,30">
+            <Grid HorizontalAlignment="Left" Height="367" VerticalAlignment="Top" Width="685" RenderTransformOrigin="0.485,0.378">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
@@ -62,6 +62,18 @@
                 </Button>
                 <Image Grid.Column="0" Grid.Row="1" Source="Image/PLAY.jpg" Margin="0 0 15 15" />
 
+                <Button Name="But_6" Margin="0 0 5 5" Grid.Column="1" Grid.Row="1" GotFocus="Image_GotFocus" LostFocus="Image_LostFocus"  KeyDown="ImageButton_KeyDown" Style="{StaticResource StandardButton}">
+                    <Image  Name="img_6" Grid.Column="3" Grid.Row="0" Source="Image/familyphoto.jpg" Stretch="Fill" Margin="5 5 5 5"  />
+                </Button>
+
+                <Button Name="But_7" Margin="0 0 5 5" Grid.Column="2" Grid.Row="1" GotFocus="Image_GotFocus" LostFocus="Image_LostFocus"  KeyDown="ImageButton_KeyDown" Style="{StaticResource StandardButton}">
+                    <Image  Name="img_7" Grid.Column="3" Grid.Row="0" Source="Image/photoshot.jpg" Stretch="Fill" Margin="5 5 5 5"  />
+                </Button>
+
+                <Button Name="But_8" Margin="0 0 5 5" Grid.Column="3" Grid.Row="1" GotFocus="Image_GotFocus" LostFocus="Image_LostFocus"  KeyDown="ImageButton_KeyDown" Style="{StaticResource StandardButton}">
+                    <Image  Name="img_8" Grid.Column="3" Grid.Row="0" Source="Image/dogphoto.jpg" Stretch="Fill" Margin="5 5 5 5"  />
+                </Button>
+
             </Grid>
         </ScrollViewer>
 
@@ -75,8 +87,8 @@
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="112" Margin="749,328,0,0" Stroke="Black" VerticalAlignment="Top" Width="41"/>
         <Rectangle Fill="#FF00FF2E" HorizontalAlignment="Left" Height="11" Margin="749,429,0,0" Stroke="Black" VerticalAlignment="Top" Width="41"/>
 
-        <Button Name="Delete_Multiple" Content="Delete &#xA;Multiple"   HorizontalAlignment="Left" Margin="696,193,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="9.63,-6.324" Height="44"  FontSize="15" Style="{StaticResource StandardButton}" />
-        <Button x:Name="Delete_Single" Content="Delete &#xA;Single" HorizontalAlignment="Left" Margin="696,127,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="9.63,-6.324" Height="44" FontSize="15" Style="{StaticResource StandardButton}"/>
+        <Button Name="Delete_Multiple" Content="Delete &#xA;Multiple"   HorizontalAlignment="Left" Margin="700,226,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="9.63,-6.324" Height="44"  FontSize="15" Style="{StaticResource StandardButton}"  GotFocus="Button_GotFocus" LostFocus="Button_LostFocus" KeyDown="Button_KeyDown" />
+        <Button x:Name="Delete_Single" Content="Delete &#xA;Single" HorizontalAlignment="Left" Margin="700,177,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="9.63,-6.324" Height="44" FontSize="15" Style="{StaticResource StandardButton}"  GotFocus="Button_GotFocus" LostFocus="Button_LostFocus" KeyDown="Button_KeyDown"/>
         <TextBlock HorizontalAlignment="Left" Height="31" Margin="685,297,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="113" RenderTransformOrigin="0.406,-0.589" Style="{StaticResource TextBlockBodyStyle}"><Run Text="Total: "/><Run Text="250GB"/></TextBlock>
         <Grid x:Name="EnlargePhotoGrid" HorizontalAlignment="Left" Height="460" Margin="0,-6,0,0" VerticalAlignment="Top" Width="808" >
             <Grid.ColumnDefinitions>
