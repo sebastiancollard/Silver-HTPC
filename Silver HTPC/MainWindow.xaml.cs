@@ -48,7 +48,7 @@ namespace Silver_HTPC
             //list of buttons, stack panels and content
             //content=> possible mitigation -> reading from a file (log file)
             menuButtonList = new Button[] { munu_button1, munu_button2, munu_button3, munu_button4, munu_button5,munu_button6,munu_button7,munu_button8,munu_button9,profile_button};
-            profiles = new String[,] { { "John Doe", "Image/profile_icon.png" }, { "Add Profile", "Image/cancel_icon.png" } };
+            profiles = new String[,] { { "John Doe", "Image/profile_icon.png" }, { "Add Profile", "Image/add_profile.png" } };
             //profiles.Append<string>("Add profile");
             
 
@@ -157,6 +157,10 @@ namespace Silver_HTPC
             //}
             //button.Foreground = Brushes.White;
             button.Height *= 1.2;
+            if (button_index == 7)
+            {
+                notifyDot.Margin = new Thickness(410, 310, 0, 0);
+            }
         }
 
         public void updateContent(int button_index)
@@ -190,6 +194,10 @@ namespace Silver_HTPC
             //}
             
             button.Height /= 1.2;
+            if (button_index == 7)
+            {
+                notifyDot.Margin = new Thickness(410, 323, 0, 0);
+            }
         }
 
         public void setProfileButtonFocus(int button_index)
@@ -271,6 +279,7 @@ namespace Silver_HTPC
                         if (e.Key == Key.Z)
                         { //hardcoded to show notification
                             Notification_popup0.Visibility = Visibility.Visible;
+                            notifyDot.Visibility = Visibility.Visible;
                             dispatcherTimer.Start();
                         }
                         break;
@@ -312,12 +321,13 @@ namespace Silver_HTPC
                                     case "Notification":
                                         Notification_tab notif = new Notification_tab();
                                         notif.Show();
+                                        notifyDot.Visibility = Visibility.Hidden;
                                         break;
                                     case "Other Apps":
                                         OtherApplications otherApp = new OtherApplications();
                                         otherApp.Show();
                                         content[6, 0] = "Prime Videos";
-                                        content[6, 1] = "Image/netflix_icon.png";
+                                        content[6, 1] = "Image/primevid_icon.png";
                                         updateContent(6);
                                         break;
                                     default://profile
@@ -371,6 +381,7 @@ namespace Silver_HTPC
                             if (e.Key == Key.O)
                             {
                                 LiveTV liveTV = new LiveTV(2);
+                                notifyDot.Visibility = Visibility.Hidden;
                                 liveTV.Show();
                                 this.Close();
                             }

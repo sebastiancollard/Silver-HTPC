@@ -550,6 +550,12 @@
     <Resource Include="Image\youtube_icon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Image\back_button.png" />
+    <Resource Include="Image\down_button.png" />
+    <Resource Include="Image\left_button.png" />
+    <Resource Include="Image\right_button.png" />
+    <Resource Include="Image\up_button.png" />
+    <Resource Include="Image\add_profile.png" />
     <Content Include="Sound\OkClick.wav" />
     <Resource Include="Sound\OkClick.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
