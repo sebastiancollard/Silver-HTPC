@@ -43,13 +43,7 @@ namespace Silver_HTPC
             nowPlaying.Source = bi;
             sidemenu = panel;
             record = record_button;
-            //slideRight = (Storyboard)TryFindResource("SlideRight");
-            //slideLeft = (Storyboard)TryFindResource("SlideLeft");
-
-
-
-            //r = rect;
-
+            
 
 
 
