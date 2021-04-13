@@ -23,15 +23,18 @@
             <ComboBoxItem Content="French"></ComboBoxItem>
             <ComboBoxItem Content="Spanish"></ComboBoxItem>
         </ComboBox>
+        <TextBlock Style="{StaticResource TextBlockBodyStyle}" Text="Button guide" Margin="85,249,0,0"/>
+        <ToggleButton Name="_togbut_ButtonGuide" Style="{DynamicResource ToggleButtonStyle1}"
+                Margin="207,218,435.556,115.667"
+                Focusable="True"/>
         <Button Name="_button_AdvanceSettings" Content="Advanced Settings"
                 Style="{DynamicResource StandardButton}"
                 Height="59" Margin="0,356,0,0" Width="277"
                 FontWeight="Bold"
+                GotFocus="OnButtonGotFocusHandler" LostFocus="OnButtonLostFocusHandler" 
                 Click="AdSet_button_Click"/>
-        <TextBlock Style="{StaticResource TextBlockBodyStyle}" Text="Button guide" Margin="85,249,0,0"/>
-        <ToggleButton Style="{DynamicResource ToggleButtonStyle1}" Margin="207,218,435.556,115.667" Focusable="True"/>
         <Image HorizontalAlignment="Left" Height="29" Margin="17,19,0,0" VerticalAlignment="Top" Width="32" Source="Settings gear.png"/>
-        <Rectangle HorizontalAlignment="Left" Height="5" Margin="0,60,-0.444,0" VerticalAlignment="Top" Width="796" Fill="#FF777A93"/>
+        <Rectangle Style="{StaticResource GreyDivider}"/>
 
     </Grid>
 </Window>
