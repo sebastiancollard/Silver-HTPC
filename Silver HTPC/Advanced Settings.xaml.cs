@@ -25,7 +25,10 @@ namespace Silver_HTPC
             InitializeComponent();
             
             // Set default text for ComboBox
-            _combobox_ColourBlind.Text = "Full spectrum"; //Not working :(
+            _combobox_ColourBlind.Text = "Full spectrum"; //Not working, no idea why :(
+
+            // Sets focus on the first item
+            _tb_Magnifier.Focus();
         }
 
         /** Go back to Settings on backspace **/
@@ -50,10 +53,37 @@ namespace Silver_HTPC
                 search.Show();
                 this.Close();
             }
+            // The "janky, but it works" method of keyboard navigation continues
             else if (e.Key == Key.Down)
             {
-                //TODO
-                // Shift focus
+                if (_tb_Magnifier.IsFocused) {
+                    _combobox_ColourBlind.Focus();
+                } else if (_combobox_ColourBlind.IsFocused) {
+                    _tb_Notifications.Focus();
+                } else if (_tb_Notifications.IsFocused) {
+                   _tb_Magnifier.Focus();
+                }
+            }
+            else if (e.Key == Key.Up)
+            {
+                if (_tb_Magnifier.IsFocused) {
+                    _tb_Notifications.Focus();
+                } else if (_combobox_ColourBlind.IsFocused) {
+                    _tb_Magnifier.Focus();
+                } else if (_tb_Notifications.IsFocused) {
+                    _combobox_ColourBlind.Focus();
+                }
+            }
+            else if (e.Key == Key.O)
+            {
+                if (_tb_Magnifier.IsFocused)
+                {
+                    // Trigger _tb_Magnifier.IsChecked;
+                }
+                else if (_combobox_ColourBlind.IsFocused)
+                {
+                    _tb_Notifications.Focus();
+                }
             }
         }
     }

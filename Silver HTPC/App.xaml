@@ -85,6 +85,15 @@
             <Setter Property="Background" Value="{DynamicResource ButtonNormalBackground}"/>
         </Style>
 
+        <Style x:Key="GreyDivider" TargetType="Rectangle">
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="Height" Value="5"/>
+            <Setter Property="Margin" Value="0,60,-0.444,0"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Width" Value="796"/>
+            <Setter Property="Fill" Value="#FF777A93"/>
+        </Style>
+
         <Style x:Key="ToggleButtonStyle1" TargetType="{x:Type ToggleButton}">
             <Setter Property="Background" Value="{StaticResource ButtonNormalBackground}"/>
             <Setter Property="BorderBrush" Value="{StaticResource ButtonNormalBorder}"/>
@@ -99,10 +108,10 @@
                     <ControlTemplate TargetType="{x:Type ToggleButton}">
                         <StackPanel Orientation="Horizontal">
                             <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
-                            <Border x:Name="on" Width="40" Height="30" Background="LightGray" CornerRadius="2,0,0,4" Margin="10,0,0,0">
+                            <Border x:Name="on" Width="40" Height="30" Background="{StaticResource ButtonNormalBackground}" CornerRadius="2,0,0,4" Margin="10,0,0,0" BorderBrush="Black" BorderThickness="1">
                                 <TextBlock x:Name="onText" Text="On" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             </Border>
-                            <Border x:Name="off" Width="40" Height="30" Background="LightGray" CornerRadius="0,2,4,0">
+                            <Border x:Name="off" Width="40" Height="30" Background="{StaticResource ButtonNormalBackground}" CornerRadius="0,2,4,0" BorderBrush="Black" BorderThickness="1">
                                 <TextBlock x:Name="offText" Text="Off" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             </Border>
                         </StackPanel>
@@ -110,18 +119,19 @@
                             <Trigger Property="IsEnabled" Value="false">
                                 <Setter Property="Foreground" Value="#ADADAD"/>
                             </Trigger>
-                            <Trigger Property="IsChecked" Value="true">
-                                <Setter TargetName="on" Property="Background" Value="Green"/>
-                                <Setter TargetName="onText" Property="Foreground" Value="White"/>
-                            </Trigger>
-                            <Trigger Property="IsChecked" Value="False">
-                                <Setter TargetName="off" Property="Background" Value="Red"/>
-                                <Setter TargetName="offText" Property="Foreground" Value="White"/>
-                            </Trigger>
                             <Trigger Property="IsFocused" Value="True">
                                 <Trigger.Setters>
                                     <Setter TargetName="on" Property="Background" Value="{StaticResource ButtonHoverBackground}"/>
                                 </Trigger.Setters>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="true">
+                                <Setter TargetName="on" Property="Background" Value="Green"/>
+                                <Setter TargetName="onText" Property="Foreground" Value="White"/>
+                                <Setter TargetName="off" Property="Background" Value="{StaticResource ButtonHoverBackground}"/>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="False">
+                                <Setter TargetName="off" Property="Background" Value="Red"/>
+                                <Setter TargetName="offText" Property="Foreground" Value="White"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>

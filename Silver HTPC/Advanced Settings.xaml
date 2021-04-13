@@ -11,15 +11,15 @@
 
     <Grid>
         <TextBlock HorizontalAlignment="Left" Margin="54,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="29" Width="180" FontSize="20" FontWeight="Bold"><Run Text="Advanced "/><Run Text="Settings"/></TextBlock>
+        <ToggleButton x:Name="_tb_Magnifier" Content="Magnifier             " Style="{StaticResource ToggleButtonStyle1}" Margin="85,117,162.556,240.667"/>
         <TextBlock HorizontalAlignment="Left" Margin="85,184,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="29" Width="126" FontSize="20"><Run Text="Colou"/><Run Text="r"/><Run Text=" "/><Run Text="blind"/></TextBlock>
         <ComboBox Name="_combobox_ColourBlind"  HorizontalAlignment="Left" Height="29" Margin="252,184,0,0" VerticalAlignment="Top" Width="196">
             <ComboBoxItem Content="Full Spectrum"></ComboBoxItem>
             <ComboBoxItem Content="High Contrast"></ComboBoxItem>
-            <ComboBoxItem Content="Reduce colours??"></ComboBoxItem>
+            <ComboBoxItem Content="Reduce colours"></ComboBoxItem>
         </ComboBox>
         <TextBlock HorizontalAlignment="Left" Margin="50,90,0,0" TextWrapping="Wrap" Text="Accessibility" VerticalAlignment="Top" Height="29" Width="109" FontSize="20"/>
-        <ToggleButton Content="Magnifier             " Style="{StaticResource ToggleButtonStyle1}" Margin="85,117,162.556,240.667"/>
-        <ToggleButton Content="Notifications              " Style="{StaticResource ToggleButtonStyle1}" Margin="52,218,195.556,115.667"/>
+        <ToggleButton x:Name="_tb_Notifications" Content="Notifications              " Style="{StaticResource ToggleButtonStyle1}" Margin="52,218,195.556,115.667"/>
         <Image HorizontalAlignment="Left" Height="29" Margin="17,19,0,0" VerticalAlignment="Top" Width="32" Source="Settings gear.png"/>
         <Rectangle HorizontalAlignment="Left" Height="5" Margin="0,60,-0.444,0" VerticalAlignment="Top" Width="796" Fill="#FF777A93"/>
     </Grid>

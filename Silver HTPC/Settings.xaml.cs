@@ -29,8 +29,8 @@ namespace Silver_HTPC
             // Set default text for ComboBox
             _combobox_Language.Text = "English";
 
-            // Sets keyboard focus on the first Button in the sample.
-            Keyboard.Focus(_slider_TextSize);
+            // Sets focus on the first item
+            _slider_TextSize.Focus();
         }
 
         // When someone moves the slider, text (theoretically) changes everywhere
@@ -65,27 +65,58 @@ namespace Silver_HTPC
                 search.Show();
                 this.Close();
             }
+            // The "janky, but it works" method of keyboard navigation.
             else if (e.Key == Key.Down)
             {
-                //Focus shifts to the next one down
-                // Let's make different functions for each?
+                if (_slider_TextSize.IsFocused) {
+                    _combobox_Language.Focus();
+                } else if (_combobox_Language.IsFocused) {
+                    _togbut_ButtonGuide.Focus();
+                } else if (_togbut_ButtonGuide.IsFocused) {
+                    _button_AdvanceSettings.Focus();
+                } else if (_button_AdvanceSettings.IsFocused) {
+                    _slider_TextSize.Focus();
+                }
             }
-        }
-
-        private void TextBoxGotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
-        {
-            TextBox source = e.Source as TextBox;
-
-            if (source != null)
+            else if (e.Key == Key.Up)
             {
-                // Change the TextBox color when it obtains focus.
-                source.Background = Brushes.LightBlue;
-
-                // Clear the TextBox.
-                source.Clear();
+                if (_slider_TextSize.IsFocused) {
+                    _button_AdvanceSettings.Focus();
+                } else if (_combobox_Language.IsFocused) {
+                    _slider_TextSize.Focus();
+                } else if (_togbut_ButtonGuide.IsFocused) {
+                    _combobox_Language.Focus();
+                } else if (_button_AdvanceSettings.IsFocused) {
+                    _togbut_ButtonGuide.Focus();
+                }
+            }
+            else if (e.Key == Key.O)
+            {
+                if (_combobox_Language.IsFocused) {
+                    _slider_TextSize.Focus();
+                } else if (_togbut_ButtonGuide.IsFocused) {
+                    // Trigger _togbut_ButtonGuide.IsChecked;
+                } else if (_button_AdvanceSettings.IsFocused) {
+                    AdSet_button_Click(sender, e);
+                }
             }
         }
 
+        // Raised when Button gains focus.
+        // Changes the color of the Button to the one defined in app.xaml.
+        private void OnButtonGotFocusHandler(object sender, RoutedEventArgs e)
+        {
+            Button tb = e.Source as Button;
+            tb.Background = (Brush)Application.Current.FindResource("ButtonHoverBackground");
+        }
+
+        // Raised when Button loses focus.
+        // Changes the color of the Button back to normal.
+        private void OnButtonLostFocusHandler(object sender, RoutedEventArgs e)
+        {
+            Button tb = e.Source as Button;
+            tb.Background = (Brush)Application.Current.FindResource("ButtonNormalBackground");
+        }
 
     }
 }
