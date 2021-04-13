@@ -10,7 +10,7 @@
         Background="{StaticResource WindowBackgroundBrush}"
         KeyDown="Window_KeyDown">
     <Grid>
-        <TextBlock x:Name="Recording_Label" Text="Recordings" Height="41" Width="220" RenderTransformOrigin="0.22,1.006"  Margin="46,10,0,0" Cursor="None" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="Black" Style="{StaticResource TextBlockHeaderStyle}" FontSize="30">
+        <TextBlock x:Name="Recording_Label" Text="Recordings" Height="41" Width="220" RenderTransformOrigin="0.22,1.006"  Margin="58,10,0,0" Cursor="None" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="Black" Style="{StaticResource TextBlockHeaderStyle}" FontSize="30">
 
         </TextBlock>
 
@@ -19,7 +19,7 @@
         <TextBlock Text="{Binding Source={x:Static system:DateTime.Now}, StringFormat={}{0:dddd, MMMM dd}}"  HorizontalAlignment="Right" TextAlignment="Right" Height="30" VerticalAlignment="Top" Width="255" RenderTransformOrigin="0.268,0.293" Margin="0,-2,0,0" Background="{x:Null}" Style="{StaticResource TextBlockHeaderStyle}" />
         <Line X1="0" Y1="55" X2="800" Y2="55" Stroke="LightSlateGray" StrokeThickness="7" Opacity="1"   />
         <!-- https://www.iconsdb.com/red-icons/record-icon.html -->
-        <Image HorizontalAlignment="Left" Height="50" Margin="0,1,0,0" VerticalAlignment="Top" Width="58" RenderTransformOrigin="0.148,-0.221" Source="Image/recordimage.png" />
+        <Image HorizontalAlignment="Left" Height="50" Margin="0,1,0,0" VerticalAlignment="Top" Width="58" RenderTransformOrigin="0.148,-0.221" Source="Image/record_icon.png" />
         <Button x:Name="Sort_Button" Content="Sort by" HorizontalAlignment="Left" Margin="651,88,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="9.63,-6.324" Height="44" Style="{StaticResource StandardButton}" GotFocus="Button_GotFocus" LostFocus="Button_LostFocus" KeyDown="Button_KeyDown"/>
         <Button Name="DeleteMultiple_Button" Content="Delete &#xD;&#xA;Multiple" HorizontalAlignment="Left" Margin="651,176,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="9.63,-6.324" Height="44" FontSize="15" Style="{StaticResource StandardButton}" GotFocus="Button_GotFocus" LostFocus="Button_LostFocus" KeyDown="Button_KeyDown"/>
 
