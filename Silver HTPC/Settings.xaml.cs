@@ -106,16 +106,18 @@ namespace Silver_HTPC
         // Changes the color of the Button to the one defined in app.xaml.
         private void OnButtonGotFocusHandler(object sender, RoutedEventArgs e)
         {
-            Button tb = e.Source as Button;
-            tb.Background = (Brush)Application.Current.FindResource("ButtonHoverBackground");
+            Button button = e.Source as Button;
+            button.Style = (Style)FindResource("HoverButton");
+            button.Background = (Brush)Application.Current.FindResource("ButtonHoverBackground");
         }
 
         // Raised when Button loses focus.
         // Changes the color of the Button back to normal.
         private void OnButtonLostFocusHandler(object sender, RoutedEventArgs e)
         {
-            Button tb = e.Source as Button;
-            tb.Background = (Brush)Application.Current.FindResource("ButtonNormalBackground");
+            Button button = e.Source as Button;
+            button.Style = (Style)FindResource("StandardButton");
+            button.Background = (Brush)Application.Current.FindResource("ButtonNormalBackground");
         }
 
     }
