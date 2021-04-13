@@ -24,8 +24,8 @@
         <TextBlock HorizontalAlignment="Left" Height="31" Margin="700,393,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="49" RenderTransformOrigin="0.406,-0.589"  Text="15%" Style="{StaticResource TextBlockBodyStyle}"/>
 
         <Button x:Name="Sort_Button" Content="Sort by" HorizontalAlignment="Left" Margin="700,74,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="9.63,-6.324" Height="44" Style="{StaticResource StandardButton}" GotFocus="Button_GotFocus" LostFocus="Button_LostFocus" KeyDown="Button_KeyDown"/>
-        <ScrollViewer Name="scrollViewer" VerticalScrollBarVisibility="Hidden" CanContentScroll="true" Margin="0,56,117,30">
-            <Grid HorizontalAlignment="Left" Height="367" VerticalAlignment="Top" Width="685" RenderTransformOrigin="0.485,0.378">
+        <ScrollViewer Name="scrollViewer" VerticalScrollBarVisibility="Hidden" CanContentScroll="true" Margin="0,74,117,30">
+            <Grid HorizontalAlignment="Left" Height="357" VerticalAlignment="Top" Width="685" RenderTransformOrigin="0.485,0.378">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
