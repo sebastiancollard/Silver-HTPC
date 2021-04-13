@@ -27,7 +27,7 @@ namespace Silver_HTPC
         private static Button[] menuButtonList;
         private static StackPanel[] stackPanelList;
         private DispatcherTimer dispatcherTimer;
-        public static string[,] content = new string[,] { { "Live TV", "Image/tv_icon.png" }, { "Gallery", "Image/gallery_icon.png" }, { "Music", "Image/music_icon.png" }, { "Recordings", "Image/record_icon.png" }, { "Search", "Image/search_icon.jpg" }, { "Netflix", "Image/netflix_icon.png" }, { "Settings", "Image/settings_icon.png" }, { "Notification", "Image/notification_icon.png" }, { "Other Apps", "Image/apps_icon.png" }, { "John Doe", "Image/profile_icon.png" } };
+        public static string[,] content = new string[,] { { "Live TV", "Image/tv_icon.png" }, { "Gallery", "Image/gallery_icon.png" }, { "Music", "Image/music_icon.png" }, { "Recordings", "Image/record_icon.png" }, { "Search", "Image/search_icon.png" }, { "Netflix", "Image/netflix_icon.png" }, { "Settings", "Image/settings_icon.png" }, { "Notification", "Image/notification_icon.png" }, { "Other Apps", "Image/apps_icon.png" }, { "John Doe", "Image/profile_icon.png" } };
         private static Label selectedLabel;
         private static string[] profiles;
         private static List<Button> profileBtns = new List<Button>();
@@ -68,8 +68,8 @@ namespace Silver_HTPC
                 }
                 else
                 {
-                    image.Height = 55;
-                    image.Width = 55;
+                    image.Height = 60;
+                    image.Width = 60;
                 }
                 Uri imageUri = new Uri(content[i, 1], UriKind.Relative);
                 image.Source = new BitmapImage(imageUri);
@@ -88,17 +88,18 @@ namespace Silver_HTPC
         {
             //currentButtonSelectionIndex = button_index;
             Button button = menuButtonList[button_index];
-            button.Background = Brushes.DarkBlue;
+            button.Style = (Style)FindResource("HoverButton");
+            button.Background = (LinearGradientBrush)FindResource("ButtonHoverBackground");
             //if (button_index != 9) //not profile button
             //{
             selectedLabel = new Label();
             selectedLabel.Name = "labelSelected";
-            selectedLabel.FontSize = 25;
-            selectedLabel.Foreground = Brushes.WhiteSmoke;
+            selectedLabel.FontSize = 20;
+            //selectedLabel.Foreground = Brushes.WhiteSmoke;
             selectedLabel.Content = content[button_index, 0];
             stackPanelList[button_index].Children.Add(selectedLabel);
             //}
-            button.Foreground = Brushes.White;
+            //button.Foreground = Brushes.White;
             button.Height *= 1.2;
         }
 
@@ -123,10 +124,12 @@ namespace Silver_HTPC
         public void resetButtonFocus(int button_index)
         {
             Button button = menuButtonList[button_index];
-            button.ClearValue(Button.BackgroundProperty);
-            button.ClearValue(Button.ForegroundProperty);
+            //button.ClearValue(Button.BackgroundProperty); 
+            //button.ClearValue(Button.ForegroundProperty);
             //if (button_index != 9)
             //{
+            button.Style = (Style)FindResource("StandardButton");
+            button.Background = (LinearGradientBrush)FindResource("ButtonNormalBackground");
             stackPanelList[button_index].Children.Remove(selectedLabel);
             //}
 
