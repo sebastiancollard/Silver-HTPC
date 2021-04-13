@@ -34,6 +34,11 @@ namespace Silver_HTPC
         private Border setReminder_border;
         private Border cancel_border;
         private Border done_border;
+        SolidColorBrush hover_border_color = new SolidColorBrush((Color) ColorConverter.ConvertFromString("#507EFF"));
+        Thickness hover_border_thickness = new Thickness(2);
+        SolidColorBrush std_border_color = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
+        Thickness std_border_thickness = new Thickness(1);
+
 
         TextBlock popup_message;
         bool currently_on_set_reminder;
@@ -96,7 +101,12 @@ namespace Silver_HTPC
             done.Background = (LinearGradientBrush)FindResource("ButtonHoverBackground"); ;
 
             done_border.Opacity = 0;
-            
+            done_border.BorderBrush = hover_border_color;
+            done_border.BorderThickness = hover_border_thickness;
+
+            setReminder_border.BorderBrush = std_border_color;
+            setReminder_border.BorderThickness = std_border_thickness;
+
             Popup_IsOpen = false;
 
             popup_message = textblock;
@@ -118,8 +128,14 @@ namespace Silver_HTPC
                 case Key.Right:
                     if (Popup_IsOpen)
                     {
-                        setReminder.Background = (LinearGradientBrush)FindResource("ButtonNormalBackground"); ;
-                        cancel.Background = (LinearGradientBrush)FindResource("ButtonHoverBackground"); ;
+                        setReminder.Background = (LinearGradientBrush)FindResource("ButtonNormalBackground"); 
+                        setReminder_border.BorderBrush = std_border_color;
+                        setReminder_border.BorderThickness = std_border_thickness;
+
+                        cancel.Background = (LinearGradientBrush)FindResource("ButtonHoverBackground");
+                        cancel_border.BorderBrush = hover_border_color;
+                        cancel_border.BorderThickness = hover_border_thickness;
+
                         currently_on_set_reminder = false;
                         
                     }
@@ -136,7 +152,13 @@ namespace Silver_HTPC
                     if (Popup_IsOpen)
                     {
                         setReminder.Background = (LinearGradientBrush)FindResource("ButtonHoverBackground");
+                        setReminder_border.BorderBrush = hover_border_color;
+                        setReminder_border.BorderThickness = hover_border_thickness;
+
                         cancel.Background = (LinearGradientBrush)FindResource("ButtonNormalBackground");
+                        cancel_border.BorderBrush = std_border_color;
+                        cancel_border.BorderThickness = std_border_thickness;
+
                         currently_on_set_reminder = true;
                         
                     }
@@ -233,7 +255,14 @@ namespace Silver_HTPC
                         {
                             //back to default
                             setReminder.Background = (LinearGradientBrush)FindResource("ButtonNormalBackground");
+                            setReminder_border.BorderBrush = std_border_color;
+                            setReminder_border.BorderThickness = std_border_thickness;
                             cancel.Background = (LinearGradientBrush)FindResource("ButtonHoverBackground");
+                            cancel_border.BorderBrush = hover_border_color;
+                            cancel_border.BorderThickness = hover_border_thickness;
+
+                            
+
                             setReminder_border.Opacity = 100;
                             cancel_border.Opacity = 100;
                             done_border.Opacity = 0;
