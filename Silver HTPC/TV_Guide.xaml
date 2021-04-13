@@ -286,8 +286,8 @@
 
 
                     <Border x:Name="set_reminder_button_border"  Margin="10,95,115,20"  BorderThickness="1">
-                        <Button Style="{StaticResource StandardButton}">
-                            <Grid  x:Name="set_reminder_button" >
+                        <Button x:Name="set_reminder_button" Style="{StaticResource StandardButton}">
+                            <Grid  >
                             
 
                             <Grid.RowDefinitions>
@@ -307,8 +307,8 @@
 
 
                     <Border x:Name="cancel_button_border" Margin="117,95,10,20" BorderThickness="1" >
-                        <Button Style="{StaticResource StandardButton}">
-                            <Grid  x:Name="cancel_button"  >
+                        <Button x:Name="cancel_button" Style="{StaticResource StandardButton}">
+                            <Grid  >
                               
 
                             <Grid.RowDefinitions>
@@ -328,8 +328,8 @@
                     </Border>
 
                     <Border x:Name="done_button_border" Opacity="0" Margin="58,95,0,0" HorizontalAlignment="left" Height="57" VerticalAlignment="Top" Width="95" BorderThickness="1" >
-                        <Button Style="{StaticResource StandardButton}">
-                            <Grid x:Name="done_button" >
+                        <Button x:Name="done_button" Style="{StaticResource StandardButton}">
+                            <Grid  >
                                 
 
                                 <Grid.RowDefinitions>
