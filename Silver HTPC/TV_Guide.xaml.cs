@@ -185,7 +185,7 @@ namespace Silver_HTPC
 
 
                     break;
-                case Key.Enter:
+                case Key.O:
 
                     if (!Popup_IsOpen) {
 
