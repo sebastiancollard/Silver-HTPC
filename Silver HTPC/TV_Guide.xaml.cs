@@ -127,14 +127,16 @@ namespace Silver_HTPC
                     {
                         if (lb.SelectedIndex < MAX_LBI_INDEX) lb.SelectedIndex += 1;
                         lb.ScrollIntoView(lb.SelectedItem);
+                        
+
                     }
 
                     break;
                 case Key.Left:
                     if (Popup_IsOpen)
                     {
-                        setReminder.Background = (LinearGradientBrush)FindResource("ButtonHoverBackground"); ;
-                        cancel.Background = (LinearGradientBrush)FindResource("ButtonNormalBackground"); ;
+                        setReminder.Background = (LinearGradientBrush)FindResource("ButtonHoverBackground");
+                        cancel.Background = (LinearGradientBrush)FindResource("ButtonNormalBackground");
                         currently_on_set_reminder = true;
                         
                     }
