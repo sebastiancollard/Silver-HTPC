@@ -74,6 +74,11 @@
             <GradientStop Color="#A0CEFF" Offset="1"/>
         </LinearGradientBrush>
 
+        <!--<GradientStop Color="#F0F8FF" Offset="0"/>
+        <GradientStop Color="#E0EBFF" Offset="0.5"/>
+        <GradientStop Color="#C0DEFF" Offset="0.5"/>
+        <GradientStop Color="#A0CEFF" Offset="1"/>-->
+
         <LinearGradientBrush x:Key="ButtonSelectedBackground" EndPoint="0,1" StartPoint="0,0">
             <GradientStop Color="Gray" Offset="0"/>
             <GradientStop Color="Gray" Offset="0.5"/>
