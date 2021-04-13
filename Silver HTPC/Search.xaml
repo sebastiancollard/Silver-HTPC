@@ -149,6 +149,7 @@
             </Grid>
         </DockPanel>
         <TextBox Visibility="Visible" x:Name="counter" Height="43" Canvas.Left="158" TextWrapping="Wrap" Canvas.Top="68" Width="126" Text="0 results" FontFamily="Helvetica" />
+        <Image x:Name="spiderverse" Visibility="Hidden" Height="419" Width="792" Source="spiderverse_prime_video.jpg" Stretch="Fill"/>
 
 
         <!--<Button HorizontalAlignment="Left" Margin="35,30,0,0" VerticalAlignment="Top" Width="100" Height="200" Grid.Row="1" BorderThickness="1" BorderBrush="Red" SnapsToDevicePixels="True" FontFamily="REVOLUTION" Foreground="Black">
