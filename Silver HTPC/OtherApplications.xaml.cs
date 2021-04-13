@@ -27,7 +27,7 @@ namespace Silver_HTPC
         public OtherApplications()
         {
             InitializeComponent();
-            content = new string[,] { { "Prime Videos", "Image/tv_icon.png" }, { "Hulu", "Image/gallery_icon.png" }, { "Kanopy", "Image/music_icon.png" }, { "HBO", "Image/record_icon.png" }, { "Spotify", "Image/search_icon.jpg" }, { "Paramount+", "Image/netflix_icon.png" }, { "YouTube", "Image/settings_icon.png" }, { "Crackle", "Image/notification_icon.png" }, { "Disney+", "Image/apps_icon.png" }, { "Apple TV", "Image/profile_icon.png" }, { "Discovery+", "Image/tv_icon.png" } };
+            content = new string[,] { { "Prime Videos", "Image/primevid_icon.png" }, { "Hulu", "Image/hulu_icon.png" }, { "Kanopy", "Image/kanopy_icon.png" }, { "HBO", "Image/hbo_icon.png" }, { "Spotify", "Image/spotify_icon.png" }, { "Paramount+", "Image/paramount_icon.png" }, { "YouTube", "Image/youtube_icon.png" }, { "Crackle", "Image/crakle_icon.png" }, { "Disney+", "Image/disney_icon.png" }, { "Apple TV", "Image/apple_tv_icon.png" }, { "Discovery+", "Image/discovery_icon.png" } };
             /*{ "Gallery1", "Image/gallery_icon.png" }, { "Music1", "Image/music_icon.png" }, { "Recordings1", "Image/record_icon.png" }, { "Search1", "Image/search_icon.jpg" }, { "Netflix1", "Image/netflix_icon.png" }, { "Settings1", "Image/settings_icon.png" }, { "Notification1", "Image/notification_icon.png" }, { "Other Apps1", "Image/apps_icon.png" }, { "John Doe1", "Image/profile_icon.png" }*/
             //bool populated = false;
             //For notification popup***********************************************
@@ -60,19 +60,19 @@ namespace Silver_HTPC
             {
                 Button btn = new Button();
                 btn.Name = "otherBtn" + i.ToString();
-                btn.Height = 80;
+                btn.Height = 85;
                 btn.Width = 170;
                 btn.Background = (LinearGradientBrush)FindResource("ButtonNormalBackground");
                 StackPanel stackPanelBtn = new StackPanel();
                 Image image = new Image();
-                image.Height = 45;
-                image.Width = 45;
+                image.Height = 50;
+                image.Width = 50;
                 Uri imageUri = new Uri(content[i, 1], UriKind.Relative);
                 image.Source = new BitmapImage(imageUri);
                 stackPanelBtn.Children.Add(image);
                 Label lbl = new Label();
                 lbl.Content = content[i, 0];
-                lbl.FontSize = 20;
+                lbl.FontSize = 18;
                 stackPanelBtn.Children.Add(lbl);
                 btn.Content = stackPanelBtn;
                 buttonList.Add(btn);

@@ -249,6 +249,7 @@ namespace Silver_HTPC
         {
             Button thisButton = sender as Button;
             //thisButton.Background = Brushes.Red;
+            thisButton.Style = (Style)FindResource("HoverButton");
             thisButton.Background = (LinearGradientBrush)FindResource("ButtonHoverBackground");
             Console.WriteLine("Here");
             //thisButton.Height = 60;

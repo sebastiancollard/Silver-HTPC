@@ -108,6 +108,7 @@ namespace Silver_HTPC
             Button thisButton = sender as Button;
             Console.WriteLine(showRecordingButtons);
             Sort_Button.Focusable = false;
+            thisButton.Style = (Style)FindResource("HoverButton");
             thisButton.Background = (LinearGradientBrush)FindResource("ButtonHoverBackground");
             DeleteMultiple_Button.Focusable = false;
             thisButton.Height = 100;
@@ -228,6 +229,7 @@ namespace Silver_HTPC
         {
             
             Button thisButton = sender as Button;
+            thisButton.Style = (Style)FindResource("HoverButton");
             thisButton.Background = (LinearGradientBrush)FindResource("ButtonHoverBackground");
 
         }
@@ -235,6 +237,7 @@ namespace Silver_HTPC
         {
             Button thisButton = sender as Button;
             Console.WriteLine("HereD");
+            thisButton.Style = (Style)FindResource("HoverButton");
             thisButton.Background = (LinearGradientBrush)FindResource("ButtonHoverBackground");
 
             //MusicButtonsGrids[MusicIndex].Children.
@@ -646,6 +649,7 @@ namespace Silver_HTPC
         {
             Button thisButton = sender as Button;
             //thisButton.Background = Brushes.Red;
+            thisButton.Style = (Style)FindResource("HoverButton");
             thisButton.Background = (LinearGradientBrush)FindResource("ButtonHoverBackground");
             Console.WriteLine("Here");
             //thisButton.Height = 60;

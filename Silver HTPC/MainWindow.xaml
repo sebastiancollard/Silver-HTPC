@@ -109,7 +109,7 @@
             </Button>
 
         </StackPanel>
-        <Image x:Name="BackOption" Source="Image/ok_button.png" Stretch="Fill" Margin="220,188,538,198" Visibility="Hidden"/>
+        <Image x:Name="BackOption" Source="Image/back_button.png" Stretch="Fill" Margin="210,178,528,188" Visibility="Hidden"/>
         <DockPanel Height="325" x:Name="keypad" Width="264" LastChildFill="True" Canvas.Top="58" Canvas.Left="20"  Margin="399,80,129,14" Visibility="Hidden">
             <Grid DockPanel.Dock="Top" Canvas.Left="447" Canvas.Top="-99" Height="48">
                 <Grid.ColumnDefinitions>
@@ -196,5 +196,7 @@
             </Grid>
             <Button FontSize="15" Height="25" Background="Transparent" Foreground="Yellow">Press OK to Navigate</Button>
         </StackPanel>
+        <Ellipse x:Name="notifyDot" Fill="OrangeRed" HorizontalAlignment="Left" Height="12" VerticalAlignment="Top" Width="12" Margin="410,323,0,0" Visibility="Hidden"/>
+
     </Grid>
 </Window>

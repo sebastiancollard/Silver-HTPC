@@ -67,6 +67,9 @@
     <Compile Include="OtherApplications.xaml.cs">
       <DependentUpon>OtherApplications.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PrimeResult.xaml.cs">
+      <DependentUpon>PrimeResult.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TV_Guide.xaml.cs">
       <DependentUpon>TV_Guide.xaml</DependentUpon>
     </Compile>
@@ -82,6 +85,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="OtherApplications.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PrimeResult.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -501,10 +508,54 @@
     <Resource Include="Image\ok_button.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Image\spiderverse_prime_video.jpg" />
     <Resource Include="Image\90DayFiance.jpg" />
     <Resource Include="Image\familyPhoto.jpg" />
     <Resource Include="Image\photoshot.jpg" />
     <Resource Include="Image\dogphoto.jpg" />
+    <Resource Include="Image\apple_tv_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\crakle_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\discovery_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\disney_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\hbo_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\hulu_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\kanopy_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\paramount_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\primevid_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\search_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\spiderverse_2.jpg" />
+    <Resource Include="Image\spotify_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\youtube_icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\back_button.png" />
+    <Resource Include="Image\down_button.png" />
+    <Resource Include="Image\left_button.png" />
+    <Resource Include="Image\right_button.png" />
+    <Resource Include="Image\up_button.png" />
+    <Resource Include="Image\add_profile.png" />
     <Content Include="Sound\OkClick.wav" />
     <Resource Include="Sound\OkClick.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

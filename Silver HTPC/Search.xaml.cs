@@ -743,8 +743,9 @@ namespace Silver_HTPC
             
             if (e.Key == Key.O && btn != null)
             {
-                btn.Background = (LinearGradientBrush)FindResource("ButtonSelectedBackground");
-                btn.Foreground = Brushes.White;
+                btn.Style = (Style)FindResource("SelectButton");
+                //btn.Background = (LinearGradientBrush)FindResource("ButtonSelectedBackground");
+                //btn.Foreground = Brushes.White;
                 text += btn.Content;
                 searchBox.Text += btn.Content;
             }
@@ -766,8 +767,9 @@ namespace Silver_HTPC
             var btn = sender as Button;
             if (e.Key == Key.O && btn != null)
             {
-                btn.Background = (LinearGradientBrush)FindResource("ButtonSelectedBackground");
-                btn.Foreground = Brushes.White;
+                btn.Style = (Style)FindResource("SelectButton");
+                //btn.Background = (LinearGradientBrush)FindResource("ButtonSelectedBackground");
+                //btn.Foreground = Brushes.White;
 
                 if (btn.Content.Equals("Clear"))
                 {
@@ -833,30 +835,41 @@ namespace Silver_HTPC
 
         private void Button_KeyDown(object sender, KeyEventArgs e)
         {
+            var btn = sender as Button;
             if (e.Key == Key.Up)
             {
                 filter.Focus();
                 //filter.IsDropDownOpen = true;
+            }
+            else if (e.Key == Key.O && Results[Results.IndexOf((Grid)btn.Parent)].Name.Equals("spiderman_into_the_spiderverse") && ((Image)((Grid)Results[Results.IndexOf((Grid)btn.Parent)]).Children[2]).Name.Equals("primevideo"))
+            {
+                PrimeResult p = new PrimeResult();
+                p.Show();
+                this.Close();
             }
         }
 
         private void keyPad_GotFocus(object sender, RoutedEventArgs e)
         {
             var btn = sender as Button;
-            btn.Background = (LinearGradientBrush)FindResource("ButtonHoverBackground");
+            btn.Style = (Style)FindResource("HoverButton");
+            //btn.Background = (LinearGradientBrush)FindResource("ButtonHoverBackground");
         }
 
         private void keyPad_LostFocus(object sender, RoutedEventArgs e)
         {
             var btn = sender as Button;
-            btn.Background = (LinearGradientBrush)FindResource("ButtonNormalBackground");
+            btn.Style = (Style)FindResource("StandardButton");
+            //btn.Background = (LinearGradientBrush)FindResource("ButtonNormalBackground");
         }
 
         private void KeyPad_KeyUp(object sender, KeyEventArgs e)
         {
             var btn = sender as Button;
-            btn.Background = (LinearGradientBrush)FindResource("ButtonHoverBackground");
-            btn.Foreground = Brushes.Black;
+
+            btn.Style = (Style)FindResource("HoverButton");
+            //btn.Background = (LinearGradientBrush)FindResource("ButtonHoverBackground");
+            //btn.Foreground = Brushes.Black;
         }
     }
 }
