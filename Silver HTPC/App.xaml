@@ -78,10 +78,8 @@
         <GradientStop Color="#A0CEFF" Offset="1"/>-->
 
         <LinearGradientBrush x:Key="ButtonSelectedBackground" EndPoint="0,1" StartPoint="0,0">
-            <GradientStop Color="Gray" Offset="0"/>
-            <GradientStop Color="Gray" Offset="0.5"/>
-            <GradientStop Color="Black" Offset="0.5"/>
-            <GradientStop Color="Black" Offset="1"/>
+            <GradientStop Color="Black" Offset="0"/>
+            <GradientStop Color="Gray" Offset="1"/>
         </LinearGradientBrush>
 
         <SolidColorBrush x:Key="ButtonNormalBorder" Color="#FF707070"/>
@@ -104,6 +102,15 @@
             <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
         </Style>
 
+        <Style x:Key="SelectButton" TargetType="{x:Type Button}">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="BorderBrush" Value="White"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Background" Value="{DynamicResource ButtonSelectedBackground}"/>
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        </Style>
+
         <Style x:Key="GreyDivider" TargetType="Rectangle">
             <Setter Property="HorizontalAlignment" Value="Left"/>
             <Setter Property="Height" Value="5"/>
@@ -112,6 +119,26 @@
             <Setter Property="Width" Value="796"/>
             <Setter Property="Fill" Value="#FF777A93"/>
         </Style>
+
+
+        <Style x:Key="SimpleListBoxItem" TargetType="ListBoxItem">
+            <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListBoxItem">
+                        <Border Name="Border" Padding="2" SnapsToDevicePixels="true">
+                            <ContentPresenter />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="true">
+                                <Setter TargetName="Border" Property="Background" Value="{DynamicResource ButtonHoverBackground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
 
         <Style x:Key="ToggleButtonStyle1" TargetType="{x:Type ToggleButton}">
             <Setter Property="Background" Value="{StaticResource ButtonNormalBackground}"/>
