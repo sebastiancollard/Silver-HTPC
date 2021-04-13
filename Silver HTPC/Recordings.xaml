@@ -10,13 +10,13 @@
         Background="{StaticResource WindowBackgroundBrush}"
         KeyDown="Window_KeyDown">
     <Grid>
+        <Label Name="guide_time"  Content="Time:" Style="{StaticResource TimeLabel}" Margin="498,-6,0,0"/>
+        <Label Name="guide_date" Content="Date:" Style="{StaticResource DateLabel}" Margin="498,25,0,0"/>
         <TextBlock x:Name="Recording_Label" Text="Recordings" Height="41" Width="220" RenderTransformOrigin="0.22,1.006"  Margin="58,10,0,0" Cursor="None" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="Black" Style="{StaticResource TextBlockHeaderStyle}" FontSize="30">
 
         </TextBlock>
 
         <!-- https://www.wpf-tutorial.com/data-binding/the-stringformat-property/ -->
-
-        <TextBlock Text="{Binding Source={x:Static system:DateTime.Now}, StringFormat={}{0:dddd, MMMM dd}}"  HorizontalAlignment="Right" TextAlignment="Right" Height="30" VerticalAlignment="Top" Width="255" RenderTransformOrigin="0.268,0.293" Margin="0,-2,0,0" Background="{x:Null}" Style="{StaticResource TextBlockHeaderStyle}" />
         <Line X1="0" Y1="55" X2="800" Y2="55" Stroke="LightSlateGray" StrokeThickness="7" Opacity="1"   />
         <!-- https://www.iconsdb.com/red-icons/record-icon.html -->
         <Image HorizontalAlignment="Left" Height="50" Margin="0,1,0,0" VerticalAlignment="Top" Width="58" RenderTransformOrigin="0.148,-0.221" Source="Image/record_icon.png" />
@@ -135,7 +135,6 @@
         </Rectangle>
         <TextBlock HorizontalAlignment="Left" Height="31" Margin="595,365,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="114" RenderTransformOrigin="0.406,-0.589" Style="{StaticResource TextBlockBodyStyle}"><Run Text="Total: "/><Run Text="250GB"/></TextBlock>
         <TextBlock HorizontalAlignment="Left" Height="31" Margin="660,318,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="49" RenderTransformOrigin="0.406,-0.589"  Text="15%" Style="{StaticResource TextBlockBodyStyle}"/>
-        <TextBlock Text="{Binding Source={x:Static system:DateTime.Now}, StringFormat=\{0:HH:mm\}}" HorizontalAlignment="Right" Height="31" VerticalAlignment="Top" Width="65" RenderTransformOrigin="0.268,0.293" Margin="0,20,0,0" Background="{x:Null}"  Style="{StaticResource TextBlockHeaderStyle}" />
         <Image x:Name="ShowRecording" HorizontalAlignment="Left" Height="418" Margin="0,1,0,0" VerticalAlignment="Top" Width="792" Visibility="Hidden" Source="Image/90DayFiance.jpg" Stretch="UniformToFill"/>
         <Grid x:Name ="panel"  Background="{StaticResource WindowBackgroundBrush}" Margin="-264,-6,797,6" Visibility="Hidden" >
 
