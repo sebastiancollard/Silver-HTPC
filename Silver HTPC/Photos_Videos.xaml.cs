@@ -22,9 +22,9 @@ namespace Silver_HTPC
     public partial class Photos_Videos : Window
     {
         bool delete_Single_Clicked = false;
-        private static List<Button> ButtonsForImages = new List<Button>();
-        private static List<Image> ImagesForButtons = new List<Image>();
-        private static List<bool> isVideo = new List<bool>();
+        private List<Button> ButtonsForImages = new List<Button>();
+        private List<Image> ImagesForButtons = new List<Image>();
+        private List<bool> isVideo = new List<bool>();
         private int ButtonIndex = 0;
         private int Start = 0;
         private bool viewingEnlargaredImages = false;
@@ -37,18 +37,27 @@ namespace Silver_HTPC
             ButtonsForImages.Add(But_3);
             ButtonsForImages.Add(But_4);
             ButtonsForImages.Add(But_5);
+            ButtonsForImages.Add(But_6);
+            ButtonsForImages.Add(But_7);
+            ButtonsForImages.Add(But_8);
 
             ImagesForButtons.Add(img_1);
             ImagesForButtons.Add(img_2);
             ImagesForButtons.Add(img_3);
             ImagesForButtons.Add(img_4);
             ImagesForButtons.Add(img_5);
+            ImagesForButtons.Add(img_6);
+            ImagesForButtons.Add(img_7);
+            ImagesForButtons.Add(img_8);
 
             isVideo.Add(false);
             isVideo.Add(false);
             isVideo.Add(true);
             isVideo.Add(false);
             isVideo.Add(true);
+            isVideo.Add(false);
+            isVideo.Add(false);
+            isVideo.Add(false);
 
             But_1.Focus();
             
@@ -58,35 +67,54 @@ namespace Silver_HTPC
         {
             Button thisButton = sender as Button;
             thisButton.Background = Brushes.Black;
-            
+            //thisButton.Background = (LinearGradientBrush)FindResource("ButtonHoverBackground");
 
         }
 
         private void Image_LostFocus(object sender, RoutedEventArgs e)
         {
             Button thisButton = sender as Button;
-            thisButton.Background = Brushes.Gray;
+            thisButton.Style = (Style)FindResource("StandardButton");
+            thisButton.Background = (LinearGradientBrush)FindResource("ButtonNormalBackground");
 
         }
 
         private void ImageButton_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.Key== Key.Right && (ButtonIndex +1)%4!=0)
+            if (e.Key == Key.Right && (ButtonIndex + 1) % 4 != 0)
             {
                 ButtonIndex += 1;
             }
-            else if (e.Key == Key.Left && (ButtonIndex)%4!=0)
+            else if (e.Key == Key.Right && (ButtonIndex + 1) % 4 == 0)
+            {
+                for (int i = 0; i < ButtonsForImages.Count; i++)
+                {
+                    ButtonsForImages[i].Focusable = false;
+                }
+                Sort_Button.Focus();
+            }
+            else if (e.Key == Key.Left && (ButtonIndex) % 4 != 0)
             {
                 ButtonIndex -= 1;
             }
-            else if(e.Key == Key.Down && (ButtonIndex+4 < ButtonsForImages.Count))
+            else if (e.Key == Key.Down && (ButtonIndex + 4 < ButtonsForImages.Count))
             {
                 ButtonIndex += 4;
+            }
+            else if (e.Key == Key.Down && (ButtonIndex + 4 > ButtonsForImages.Count))
+            {
+                ButtonIndex = ButtonIndex % 4;
             }
             else if (e.Key == Key.Up && (ButtonIndex-4)>=0)
             {
                 ButtonIndex -= 4;
             }
+            
+            else if(e.Key==Key.Up && (ButtonIndex) < 4)
+            {
+                ButtonIndex += 4;
+            }
+            
             else if (e.Key == Key.Back && !viewingEnlargaredImages)
             {
                 MainWindow home = new MainWindow();
@@ -206,35 +234,74 @@ namespace Silver_HTPC
             //Console.WriteLine(viewingEnlargaredImages);
             
         }
-
-
-        /**
-            private void Delete_Single_Click(object sender, RoutedEventArgs e)
+        private void Button_GotFocus(object sender, RoutedEventArgs e)
         {
-            delete_Single_Clicked = true;
+            Button thisButton = sender as Button;
+            //thisButton.Background = Brushes.Red;
+            thisButton.Background = (LinearGradientBrush)FindResource("ButtonHoverBackground");
+            Console.WriteLine("Here");
+            //thisButton.Height = 60;
         }
 
-        private void img_1_Hovering(object sender, MouseEventArgs e)
+        private void Button_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (delete_Single_Clicked)
+            Button thisButton = sender as Button;
+            //thisButton.Background = Brushes.White;
+            thisButton.Style = (Style)FindResource("StandardButton");
+            thisButton.Background = (LinearGradientBrush)FindResource("ButtonNormalBackground");
+            //thisButton.Height = 44;
+        }
+
+        private void Button_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Back)
             {
-                img_1.Opacity = 0.5;
+                MainWindow home = new MainWindow();
+                home.Show();
+                this.Close();
+            }
+            else if (e.Key == Key.O)
+            {
+                MessageBox.Show("Sorry this feature has not been implemented! We aplogize for the inconvenience.", "Silver HTPC", MessageBoxButton.OK);
+            }
+            else if(e.Key == Key.Left)
+            {
+                for(int i =0; i<ButtonsForImages.Count; i++)
+                {
+                    ButtonsForImages[i].Focusable = true;
+                }
+                ButtonsForImages[ButtonIndex].Focus();
             }
         }
 
-        private void img_1_Leaving(object sender, MouseEventArgs e)
-        {
-            if (delete_Single_Clicked)
+
+            /**
+                private void Delete_Single_Click(object sender, RoutedEventArgs e)
             {
-                img_1.Opacity = 1.0;
+                delete_Single_Clicked = true;
             }
+
+            private void img_1_Hovering(object sender, MouseEventArgs e)
+            {
+                if (delete_Single_Clicked)
+                {
+                    img_1.Opacity = 0.5;
+                }
+            }
+
+            private void img_1_Leaving(object sender, MouseEventArgs e)
+            {
+                if (delete_Single_Clicked)
+                {
+                    img_1.Opacity = 1.0;
+                }
+            }
+            **/
+
+
+            // How do we want to implement functionality? Using keys? Using mouse for the prototype?
+            // Having a hard time implementing button functionality.
+            // Have images turn different colour when hovering?
+            // How do we want "selecting specific things" to look like?
         }
-        **/
-
-
-        // How do we want to implement functionality? Using keys? Using mouse for the prototype?
-        // Having a hard time implementing button functionality.
-        // Have images turn different colour when hovering?
-        // How do we want "selecting specific things" to look like?
-    }
 }

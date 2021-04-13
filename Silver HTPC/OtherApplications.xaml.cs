@@ -62,6 +62,7 @@ namespace Silver_HTPC
                 btn.Name = "otherBtn" + i.ToString();
                 btn.Height = 80;
                 btn.Width = 170;
+                btn.Background = (LinearGradientBrush)FindResource("ButtonNormalBackground");
                 StackPanel stackPanelBtn = new StackPanel();
                 Image image = new Image();
                 image.Height = 45;
@@ -113,8 +114,8 @@ namespace Silver_HTPC
             //  if (btn.Equals(buttonList[1]))
             //{
             Console.WriteLine("reached");
-            btn.Background = Brushes.Green;
-            btn.BorderBrush = Brushes.Red;
+            btn.Background = (LinearGradientBrush)FindResource("ButtonHoverBackground");
+            //btn.BorderBrush = Brushes.Red;
             MainWindow mainWindow = new MainWindow();
             
             //}
@@ -126,8 +127,8 @@ namespace Silver_HTPC
         private void nselect(object sender, RoutedEventArgs e)
         {
             var btn = sender as Button;
-            btn.Background = Brushes.LightGray;
-            btn.BorderBrush = Brushes.Transparent;
+            btn.Background = (LinearGradientBrush)FindResource("ButtonNormalBackground");
+            //btn.BorderBrush = Brushes.Transparent;
         }
 
 
