@@ -554,7 +554,7 @@ namespace Silver_HTPC
             {
                 foreach (Grid res in Results)
                 {
-                    if (RemoveSpecialCharacters(res.Name.ToLower()).Contains(RemoveSpecialCharacters(searchBox.Text)))
+                    if (RemoveSpecialCharacters(res.Name.ToLower()).Contains(RemoveSpecialCharacters(searchBox.Text)) && !RemoveSpecialCharacters(searchBox.Text).Equals(""))
                     {
                         found = true;
                         stack.Children.Add(res);
@@ -566,7 +566,7 @@ namespace Silver_HTPC
             {
                 foreach (Grid res in Results)
                 {
-                    if (filterVal.Contains(((Button)res.Children[1]).Name) && RemoveSpecialCharacters(res.Name.ToLower()).Contains(RemoveSpecialCharacters(searchBox.Text)))
+                    if (filterVal.Contains(((Button)res.Children[1]).Name) && RemoveSpecialCharacters(res.Name.ToLower()).Contains(RemoveSpecialCharacters(searchBox.Text)) && !RemoveSpecialCharacters(searchBox.Text).Equals(""))
                     {
                         found = true;
                         stack.Children.Add(res);
@@ -740,8 +740,11 @@ namespace Silver_HTPC
         private void KeyPad_KeyDown(object sender, KeyEventArgs e)
         {
             var btn = sender as Button;
+            
             if (e.Key == Key.O && btn != null)
             {
+                btn.Background = (LinearGradientBrush)FindResource("ButtonSelectedBackground");
+                btn.Foreground = Brushes.White;
                 text += btn.Content;
                 searchBox.Text += btn.Content;
             }
@@ -763,6 +766,9 @@ namespace Silver_HTPC
             var btn = sender as Button;
             if (e.Key == Key.O && btn != null)
             {
+                btn.Background = (LinearGradientBrush)FindResource("ButtonSelectedBackground");
+                btn.Foreground = Brushes.White;
+
                 if (btn.Content.Equals("Clear"))
                 {
                     searchBox.Text = "";
@@ -775,8 +781,11 @@ namespace Silver_HTPC
                 }
                 else if (btn.Content.Equals("Backspace"))
                 {
-                    searchBox.Text = searchBox.Text.Substring(0, searchBox.Text.Length - 1);
-                    text = text.Substring(0, text.Length - 1);
+                    if (searchBox.Text.Length > 0)
+                    {
+                        searchBox.Text = searchBox.Text.Substring(0, searchBox.Text.Length - 1);
+                        text = text.Substring(0, text.Length - 1);
+                    }
                 }
             } 
             else if (e.Key == Key.Right && btn == ((Grid)keypad.Children[0]).Children[2])
@@ -831,5 +840,23 @@ namespace Silver_HTPC
             }
         }
 
+        private void keyPad_GotFocus(object sender, RoutedEventArgs e)
+        {
+            var btn = sender as Button;
+            btn.Background = (LinearGradientBrush)FindResource("ButtonHoverBackground");
+        }
+
+        private void keyPad_LostFocus(object sender, RoutedEventArgs e)
+        {
+            var btn = sender as Button;
+            btn.Background = (LinearGradientBrush)FindResource("ButtonNormalBackground");
+        }
+
+        private void KeyPad_KeyUp(object sender, KeyEventArgs e)
+        {
+            var btn = sender as Button;
+            btn.Background = (LinearGradientBrush)FindResource("ButtonHoverBackground");
+            btn.Foreground = Brushes.Black;
+        }
     }
 }

@@ -5,6 +5,7 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
 
+
         <LinearGradientBrush x:Key="WindowBackgroundBrush" StartPoint="1,0" EndPoint="1,1">
             <GradientStop Offset="0" Color="#EEEEEE"/>
             <GradientStop Offset="1" Color="#CCCCCC"/>
@@ -73,11 +74,16 @@
             <GradientStop Color="#A0CEFF" Offset="1"/>
         </LinearGradientBrush>
 
+        <LinearGradientBrush x:Key="ButtonSelectedBackground" EndPoint="0,1" StartPoint="0,0">
+            <GradientStop Color="Gray" Offset="0"/>
+            <GradientStop Color="Gray" Offset="0.5"/>
+            <GradientStop Color="Black" Offset="0.5"/>
+            <GradientStop Color="Black" Offset="1"/>
+        </LinearGradientBrush>
+
         <SolidColorBrush x:Key="ButtonNormalBorder" Color="#FF707070"/>
 
         <Style x:Key="StandardButton" TargetType="{x:Type Button}">
-            <Setter Property="HorizontalAlignment" Value="Left"/>
-            <Setter Property="VerticalAlignment" Value="Top"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter Property="FontSize" Value="20"/>
             <Setter Property="BorderBrush" Value="Black"/>
