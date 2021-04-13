@@ -91,7 +91,7 @@
 
         </Grid>
 
-        <StackPanel x:Name="ProfilePopup" Orientation="Horizontal" HorizontalAlignment="Center" Height="236" Grid.RowSpan="3" VerticalAlignment="Top" Width="700" Grid.ColumnSpan="3" Margin="6,113,6,15" Background="DarkSlateGray" Visibility="Hidden">
+        <StackPanel x:Name="ProfilePopup" Orientation="Horizontal" HorizontalAlignment="Center" Height="236" Grid.RowSpan="3" VerticalAlignment="Top" Width="700" Grid.ColumnSpan="3" Margin="6,113,6,15" Background="DarkGray"  Visibility="Hidden">
 
         </StackPanel>
         <!--<StackPanel x:Name="addingProfilePopup" Margin="220,190,408,133" >
@@ -124,7 +124,7 @@
                 <Button Grid.Column="1" Grid.Row="2" Style="{StaticResource StandardButton}" >Space</Button>
                 <Button Grid.Column="2" Grid.Row="2" Style="{StaticResource StandardButton}" FontSize="15" >Backspace</Button>
             </Grid>
-            <Grid DockPanel.Dock="Top" Canvas.Left="248" Canvas.Top="174" >
+            <Grid DockPanel.Dock="Top" Canvas.Left="250" Canvas.Top="174" >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*" />
                     <ColumnDefinition Width="1*" />
@@ -179,7 +179,7 @@
                 <Button Grid.Column="5" Grid.Row="5" Style="{StaticResource StandardButton}">0</Button>
             </Grid>
         </DockPanel>
-        <Label x:Name="Profiles_header" Content="Profiles" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="51,114,0,0" Width="121" Height="40" FontSize="25" Foreground="White" Visibility="Hidden"/>
+        <Label x:Name="Profiles_header" Content="Profiles" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="51,114,0,0" Width="121" Height="40" FontSize="25" Foreground="Black" Visibility="Hidden"/>
 
         <StackPanel HorizontalAlignment="Left" Height="102" VerticalAlignment="Top" Width="368" Margin="422,10,0,0" Background="Black" Opacity="0.8" x:Name="Notification_popup0" Visibility="Hidden">
             <Label Height="30" Foreground="White" FontSize="18">Reminder</Label>
