@@ -30,6 +30,7 @@
         <Button Name="_button_AdvanceSettings" Content="Advanced Settings"
                 Style="{DynamicResource StandardButton}"
                 Height="59" Margin="0,356,0,0" Width="277"
+                HorizontalAlignment="Left"
                 FontWeight="Bold"
                 GotFocus="OnButtonGotFocusHandler" LostFocus="OnButtonLostFocusHandler" 
                 Click="AdSet_button_Click"/>

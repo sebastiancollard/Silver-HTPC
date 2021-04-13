@@ -144,6 +144,7 @@ namespace Silver_HTPC
         {
             //currentButtonSelectionIndex = button_index;
             Button button = menuButtonList[button_index];
+            button.Style = (Style)FindResource("HoverButton");
             button.Background = (LinearGradientBrush)FindResource("ButtonHoverBackground");
             //if (button_index != 9) //not profile button
             //{
@@ -183,7 +184,8 @@ namespace Silver_HTPC
             //button.ClearValue(Button.ForegroundProperty);
             //if (button_index != 9)
             //{
-            button.Background= (LinearGradientBrush)FindResource("ButtonNormalBackground");
+            button.Style = (Style)FindResource("StandardButton");
+            button.Background = (LinearGradientBrush)FindResource("ButtonNormalBackground");
             stackPanelList[button_index].Children.Remove(selectedLabel);
             //}
             
