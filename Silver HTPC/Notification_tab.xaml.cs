@@ -48,9 +48,15 @@ namespace Silver_HTPC
         private static List<Button> notifyButtonList = new List<Button>();
         private int buttonInd = 0;
         private static bool uptodate = false;
+        private bool expire = false;
+        private DispatcherTimer dispatcherTimer;
+        private Label tmp;
         public Notification_tab()
         {
             InitializeComponent();
+            dispatcherTimer = new DispatcherTimer();
+            dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 5);
             DispatcherTimer timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
             {
                 this.guide_time.Content = DateTime.Now.ToString("hh:mm tt");
@@ -62,8 +68,8 @@ namespace Silver_HTPC
                 NotificationContent notify0 = new NotificationContent("Recording in progress: Calgary flames", "12:30pm", "14-Apr-2021", "Image/record_icon.png", "Recording", false, true, "Started at 12:30pm");
                 NotificationContent notify01 = new NotificationContent("Downloading in progress: Something", "1:00pm", "14-Apr-2021", "Image/forward.png", "Downloading", false, true, "Progress: 65%");
                 NotificationContent notify1 = new NotificationContent("Reminder: El classico", "1:00pm", "14-Apr-2021", "Image/live_tv.png", "Reminder", true, false, null);
-                NotificationContent notify2 = new NotificationContent("Recording scheduled: FRIENDS", "6:00pm", "14-Apr-2021", "Image/record_icon.png", "Recording", true, false, null);
-                NotificationContent notify3 = new NotificationContent("Reminder: DDT News special", "10:00pm", "14-Apr-2021", "Image/live_tv.png", "Reminder", true, false, null);
+                NotificationContent notify2 = new NotificationContent("Recording scheduled: FRIENDS", "12:11pm", "14-Apr-2021", "Image/record_icon.png", "Recording", true, false, null);
+                NotificationContent notify3 = new NotificationContent("Reminder: DDT News special", "09:00am", "14-Apr-2021", "Image/live_tv.png", "Reminder", true, false, null);
 
                 notificationContents.Add(notify0);
                 //notificationContents.Add(notify01);
@@ -125,6 +131,7 @@ namespace Silver_HTPC
             notificationContents.RemoveAt(notificationContents.Count - 1);
             notifyButtonList.Clear();
             createButtons();
+            expire = true;
             displayButtons();
             foreach (Button btn in notifyButtonList)
             {
@@ -132,9 +139,18 @@ namespace Silver_HTPC
                 btn.LostFocus += nselect;
             }
             MainStack.Children[0].Focus();
+            
 
         }
+        private void dispatcherTimer_Tick(object sender, EventArgs e)
+        {//For notification
+         //Things which happen after 1 timer interval
 
+            MainStack.Children.Remove(tmp);
+
+    //Disable the timer
+            dispatcherTimer.IsEnabled = false;
+        }
         private void displayButtons()
         {
             MainStack.Children.Clear();
@@ -142,6 +158,19 @@ namespace Silver_HTPC
             for (int i=0; i < length; i++)
             {
                 MainStack.Children.Add(notifyButtonList[i]);
+            }
+            if (expire)
+            {
+                tmp = new Label();
+                tmp.Content = "Notification Expired";
+                tmp.Background= (LinearGradientBrush)FindResource("ButtonNormalBackground"); 
+                tmp.FontSize = 25;
+                tmp.Height = 80;
+                tmp.HorizontalContentAlignment = HorizontalAlignment.Center;
+                MainStack.Children.Add(tmp);
+                expire = false;
+                dispatcherTimer.Start();
+                
             }
         }
 
@@ -305,8 +334,13 @@ namespace Silver_HTPC
                 {
                     buttonInd -= 1 % notificationContents.Count;
                 }
+            }else if (e.Key==Key.O)
+            {
+                LiveTV li = new LiveTV(3);
+                li.Show();
+                this.Close();
             }
-            if (e.Key == Key.H)
+            else if (e.Key == Key.H)
             {
                 MainWindow mainWindow = new MainWindow();
                 mainWindow.Show();
@@ -333,6 +367,7 @@ namespace Silver_HTPC
         }
     }
 }
+
 /*
  <Button Height="85" HorizontalContentAlignment="Left" Background="#FFDDDDDD">
             <Grid Width="800" Height="70">
