@@ -246,8 +246,10 @@ namespace Silver_HTPC
             Button thisButton = sender as Button;
             Console.WriteLine("HereP");
             //thisButton.Background = Brushes.Red;
+            thisButton.Style = (Style)FindResource("HoverButton");
             thisButton.Background = (LinearGradientBrush)FindResource("ButtonHoverBackground");
-            
+
+
 
             //MusicButtonsGrids[MusicIndex].Children.
             //play.back
@@ -260,6 +262,7 @@ namespace Silver_HTPC
             Button thisButton = sender as Button;
             Console.WriteLine("HereD");
             //thisButton.Background = Brushes.Red;
+            thisButton.Style = (Style)FindResource("HoverButton");
             thisButton.Background = (LinearGradientBrush)FindResource("ButtonHoverBackground");
 
             //MusicButtonsGrids[MusicIndex].Children.
@@ -869,6 +872,24 @@ namespace Silver_HTPC
                 //this.Loaded+= new RoutedEventHandler(Login_Focus);
 
             }
+            else if(e.Key == Key.Back)
+            {
+                MusicList.Effect = null;
+                Cover.Effect = null;
+                MusicOptions.Effect = null;
+                MusicOptions.Effect = null;
+                SortButton.Effect = null;
+                DeleteMultiple.Effect = null;
+                MusicDuration.Effect = null;
+                for (int i = 0; i < MusicButtonsList.Count; i++)
+                {
+                    MusicButtonsList[i].Focusable = true;
+                }
+                DeleteMessage.Visibility = Visibility.Hidden;
+                Switche = false;
+                MusicButtonsList[MusicIndex].Focus();
+            }
+
             
 
         }
@@ -876,6 +897,24 @@ namespace Silver_HTPC
         private void No_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.O)
+            {
+                MusicList.Effect = null;
+                Cover.Effect = null;
+                MusicOptions.Effect = null;
+                MusicOptions.Effect = null;
+                SortButton.Effect = null;
+                DeleteMultiple.Effect = null;
+                MusicDuration.Effect = null;
+                for (int i = 0; i < MusicButtonsList.Count; i++)
+                {
+                    MusicButtonsList[i].Focusable = true;
+                }
+                DeleteMessage.Visibility = Visibility.Hidden;
+                Switche = false;
+                MusicButtonsList[MusicIndex].Focus();
+
+            }
+            else if (e.Key == Key.Back)
             {
                 MusicList.Effect = null;
                 Cover.Effect = null;
@@ -1031,6 +1070,7 @@ namespace Silver_HTPC
                 Grid.SetColumn(yes, 0);
                 yes.VerticalAlignment = VerticalAlignment.Center;
                 yes.HorizontalAlignment = HorizontalAlignment.Center;
+                yes.VerticalContentAlignment = VerticalAlignment.Top;
                 yes.Style =  (Style)FindResource("StandardButton");
 
                 Button no = new Button();
@@ -1173,6 +1213,7 @@ namespace Silver_HTPC
         {
             Button thisButton = sender as Button;
             //thisButton.Background = Brushes.Red;
+            thisButton.Style = (Style)FindResource("HoverButton");
             thisButton.Background = (LinearGradientBrush)FindResource("ButtonHoverBackground");
             Console.WriteLine("Here");
             //thisButton.Height = 60;
