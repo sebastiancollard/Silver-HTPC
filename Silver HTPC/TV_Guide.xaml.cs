@@ -26,7 +26,7 @@ namespace Silver_HTPC
         private int lb_index;
         private ListBoxItem[,] List_box_items;
         private ListBox lb;
-        private int channel;
+        private static int channel = 1;
         private ScrollViewer sv;
         private Button setReminder;
         private Button cancel;
@@ -275,6 +275,37 @@ namespace Silver_HTPC
                     mainwindow.Show();
                     this.Close();
                     break;
+
+                /*
+            case Key.Back:
+                LiveTV livetv = new LiveTV(channel);
+                livetv.Show();
+                this.Close();
+                break;
+           
+            case Key.S:
+            
+                Search search = new Search();
+                search.Show();
+                this.Close();
+                break;
+            
+            case Key.G:
+            
+                TV_Guide tvguide = new TV_Guide();
+                tvguide.Show();
+                this.Close();
+                break;
+            
+            case Key.H:
+            
+                MainWindow mainwindow = new MainWindow();
+                mainwindow.Show();
+                this.Close();
+                break;
+            
+            */
+
 
                 default:
                     break;
