@@ -10,9 +10,10 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Media.Animation;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Media.Effects;
+using System.Windows.Threading;
 
 namespace Silver_HTPC
 {
@@ -30,6 +31,7 @@ namespace Silver_HTPC
         static bool update = true;
         const int offset = 340;
         bool o = true;
+        private DispatcherTimer dispatcherTimerTime;
 
         public Search()
         {
@@ -48,6 +50,14 @@ namespace Silver_HTPC
         }
         private void MakeResults()
         {
+            dispatcherTimerTime = new DispatcherTimer();
+            dispatcherTimerTime.Interval = new TimeSpan(0, 0, 5);
+            DispatcherTimer timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
+            {
+                this.guide_time.Content = DateTime.Now.ToString("hh:mm tt");
+                this.guide_date.Content = DateTime.Now.ToString("MMMM dd, yyyy");
+            }, this.Dispatcher);
+
             for (int i = 0; i <= 34; ++i)
             {
                 Grid result = new Grid();
