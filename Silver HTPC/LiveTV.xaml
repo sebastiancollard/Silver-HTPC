@@ -9,10 +9,10 @@
         Background="{StaticResource WindowBackgroundBrush}">
 
 
-   
+
 
     <Grid>
-       
+
 
 
         <Grid.ColumnDefinitions>
@@ -42,7 +42,7 @@
                 </Storyboard>
 
             </Grid.Resources>
-            
+
             <Grid.RowDefinitions>
                 <RowDefinition Height="11*"/>
                 <RowDefinition Height="132"/>
@@ -52,12 +52,13 @@
             </Grid.RowDefinitions>
 
 
-            <Label Grid.Row="0" xml:space="preserve" HorizontalContentAlignment="Center" >
-                    Date:  
-                    Time:       
-                </Label>
+            <Canvas Grid.Row="0">
+                <Label Name="guide_time"  Content="Time:" Style="{StaticResource TimeLabel}" Margin="0" Canvas.Left="-86"/>
+                <Label Name="guide_date" Content="Date:" Style="{StaticResource DateLabel}" Margin="0" Canvas.Left="-86" Canvas.Top="37"/>
+
+            </Canvas>
             <StackPanel Grid.Row="1">
-                <Label Foreground="Black" FontSize="14">
+                <Label Foreground="Black" FontSize="18">
                     Description
                 </Label>
                 <Label Height="90" VerticalContentAlignment="Center">
@@ -73,7 +74,7 @@
             </StackPanel>
 
             <StackPanel Grid.Row="2">
-                <Label Foreground="Black" FontSize="14">
+                <Label Foreground="Black" FontSize="18">
                     Reminders
                 </Label>
 
@@ -95,27 +96,29 @@
                 </Grid>
             </StackPanel>
 
+            <Border Grid.Row="3" BorderBrush="#507EFF" BorderThickness="2">
+                <Grid x:Name="record_button"  >
 
-            <Grid x:Name="record_button" Grid.Row="2" Margin="0,144,0,0" Grid.RowSpan="2" >
+                    <Grid.Background>
+                        <LinearGradientBrush  EndPoint="0,1" StartPoint="0,0">
+                            <GradientStop Color="#A0CEFF" Offset="0"/>
+                            <GradientStop Color="#F0F8FF" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Grid.Background>
 
-                <Grid.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                        <GradientStop Color="#FF171717" Offset="1"/>
-                        <GradientStop Color="#FF4B4B4B"/>
-                    </LinearGradientBrush>
-                </Grid.Background>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="13*"/>
+                        <RowDefinition Height="9*"/>
+                    </Grid.RowDefinitions>
 
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="13*"/>
-                    <RowDefinition Height="9*"/>
-                </Grid.RowDefinitions>
+                    <Image Grid.Column="0" Grid.Row="0" Source="image/recordImage.png" />
+                    <TextBox Grid.Column="0" FontSize="14" Foreground="Black" Background="{x:Null}" HorizontalContentAlignment="Center" BorderBrush="{x:Null}" Margin="0,26,0,0" Grid.RowSpan="2">Record</TextBox>
 
-                <Image Grid.Column="0" Grid.Row="0" Source="image/recordImage.png" Margin="0,6,0,28" Grid.RowSpan="2" />
-                <TextBox Grid.Column="0" Grid.Row="1" Foreground="White" Background="{x:Null}" HorizontalContentAlignment="Center" BorderBrush="{x:Null}">Record</TextBox>
-
-            </Grid>
+                </Grid>
+            </Border>
 
         </Grid>
+
 
 
 
