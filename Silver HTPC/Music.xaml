@@ -15,7 +15,7 @@
         <TextBlock x:Name="Recording_Label" Text="Music" Height="74" Width="220"  Style="{StaticResource TextBlockHeaderStyle}" Margin="58,10,0,0" FontSize="30">
 
         </TextBlock>
-        <Button x:Name="AddButton" Content="Add" HorizontalAlignment="Left" Margin="244,62,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="9.63,-6.324" Height="44"  GotFocus="Button_GotFocus" LostFocus="Button_LostFocus" KeyDown="Button_KeyDown" FocusVisualStyle="{x:Null}"  Style="{StaticResource StandardButton}"/>
+        <Button x:Name="AddButton" Content="Add" HorizontalAlignment="Left" Margin="101,62,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="9.63,-6.324" Height="44"  GotFocus="Button_GotFocus" LostFocus="Button_LostFocus" KeyDown="Button_KeyDown" FocusVisualStyle="{x:Null}"  Style="{StaticResource StandardButton}"/>
         <Label Name="guide_time"  Content="Time:" Style="{StaticResource TimeLabel}" Margin="498,-7,0,0"/>
         <Label Name="guide_date" Content="Date:" Style="{StaticResource DateLabel}" Margin="498,27,0,0"/>
         <Button x:Name="SortButton" Content="Sort by" HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="9.63,-6.324" Height="44"  GotFocus="Button_GotFocus" LostFocus="Button_LostFocus" KeyDown="Button_KeyDown" FocusVisualStyle="{x:Null}"  Style="{StaticResource StandardButton}"/>
