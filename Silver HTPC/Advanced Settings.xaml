@@ -21,6 +21,6 @@
         <TextBlock HorizontalAlignment="Left" Margin="50,90,0,0" TextWrapping="Wrap" Text="Accessibility" VerticalAlignment="Top" Height="29" Width="109" FontSize="20"/>
         <ToggleButton x:Name="_tb_Notifications" Content="Notifications              " Style="{StaticResource ToggleButtonStyle1}" Margin="52,218,195.556,115.667"/>
         <Image HorizontalAlignment="Left" Height="29" Margin="17,23,0,0" VerticalAlignment="Top" Width="32" Source="Settings gear.png"/>
-        <Line X1="0" Y1="75" X2="800" Y2="75" Stroke="Black" StrokeThickness="7" Opacity="1"   />
+        <Line Style="{StaticResource GreyDividerLine}"/>
     </Grid>
 </Window>
