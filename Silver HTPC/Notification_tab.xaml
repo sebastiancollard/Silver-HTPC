@@ -7,15 +7,19 @@
         mc:Ignorable="d"
         Title="Notification_tab" Height="450" Width="800" KeyDown="Window_KeyDown"
         Background="{StaticResource WindowBackgroundBrush}">
-    
+
     <Grid x:Name="windowStack" HorizontalAlignment="Left" Height="420" Margin="-4,0,-4,-1" VerticalAlignment="Top" Width="800">
+        <Image HorizontalAlignment="Left" Height="56" Margin="4,3,0,0" VerticalAlignment="Top" Width="62" RenderTransformOrigin="0.148,-0.221" Source="Image/notification_icon.png" />
         <TextBlock Style="{StaticResource TextBlockHeaderStyle}" Text="Notifications"/>
+        <Label Name="guide_time"  Content="Time:" Style="{StaticResource TimeLabel}" Margin="498,-7,0,0"/>
+        <Label Name="guide_date" Content="Date:" Style="{StaticResource DateLabel}" Margin="498,27,0,0"/>
+
         <Rectangle HorizontalAlignment="Left" Height="5" Margin="0,60,-0.444,0" VerticalAlignment="Top" Width="796" Fill="#FF777A93"/>
-        
+
         <ScrollViewer x:Name="scroll" VerticalScrollBarVisibility="Hidden" Margin="0,80,0,0">
-        <StackPanel x:Name="MainStack" Height="448">
-            
-        </StackPanel>
+            <StackPanel x:Name="MainStack" Height="448">
+
+            </StackPanel>
         </ScrollViewer>
 
 

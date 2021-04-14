@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace Silver_HTPC
 {
@@ -50,6 +51,11 @@ namespace Silver_HTPC
         public Notification_tab()
         {
             InitializeComponent();
+            DispatcherTimer timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
+            {
+                this.guide_time.Content = DateTime.Now.ToString("hh:mm tt");
+                this.guide_date.Content = DateTime.Now.ToString("MMMM dd, yyyy");
+            }, this.Dispatcher);
             MainStack.Children.Clear();
             if (!uptodate)
             {
@@ -66,7 +72,8 @@ namespace Silver_HTPC
                 notificationContents.Add(notify3);
                 uptodate = true;
             }
-            
+            MainStack.Children.Clear();
+            notifyButtonList.Clear();
             createButtons();
             displayButtons();
             foreach (Button btn in notifyButtonList)
@@ -88,6 +95,8 @@ namespace Silver_HTPC
             //  if (btn.Equals(buttonList[1]))
             //{
             Console.WriteLine("reached");
+            button.FocusVisualStyle = null;
+            button.Style = (Style)FindResource("HoverButton");
             button.Background = (LinearGradientBrush)FindResource("ButtonHoverBackground");
             //button.BorderBrush = Brushes.Red;
             //}
@@ -103,6 +112,7 @@ namespace Silver_HTPC
         private void nselect(object sender, RoutedEventArgs e)
         {
             var btn = sender as Button;
+            btn.Style = (Style)FindResource("StandardButton");
             btn.Background = (LinearGradientBrush)FindResource("ButtonNormalBackground");
             //btn.BorderBrush = Brushes.Transparent;
             btn.Height -= 25;
@@ -295,6 +305,30 @@ namespace Silver_HTPC
                 {
                     buttonInd -= 1 % notificationContents.Count;
                 }
+            }
+            if (e.Key == Key.H)
+            {
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.Show();
+                this.Close();
+            }
+            else if (e.Key == Key.S)
+            {
+                Settings settings = new Settings();
+                settings.Show();
+                this.Close();
+            }
+            else if (e.Key == Key.G)
+            {
+                TV_Guide tvg = new TV_Guide();
+                tvg.Show();
+                this.Close();
+            }
+            else if (e.Key == Key.OemQuestion)
+            {
+                Settings setting = new Settings();
+                setting.Show();
+                this.Close();
             }
         }
     }

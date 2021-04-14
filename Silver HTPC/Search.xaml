@@ -76,7 +76,7 @@
         <TextBox x:Name="searchBox" Focusable="False" Height="43" TextWrapping="Wrap" VerticalAlignment="Top" Width="346" HorizontalAlignment="Left" Foreground="Black" TextChanged="TextBox_TextChanged" Canvas.Top="68" Canvas.Left="289"/>
         <Label Canvas.Left="404" Canvas.Top="10"/>
         <Button x:Name="dummy" Content="Button" Canvas.Top="-149" Width="75" Background="#00DDDDDD" BorderBrush="#00707070" Foreground="#00000000"/>
-        <Image HorizontalAlignment="Left" Height="50" Margin="0,1,0,0" VerticalAlignment="Top" Width="58" RenderTransformOrigin="0.148,-0.221" Source="Image/search_icon.jpg" />
+        <Image HorizontalAlignment="Left" Height="50" Margin="0,1,0,0" VerticalAlignment="Top" Width="58" RenderTransformOrigin="0.148,-0.221" Source="Image/search_icon.png" />
         <Label x:Name="Recording_Label" Content="Search" Height="74" Width="220" RenderTransformOrigin="0.22,1.006" FontFamily="Segoe UI Black" FontSize="36" Margin="58,0,0,0" Cursor="None" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="Black"/>
 
         <DockPanel Height="325" x:Name="keypad" Width="264" LastChildFill="True" Canvas.Top="68" Canvas.Left="20" KeyDown="KeyPad_KeyDown">

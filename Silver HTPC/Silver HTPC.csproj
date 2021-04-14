@@ -556,6 +556,7 @@
     <Resource Include="Image\right_button.png" />
     <Resource Include="Image\up_button.png" />
     <Resource Include="Image\add_profile.png" />
+    <Resource Include="Image\logo.png" />
     <Content Include="Sound\OkClick.wav" />
     <Resource Include="Sound\OkClick.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
