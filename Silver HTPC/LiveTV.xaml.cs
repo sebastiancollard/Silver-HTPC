@@ -93,6 +93,12 @@ namespace Silver_HTPC
                 tvguide.Show();
                 this.Close();
             }
+            else if (e.Key == Key.OemQuestion)
+            {
+                Settings settings = new Settings();
+                settings.Show();
+                this.Close();
+            }
         }
 
 

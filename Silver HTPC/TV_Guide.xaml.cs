@@ -282,6 +282,13 @@ namespace Silver_HTPC
                     this.Close();
                     break;
 
+                case Key.OemQuestion:
+
+                    Settings settings = new Settings();
+                    settings.Show();
+                    this.Close();
+                    break;
+
                 default:
                     break;
             }
