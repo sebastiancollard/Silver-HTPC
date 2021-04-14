@@ -15,10 +15,11 @@
         <TextBlock x:Name="Recording_Label" Text="Music" Height="74" Width="220"  Style="{StaticResource TextBlockHeaderStyle}" Margin="58,10,0,0" FontSize="30">
 
         </TextBlock>
+        <Button x:Name="AddButton" Content="Add" HorizontalAlignment="Left" Margin="244,62,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="9.63,-6.324" Height="44"  GotFocus="Button_GotFocus" LostFocus="Button_LostFocus" KeyDown="Button_KeyDown" FocusVisualStyle="{x:Null}"  Style="{StaticResource StandardButton}"/>
         <Label Name="guide_time"  Content="Time:" Style="{StaticResource TimeLabel}" Margin="498,-7,0,0"/>
         <Label Name="guide_date" Content="Date:" Style="{StaticResource DateLabel}" Margin="498,27,0,0"/>
         <Button x:Name="SortButton" Content="Sort by" HorizontalAlignment="Left" Margin="10,62,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="9.63,-6.324" Height="44"  GotFocus="Button_GotFocus" LostFocus="Button_LostFocus" KeyDown="Button_KeyDown" FocusVisualStyle="{x:Null}"  Style="{StaticResource StandardButton}"/>
-        <Button Name="DeleteMultiple" Content="Delete &#xA;Multiple" HorizontalAlignment="Left" Margin="467,62,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="9.63,-6.324" Height="44"  Style="{StaticResource StandardButton}" GotFocus="Button_GotFocus" LostFocus="Button_LostFocus" KeyDown="Button_KeyDown" FocusVisualStyle="{x:Null}" FontSize="15"/>
+        <Button Name="DeleteMultiple" Content="Delete &#xA;Multiple" HorizontalAlignment="Left" Margin="467,62,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="9.63,-6.324" Height="44"  Style="{StaticResource StandardButton}" GotFocus="DeleteButton_GotFocus" LostFocus="Button_LostFocus" KeyDown="Button_KeyDown" FocusVisualStyle="{x:Null}" FontSize="15"/>
 
         <ScrollViewer Name="ViewMusicList" HorizontalAlignment="Left" VerticalAlignment="top" Height="298" Margin="10,111,0,0"  Width="543" VerticalScrollBarVisibility="Hidden"  >
             <StackPanel Name="MusicList" Orientation="Vertical" Height="684" RenderTransformOrigin="0.352,0.509">
@@ -211,27 +212,28 @@
             </Grid>
 
         </StackPanel>
-        <TextBlock HorizontalAlignment="Left" Height="31" Margin="588,378,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="113" RenderTransformOrigin="0.406,-0.589"   Style="{StaticResource TextBlockBodyStyle}"><Run Text="Total: "/><Run Text="250GB"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Height="31" Margin="664,342,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="51" RenderTransformOrigin="0.406,-0.589" Text="15%" Style="{StaticResource TextBlockBodyStyle}"/>
-        <Rectangle Fill="White" HorizontalAlignment="Left" Height="42" Margin="682,343,0,0" Stroke="Black" VerticalAlignment="Top" Width="92" RenderTransformOrigin="0.543,0.519">
+        <TextBlock HorizontalAlignment="Left" Height="19" Margin="622,331,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" RenderTransformOrigin="0.406,-0.589" FontSize="12"  Text="Space for 1500 Songs" Style="{StaticResource TextBlockBodyStyle}"/>
+        <Rectangle Fill="White" HorizontalAlignment="Left" Height="42" Margin="606,361,0,0" Stroke="Black" VerticalAlignment="Top" Width="152" RenderTransformOrigin="0.543,0.519">
             <Rectangle.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
                     <SkewTransform/>
-                    <RotateTransform Angle="-90"/>
+                    <RotateTransform Angle="180"/>
                     <TranslateTransform X="-4.133" Y="-4.783"/>
                 </TransformGroup>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <Rectangle Fill="#FF00FF17" HorizontalAlignment="Left" Height="42" Margin="652,313,0,0" Stroke="Black" VerticalAlignment="Top" Width="13" RenderTransformOrigin="0.506,0.543">
+        <Rectangle Fill="#FF00FF17" HorizontalAlignment="Left" Height="42" Margin="544,287,0,0" Stroke="Black" VerticalAlignment="Top" Width="19" RenderTransformOrigin="0.506,0.543">
             <Rectangle.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
                     <SkewTransform/>
-                    <RotateTransform Angle="-90"/>
+                    <RotateTransform Angle="180"/>
                     <TranslateTransform X="70.255" Y="67.589"/>
                 </TransformGroup>
             </Rectangle.RenderTransform>
         </Rectangle>
+        <TextBlock HorizontalAlignment="Left" TextAlignment="Center" Height="22" Margin="651,365,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="97" RenderTransformOrigin="0.406,-0.589"  Text="85% Free" Style="{StaticResource TextBlockBodyStyle}"/>
+
     </Grid>
 </Window>

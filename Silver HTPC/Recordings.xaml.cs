@@ -44,6 +44,7 @@ namespace Silver_HTPC
             {
                 this.guide_time.Content = DateTime.Now.ToString("hh:mm tt");
                 this.guide_date.Content = DateTime.Now.ToString("MMMM dd, yyyy");
+                this.DateTimeReminder.Content = "\t" + DateTime.Now.ToString("hh:mm tt") +"\n\t"+  DateTime.Now.ToString("MMMM dd, yyyy");
             }, this.Dispatcher);
 
             dispatcherTimer = new DispatcherTimer();
@@ -238,7 +239,7 @@ namespace Silver_HTPC
             Button thisButton = sender as Button;
             Console.WriteLine("HereD");
             thisButton.Style = (Style)FindResource("HoverButton");
-            thisButton.Background = (LinearGradientBrush)FindResource("ButtonHoverBackground");
+            thisButton.Background = (LinearGradientBrush)FindResource("DangerButtonHoverBackground");
 
             //MusicButtonsGrids[MusicIndex].Children.
             //play.back
@@ -654,6 +655,17 @@ namespace Silver_HTPC
             Console.WriteLine("Here");
             //thisButton.Height = 60;
         }
+
+        private void DeleteMultiple_GotFocus(object sender, RoutedEventArgs e)
+        {
+            Button thisButton = sender as Button;
+            //thisButton.Background = Brushes.Red;
+            thisButton.Style = (Style)FindResource("HoverButton");
+            thisButton.Background = (LinearGradientBrush)FindResource("DangerButtonHoverBackground");
+            Console.WriteLine("Here");
+            //thisButton.Height = 60;
+        }
+
         private void Button_KeyDown(object sender, KeyEventArgs e)
         {
             if(e.Key == Key.Left)
@@ -686,6 +698,8 @@ namespace Silver_HTPC
             }
 
         }
+
+
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {

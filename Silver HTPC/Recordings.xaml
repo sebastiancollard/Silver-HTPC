@@ -19,9 +19,11 @@
         <!-- https://www.wpf-tutorial.com/data-binding/the-stringformat-property/ -->
         <Line X1="0" Y1="55" X2="800" Y2="55" Stroke="LightSlateGray" StrokeThickness="7" Opacity="1"   />
         <!-- https://www.iconsdb.com/red-icons/record-icon.html -->
+        <TextBlock HorizontalAlignment="Left" Height="19" Margin="612,332,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" RenderTransformOrigin="0.406,-0.589" FontSize="12"  Text="210 Hours Recording Time Left" Style="{StaticResource TextBlockBodyStyle}"/>
         <Image HorizontalAlignment="Left" Height="50" Margin="0,1,0,0" VerticalAlignment="Top" Width="58" RenderTransformOrigin="0.148,-0.221" Source="Image/record_icon.png" />
         <Button x:Name="Sort_Button" Content="Sort by" HorizontalAlignment="Left" Margin="651,88,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="9.63,-6.324" Height="44" Style="{StaticResource StandardButton}" GotFocus="Button_GotFocus" LostFocus="Button_LostFocus" KeyDown="Button_KeyDown"/>
-        <Button Name="DeleteMultiple_Button" Content="Delete &#xD;&#xA;Multiple" HorizontalAlignment="Left" Margin="651,176,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="9.63,-6.324" Height="44" FontSize="15" Style="{StaticResource StandardButton}" GotFocus="Button_GotFocus" LostFocus="Button_LostFocus" KeyDown="Button_KeyDown"/>
+        <Button x:Name="Sort_Button_Copy" Content="Add" HorizontalAlignment="Left" Margin="651,137,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="9.63,-6.324" Height="44" Style="{StaticResource StandardButton}" GotFocus="Button_GotFocus" LostFocus="Button_LostFocus" KeyDown="Button_KeyDown"/>
+        <Button Name="DeleteMultiple_Button" Content="Delete &#xD;&#xA;Multiple" HorizontalAlignment="Left" Margin="651,205,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="9.63,-6.324" Height="44" FontSize="15" Style="{StaticResource StandardButton}" GotFocus="DeleteMultiple_GotFocus" LostFocus="Button_LostFocus" KeyDown="Button_KeyDown"/>
 
         <StackPanel Name="RecordingList" Height="318" Margin="46,78,0,0" VerticalAlignment="Top" Width="523" HorizontalAlignment="Left">
             <!-- https://stackoverflow.com/questions/50457409/using-viewbox-to-scale-grid-containing-labels-and-textboxes -->
@@ -50,10 +52,10 @@
                         <RowDefinition Height="25*" />
                     </Grid.RowDefinitions>
 
-                    <Image Grid.Column="0"  Grid.Row="0" Source="Image/TLC.png" Grid.RowSpan="2" VerticalAlignment="Top" Height="37" />
+                    <Image Grid.Column="0"  Grid.Row="0" Source="Image/TLC.png" Grid.RowSpan="2" VerticalAlignment="Top" Height="25" Stretch="Uniform" />
                     <TextBlock Name="RecordName1" Grid.Row="0" Grid.Column="1"  Text="90 Day Fiance - Into Your Arms" FontSize="17" FontFamily="Segoe UI Black"  Margin="38,-5,0,0" VerticalAlignment="Top" Height="23" />
-                    <TextBlock Grid.Row="1" Grid.Column="1" FontSize="15" Text="Recorded: 03/11/2020 at 14:20" VerticalAlignment="top" TextAlignment="Center" Height="16" Style="{StaticResource TextBlockBodyStyle}" Width="316" />
-                    <TextBlock Grid.Row="0" Grid.Column="2" Text="1:23:45" FontSize="15" TextAlignment="Right" Padding="10" Grid.RowSpan="3" Margin="53,0,0,0" VerticalAlignment="top" Height="40" RenderTransformOrigin="0.8,0.525"/>
+                    <TextBlock Grid.Row="1" Grid.Column="1" FontSize="15" Text="Recorded: 03/11/2020 at 14:20" VerticalAlignment="top" TextAlignment="Center" Height="16" Style="{StaticResource TextBlockBodyStyle}" Width="316" Grid.ColumnSpan="2" Margin="5,0,0,0" />
+                    <TextBlock Grid.Row="0" Grid.Column="2" Text="1h:23m:45s" FontSize="15" TextAlignment="Right" Padding="10" Grid.RowSpan="3" Margin="11,0,-10,0" VerticalAlignment="top" Height="40" RenderTransformOrigin="0.8,0.525"/>
 
 
 
@@ -82,10 +84,10 @@
                         <RowDefinition Height="25*" />
                     </Grid.RowDefinitions>
 
-                    <Image Grid.Column="0"  Grid.Row="0" Source="Image/abc.png" Grid.RowSpan="2" />
+                    <Image Grid.Column="0"  Grid.Row="0" Source="Image/abc.png" Grid.RowSpan="2" Margin="0,0,0,1" Stretch="Uniform" />
                     <TextBlock Name="RecordName2" Grid.Row="0" Grid.Column="1"  Text="Grey's Anatomy - No Time for Despair" FontSize="17" FontFamily="Segoe UI Black" Grid.ColumnSpan="2" Margin="0,-5,45,0" VerticalAlignment="Top" Height="23" />
                     <TextBlock Grid.Row="1" Grid.Column="1" FontSize="15" Text="Recorded: 03/07/2020 at 9:20" VerticalAlignment="top" TextAlignment="Center" Height="16" Style="{StaticResource TextBlockBodyStyle}" Width="316" />
-                    <TextBlock Grid.Row="0" Grid.Column="2" Text="0:43:49" FontSize="15" TextAlignment="Right"  Padding="10" Grid.RowSpan="3"  Margin="53,0,0,0" VerticalAlignment="top" Height="40"/>
+                    <TextBlock Grid.Row="0" Grid.Column="2" Text="43m:49s" FontSize="15" TextAlignment="Right"  Padding="10" Grid.RowSpan="3"  Margin="43,0,-10,0" VerticalAlignment="top" Height="40"/>
 
                 </Grid>
             </Button>
@@ -104,39 +106,38 @@
                         <RowDefinition Height="25*" />
                     </Grid.RowDefinitions>
 
-                    <Image Grid.Column="0"  Grid.Row="0" Source="Image/BBC.png" Grid.RowSpan="2" />
+                    <Image Grid.Column="0"  Grid.Row="0" Source="Image/BBC.png" Grid.RowSpan="2" Margin="0,0,0,10" Stretch="Uniform" />
                     <TextBlock Name="RecordName3" Grid.Row="0" Grid.Column="1" TextAlignment="Center" FontSize="17" FontFamily="Segoe UI Black"  Text="The Coroner - Black Dog"   Margin="10,-5,0,0" VerticalAlignment="Top" Height="23" Style="{StaticResource TextBlockBodyStyle}" Width="306" />
                     <TextBlock Grid.Row="1" Grid.Column="1" FontSize="15" Text="Recorded: 03/01/2020 at 18:00" VerticalAlignment="top" TextAlignment="Center" Height="16" Style="{StaticResource TextBlockBodyStyle}" Width="316" Grid.ColumnSpan="2" Margin="5,0,0,0" />
-                    <TextBlock Grid.Row="0" Grid.Column="2"  Text="0:43:02" FontSize="15" TextAlignment="Right"  Padding="10" Grid.RowSpan="3"  Margin="22,0,-7,0" VerticalAlignment="top" Height="40" Style="{StaticResource TextBlockBodyStyle}" Width="98"/>
+                    <TextBlock Grid.Row="0" Grid.Column="2"  Text="43m:02s" FontSize="15" TextAlignment="Right"  Padding="10" Grid.RowSpan="3"  Margin="15,0,-9,0" VerticalAlignment="top" Height="40" Style="{StaticResource TextBlockBodyStyle}" Width="107"/>
 
                 </Grid>
             </Button>
             <!-- </Grid> -->
         </StackPanel>
-        <Rectangle Fill="White" HorizontalAlignment="Left" Height="42" Margin="682,334,0,0" Stroke="Black" VerticalAlignment="Top" Width="96" RenderTransformOrigin="0.543,0.519">
+        <Rectangle Fill="White" HorizontalAlignment="Left" Height="42" Margin="606,361,0,0" Stroke="Black" VerticalAlignment="Top" Width="152" RenderTransformOrigin="0.543,0.519">
             <Rectangle.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
                     <SkewTransform/>
-                    <RotateTransform Angle="-90"/>
+                    <RotateTransform Angle="180"/>
                     <TranslateTransform X="-4.133" Y="-4.783"/>
                 </TransformGroup>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <Rectangle Fill="#FF00FF17" HorizontalAlignment="Left" Height="42" Margin="654,306,0,0" Stroke="Black" VerticalAlignment="Top" Width="13" RenderTransformOrigin="0.506,0.543">
+        <Rectangle Fill="#FF00FF17" HorizontalAlignment="Left" Height="42" Margin="544,287,0,0" Stroke="Black" VerticalAlignment="Top" Width="19" RenderTransformOrigin="0.506,0.543">
             <Rectangle.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
                     <SkewTransform/>
-                    <RotateTransform Angle="-90"/>
+                    <RotateTransform Angle="180"/>
                     <TranslateTransform X="70.255" Y="67.589"/>
                 </TransformGroup>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <TextBlock HorizontalAlignment="Left" Height="31" Margin="595,365,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="114" RenderTransformOrigin="0.406,-0.589" Style="{StaticResource TextBlockBodyStyle}"><Run Text="Total: "/><Run Text="250GB"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Height="31" Margin="660,318,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="49" RenderTransformOrigin="0.406,-0.589"  Text="15%" Style="{StaticResource TextBlockBodyStyle}"/>
+        <TextBlock HorizontalAlignment="Left" TextAlignment="Center" Height="22" Margin="651,365,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="97" RenderTransformOrigin="0.406,-0.589"  Text="85% Free" Style="{StaticResource TextBlockBodyStyle}"/>
         <Image x:Name="ShowRecording" HorizontalAlignment="Left" Height="418" Margin="0,1,0,0" VerticalAlignment="Top" Width="792" Visibility="Hidden" Source="Image/90DayFiance.jpg" Stretch="UniformToFill"/>
-        <Grid x:Name ="panel"  Background="{StaticResource WindowBackgroundBrush}" Margin="-264,-6,797,6" Visibility="Hidden" >
+        <Grid x:Name ="panel"  Background="{StaticResource WindowBackgroundBrush}" Margin="-264,-6,797,6" >
 
             <Grid.Resources>
 
@@ -155,8 +156,8 @@
                 </Storyboard>
 
             </Grid.Resources>
-            
-            
+
+
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="11*"/>
@@ -167,7 +168,7 @@
             </Grid.RowDefinitions>
 
 
-            <Label Grid.Row="0" xml:space="preserve" HorizontalContentAlignment="Center" >
+            <Label Name="DateTimeReminder" Grid.Row="0" xml:space="preserve" HorizontalContentAlignment="Center">
                     Date:  
                     Time:       
                 </Label>
@@ -180,7 +181,7 @@
                         <SolidColorBrush Color="Black" Opacity="0.5"/>
                     </Label.Background>
                     <TextBlock Foreground="White" TextWrapping="WrapWithOverflow" Height="80">
-                    
+                2019<LineBreak/>
                 Big Ed takes Rose on a vacation to a romantic resort
                 and besides the Candle-lit dinners, the two get to finally spend some time in the pool!
                     </TextBlock>
@@ -282,6 +283,8 @@
             </Grid>
 
         </StackPanel>
+       
+        
 
     </Grid>
     <!--
