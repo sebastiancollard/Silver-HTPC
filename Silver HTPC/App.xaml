@@ -10,7 +10,7 @@
             <GradientStop Offset="0" Color="#EEEEEE"/>
             <GradientStop Offset="1" Color="#CCCCCC"/>
         </LinearGradientBrush>
-        
+        <!-- <SolidColorBrush x:key="invisible" Color="Red" Opacity="0"/> -->
 
         <Style x:Key="TextBlockHeaderStyle" TargetType="TextBlock">
             <Setter Property="HorizontalAlignment" Value="Left" />
