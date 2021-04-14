@@ -26,7 +26,7 @@ namespace Silver_HTPC
         private int lb_index;
         private ListBoxItem[,] List_box_items;
         private ListBox lb;
-        private int channel;
+        private static int channel = 1;
         private ScrollViewer sv;
         private Button setReminder;
         private Button cancel;
@@ -35,6 +35,7 @@ namespace Silver_HTPC
         Thickness hover_border_thickness = new Thickness(2);
         SolidColorBrush std_border_color = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Black"));
         Thickness std_border_thickness = new Thickness(1);
+        Label recommendations_label;
 
 
         TextBlock popup_message;
@@ -66,6 +67,7 @@ namespace Silver_HTPC
                 this.guide_date.Content = DateTime.Now.ToString("MMMM dd, yyyy");
             }, this.Dispatcher);
 
+            recommendations_label = label;
 
             List_boxes = new ListBox[] { listbox1, listbox2,listbox3 };
             List_box_items = new ListBoxItem[,] {
@@ -195,7 +197,9 @@ namespace Silver_HTPC
                         lb = List_boxes[lb_index];
                         lb.SelectedIndex = 0;
                         lb.ScrollIntoView(lb.SelectedItem);
+                        
                         lb.BringIntoView();
+                        if (lb_index == 0) recommendations_label.BringIntoView();
                     }
 
 
@@ -273,6 +277,13 @@ namespace Silver_HTPC
                 case Key.Back:
                     MainWindow mainwindow = new MainWindow();
                     mainwindow.Show();
+                    this.Close();
+                    break;
+
+                case Key.OemQuestion:
+
+                    Settings settings = new Settings();
+                    settings.Show();
                     this.Close();
                     break;
 

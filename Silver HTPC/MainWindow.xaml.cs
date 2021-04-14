@@ -24,6 +24,7 @@ namespace Silver_HTPC
     public partial class MainWindow : Window
     {
         private static int currentButtonSelectionIndex=0;
+        private static int volume = 40;
         private int profileIndex = 0;
         private static Button[] menuButtonList;
         private static StackPanel[] stackPanelList;
@@ -49,6 +50,7 @@ namespace Silver_HTPC
             //content=> possible mitigation -> reading from a file (log file)
             menuButtonList = new Button[] { munu_button1, munu_button2, munu_button3, munu_button4, munu_button5,munu_button6,munu_button7,munu_button8,munu_button9,profile_button};
             profiles = new String[,] { { "John Doe", "Image/profile_icon.png" }, { "Add Profile", "Image/add_profile.png" } };
+            Vol.Content = volume;
             //profiles.Append<string>("Add profile");
             
 
@@ -204,6 +206,7 @@ namespace Silver_HTPC
         {
             //currentButtonSelectionIndex = button_index;
             Button button = profileBtns[button_index];
+            button.Style = (Style)FindResource("HoverButton");
             button.Background = (LinearGradientBrush)FindResource("ButtonHoverBackground");
             //if (button_index != 9) //not profile button
             //{
@@ -219,6 +222,7 @@ namespace Silver_HTPC
             Button button = profileBtns[button_index];
             //button.ClearValue(Button.BackgroundProperty);
             //button.ClearValue(Button.ForegroundProperty);
+            button.Style = (Style)FindResource("StandardButton");
             button.Background = (LinearGradientBrush)FindResource("ButtonNormalBackground");
             button.Height /= 1.2;
         }
@@ -283,6 +287,53 @@ namespace Silver_HTPC
                             dispatcherTimer.Start();
                         }
                         break;
+                    case Key.S:
+                        Settings settings = new Settings();
+                        settings.Show();
+                        this.Close();
+                        break;
+                    case Key.G:
+                        TV_Guide tv = new TV_Guide();
+                        tv.Show();
+                        this.Close();
+                        break;
+                    case Key.OemQuestion:
+                        Settings setting = new Settings();
+                        setting.Show();
+                        this.Close();
+                        break;
+                    case Key.OemPlus:
+                        Vol1.Visibility = Visibility.Visible;
+                        Vol2.Visibility = Visibility.Visible;
+                        Vol.Visibility = Visibility.Visible;
+                        volume+=2;
+                        Vol.Content = volume;
+                        if (volume >= 45 && volume<50)
+                        {
+                            Vol2.Margin = new Thickness(724 ,368, 0, 0);
+                        }
+                        if (volume >= 50)
+                        {
+                            Vol2.Margin = new Thickness(697, 377, 0, 0);
+                        }
+                        dispatcherTimer.Start();
+                        break;
+                    case Key.OemMinus:
+                        Vol1.Visibility = Visibility.Visible;
+                        Vol2.Visibility = Visibility.Visible;
+                        Vol.Visibility = Visibility.Visible;
+                        volume-=2;
+                        Vol.Content = volume;
+                        if (volume >= 45 && volume<50)
+                        {
+                            Vol2.Margin = new Thickness(724, 368, 0, 0);
+                        }
+                        if (volume < 45)
+                        {
+                            Vol2.Margin = new Thickness(742, 351, 0, 0);
+                        }
+                        dispatcherTimer.Start();
+                        break;
                     case Key.O:
                         /*{ "Live TV", "Image/tv_icon.png" }, { "Gallery", "Image/gallery_icon.png" }, { "Music", "Image/music_icon.png" }, { "Recordings", "Image/record_icon.png" }, { "Search", "Image/search_icon.jpg" }, { "Netflix", "Image/netflix_icon.png" }, { "Settings", "Image/settings_icon.png" }, { "Notification", "Image/notification_icon.png" }, { "Other Apps", "Image/apps_icon.png" } , {"John Doe","Image/profile_icon.png" }*/
                         if (Notification_popup0.Visibility!=Visibility.Visible){
@@ -291,8 +342,8 @@ namespace Silver_HTPC
                                 switch (content[currentButtonSelectionIndex, 0])
                                 {
                                     case "Live TV":
-                                        TV_Guide tv = new TV_Guide();
-                                        tv.Show();
+                                        TV_Guide tvG = new TV_Guide();
+                                        tvG.Show();
                                         break;
                                     case "Gallery":
                                         Photos_Videos gallery = new Photos_Videos();
@@ -315,8 +366,8 @@ namespace Silver_HTPC
                                         MessageBox.Show("No screens made for third party");
                                         break;
                                     case "Settings":
-                                        Settings settings = new Settings();
-                                        settings.Show();
+                                        Settings sett = new Settings();
+                                        sett.Show();
                                         break;
                                     case "Notification":
                                         Notification_tab notif = new Notification_tab();
@@ -498,6 +549,9 @@ namespace Silver_HTPC
          //Things which happen after 1 timer interval
 
             Notification_popup0.Visibility = Visibility.Collapsed;
+            Vol.Visibility = Visibility.Hidden;
+            Vol1.Visibility = Visibility.Hidden;
+            Vol2.Visibility = Visibility.Hidden;
 
             //Disable the timer
             dispatcherTimer.IsEnabled = false;

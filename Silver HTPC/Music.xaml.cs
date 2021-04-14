@@ -263,7 +263,7 @@ namespace Silver_HTPC
             Console.WriteLine("HereD");
             //thisButton.Background = Brushes.Red;
             thisButton.Style = (Style)FindResource("HoverButton");
-            thisButton.Background = (LinearGradientBrush)FindResource("ButtonHoverBackground");
+            thisButton.Background = (LinearGradientBrush)FindResource("DangerButtonHoverBackground");
 
             //MusicButtonsGrids[MusicIndex].Children.
             //play.back
@@ -613,7 +613,7 @@ namespace Silver_HTPC
                 Cover.Children.Add(br);
 
                 Image reverse = new Image();
-                reverse.Source = new BitmapImage(new Uri("Image/reverse.png", UriKind.RelativeOrAbsolute));
+                reverse.Source = new BitmapImage(new Uri("Image/reverseMusic.png", UriKind.RelativeOrAbsolute));
                 //reverse.Width = 50;
                 //reverse.Height = 30;
                 //reverse.VerticalAlignment = VerticalAlignment.Top;
@@ -622,11 +622,11 @@ namespace Silver_HTPC
                 reverse.Stretch = Stretch.Uniform;
 
                 Image playPause = new Image();
-                playPause.Source = new BitmapImage(new Uri("Image/PlayPause.png", UriKind.RelativeOrAbsolute));
+                playPause.Source = new BitmapImage(new Uri("Image/playPauseMusic.v3.png", UriKind.RelativeOrAbsolute));
                 playPause.Stretch = Stretch.Uniform;
 
                 Image forward = new Image();
-                forward.Source = new BitmapImage(new Uri("Image/Forward.png", UriKind.RelativeOrAbsolute));
+                forward.Source = new BitmapImage(new Uri("Image/forwardMusic.png", UriKind.RelativeOrAbsolute));
                 forward.Stretch = Stretch.Uniform;
 
                 //playPause.Source = new BitmapImage(new Uri("Image/"));
@@ -747,14 +747,61 @@ namespace Silver_HTPC
         {
             if (e.Key == Key.O)
             {
-                DateTime tempStartTime = startTime.AddSeconds(15);
+                //DateTime tempStartTime = startTime.AddSeconds(15);
                 //if (tempStartTime.CompareTo(DateTime.Now.AddSeconds(timeInc)) >= 0)
                 //{
-                    timeInc += 15;
-                    Console.WriteLine(startTime);
-                    //addonTimer = DateTime.Now.AddSeconds(15);
-                    //Console.WriteLine("Adding Seconds" + startTime);
+                //timeInc += 15;
+                //Console.WriteLine(startTime);
+                //addonTimer = DateTime.Now.AddSeconds(15);
+                //Console.WriteLine("Adding Seconds" + startTime);
                 //}
+                if (MusicIndex + 1 < MusicButtonsList.Count)
+                {
+                    MusicIndex += 1;
+                    //Keyboard.ClearFocus();
+
+                    for (int i = 0; i < MusicButtonsList.Count; i++)
+                    {
+                        MusicButtonsList[i].Focusable = true;
+                    }
+                    Switche = false;
+                    forwardMusic.Focus();
+                    //MusicButtonsList[MusicIndex].Focus();
+
+                    Cover.Children.Clear();
+                    Image CoverPhoto = new Image();
+                    CoverPhoto.Source = new BitmapImage(new Uri(CoverPhotosList[MusicIndex], UriKind.RelativeOrAbsolute));
+                    CoverPhoto.Width = 180;
+                    CoverPhoto.Height = 140;
+                    CoverPhoto.VerticalAlignment = VerticalAlignment.Stretch;
+                    CoverPhoto.HorizontalAlignment = HorizontalAlignment.Stretch;
+                    CoverPhoto.Stretch = Stretch.UniformToFill;
+                    //Grid.SetRow(CoverPhoto, 0);
+                    //Grid.SetColumn(CoverPhoto ,0);
+                    Cover.Children.Clear();
+
+                    Border br = new Border();
+                    br.BorderBrush = Brushes.Black;
+                    br.BorderThickness = new Thickness(1);
+                    br.Child = CoverPhoto;
+
+                    Cover.Children.Add(br);
+
+                    timer = new DispatcherTimer();
+                    timer.Interval = TimeSpan.FromSeconds(1);
+                    timer.Tick += timer_tick;
+                    timer.Start();
+                    startTime = DateTime.Now;
+
+                    String searchFor = "SongDurationTb" + (MusicIndex + 1);
+                    songDuration = ((TextBlock)MusicButtonsGrids[MusicIndex].FindName(searchFor)).Text;
+                    songDuration = songDuration.Replace("m", "");
+                    songDuration = songDuration.Replace("s", "");
+                    MusicTime.Text = songDuration;
+
+                    currentMusicTime.Visibility = Visibility.Visible;
+                    MusicTime.Visibility = Visibility.Visible;
+                }
             }
             else if (e.Key == Key.Back)
             {
@@ -780,7 +827,54 @@ namespace Silver_HTPC
         {
             if (e.Key == Key.O)
             {
-                timeDec += 15;
+                
+                if (MusicIndex - 1 >= 0)
+                {
+                    MusicIndex -= 1;
+                    //Keyboard.ClearFocus();
+
+                    for (int i = 0; i < MusicButtonsList.Count; i++)
+                    {
+                        MusicButtonsList[i].Focusable = true;
+                    }
+                    Switche = false;
+                    //MusicButtonsList[MusicIndex].Focus();
+                    reverseMusic.Focus();
+
+                    Cover.Children.Clear();
+                    Image CoverPhoto = new Image();
+                    CoverPhoto.Source = new BitmapImage(new Uri(CoverPhotosList[MusicIndex], UriKind.RelativeOrAbsolute));
+                    CoverPhoto.Width = 180;
+                    CoverPhoto.Height = 140;
+                    CoverPhoto.VerticalAlignment = VerticalAlignment.Stretch;
+                    CoverPhoto.HorizontalAlignment = HorizontalAlignment.Stretch;
+                    CoverPhoto.Stretch = Stretch.UniformToFill;
+                    //Grid.SetRow(CoverPhoto, 0);
+                    //Grid.SetColumn(CoverPhoto ,0);
+                    Cover.Children.Clear();
+
+                    Border br = new Border();
+                    br.BorderBrush = Brushes.Black;
+                    br.BorderThickness = new Thickness(1);
+                    br.Child = CoverPhoto;
+
+                    Cover.Children.Add(br);
+
+                    timer = new DispatcherTimer();
+                    timer.Interval = TimeSpan.FromSeconds(1);
+                    timer.Tick += timer_tick;
+                    timer.Start();
+                    startTime = DateTime.Now;
+
+                    String searchFor = "SongDurationTb" + (MusicIndex + 1);
+                    songDuration = ((TextBlock)MusicButtonsGrids[MusicIndex].FindName(searchFor)).Text;
+                    songDuration = songDuration.Replace("m", "");
+                    songDuration = songDuration.Replace("s", "");
+                    MusicTime.Text = songDuration;
+
+                    currentMusicTime.Visibility = Visibility.Visible;
+                    MusicTime.Visibility = Visibility.Visible;
+                }
             }
             else if (e.Key == Key.Back)
             {
@@ -872,6 +966,24 @@ namespace Silver_HTPC
                 //this.Loaded+= new RoutedEventHandler(Login_Focus);
 
             }
+            else if(e.Key == Key.Back)
+            {
+                MusicList.Effect = null;
+                Cover.Effect = null;
+                MusicOptions.Effect = null;
+                MusicOptions.Effect = null;
+                SortButton.Effect = null;
+                DeleteMultiple.Effect = null;
+                MusicDuration.Effect = null;
+                for (int i = 0; i < MusicButtonsList.Count; i++)
+                {
+                    MusicButtonsList[i].Focusable = true;
+                }
+                DeleteMessage.Visibility = Visibility.Hidden;
+                Switche = false;
+                MusicButtonsList[MusicIndex].Focus();
+            }
+
             
 
         }
@@ -879,6 +991,24 @@ namespace Silver_HTPC
         private void No_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.O)
+            {
+                MusicList.Effect = null;
+                Cover.Effect = null;
+                MusicOptions.Effect = null;
+                MusicOptions.Effect = null;
+                SortButton.Effect = null;
+                DeleteMultiple.Effect = null;
+                MusicDuration.Effect = null;
+                for (int i = 0; i < MusicButtonsList.Count; i++)
+                {
+                    MusicButtonsList[i].Focusable = true;
+                }
+                DeleteMessage.Visibility = Visibility.Hidden;
+                Switche = false;
+                MusicButtonsList[MusicIndex].Focus();
+
+            }
+            else if (e.Key == Key.Back)
             {
                 MusicList.Effect = null;
                 Cover.Effect = null;
@@ -1027,7 +1157,7 @@ namespace Silver_HTPC
                 Button yes = new Button();
                 yes.Width = 50;
                 yes.Content = "Yes";
-                yes.GotFocus += Button_GotFocus;
+                yes.GotFocus += Yes_GotFocus;
                 yes.LostFocus += Button_LostFocus;
                 yes.KeyDown += Yes_KeyDown;
                 Grid.SetRow(yes, 2);
@@ -1179,6 +1309,25 @@ namespace Silver_HTPC
             //thisButton.Background = Brushes.Red;
             thisButton.Style = (Style)FindResource("HoverButton");
             thisButton.Background = (LinearGradientBrush)FindResource("ButtonHoverBackground");
+            Console.WriteLine("Here");
+            //thisButton.Height = 60;
+        }
+        private void Yes_GotFocus(object sender, RoutedEventArgs e)
+        {
+            Button thisButton = sender as Button;
+            //thisButton.Background = Brushes.Red;
+            thisButton.Style = (Style)FindResource("HoverButton");
+            thisButton.Background = (LinearGradientBrush)FindResource("DangerButtonHoverBackground");
+            Console.WriteLine("Here");
+            //thisButton.Height = 60;
+        }
+
+        private void DeleteButton_GotFocus(object sender, RoutedEventArgs e)
+        {
+            Button thisButton = sender as Button;
+            //thisButton.Background = Brushes.Red;
+            thisButton.Style = (Style)FindResource("HoverButton");
+            thisButton.Background = (LinearGradientBrush)FindResource("DangerButtonHoverBackground");
             Console.WriteLine("Here");
             //thisButton.Height = 60;
         }

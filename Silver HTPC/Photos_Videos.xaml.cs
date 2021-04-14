@@ -150,7 +150,7 @@ namespace Silver_HTPC
                     ButtonsForImages[i].Focusable = true;
                 }
                 Sort_Button.Focusable = true;
-                Delete_Single.Focusable = true;
+                
                 Delete_Multiple.Focusable = true;
                 scrollViewer.Focusable = true;
                 EnlargePhotoGrid.Visibility = Visibility.Hidden;
@@ -189,9 +189,10 @@ namespace Silver_HTPC
                 ButtonsForImages[i].Focusable = false;
             }
             Sort_Button.Focusable = false;
-            Delete_Single.Focusable = false;
+            
             Delete_Multiple.Focusable = false;
             scrollViewer.Focusable = false;
+            Add_Button.Focusable = false;
             EnlargePhotoGrid.Visibility = Visibility.Visible;
             Button buttonLargerImage = new Button();
             buttonLargerImage.KeyDown += LargeImage_KeyDown;
@@ -251,6 +252,15 @@ namespace Silver_HTPC
             //thisButton.Background = Brushes.Red;
             thisButton.Style = (Style)FindResource("HoverButton");
             thisButton.Background = (LinearGradientBrush)FindResource("ButtonHoverBackground");
+            Console.WriteLine("Here");
+            //thisButton.Height = 60;
+        }
+        private void Delete_GotFocus(object sender, RoutedEventArgs e)
+        {
+            Button thisButton = sender as Button;
+            //thisButton.Background = Brushes.Red;
+            thisButton.Style = (Style)FindResource("HoverButton");
+            thisButton.Background = (LinearGradientBrush)FindResource("DangerButtonHoverBackground");
             Console.WriteLine("Here");
             //thisButton.Height = 60;
         }

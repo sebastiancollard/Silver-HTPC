@@ -9,7 +9,10 @@
         Background="{StaticResource WindowBackgroundBrush}">
 
     <Grid>
+        <Image HorizontalAlignment="Left" Height="56" Margin="1,3,0,0" VerticalAlignment="Top" Width="62" RenderTransformOrigin="0.148,-0.221" Source="Image/apps_icon.png" />
         <TextBlock Style="{StaticResource TextBlockHeaderStyle}" Text="Other Applications"/>
+        <Label Name="guide_time"  Content="Time:" Style="{StaticResource TimeLabel}" Margin="498,-7,0,0"/>
+        <Label Name="guide_date" Content="Date:" Style="{StaticResource DateLabel}" Margin="498,27,0,0"/>
         <Rectangle HorizontalAlignment="Left" Height="5" Margin="0,60,-4,0" VerticalAlignment="Top" Width="796" Fill="#FF777A93"/>
         <ScrollViewer x:Name="scroll" Margin="0,80,0,0" VerticalScrollBarVisibility="Hidden">
             <StackPanel x:Name="Other_StackPanel">

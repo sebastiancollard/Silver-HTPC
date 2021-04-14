@@ -556,6 +556,11 @@
     <Resource Include="Image\right_button.png" />
     <Resource Include="Image\up_button.png" />
     <Resource Include="Image\add_profile.png" />
+    <Resource Include="Image\forwardMusic.png" />
+    <Resource Include="Image\reverseMusic.png" />
+    <Resource Include="Image\playPauseMusic.jpg" />
+    <Resource Include="Image\playPauseMusic.v3.png" />
+    <Resource Include="Image\logo.png" />
     <Content Include="Sound\OkClick.wav" />
     <Resource Include="Sound\OkClick.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

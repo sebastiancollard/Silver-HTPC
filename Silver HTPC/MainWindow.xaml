@@ -22,27 +22,27 @@
                 <RowDefinition Height="1*" />
                 <RowDefinition Height="1*" />
 
-        </Grid.RowDefinitions>
-            <Label x:Name="time_label" Grid.ColumnSpan="2" Content="Time" Grid.Column="1" Style="{StaticResource TimeLabel}" Margin="242,-108,-6,0"/>
-            <Label x:Name="date_label" Grid.ColumnSpan="2" Content="Date" Grid.Column="1" Style="{StaticResource DateLabel}" Margin="242,-58,-6,0"/>
-        <Button x:Name="munu_button1" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="80">
-            <StackPanel x:Name="stackPan_Button1">
-                <Image Source="Image/tv_icon.png" Stretch="Fill" Height="40" Width="40" HorizontalAlignment="Center"/>
-                <TextBlock Text="Live TV" FontSize="25"/>
-            </StackPanel>
-        </Button>
-        <Button x:Name="munu_button2" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="80" Click="menu_button2_click">
-            <StackPanel x:Name="stackPan_Button2">
-                <Image Source="Image/gallery_icon.png" Stretch="Fill" Height="40" Width="40"/>
-                <TextBlock Text="Photos - Videos" FontSize="25"/>
-            </StackPanel>
-        </Button>
-        <Button x:Name="munu_button3" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="80" Click="menu_button3_click">
-            <StackPanel x:Name="stackPan_Button3">
-                <Image Source="Image/music_icon.png" Stretch="Fill" Height="40" Width="40"/>
-                <TextBlock Text="Music" FontSize="25" HorizontalAlignment="Center"/>
-            </StackPanel>
-        </Button>
+            </Grid.RowDefinitions>
+            <Label x:Name="time_label" Grid.ColumnSpan="2" Content="Time" Grid.Column="1" Style="{StaticResource TimeLabel}" Margin="232,-108,0,0"/>
+            <Label x:Name="date_label" Grid.ColumnSpan="2" Content="Date" Grid.Column="1" Style="{StaticResource DateLabel}" Margin="232,-58,0,0"/>
+            <Button x:Name="munu_button1" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="80">
+                <StackPanel x:Name="stackPan_Button1">
+                    <Image Source="Image/tv_icon.png" Stretch="Fill" Height="40" Width="40" HorizontalAlignment="Center"/>
+                    <TextBlock Text="Live TV" FontSize="25"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="munu_button2" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="80" Click="menu_button2_click">
+                <StackPanel x:Name="stackPan_Button2">
+                    <Image Source="Image/gallery_icon.png" Stretch="Fill" Height="40" Width="40"/>
+                    <TextBlock Text="Photos - Videos" FontSize="25"/>
+                </StackPanel>
+            </Button>
+            <Button x:Name="munu_button3" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="80" Click="menu_button3_click">
+                <StackPanel x:Name="stackPan_Button3">
+                    <Image Source="Image/music_icon.png" Stretch="Fill" Height="40" Width="40"/>
+                    <TextBlock Text="Music" FontSize="25" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Button>
 
             <Button x:Name="munu_button4" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170" Height="80" Click="menu_button4_click">
                 <StackPanel x:Name="stackPan_Button4">
@@ -197,6 +197,10 @@
             <Button FontSize="15" Height="25" Background="Transparent" Foreground="Yellow">Press OK to Navigate</Button>
         </StackPanel>
         <Ellipse x:Name="notifyDot" Fill="OrangeRed" HorizontalAlignment="Left" Height="12" VerticalAlignment="Top" Width="12" Margin="410,323,0,0" Visibility="Hidden"/>
+        <Image HorizontalAlignment="Left" Height="274" Margin="176,-88,0,0" VerticalAlignment="Top" Width="438" Source="Image/logo.png" />
+        <Ellipse x:Name="Vol1" Fill="Black" HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100" Margin="658,297,0,0" Opacity="0.8" Visibility="Hidden"/>
+        <Ellipse x:Name="Vol2" Fill="Gray" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="30" Margin="742,351,0,0" Opacity="0.8" Visibility="Hidden"/>
+        <Label x:Name="Vol" Content="00" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="686,318,0,0" Foreground="White" FontSize="35" Visibility="Hidden"/>
 
     </Grid>
 </Window>

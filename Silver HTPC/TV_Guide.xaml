@@ -9,10 +9,12 @@
         Background="{StaticResource WindowBackgroundBrush}">
 
     <Canvas>
+        
+        
 
         <Grid Height="419">
             <Grid.RowDefinitions>
-                <RowDefinition Height="96*"/>
+                <RowDefinition Height="55*"/>
                 <RowDefinition Height="323*"/>
             </Grid.RowDefinitions>
 
@@ -20,8 +22,9 @@
             <Grid Grid.Row="0">
 
                 <Label Content="TV Guide" HorizontalAlignment="Left" VerticalAlignment="Top" Height="55" Width="192" FontSize="30" VerticalContentAlignment="Center"/>
-                <Label Name="guide_time"  Content="Time:" Style="{StaticResource TimeLabel}"/>
-                <Label Name="guide_date" Content="Date:" Style="{StaticResource DateLabel}" Margin="500,36,0,0"/>
+                <Label Name="guide_time"  Content="Time:" Style="{StaticResource TimeLabel}" Margin="500,-10,0,0"/>
+                <Label Name="guide_date" Content="Date:" Style="{StaticResource DateLabel}" Margin="500,22,0,0"/>
+                <Line VerticalAlignment="Bottom" X1="0" Y1="55" X2="800" Y2="55" Stroke="LightSlateGray" StrokeThickness="7" Opacity="1"   />
             </Grid>
 
 
@@ -33,13 +36,13 @@
                 <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top"  Grid.ColumnSpan="2" >
 
 
-                    <Label Content="Recommendations / Continue watching" Height="40" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="15"  Grid.ColumnSpan="2"/>
+                    <Label x:Name="label" Content="Recommendations / Continue watching" Height="40" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="15"  Grid.ColumnSpan="2"/>
 
                     <StackPanel HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="792" Orientation="Horizontal" Grid.ColumnSpan="2"  >
 
 
 
-                        <ListBox x:Name="listbox1" Width="791" ItemContainerStyle="{StaticResource SimpleListBoxItem}" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                        <ListBox Padding="0" x:Name="listbox1" Width="791" ItemContainerStyle="{StaticResource SimpleListBoxItem}" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Disabled">
                             <ListBox.ItemsPanel>
                                 <ItemsPanelTemplate>
                                     <VirtualizingStackPanel IsItemsHost="True" Orientation="Horizontal"/>

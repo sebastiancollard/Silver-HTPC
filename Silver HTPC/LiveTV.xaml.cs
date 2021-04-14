@@ -61,7 +61,7 @@ namespace Silver_HTPC
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.Key == Key.Enter && !hidden)
+            if(e.Key == Key.I && !hidden)
             {
                 //sidemenu.Margin = new Thickness(-400, 0, 400, 0);
                 hidden = true;
@@ -70,7 +70,7 @@ namespace Silver_HTPC
                 if (sb != null) { BeginStoryboard(sb); }
 
             }
-            else if(e.Key == Key.Enter && hidden)
+            else if(e.Key == Key.I && hidden)
             {
 
                 //sidemenu.Margin = new Thickness(0, 0, 0, 0);
@@ -87,12 +87,21 @@ namespace Silver_HTPC
             {
              
             }
-            else if(e.Key == Key.Back)
+            else if (e.Key == Key.Back)
             {
                 TV_Guide tvguide = new TV_Guide();
                 tvguide.Show();
                 this.Close();
             }
+
+
+            else if (e.Key == Key.OemQuestion)
+            {
+                Settings settings = new Settings();
+                settings.Show();
+                this.Close();
+            }
+
         }
 
 

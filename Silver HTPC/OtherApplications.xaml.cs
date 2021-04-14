@@ -35,6 +35,11 @@ namespace Silver_HTPC
             dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
             dispatcherTimer.Interval = new TimeSpan(0, 0, 5);
             //**********************************************************************
+            DispatcherTimer timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
+            {
+                this.guide_time.Content = DateTime.Now.ToString("hh:mm tt");
+                this.guide_date.Content = DateTime.Now.ToString("MMMM dd, yyyy");
+            }, this.Dispatcher);
 
             int numOfRows = 4;// (int)(content.Length / 3) + 1;
             Grid grid = new Grid();
@@ -113,8 +118,11 @@ namespace Silver_HTPC
             //{
             //  if (btn.Equals(buttonList[1]))
             //{
+            btn.FocusVisualStyle = null;
             Console.WriteLine("reached");
+            btn.Style = (Style)FindResource("HoverButton");
             btn.Background = (LinearGradientBrush)FindResource("ButtonHoverBackground");
+            btn.Height *= 1.2;
             //btn.BorderBrush = Brushes.Red;
             MainWindow mainWindow = new MainWindow();
             
@@ -127,8 +135,10 @@ namespace Silver_HTPC
         private void nselect(object sender, RoutedEventArgs e)
         {
             var btn = sender as Button;
+            btn.Style = (Style)FindResource("StandardButton");
             btn.Background = (LinearGradientBrush)FindResource("ButtonNormalBackground");
             //btn.BorderBrush = Brushes.Transparent;
+            btn.Height /= 1.2;
         }
 
 
@@ -143,12 +153,36 @@ namespace Silver_HTPC
                 mainWindow.Show();
                 this.Close();
             }
+            if (e.Key == Key.H)
+            {
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.Show();
+                this.Close();
+            }
             if (e.Key == Key.Z)
             { //hardcoded to show notification
                 Notification_popup0.Visibility = Visibility.Visible;
                 dispatcherTimer.Start();
             }
-            
+            if (e.Key == Key.S) {
+                Settings settings = new Settings();
+                settings.Show();
+                this.Close();
+            }
+            if (e.Key == Key.G)
+            {
+                TV_Guide tvg = new TV_Guide();
+                tvg.Show();
+                this.Close();
+            }
+            if (e.Key == Key.OemQuestion)
+            {
+                Settings setting = new Settings();
+                setting.Show();
+                this.Close();
+            }
+                   
+
             if (Notification_popup0.Visibility == Visibility.Visible)
             {
                 if (e.Key==Key.O){
