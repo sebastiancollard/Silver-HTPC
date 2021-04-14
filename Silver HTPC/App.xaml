@@ -72,6 +72,11 @@
             <GradientStop Color="#F0F8FF" Offset="1"/>
         </LinearGradientBrush>
 
+        <LinearGradientBrush x:Key="DangerButtonHoverBackground" EndPoint="0,1" StartPoint="0,0">
+            <GradientStop Color="#FF6666" Offset="0"/>
+            <GradientStop Color="#FFDDDD" Offset="1"/>
+        </LinearGradientBrush>
+        
         <!--<GradientStop Color="#F0F8FF" Offset="0"/>
         <GradientStop Color="#E0EBFF" Offset="0.5"/>
         <GradientStop Color="#C0DEFF" Offset="0.5"/>
@@ -111,7 +116,7 @@
             <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
         </Style>
 
-        <Style x:Key="GreyDivider" TargetType="Rectangle">
+        <Style x:Key="GreyDivider" TargetType="Line">
             <Setter Property="HorizontalAlignment" Value="Left"/>
             <Setter Property="Height" Value="5"/>
             <Setter Property="Margin" Value="0,60,-0.444,0"/>

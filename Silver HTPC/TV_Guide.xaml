@@ -26,6 +26,7 @@
 
 
 
+
             <ScrollViewer x:Name="scrollviewer" IsEnabled="False" VerticalScrollBarVisibility="Visible"  Grid.Row="2">
                 <!--<StackPanel HorizontalAlignment="Left" VerticalAlignment="Top"  Grid.ColumnSpan="2" Height="419">-->
 
@@ -360,10 +361,5 @@
         </Grid>
 
     </Canvas>
-
-
-
-
-
-
+    
 </Window>
