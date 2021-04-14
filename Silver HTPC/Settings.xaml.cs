@@ -22,6 +22,7 @@ namespace Silver_HTPC
     {
 
         private static int CurrentSelection=0; // Default cursor to slider
+        private static int sliderup = 0;
         public Settings()
         {
             InitializeComponent();
@@ -36,8 +37,14 @@ namespace Silver_HTPC
         // When someone moves the slider, text (theoretically) changes everywhere
         private void TextSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            //TODO
-            // Alter the App.xaml to make text bigger?
+            //Not actually functional, but looks good
+            if (sliderup < 2) {
+                _textsizeText.FontSize += 2;
+            }
+            else {
+                _textsizeText.FontSize -= 2;
+            }
+            sliderup += 1;
         }
 
         // Get the bottom button to take you to the next screen
