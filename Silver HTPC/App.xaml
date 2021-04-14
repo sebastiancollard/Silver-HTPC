@@ -78,11 +78,6 @@
             <GradientStop Color="#FFDDDD" Offset="1"/>
         </LinearGradientBrush>
         
-        <!--<GradientStop Color="#F0F8FF" Offset="0"/>
-        <GradientStop Color="#E0EBFF" Offset="0.5"/>
-        <GradientStop Color="#C0DEFF" Offset="0.5"/>
-        <GradientStop Color="#A0CEFF" Offset="1"/>-->
-
         <LinearGradientBrush x:Key="ButtonSelectedBackground" EndPoint="0,1" StartPoint="0,0">
             <GradientStop Color="Black" Offset="0"/>
             <GradientStop Color="Gray" Offset="1"/>
@@ -117,15 +112,31 @@
             <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
         </Style>
 
-        <Style x:Key="GreyDivider" TargetType="Line">
+        <Style x:Key="GreyDivider" TargetType="Rectangle">
             <Setter Property="HorizontalAlignment" Value="Left"/>
             <Setter Property="Height" Value="5"/>
-            <Setter Property="Margin" Value="0,60,-0.444,0"/>
+            <Setter Property="Margin" Value="0,65,0,0"/>
             <Setter Property="VerticalAlignment" Value="Top"/>
-            <Setter Property="Width" Value="796"/>
+            <Setter Property="Width" Value="800"/>
             <Setter Property="Fill" Value="#FF777A93"/>
         </Style>
 
+        <!--<Style x:Key="GreyDividerLine" TargetType="Line">
+            <Setter Property="X1" Value="0"/>
+            <Setter Property="Y1" Value="75"/>
+            <Setter Property="X2" Value="800"/>
+            <Setter Property="Y2" Value="75"/>
+            <Setter Property="Stroke" Value="#FF777A93"/>
+            <Setter Property="Opacity" Value="1"/>
+        </Style>-->
+
+        <Style x:Key="HeaderIconPos" TargetType="Image">
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="Width" Value="50"/>
+            <Setter Property="Margin" Value="10,12,0,0"/>
+        </Style>
 
         <Style x:Key="SimpleListBoxItem" TargetType="ListBoxItem">
             <Setter Property="FocusVisualStyle" Value="{x:Null}" />

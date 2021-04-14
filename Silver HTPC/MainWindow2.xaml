@@ -8,8 +8,8 @@
         Title="MainWindow2" Height="450" Width="800"
         Background="{StaticResource WindowBackgroundBrush}">
     <Grid>
-        <Rectangle HorizontalAlignment="Left" Height="5" Margin="0,88,-4,0" VerticalAlignment="Top" Width="796" Fill="#FF777A93"/>
-        <Rectangle HorizontalAlignment="Left" Height="5" Margin="0,370,-0.444,0" VerticalAlignment="Top" Width="796" Fill="#FF777A93"/>
+        <Rectangle Style="{StaticResource GreyDivider}" Margin="0,85,0,0"/>
+        <Rectangle Style="{StaticResource GreyDivider}" Margin="0,370,-0.444,0"/>
         <Grid Margin="6,107,6,60" x:Name="MainGrid">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*" />
