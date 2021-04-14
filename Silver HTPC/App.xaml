@@ -16,11 +16,11 @@
             <Setter Property="Margin" Value="64,19,0,0"/>
             <Setter Property="TextWrapping" Value="Wrap"/>
             <Setter Property="VerticalAlignment" Value="Top"/>
-            <Setter Property="Height" Value="30"/>
+            <Setter Property="Height" Value="50"/>
             <Setter Property="Width" Value="400"/>
             <Setter Property="FontFamily" Value="Helvetica"/>
             <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="FontSize" Value="30"/>
         </Style>
 
         <!--All you need to include is content (text) and margin (position)-->
@@ -72,16 +72,19 @@
             <GradientStop Color="#F0F8FF" Offset="1"/>
         </LinearGradientBrush>
 
+        <LinearGradientBrush x:Key="DangerButtonHoverBackground" EndPoint="0,1" StartPoint="0,0">
+            <GradientStop Color="#FF6666" Offset="0"/>
+            <GradientStop Color="#FFDDDD" Offset="1"/>
+        </LinearGradientBrush>
+        
         <!--<GradientStop Color="#F0F8FF" Offset="0"/>
         <GradientStop Color="#E0EBFF" Offset="0.5"/>
         <GradientStop Color="#C0DEFF" Offset="0.5"/>
         <GradientStop Color="#A0CEFF" Offset="1"/>-->
 
         <LinearGradientBrush x:Key="ButtonSelectedBackground" EndPoint="0,1" StartPoint="0,0">
-            <GradientStop Color="Gray" Offset="0"/>
-            <GradientStop Color="Gray" Offset="0.5"/>
-            <GradientStop Color="Black" Offset="0.5"/>
-            <GradientStop Color="Black" Offset="1"/>
+            <GradientStop Color="Black" Offset="0"/>
+            <GradientStop Color="Gray" Offset="1"/>
         </LinearGradientBrush>
 
         <SolidColorBrush x:Key="ButtonNormalBorder" Color="#FF707070"/>
@@ -104,7 +107,16 @@
             <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
         </Style>
 
-        <Style x:Key="GreyDivider" TargetType="Rectangle">
+        <Style x:Key="SelectButton" TargetType="{x:Type Button}">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="BorderBrush" Value="White"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Background" Value="{DynamicResource ButtonSelectedBackground}"/>
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        </Style>
+
+        <Style x:Key="GreyDivider" TargetType="Line">
             <Setter Property="HorizontalAlignment" Value="Left"/>
             <Setter Property="Height" Value="5"/>
             <Setter Property="Margin" Value="0,60,-0.444,0"/>
@@ -125,6 +137,9 @@
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsSelected" Value="true">
                                 <Setter TargetName="Border" Property="Background" Value="{DynamicResource ButtonHoverBackground}"/>
+                            </Trigger>
+                            <Trigger Property="IsSelected" Value="false">
+                                <Setter TargetName="Border" Property="Background" Value="{DynamicResource ButtonNormalBackground}"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>

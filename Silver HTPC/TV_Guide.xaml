@@ -7,12 +7,14 @@
         mc:Ignorable="d"
         Title="TV_Guide" Height="450" Width="800" KeyDown="Window_KeyDown"
         Background="{StaticResource WindowBackgroundBrush}">
-   
+
     <Canvas>
+        
+        
 
         <Grid Height="419">
             <Grid.RowDefinitions>
-                <RowDefinition Height="96*"/>
+                <RowDefinition Height="55*"/>
                 <RowDefinition Height="323*"/>
             </Grid.RowDefinitions>
 
@@ -20,9 +22,11 @@
             <Grid Grid.Row="0">
 
                 <Label Content="TV Guide" HorizontalAlignment="Left" VerticalAlignment="Top" Height="55" Width="192" FontSize="30" VerticalContentAlignment="Center"/>
-                <Label Name="guide_time"  Content="Time:" Style="{StaticResource TimeLabel}"/>
-                <Label Name="guide_date" Content="Date:" Style="{StaticResource DateLabel}" Margin="500,36,0,0"/>
+                <Label Name="guide_time"  Content="Time:" Style="{StaticResource TimeLabel}" Margin="500,-10,0,0"/>
+                <Label Name="guide_date" Content="Date:" Style="{StaticResource DateLabel}" Margin="500,22,0,0"/>
+                <Line VerticalAlignment="Bottom" X1="0" Y1="55" X2="800" Y2="55" Stroke="LightSlateGray" StrokeThickness="7" Opacity="1"   />
             </Grid>
+
 
 
 
@@ -32,13 +36,13 @@
                 <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top"  Grid.ColumnSpan="2" >
 
 
-                    <Label Content="Recommendations / Continue watching" Height="40" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="15"  Grid.ColumnSpan="2"/>
+                    <Label x:Name="label" Content="Recommendations / Continue watching" Height="40" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="15"  Grid.ColumnSpan="2"/>
 
                     <StackPanel HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="792" Orientation="Horizontal" Grid.ColumnSpan="2"  >
-                        
-                        
 
-                        <ListBox x:Name="listbox1" Width="791" ItemContainerStyle="{StaticResource SimpleListBoxItem}" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+
+
+                        <ListBox Padding="0" x:Name="listbox1" Width="791" ItemContainerStyle="{StaticResource SimpleListBoxItem}" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Disabled">
                             <ListBox.ItemsPanel>
                                 <ItemsPanelTemplate>
                                     <VirtualizingStackPanel IsItemsHost="True" Orientation="Horizontal"/>
@@ -269,13 +273,13 @@
 
         </Grid>
         <Grid Height="10" Width="226" Canvas.Left="286" Canvas.Top="120">
-            
+
             <Popup IsOpen="{Binding Popup_IsOpen, Mode = TwoWay}" AllowsTransparency="True" >
                 <Border BorderBrush="Black" BorderThickness="1">
                     <Grid Height="172" Width="216" Background="{StaticResource WindowBackgroundBrush}">
-                    
 
-                    <!--
+
+                        <!--
                     <Grid.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="Black" Offset="0"/>
@@ -283,87 +287,82 @@
                         </LinearGradientBrush>
                     </Grid.Background>
                     -->
-                    <TextBlock x:Name="textblock" FontSize="20" TextWrapping="WrapWithOverflow" TextAlignment="Center" Foreground="Black" Margin="0,25,0,89"
+                        <TextBlock x:Name="textblock" FontSize="20" TextWrapping="WrapWithOverflow" TextAlignment="Center" Foreground="Black" Margin="0,25,0,89"
                                Text="Would you like to set a reminder for this show?"/>
 
 
 
-                    <Border x:Name="set_reminder_button_border"  Margin="10,95,115,20"  BorderThickness="1">
-                        <Button x:Name="set_reminder_button" Style="{StaticResource StandardButton}">
-                            <Grid  >
-                            
-
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="13*"/>
-                                <RowDefinition Height="9*"/>
-                            </Grid.RowDefinitions>
+                        <Border x:Name="set_reminder_button_border"  Margin="10,95,115,20"  BorderThickness="1">
+                            <Button x:Name="set_reminder_button" Style="{StaticResource StandardButton}">
+                                <Grid  >
 
 
-                            <Image Grid.Row="0" Source="image/reminder_icon.png" Margin="12,0,12,0"  />
-                            <TextBox Grid.Row="1" Foreground="Black" FontSize="13" Background="{x:Null}" HorizontalContentAlignment="Center" BorderBrush="{x:Null}" >Set Reminder</TextBox>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="13*"/>
+                                        <RowDefinition Height="9*"/>
+                                    </Grid.RowDefinitions>
 
 
-
-                        </Grid>
-                        </Button>
-                    </Border>
-
-
-                    <Border x:Name="cancel_button_border" Margin="117,95,10,20" BorderThickness="1" >
-                        <Button x:Name="cancel_button" Style="{StaticResource StandardButton}">
-                            <Grid  >
-                              
-
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="13*"/>
-                                <RowDefinition Height="9*"/>
-                            </Grid.RowDefinitions>
-
-
-                            <Image Grid.Row="0" Source="image/cancel_icon.png" Margin="10,5,10,0"  />
-                            <TextBox Grid.Row="1" Foreground="Black" FontSize="13" Background="{x:Null}" HorizontalContentAlignment="Center" BorderBrush="{x:Null}" >Cancel</TextBox>
+                                    <Image Grid.Row="0" Source="image/reminder_icon.png" Margin="12,0,12,0"  />
+                                    <TextBox Grid.Row="1" Foreground="Black" FontSize="13" Background="{x:Null}" HorizontalContentAlignment="Center" BorderBrush="{x:Null}" >Set Reminder</TextBox>
 
 
 
-
-                        </Grid>
-                        </Button>
-                    </Border>
-
-                    <Border x:Name="done_button_border" Opacity="0" Margin="58,95,0,0" HorizontalAlignment="left" Height="57" VerticalAlignment="Top" Width="95" BorderThickness="1" >
-                        <Button x:Name="done_button" Style="{StaticResource StandardButton}">
-                            <Grid  >
-                                
-
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="13*"/>
-                                    <RowDefinition Height="9*"/>
-                                </Grid.RowDefinitions>
+                                </Grid>
+                            </Button>
+                        </Border>
 
 
-                                <Image Grid.Row="0" Source="image/cancel_icon.png" Margin="10,5,10,0"  />
-                                <TextBox Grid.Row="1" Foreground="Black" FontSize="13" Background="{x:Null}" HorizontalContentAlignment="Center" BorderBrush="{x:Null}" >Done</TextBox>
+                        <Border x:Name="cancel_button_border" Margin="117,95,10,20" BorderThickness="1" >
+                            <Button x:Name="cancel_button" Style="{StaticResource StandardButton}">
+                                <Grid  >
 
 
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="13*"/>
+                                        <RowDefinition Height="9*"/>
+                                    </Grid.RowDefinitions>
 
-                            </Grid>
-                        </Button>
-                    </Border>
+
+                                    <Image Grid.Row="0" Source="image/cancel_icon.png" Margin="10,5,10,0"  />
+                                    <TextBox Grid.Row="1" Foreground="Black" FontSize="13" Background="{x:Null}" HorizontalContentAlignment="Center" BorderBrush="{x:Null}" >Cancel</TextBox>
 
 
 
 
+                                </Grid>
+                            </Button>
+                        </Border>
 
-                </Grid>
+                        <Border x:Name="done_button_border" Opacity="0" Margin="58,95,0,0" HorizontalAlignment="left" Height="57" VerticalAlignment="Top" Width="95" BorderThickness="1" >
+                            <Button x:Name="done_button" Style="{StaticResource StandardButton}">
+                                <Grid  >
+
+
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="13*"/>
+                                        <RowDefinition Height="9*"/>
+                                    </Grid.RowDefinitions>
+
+
+                                    <Image Grid.Row="0" Source="image/cancel_icon.png" Margin="10,5,10,0"  />
+                                    <TextBox Grid.Row="1" Foreground="Black" FontSize="13" Background="{x:Null}" HorizontalContentAlignment="Center" BorderBrush="{x:Null}" >Done</TextBox>
+
+
+
+                                </Grid>
+                            </Button>
+                        </Border>
+
+
+
+
+
+                    </Grid>
                 </Border>
             </Popup>
         </Grid>
 
     </Canvas>
-
-
-
-
-
-
+    
 </Window>
