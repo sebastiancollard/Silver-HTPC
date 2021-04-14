@@ -276,36 +276,6 @@ namespace Silver_HTPC
                     this.Close();
                     break;
 
-                /*
-            case Key.Back:
-                LiveTV livetv = new LiveTV(channel);
-                livetv.Show();
-                this.Close();
-                break;
-           
-            case Key.S:
-            
-                Search search = new Search();
-                search.Show();
-                this.Close();
-                break;
-            
-            case Key.G:
-            
-                TV_Guide tvguide = new TV_Guide();
-                tvguide.Show();
-                this.Close();
-                break;
-            
-            case Key.H:
-            
-                MainWindow mainwindow = new MainWindow();
-                mainwindow.Show();
-                this.Close();
-                break;
-            
-            */
-
 
                 default:
                     break;

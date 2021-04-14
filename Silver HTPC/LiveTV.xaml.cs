@@ -94,32 +94,7 @@ namespace Silver_HTPC
                 this.Close();
             }
 
-            /*
-            else if(e.Key == Key.Back)
-            {
-                MainWindow mainwindow = new MainWindow();
-                mainwindow.Show();
-                this.Close();
-            }
-            else if(e.Key == Key.S)
-            {
-                Search search = new Search();
-                search.Show();
-                this.Close();
-            }
-            else if (e.Key == Key.G)
-            {
-                TV_Guide tvguide = new TV_Guide();
-                tvguide.Show();
-                this.Close();
-            }
-            else if (e.Key == Key.H)
-            {
-                MainWindow mainwindow = new MainWindow();
-                mainwindow.Show();
-                this.Close();
-            }
-            */
+            
         }
 
 
