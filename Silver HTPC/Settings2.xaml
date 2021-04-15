@@ -41,10 +41,10 @@
         <Label x:Name="guide1" HorizontalAlignment="Left" Height="38" Margin="0,0,0,3.667" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" VerticalAlignment="Bottom" Width="284" FontWeight="Medium" FontSize="20px"  FontFamily="Helvetica">
             <StackPanel Orientation="Horizontal">
                 <TextBlock FontSize="20" Text="Move Around:    "/>
-                <Image Source="Image/ok_button.png" Stretch="Fill" Height="25" Width="25" HorizontalAlignment="Center"/>
-                <Image Source="Image/ok_button.png" Stretch="Fill" Height="25" Width="25" HorizontalAlignment="Center"/>
-                <Image Source="Image/ok_button.png" Stretch="Fill" Height="25" Width="25" HorizontalAlignment="Center"/>
-                <Image Source="Image/ok_button.png" Stretch="Fill" Height="25" Width="25" HorizontalAlignment="Center"/>
+                <Image Source="Image/up_button.png" Stretch="Fill" Height="25" Width="25" HorizontalAlignment="Center"/>
+                <Image Source="Image/down_button.png" Stretch="Fill" Height="25" Width="25" HorizontalAlignment="Center"/>
+                <Image Source="Image/left_button.png" Stretch="Fill" Height="25" Width="25" HorizontalAlignment="Center"/>
+                <Image Source="Image/right_button.png" Stretch="Fill" Height="25" Width="25" HorizontalAlignment="Center"/>
             </StackPanel>
         </Label>
         <Label x:Name="guide2" Height="38" Margin="0,0,10,3" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" VerticalAlignment="Bottom" FontWeight="Medium" FontSize="20px"  FontFamily="Helvetica">

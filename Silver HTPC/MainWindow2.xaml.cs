@@ -252,7 +252,7 @@ namespace Silver_HTPC
                                     MessageBox.Show("No screens made for third party");
                                     break;
                                 case "Settings":
-                                    Settings settings = new Settings();
+                                    Settings2 settings = new Settings2();
                                     settings.Show();
                                     break;
                                 case "Notification":

@@ -27,10 +27,10 @@
             <Label x:Name="guide1" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="38" Margin="37,102,0,-56" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" VerticalAlignment="Top" Width="284" FontWeight="Medium" FontSize="20px"  FontFamily="Arial" Grid.Row="2" >
                 <StackPanel Orientation="Horizontal">
                     <TextBlock FontSize="20">Move Around:   .</TextBlock>
-                    <Image Source="Image/ok_button.png" Stretch="Fill" Height="25" Width="25" HorizontalAlignment="Center"/>
-                    <Image Source="Image/ok_button.png" Stretch="Fill" Height="25" Width="25" HorizontalAlignment="Center"/>
-                    <Image Source="Image/ok_button.png" Stretch="Fill" Height="25" Width="25" HorizontalAlignment="Center"/>
-                    <Image Source="Image/ok_button.png" Stretch="Fill" Height="25" Width="25" HorizontalAlignment="Center"/>
+                    <Image Source="Image/up_button.png" Stretch="Fill" Height="25" Width="25" HorizontalAlignment="Center"/>
+                    <Image Source="Image/down_button.png" Stretch="Fill" Height="25" Width="25" HorizontalAlignment="Center"/>
+                    <Image Source="Image/left_button.png" Stretch="Fill" Height="25" Width="25" HorizontalAlignment="Center"/>
+                    <Image Source="Image/right_button.png" Stretch="Fill" Height="25" Width="25" HorizontalAlignment="Center"/>
                 </StackPanel>
             </Label>
             
