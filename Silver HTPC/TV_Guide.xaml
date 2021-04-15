@@ -38,7 +38,7 @@
                 <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top"  Grid.ColumnSpan="2" >
 
 
-                    <Label x:Name="label" Content="Recommendations / Continue watching" Height="40" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="15"  Grid.ColumnSpan="2"/>
+                    <Label x:Name="label" FontWeight="DemiBold" Foreground="Black" Content="Recommendations / Continue watching" Height="40" VerticalContentAlignment="Bottom" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="15"  Grid.ColumnSpan="2"/>
 
                     <StackPanel HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="792" Orientation="Horizontal" Grid.ColumnSpan="2"  >
 
@@ -107,7 +107,7 @@
                     </StackPanel>
 
 
-                    <Label Content="Explore" HorizontalAlignment="Left"  Height="40" VerticalContentAlignment="Bottom" VerticalAlignment="Top" FontSize="15" />
+                    <Label Content="Explore" FontWeight="DemiBold" Foreground="Black" HorizontalAlignment="Left"  Height="40" VerticalContentAlignment="Bottom" VerticalAlignment="Top" FontSize="15" />
 
                     <StackPanel HorizontalAlignment="Left" Height="115" VerticalAlignment="Top" Width="792" Orientation="Horizontal" Grid.ColumnSpan="2" >
                         <ListBox x:Name="listbox2" Width="791"  ItemContainerStyle="{StaticResource SimpleListBoxItem}"  ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Disabled">
@@ -187,7 +187,7 @@
 
 
 
-                    <Label Content="Sports" HorizontalAlignment="Left" VerticalAlignment="Top" Height="40" VerticalContentAlignment="Bottom" FontSize="15"/>
+                    <Label Content="Sports" HorizontalAlignment="Left" VerticalAlignment="Top" Height="40" VerticalContentAlignment="Bottom" FontSize="15" FontWeight="DemiBold" Foreground="Black"/>
 
                     <StackPanel HorizontalAlignment="Left" Height="115" VerticalAlignment="Top" Width="792" Orientation="Horizontal">
                         <ListBox x:Name="listbox3" Width="791"  ItemContainerStyle="{StaticResource SimpleListBoxItem}" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Disabled">
@@ -336,8 +336,8 @@
                             </Button>
                         </Border>
 
-                        <Border x:Name="done_button_border" Opacity="0" Margin="58,95,0,0" HorizontalAlignment="left" Height="57" VerticalAlignment="Top" Width="95" BorderThickness="1" >
-                            <Button x:Name="done_button" Style="{StaticResource StandardButton}">
+                       
+                            <Button x:Name="done_button" Style="{StaticResource StandardButton}" Margin="58,95,0,0" HorizontalAlignment="left" Height="57" VerticalAlignment="Top" Width="95">
                                 <Grid  >
 
 
@@ -354,7 +354,7 @@
 
                                 </Grid>
                             </Button>
-                        </Border>
+                     
 
 
 
