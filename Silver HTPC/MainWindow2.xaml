@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Silver_HTPC"
         mc:Ignorable="d"
         Title="MainWindow2" Height="450" Width="800"
-        Background="{StaticResource WindowBackgroundBrush}">
+        Background="{StaticResource WindowBackgroundBrush}" KeyDown="Window_KeyDown">
     <Grid>
         <Rectangle Style="{StaticResource GreyDivider}" Margin="0,85,0,0"/>
         <Rectangle Style="{StaticResource GreyDivider}" Margin="0,370,-0.444,0"/>
