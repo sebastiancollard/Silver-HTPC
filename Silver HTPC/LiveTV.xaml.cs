@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Media.Animation;
+using System.Windows.Threading;
+
 
 
 namespace Silver_HTPC
@@ -28,7 +30,11 @@ namespace Silver_HTPC
         //Storyboard slideRight;
         //Storyboard slideLeft;
         //Rectangle r;
-        
+
+
+        // For clock
+        private DispatcherTimer dispatcherTimer;
+
 
         public LiveTV(int x)
         {
@@ -43,7 +49,17 @@ namespace Silver_HTPC
             nowPlaying.Source = bi;
             sidemenu = panel;
             record = record_button;
-            
+
+            // Thanks Aifaz
+            // Display the date & time
+            dispatcherTimer = new DispatcherTimer();
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 5);
+            DispatcherTimer timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
+            {
+                this.guide_time.Content = DateTime.Now.ToString("hh:mm tt");
+                this.guide_date.Content = DateTime.Now.ToString("MMMM dd, yyyy");
+            }, this.Dispatcher);
+
 
 
 

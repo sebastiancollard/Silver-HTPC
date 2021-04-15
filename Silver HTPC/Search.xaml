@@ -59,8 +59,6 @@
     </Window.Resources>
     <Canvas x:Name="background" LayoutTransform="{StaticResource windowScaleTransform}">
         <Line X1="0" Y1="55" X2="800" Y2="55" Stroke="LightSlateGray" StrokeThickness="7" Opacity="1"   />
-        <TextBlock Text="{Binding Source={x:Static System:DateTime.Now}, StringFormat=\{0:dddd\, MMMM dd\}}" TextAlignment="Right"  HorizontalAlignment="Right" Height="30" VerticalAlignment="Top" Width="296" RenderTransformOrigin="0.268,0.293" Background="{x:Null}"  Margin="0" Style="{StaticResource TextBlockHeaderStyle}" Canvas.Left="486" Canvas.Top="-3" />
-        <TextBlock Text="{Binding Source={x:Static System:DateTime.Now}, StringFormat=\{0:HH:mm\}}" HorizontalAlignment="Right" Height="31" VerticalAlignment="Top" Width="65" RenderTransformOrigin="0.268,0.293" Margin="0" Background="{x:Null}"  Style="{StaticResource TextBlockHeaderStyle}" Canvas.Left="717" Canvas.Top="21" />
         <ScrollViewer x:Name="scroll"  HorizontalAlignment="Right" Height="348" Width="792" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Visible" Canvas.Top="71" RenderTransformOrigin="0,-0.5">
             <StackPanel x:Name="stack"  Orientation="Horizontal">
             </StackPanel>
@@ -77,8 +75,11 @@
         <Label Canvas.Left="404" Canvas.Top="10"/>
         <Button x:Name="dummy" Content="Button" Canvas.Top="-149" Width="75" Background="#00DDDDDD" BorderBrush="#00707070" Foreground="#00000000"/>
         <Image HorizontalAlignment="Left" Height="50" Margin="0,1,0,0" VerticalAlignment="Top" Width="58" RenderTransformOrigin="0.148,-0.221" Source="Image/search_icon.png" />
-        <Label x:Name="Recording_Label" Content="Search" Height="74" Width="220" RenderTransformOrigin="0.22,1.006" FontFamily="Segoe UI Black" FontSize="36" Margin="58,0,0,0" Cursor="None" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="Black"/>
+        <TextBlock x:Name="Recording_Label" Text="Search" Height="74" Width="220"  Style="{StaticResource TextBlockHeaderStyle}" Margin="58,10,0,0" FontSize="30">
 
+        </TextBlock>
+        <Label Name="guide_time"  Content="Time:" Style="{StaticResource TimeLabel}" Margin="498,-7,0,0"/>
+        <Label Name="guide_date" Content="Date:" Style="{StaticResource DateLabel}" Margin="498,27,0,0"/>
         <DockPanel Height="325" x:Name="keypad" Width="264" LastChildFill="True" Canvas.Top="68" Canvas.Left="20" KeyDown="KeyPad_KeyDown">
             <Grid DockPanel.Dock="Top" Canvas.Left="447" Canvas.Top="-99" Height="48">
                 <Grid.ColumnDefinitions>

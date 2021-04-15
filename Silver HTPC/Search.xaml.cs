@@ -10,9 +10,10 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Media.Animation;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Media.Effects;
+using System.Windows.Threading;
 
 namespace Silver_HTPC
 {
@@ -30,6 +31,7 @@ namespace Silver_HTPC
         static bool update = true;
         const int offset = 340;
         bool o = true;
+        private DispatcherTimer dispatcherTimerTime;
 
         public Search()
         {
@@ -42,12 +44,23 @@ namespace Silver_HTPC
             scroll.Width -= 270;
             scroll.Margin = new Thickness(270, 0, 0, 0);
             searchBox.Text = text;
+            dispatcherTimerTime = new DispatcherTimer();
+            dispatcherTimerTime.Interval = new TimeSpan(0, 0, 5);
+            DispatcherTimer timer = new DispatcherTimer(new TimeSpan(0, 0, 1), DispatcherPriority.Normal, delegate
+            {
+                this.guide_time.Content = DateTime.Now.ToString("hh:mm tt");
+                this.guide_date.Content = DateTime.Now.ToString("MMMM dd, yyyy");
+            }, this.Dispatcher);
+
+            searchBox.BorderBrush = Brushes.CornflowerBlue;
 
             foreach (ComboBoxItem i in filter.Items) i.KeyDown += comboboxItem_KeyDown;
 
         }
         private void MakeResults()
         {
+            
+
             for (int i = 0; i <= 34; ++i)
             {
                 Grid result = new Grid();
@@ -647,6 +660,7 @@ namespace Silver_HTPC
                 if (keypad.Visibility == Visibility.Hidden)
                 {
                     counter.Visibility = Visibility.Hidden;
+                    searchBox.BorderBrush = Brushes.CornflowerBlue;
                     keypad.Visibility = Visibility.Visible;
                     scroll.Width -= 270;
                     scroll.Margin = new Thickness(270, 0, 0, 0);
@@ -656,6 +670,7 @@ namespace Silver_HTPC
                 else if (keypad.Visibility == Visibility.Visible && update)
                 {
                     counter.Visibility = Visibility.Visible;
+                    searchBox.BorderBrush = Brushes.DarkGray;
                     keypad.Visibility = Visibility.Hidden;
                     scroll.Width += 270;
                     scroll.Margin = new Thickness();
@@ -852,6 +867,7 @@ namespace Silver_HTPC
         private void keyPad_GotFocus(object sender, RoutedEventArgs e)
         {
             var btn = sender as Button;
+            searchBox.BorderBrush = Brushes.CornflowerBlue;
             btn.Style = (Style)FindResource("HoverButton");
             //btn.Background = (LinearGradientBrush)FindResource("ButtonHoverBackground");
         }
@@ -859,6 +875,7 @@ namespace Silver_HTPC
         private void keyPad_LostFocus(object sender, RoutedEventArgs e)
         {
             var btn = sender as Button;
+            searchBox.BorderBrush = Brushes.DarkGray;
             btn.Style = (Style)FindResource("StandardButton");
             //btn.Background = (LinearGradientBrush)FindResource("ButtonNormalBackground");
         }
