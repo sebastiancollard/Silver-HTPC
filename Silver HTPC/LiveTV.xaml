@@ -54,27 +54,27 @@
 
             <Canvas Grid.Row="0">
                 <Label Name="guide_time"  Content="Time:" Style="{StaticResource TimeLabel}" Margin="0" Canvas.Left="-86"/>
-                <Label Name="guide_date" Content="Date:" Style="{StaticResource DateLabel}" Margin="0" Canvas.Left="-86" Canvas.Top="37"/>
+                <Label Name="guide_date" Content="Date:" Style="{StaticResource DateLabel}" Margin="0" Canvas.Left="-86" Canvas.Top="47"/>
 
             </Canvas>
             <StackPanel Grid.Row="1">
-                <Label Foreground="Black" FontSize="18">
-                    Description
+                <Label Foreground="Black" FontSize="15" FontWeight="Bold">
+                    Sherlock
                 </Label>
-                <Label Height="90" VerticalContentAlignment="Center">
+                <Label Height="90" VerticalContentAlignment="Top">
                     <Label.Background>
                         <SolidColorBrush Color="Black" Opacity="0.5"/>
                     </Label.Background>
                     <TextBlock Foreground="White" TextWrapping="WrapWithOverflow">
                     
-                Sherlock goes up against the powerful and seemingly unassailable 
+                (S4E2) Sherlock goes up against the powerful and seemingly unassailable 
                 Culverton Smith - a man with a very dark secret indeed.
                     </TextBlock>
                 </Label>
             </StackPanel>
 
             <StackPanel Grid.Row="2">
-                <Label Foreground="Black" FontSize="18">
+                <Label Foreground="Black" FontSize="15">
                     Reminders
                 </Label>
 
