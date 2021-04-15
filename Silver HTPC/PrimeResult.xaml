@@ -10,6 +10,6 @@
         <ScaleTransform x:Key="windowScaleTransform" ScaleX="2.4" ScaleY="2.4" />
     </Window.Resources>
     <Grid LayoutTransform="{StaticResource windowScaleTransform}">
-        <Image HorizontalAlignment="Left" Height="419" VerticalAlignment="Top" Width="792" Source="Image/spiderverse_prime_video.jpg" Stretch="Fill"/>
+        <Image HorizontalAlignment="Left" Height="437" VerticalAlignment="Top" Width="797" Source="Image/spiderverse_prime_video.jpg" Stretch="Fill"/>
     </Grid>
 </Window>
