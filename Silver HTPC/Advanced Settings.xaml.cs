@@ -82,7 +82,7 @@ namespace Silver_HTPC
                 }
                 else if (_combobox_ColourBlind.IsFocused)
                 {
-                    _tb_Notifications.Focus();
+                    _tb_Magnifier.Focus();
                 }
             }
         }
