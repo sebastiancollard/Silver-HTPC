@@ -5,11 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Silver_HTPC"
         mc:Ignorable="d"
-        Title="AdvancedSettings" Height="450" Width="800"
+        Title="AdvancedSettings" Height="1080" Width="1920"
         KeyDown="Window_KeyDown"
         Background="{StaticResource WindowBackgroundBrush}">
-
-    <Grid>
+    <Window.Resources>
+        <ScaleTransform x:Key="windowScaleTransform" ScaleX="2.4" ScaleY="2.4" />
+    </Window.Resources>
+    <Grid LayoutTransform="{StaticResource windowScaleTransform}">
         <TextBlock Text="Advanced Settings" Style="{StaticResource TextBlockHeaderStyle}"/>
         <Image Source="Image/settings_icon.png" Style="{StaticResource HeaderIconPos}"/>
         <Rectangle Style="{StaticResource GreyDivider}"/>

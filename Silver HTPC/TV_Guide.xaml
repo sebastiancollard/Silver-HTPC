@@ -5,10 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Silver_HTPC"
         mc:Ignorable="d"
-        Title="TV_Guide" Height="450" Width="800" KeyDown="Window_KeyDown"
+        Title="TV_Guide" Height="1080" Width="1920" KeyDown="Window_KeyDown"
         Background="{StaticResource WindowBackgroundBrush}">
-
-    <Canvas>
+    <Window.Resources>
+        <ScaleTransform x:Key="windowScaleTransform" ScaleX="2.4" ScaleY="2.4" />
+    </Window.Resources>
+    <Canvas LayoutTransform="{StaticResource windowScaleTransform}">
 
 
         <Grid Height="419">

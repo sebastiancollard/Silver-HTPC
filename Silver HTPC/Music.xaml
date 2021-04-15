@@ -7,9 +7,12 @@
         xmlns:local="clr-namespace:Silver_HTPC"
         xmlns:System="clr-namespace:System;assembly=mscorlib" 
         mc:Ignorable="d"
-        Title="Music" Height="450" Width="800"
+        Title="Music" Height="1080" Width="1920"
         Background="{StaticResource WindowBackgroundBrush}">
-    <Grid>
+    <Window.Resources>
+        <ScaleTransform x:Key="windowScaleTransform" ScaleX="2.4" ScaleY="2.4" />
+    </Window.Resources>
+    <Grid LayoutTransform="{StaticResource windowScaleTransform}">
         <Line X1="0" Y1="55" X2="800" Y2="55" Stroke="LightSlateGray" StrokeThickness="7" Opacity="1"   />
         <Image HorizontalAlignment="Left" Height="50" Margin="0,1,0,0" VerticalAlignment="Top" Width="58" RenderTransformOrigin="0.148,-0.221" Source="Image/music_icon.png" />
         <TextBlock x:Name="Recording_Label" Text="Music" Height="74" Width="220"  Style="{StaticResource TextBlockHeaderStyle}" Margin="58,10,0,0" FontSize="30">

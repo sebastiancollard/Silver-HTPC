@@ -5,10 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Silver_HTPC"
         mc:Ignorable="d"
-        Title="Home Page" Height="450" Width="800" KeyDown="Window_KeyDown"
+        Title="Home Page" Height="1080" Width="1920" KeyDown="Window_KeyDown"
         Background="{StaticResource WindowBackgroundBrush}">
-
-    <Grid>
+    <Window.Resources>
+        <ScaleTransform x:Key="windowScaleTransform" ScaleX="2.4" ScaleY="2.4" />
+    </Window.Resources>
+    <Grid LayoutTransform="{StaticResource windowScaleTransform}">
         <Rectangle Style="{StaticResource GreyDivider}" Margin="0,85,0,0"/>
 
         <Grid Margin="6,113,6,15" x:Name="MainGrid">
