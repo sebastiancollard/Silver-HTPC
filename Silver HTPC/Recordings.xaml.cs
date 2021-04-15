@@ -402,6 +402,7 @@ namespace Silver_HTPC
                 RecordingList.Effect = new BlurEffect();
                 Sort_Button.Effect = new BlurEffect();
                 DeleteMultiple_Button.Effect = new BlurEffect();
+                Add_Button.Effect = new BlurEffect();
                 //MusicDuration.Effect = new BlurEffect();
                 //DeleteMessage.Effect = null;
                 //MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Are you sure?", "Delete Confirmation", System.Windows.MessageBoxButton.YesNo);
@@ -439,7 +440,7 @@ namespace Silver_HTPC
                 Button yes = new Button();
                 yes.Width = 50;
                 yes.Content = "Yes";
-                yes.GotFocus += Button_GotFocus;
+                yes.GotFocus += Yes_GotFocus;
                 yes.LostFocus += Button_LostFocus;
                 yes.KeyDown += Yes_KeyDown;
                 Grid.SetRow(yes, 2);
@@ -574,6 +575,7 @@ namespace Silver_HTPC
                 RecordingList.Effect = null;
                 Sort_Button.Effect = null;
                 DeleteMultiple_Button.Effect = null;
+                Add_Button.Effect = null;
                 
                 for (int i = 0; i < RecordButtonsList.Count; i++)
                 {
@@ -627,6 +629,7 @@ namespace Silver_HTPC
                 
                 Sort_Button.Effect = null;
                 DeleteMultiple_Button.Effect = null;
+                Add_Button.Effect = null;
                 
                 for (int i = 0; i < RecordButtonsList.Count; i++)
                 {
@@ -648,6 +651,15 @@ namespace Silver_HTPC
             //thisButton.Height = 44;
         }
 
+        private void Yes_GotFocus(object sender, RoutedEventArgs e)
+        {
+            Button thisButton = sender as Button;
+            //thisButton.Background = Brushes.Red;
+            thisButton.Style = (Style)FindResource("HoverButton");
+            thisButton.Background = (LinearGradientBrush)FindResource("DangerButtonHoverBackground");
+            Console.WriteLine("Here");
+            //thisButton.Height = 60;
+        }
         private void Button_GotFocus(object sender, RoutedEventArgs e)
         {
             Button thisButton = sender as Button;

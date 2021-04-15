@@ -925,6 +925,7 @@ namespace Silver_HTPC
                 SortButton.Effect = null;
                 DeleteMultiple.Effect = null;
                 MusicDuration.Effect = null;
+                AddButton.Effect = null;
                 for (int i = 0; i < MusicButtonsList.Count; i++)
                 {
                     MusicButtonsList[i].Focusable = true;
@@ -975,6 +976,7 @@ namespace Silver_HTPC
                 SortButton.Effect = null;
                 DeleteMultiple.Effect = null;
                 MusicDuration.Effect = null;
+                AddButton.Effect = null;
                 for (int i = 0; i < MusicButtonsList.Count; i++)
                 {
                     MusicButtonsList[i].Focusable = true;
@@ -1124,6 +1126,7 @@ namespace Silver_HTPC
                 SortButton.Effect = new BlurEffect();
                 DeleteMultiple.Effect = new BlurEffect();
                 MusicDuration.Effect = new BlurEffect();
+                AddButton.Effect = new BlurEffect();
                 //DeleteMessage.Effect = null;
                 //MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Are you sure?", "Delete Confirmation", System.Windows.MessageBoxButton.YesNo);
 
