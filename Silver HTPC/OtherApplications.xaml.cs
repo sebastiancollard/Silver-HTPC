@@ -197,6 +197,9 @@ namespace Silver_HTPC
                     content[selectedIndex, 0] = "Settings";
                     content[selectedIndex, 1] = "Image/settings_icon.png";
                     /* amazon prime page*/
+                    PrimeResult pr = new PrimeResult();
+                    pr.Show();
+                    this.Close();
                 }
             }
             

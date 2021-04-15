@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Amazon.xaml.cs">
+      <DependentUpon>Amazon.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LiveTV.xaml.cs">
       <DependentUpon>LiveTV.xaml</DependentUpon>
     </Compile>
@@ -79,6 +82,10 @@
     <Page Include="Advanced Settings.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Amazon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="LiveTV.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -568,6 +575,7 @@
     <Resource Include="Image\playPauseMusic.jpg" />
     <Resource Include="Image\playPauseMusic.v3.png" />
     <Resource Include="Image\logo.png" />
+    <Resource Include="Image\primeHome.png" />
     <Content Include="Sound\OkClick.wav" />
     <Resource Include="Sound\OkClick.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
