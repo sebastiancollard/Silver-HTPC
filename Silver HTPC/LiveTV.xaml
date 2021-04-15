@@ -59,15 +59,15 @@
             </Canvas>
             <StackPanel Grid.Row="1">
                 <Label Foreground="Black" FontSize="18">
-                    Description
+                    <Bold>Sherlock</Bold>
                 </Label>
                 <Label Height="90" VerticalContentAlignment="Center">
                     <Label.Background>
                         <SolidColorBrush Color="Black" Opacity="0.5"/>
                     </Label.Background>
-                    <TextBlock Foreground="White" TextWrapping="WrapWithOverflow">
-                    
-                Sherlock goes up against the powerful and seemingly unassailable 
+                    <TextBlock Foreground="White" TextWrapping="WrapWithOverflow" Height="78">
+      
+                (S4E2) Sherlock goes up against the powerful and seemingly unassailable 
                 Culverton Smith - a man with a very dark secret indeed.
                     </TextBlock>
                 </Label>
