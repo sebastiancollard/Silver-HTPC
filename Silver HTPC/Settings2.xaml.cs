@@ -16,12 +16,12 @@ using System.Windows.Shapes;
 namespace Silver_HTPC
 {
     /// <summary>
-    /// Interaction logic for Settings.xaml
+    /// Interaction logic for Settings2.xaml
     /// </summary>
-    public partial class Settings : Window
+    public partial class Settings2 : Window
     {
 
-        public Settings()
+        public Settings2()
         {
             InitializeComponent();
 
@@ -111,8 +111,8 @@ namespace Silver_HTPC
             {
                 if (_togbut_ButtonGuide.IsFocused)
                 {
-                    Settings2 settings2 = new Settings2();
-                    settings2.Show();
+                    Settings settings = new Settings();
+                    settings.Show();
                     this.Close();
                 }
             }
@@ -136,13 +136,6 @@ namespace Silver_HTPC
             button.Background = (Brush)Application.Current.FindResource("ButtonNormalBackground");
         }
 
-        // Raised when Button loses focus.
-        // Changes the color of the Button back to normal.
-        private void OnBGuideLostFocusHandler(object sender, RoutedEventArgs e)
-        {
-            Button button = e.Source as Button;
-            button.Style = (Style)FindResource("StandardButton");
-            button.Background = (Brush)Application.Current.FindResource("ButtonNormalBackground");
-        }
+        
     }
 }
