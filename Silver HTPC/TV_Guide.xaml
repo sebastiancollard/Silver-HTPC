@@ -334,8 +334,8 @@
                             </Button>
                         </Border>
 
-                        <Border x:Name="done_button_border" Opacity="0" Margin="58,95,0,0" HorizontalAlignment="left" Height="57" VerticalAlignment="Top" Width="95" BorderThickness="1" >
-                            <Button x:Name="done_button" Style="{StaticResource StandardButton}">
+                       
+                            <Button x:Name="done_button" Style="{StaticResource StandardButton}" Margin="58,95,0,0" HorizontalAlignment="left" Height="57" VerticalAlignment="Top" Width="95">
                                 <Grid  >
 
 
@@ -352,7 +352,7 @@
 
                                 </Grid>
                             </Button>
-                        </Border>
+                     
 
 
 
