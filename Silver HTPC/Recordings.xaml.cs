@@ -44,7 +44,9 @@ namespace Silver_HTPC
             {
                 this.guide_time.Content = DateTime.Now.ToString("hh:mm tt");
                 this.guide_date.Content = DateTime.Now.ToString("MMMM dd, yyyy");
-                this.DateTimeReminder.Content = "\t" + DateTime.Now.ToString("hh:mm tt") +"\n\t"+  DateTime.Now.ToString("MMMM dd, yyyy");
+                this.guide_date1.Content = DateTime.Now.ToString("MMMM dd, yyyy"); ;
+                this.guide_time1.Content = DateTime.Now.ToString("hh:mm tt"); ;
+                //this.DateTimeReminder.Content = "\t" + DateTime.Now.ToString("hh:mm tt") +"\n\t"+  DateTime.Now.ToString("MMMM dd, yyyy");
             }, this.Dispatcher);
 
             dispatcherTimer = new DispatcherTimer();

@@ -168,10 +168,9 @@
             </Grid.RowDefinitions>
 
 
-            <Label Name="DateTimeReminder" Grid.Row="0" xml:space="preserve" HorizontalContentAlignment="Center">
-                    Date:  
-                    Time:       
-                </Label>
+            <Label Name="guide_time1"  Content="Time:" Style="{StaticResource TimeLabel}" Margin="-11,0,0,0"  Width="238" Height="40" HorizontalContentAlignment="Right"/>
+            <Label Name="guide_date1" Content="Date:" Style="{StaticResource DateLabel}" Margin="0,42,0,0"   Width="228" HorizontalAlignment="Left"/>
+
             <StackPanel Grid.Row="1">
                 <Label Foreground="Black" FontSize="14">
                     Description
@@ -278,13 +277,13 @@
 
                 </Grid.ColumnDefinitions>
                 <Image Grid.Row="0"  HorizontalAlignment="Left" Height="45" VerticalAlignment="Center" Width="70"  Grid.Column="0" Source="Image/record_icon.png" Stretch="Uniform" />
-                <Label Name="RecordingsDeleteMessage" Grid.Column="1" Foreground="White" FontSize="13">El-Classico</Label>
+                <Label Name="RecordingsDeleteMessage" Grid.Column="1" Foreground="White" FontSize="12">El-Classico</Label>
 
             </Grid>
 
         </StackPanel>
-       
-        
+
+
 
     </Grid>
     <!--
