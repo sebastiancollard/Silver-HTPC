@@ -13,7 +13,7 @@
         <TextBlock Text="Advanced Settings" Style="{StaticResource TextBlockHeaderStyle}"/>
         <Image Source="Image/settings_icon.png" Style="{StaticResource HeaderIconPos}"/>
         <Rectangle Style="{StaticResource GreyDivider}"/>
-        <ToggleButton x:Name="_tb_Magnifier" Content="Magnifier             " Style="{StaticResource ToggleButtonStyle1}" Margin="85,117,162.556,240.667"/>
+        <ToggleButton x:Name="_tb_Magnifier" Content="Magnifier             " Style="{StaticResource ToggleButtonStyle1}" Margin="85,117,162.556,240.667" FocusVisualStyle="{x:Null}"/>
         <TextBlock HorizontalAlignment="Left" Margin="85,184,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="29" Width="126" FontSize="20"><Run Text="Colou"/><Run Text="r"/><Run Text=" "/><Run Text="blind"/></TextBlock>
         <ComboBox Name="_combobox_ColourBlind"  HorizontalAlignment="Left" Height="29" Margin="252,184,0,0" VerticalAlignment="Top" Width="196">
             <ComboBoxItem Content="Full Spectrum"></ComboBoxItem>
@@ -21,6 +21,6 @@
             <ComboBoxItem Content="Reduce colours"></ComboBoxItem>
         </ComboBox>
         <TextBlock HorizontalAlignment="Left" Margin="50,90,0,0" TextWrapping="Wrap" Text="Accessibility" VerticalAlignment="Top" Height="29" Width="109" FontSize="20"/>
-        <ToggleButton x:Name="_tb_Notifications" Content="Notifications              " Style="{StaticResource ToggleButtonStyle1}" Margin="52,218,195.556,115.667"/>
+        <ToggleButton x:Name="_tb_Notifications" Content="Notifications              " Style="{StaticResource ToggleButtonStyle1}" Margin="52,218,195.556,115.667" FocusVisualStyle="{x:Null}"/>
     </Grid>
 </Window>

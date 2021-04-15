@@ -12,12 +12,12 @@
     <Grid>
         <Label Name="guide_time"  Content="Time:" Style="{StaticResource TimeLabel}" Margin="498,-6,0,0"/>
         <Label Name="guide_date" Content="Date:" Style="{StaticResource DateLabel}" Margin="498,25,0,0"/>
-        <TextBlock x:Name="Recording_Label" Text="Recordings" Height="41" Width="220" RenderTransformOrigin="0.22,1.006"  Margin="58,10,0,0" Cursor="None" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="Black" Style="{StaticResource TextBlockHeaderStyle}" FontSize="30">
+        <TextBlock x:Name="Recording_Label" Text="Recordings" Style="{StaticResource TextBlockHeaderStyle}" Margin="64,9,0,0">
 
         </TextBlock>
 
         <!-- https://www.wpf-tutorial.com/data-binding/the-stringformat-property/ -->
-        <Line X1="0" Y1="55" X2="800" Y2="55" Stroke="LightSlateGray" StrokeThickness="7" Opacity="1"   />
+        <Line X1="0" Y1="56" X2="800" Y2="56" Stroke="LightSlateGray" StrokeThickness="5" Opacity="1"   />
         <!-- https://www.iconsdb.com/red-icons/record-icon.html -->
         <TextBlock HorizontalAlignment="Left" Height="19" Margin="612,332,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" RenderTransformOrigin="0.406,-0.589" FontSize="12"  Text="210 Hours Recording Time Left" Style="{StaticResource TextBlockBodyStyle}"/>
         <Image HorizontalAlignment="Left" Height="50" Margin="0,1,0,0" VerticalAlignment="Top" Width="58" RenderTransformOrigin="0.148,-0.221" Source="Image/record_icon.png" />
