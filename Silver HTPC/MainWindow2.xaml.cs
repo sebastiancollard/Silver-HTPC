@@ -22,14 +22,15 @@ namespace Silver_HTPC
     
     public partial class MainWindow2 : Window
     {
-        private static int currentButtonSelectionIndex = 0;
+        private int currentButtonSelectionIndex = 0;
+        private static int volume = 40;
         private int profileIndex = 0;
         private static Button[] menuButtonList;
         private static StackPanel[] stackPanelList;
         private DispatcherTimer dispatcherTimer;
         public static string[,] content = new string[,] { { "Live TV", "Image/tv_icon.png" }, { "Gallery", "Image/gallery_icon.png" }, { "Music", "Image/music_icon.png" }, { "Recordings", "Image/record_icon.png" }, { "Search", "Image/search_icon.png" }, { "Netflix", "Image/netflix_icon.png" }, { "Settings", "Image/settings_icon.png" }, { "Notification", "Image/notification_icon.png" }, { "Other Apps", "Image/apps_icon.png" }, { "John Doe", "Image/profile_icon.png" } };
         private static Label selectedLabel;
-        private static string[] profiles;
+        private static string[,] profiles;
         private static List<Button> profileBtns = new List<Button>();
         public MainWindow2()
         {
@@ -47,12 +48,13 @@ namespace Silver_HTPC
             //list of buttons, stack panels and content
             //content=> possible mitigation -> reading from a file (log file)
             menuButtonList = new Button[] { munu_button1, munu_button2, munu_button3, munu_button4, munu_button5, munu_button6, munu_button7, munu_button8, munu_button9, profile_button };
-            profiles = new String[] { "John Doe", "Super Tiger", "Mr Beast", "Add Profile" };
+            profiles = new String[,] { { "John Doe", "Image/profile_icon.png" }, { "Add Profile", "Image/add_profile.png" } };
+            //Vol.Content = volume;
             //profiles.Append<string>("Add profile");
 
 
-            /*foreach (Button btn in menuButtonList)
-                btn.KeyDown += select;*/
+            foreach (Button btn in menuButtonList)
+                btn.Background = (LinearGradientBrush)FindResource("ButtonNormalBackground");
 
             stackPanelList = new StackPanel[] { stackPan_Button1, stackPan_Button2, stackPan_Button3, stackPan_Button4, stackPan_Button5, stackPan_Button6, stackPan_Button7, stackPan_Button8, stackPan_Button9, stackPan_Profile };
             //content = 
@@ -68,8 +70,8 @@ namespace Silver_HTPC
                 }
                 else
                 {
-                    image.Height = 60;
-                    image.Width = 60;
+                    image.Height = 55;
+                    image.Width = 55;
                 }
                 Uri imageUri = new Uri(content[i, 1], UriKind.Relative);
                 image.Source = new BitmapImage(imageUri);
@@ -84,6 +86,61 @@ namespace Silver_HTPC
             //munu_button1.Focus();
             setButtonFocus(currentButtonSelectionIndex);
         }
+        /*
+        private void select(object sender, KeyEventArgs e)
+        {
+            var btn = sender as Button;
+            if (e.Key == Key.Enter)
+            {
+                if (btn == munu_button8)
+                {
+                    Notification_tab notification_window = new Notification_tab();
+                    notification_window.Show();
+                    this.Hide();
+                }
+                else if (btn == munu_button1)
+                {
+                    Photos_Videos photos_Videos_Window = new Photos_Videos();
+                    photos_Videos_Window.Show();
+                    this.Close();
+                }
+                else if (btn == munu_button4)
+                {
+                    Recordings recording_Window = new Recordings();
+                    recording_Window.Show();
+                    this.Close();
+                }
+                else if (btn == munu_button2)
+                {
+                    Photos_Videos photos_Videos_Window = new Photos_Videos();
+                    photos_Videos_Window.Show();
+                    this.Close();
+                }
+                else if (btn == munu_button5)
+                {
+                    Photos_Videos photos_Videos_Window = new Photos_Videos();
+                    photos_Videos_Window.Show();
+                    this.Close();
+                }
+                else if (btn == munu_button7)
+                {
+                    Settings settings_Window = new Settings();
+                    settings_Window.Show();
+                    this.Close();
+                }
+                else if (btn == munu_button3)
+                {
+                    Music music_Window = new Music();
+                    music_Window.Show();
+                    this.Close();
+                }else if (btn == profile_button)
+                {
+                    MessageBox.Show("create one");
+                }
+            }
+
+        }*/
+
         public void setButtonFocus(int button_index)
         {
             //currentButtonSelectionIndex = button_index;
@@ -101,6 +158,10 @@ namespace Silver_HTPC
             //}
             //button.Foreground = Brushes.White;
             button.Height *= 1.2;
+            if (button_index == 7)
+            {
+                //notifyDot.Margin = new Thickness(410, 310, 0, 0);
+            }
         }
 
         public void updateContent(int button_index)
@@ -134,28 +195,34 @@ namespace Silver_HTPC
             //}
 
             button.Height /= 1.2;
+            if (button_index == 7)
+            {
+                //notifyDot.Margin = new Thickness(410, 323, 0, 0);
+            }
         }
 
         public void setProfileButtonFocus(int button_index)
         {
             //currentButtonSelectionIndex = button_index;
             Button button = profileBtns[button_index];
-            button.Background = Brushes.DarkBlue;
+            button.Style = (Style)FindResource("HoverButton");
+            button.Background = (LinearGradientBrush)FindResource("ButtonHoverBackground");
             //if (button_index != 9) //not profile button
             //{
-            button.Foreground = Brushes.WhiteSmoke;
+            //button.Foreground = Brushes.WhiteSmoke;
 
 
             //}
-            button.Foreground = Brushes.White;
+            //button.Foreground = Brushes.White;
             button.Height *= 1.2;
         }
         public void resetProfileButtonFocus(int button_index)
         {
             Button button = profileBtns[button_index];
-            button.ClearValue(Button.BackgroundProperty);
-            button.ClearValue(Button.ForegroundProperty);
-
+            //button.ClearValue(Button.BackgroundProperty);
+            //button.ClearValue(Button.ForegroundProperty);
+            button.Style = (Style)FindResource("StandardButton");
+            button.Background = (LinearGradientBrush)FindResource("ButtonNormalBackground");
             button.Height /= 1.2;
         }
 
@@ -216,9 +283,26 @@ namespace Silver_HTPC
                         if (e.Key == Key.Z)
                         { //hardcoded to show notification
                             Notification_popup0.Visibility = Visibility.Visible;
+                            //notifyDot.Visibility = Visibility.Visible;
                             dispatcherTimer.Start();
                         }
                         break;
+                    case Key.S:
+                        Settings settings = new Settings();
+                        settings.Show();
+                        this.Close();
+                        break;
+                    case Key.G:
+                        TV_Guide tv = new TV_Guide();
+                        tv.Show();
+                        this.Close();
+                        break;
+                    case Key.OemQuestion:
+                        Settings setting = new Settings();
+                        setting.Show();
+                        this.Close();
+                        break;
+                    
                     case Key.O:
                         /*{ "Live TV", "Image/tv_icon.png" }, { "Gallery", "Image/gallery_icon.png" }, { "Music", "Image/music_icon.png" }, { "Recordings", "Image/record_icon.png" }, { "Search", "Image/search_icon.jpg" }, { "Netflix", "Image/netflix_icon.png" }, { "Settings", "Image/settings_icon.png" }, { "Notification", "Image/notification_icon.png" }, { "Other Apps", "Image/apps_icon.png" } , {"John Doe","Image/profile_icon.png" }*/
                         if (Notification_popup0.Visibility != Visibility.Visible)
@@ -228,8 +312,8 @@ namespace Silver_HTPC
                             switch (content[currentButtonSelectionIndex, 0])
                             {
                                 case "Live TV":
-                                    TV_Guide tv = new TV_Guide();
-                                    tv.Show();
+                                    TV_Guide tvG = new TV_Guide();
+                                    tvG.Show();
                                     break;
                                 case "Gallery":
                                     Photos_Videos gallery = new Photos_Videos();
@@ -252,18 +336,19 @@ namespace Silver_HTPC
                                     MessageBox.Show("No screens made for third party");
                                     break;
                                 case "Settings":
-                                    Settings2 settings = new Settings2();
-                                    settings.Show();
+                                    Settings2 sett = new Settings2();
+                                    sett.Show();
                                     break;
                                 case "Notification":
                                     Notification_tab notif = new Notification_tab();
                                     notif.Show();
+                                    //notifyDot.Visibility = Visibility.Hidden;
                                     break;
                                 case "Other Apps":
                                     OtherApplications otherApp = new OtherApplications();
                                     otherApp.Show();
                                     content[6, 0] = "Prime Videos";
-                                    content[6, 1] = "Image/netflix_icon.png";
+                                    content[6, 1] = "Image/primevid_icon.png";
                                     updateContent(6);
                                     break;
                                 default://profile
@@ -272,16 +357,32 @@ namespace Silver_HTPC
                                     profileBtns.Clear();
                                     ProfilePopup.Visibility = Visibility.Visible;
                                     Profiles_header.Visibility = Visibility.Visible;
-                                    for (int i = 0; i < profiles.Count<string>(); i++)
+                                    for (int i = 0; i < 2; i++)
                                     {
                                         Button profile = new Button();
+                                        profile.HorizontalContentAlignment = HorizontalAlignment.Center;
+                                        StackPanel sPanel1 = new StackPanel();
+                                        sPanel1.HorizontalAlignment = HorizontalAlignment.Center;
+                                        sPanel1.Orientation = Orientation.Vertical;
+                                        Image image = new Image();
+                                        Uri imageUri = new Uri(profiles[i, 1], UriKind.Relative);
+                                        image.Source = new BitmapImage(imageUri);
+                                        image.Height = 55;
+                                        image.Width = 55;
+                                        sPanel1.Children.Add(image);
                                         profile.Name = "profile" + i.ToString();
-                                        profile.Content = profiles[i];
-                                        profile.Height = 80;
+                                        TextBox textBox = new TextBox();
+                                        textBox.Background = Brushes.Transparent;
+                                        textBox.Text = profiles[i, 0];
+                                        textBox.BorderBrush = Brushes.Transparent;
+                                        profile.Height = 90;
                                         profile.Width = 170;
-                                        profile.FontSize = 20;
-                                        ProfilePopup.Children.Add(profile);
+                                        textBox.FontSize = 20;
+                                        sPanel1.Children.Add(textBox);
+                                        profile.Content = sPanel1;
+                                        profile.Background = (LinearGradientBrush)FindResource("ButtonNormalBackground");
                                         profileBtns.Add(profile);
+                                        ProfilePopup.Children.Add(profile);
                                     }
                                     //ProfilePopup.Children.Add
 
@@ -301,6 +402,7 @@ namespace Silver_HTPC
                             if (e.Key == Key.O)
                             {
                                 LiveTV liveTV = new LiveTV(2);
+                                //notifyDot.Visibility = Visibility.Hidden;
                                 liveTV.Show();
                                 this.Close();
                             }
@@ -312,35 +414,7 @@ namespace Silver_HTPC
             }
             else
             {
-                switch (e.Key)
-                {
-                    case Key.Back:
-
-                        MainGrid.Effect = null;
-                        ProfilePopup.Children.Clear();
-                        ProfilePopup.Visibility = Visibility.Hidden;
-                        Profiles_header.Visibility = Visibility.Hidden;
-                        setButtonFocus(currentButtonSelectionIndex);
-                        resetProfileButtonFocus(profileIndex);
-                        profileIndex = 0;
-                        break;
-                    case Key.Right:
-
-                        resetProfileButtonFocus(profileIndex);
-                        profileIndex = (profileIndex + 1) % 4;
-                        setProfileButtonFocus(profileIndex);
-                        break;
-
-                    case Key.Left:
-
-                        resetProfileButtonFocus(profileIndex);
-                        profileIndex = (profileIndex - 1);
-                        if (profileIndex == -1) profileIndex = 3;
-                        setProfileButtonFocus(profileIndex);
-                        break;
-                    default:
-                        break;
-                }
+                
             }
 
 
@@ -397,10 +471,12 @@ namespace Silver_HTPC
          //Things which happen after 1 timer interval
 
             Notification_popup0.Visibility = Visibility.Collapsed;
-
+            
             //Disable the timer
             dispatcherTimer.IsEnabled = false;
         }
+
+        
         //bin xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
         /*Popup popup = new Popup();
                             //popup.Visibility = (System.Windows.Visibility)50;
@@ -422,3 +498,4 @@ namespace Silver_HTPC
                             //*/
     }
 }
+
