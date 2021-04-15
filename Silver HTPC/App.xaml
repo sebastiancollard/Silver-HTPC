@@ -195,6 +195,11 @@
                                 <Setter TargetName="onText" Property="Foreground" Value="White"/>
                                 <Setter TargetName="off" Property="Background" Value="{StaticResource ButtonHoverBackground}"/>
                             </Trigger>
+                            <Trigger Property="IsFocused" Value="False">
+                                <Trigger.Setters>
+                                    <Setter TargetName="off" Property="Background" Value="{StaticResource ButtonNormalBackground}"/>
+                                </Trigger.Setters>
+                            </Trigger>
                             <Trigger Property="IsChecked" Value="False">
                                 <Setter TargetName="off" Property="Background" Value="Red"/>
                                 <Setter TargetName="offText" Property="Foreground" Value="White"/>
@@ -232,17 +237,22 @@
                             </Trigger>
                             <Trigger Property="IsFocused" Value="True">
                                 <Trigger.Setters>
-                                    <Setter TargetName="on" Property="Background" Value="{StaticResource ButtonHoverBackground}"/>
+                                    <Setter TargetName="off" Property="Background" Value="{StaticResource ButtonHoverBackground}"/>
+                                </Trigger.Setters>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter TargetName="off" Property="Background" Value="Red"/>
+                                <Setter TargetName="offText" Property="Foreground" Value="White"/>
+                                <Setter TargetName="on" Property="Background" Value="{StaticResource ButtonHoverBackground}"/>
+                            </Trigger>
+                            <Trigger Property="IsFocused" Value="False">
+                                <Trigger.Setters>
+                                    <Setter TargetName="on" Property="Background" Value="{StaticResource ButtonNormalBackground}"/>
                                 </Trigger.Setters>
                             </Trigger>
                             <Trigger Property="IsChecked" Value="False">
                                 <Setter TargetName="on" Property="Background" Value="Green"/>
                                 <Setter TargetName="onText" Property="Foreground" Value="White"/>
-                                <Setter TargetName="off" Property="Background" Value="{StaticResource ButtonHoverBackground}"/>
-                            </Trigger>
-                            <Trigger Property="IsChecked" Value="True">
-                                <Setter TargetName="off" Property="Background" Value="Red"/>
-                                <Setter TargetName="offText" Property="Foreground" Value="White"/>
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>

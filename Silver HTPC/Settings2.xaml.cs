@@ -29,7 +29,7 @@ namespace Silver_HTPC
             _combobox_Language.Text = "English";
 
             // Sets focus on the first item
-            _slider_TextSize.Focus();
+            _togbut_ButtonGuide.Focus();
         }
 
         // When someone moves the slider, text (theoretically) changes everywhere
