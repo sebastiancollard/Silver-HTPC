@@ -150,7 +150,7 @@ namespace Silver_HTPC
                     ButtonsForImages[i].Focusable = true;
                 }
                 Sort_Button.Focusable = true;
-                
+                Add_Button.Focusable = true;
                 Delete_Multiple.Focusable = true;
                 scrollViewer.Focusable = true;
                 EnlargePhotoGrid.Visibility = Visibility.Hidden;
@@ -255,6 +255,8 @@ namespace Silver_HTPC
             Console.WriteLine("Here");
             //thisButton.Height = 60;
         }
+
+       
         private void Delete_GotFocus(object sender, RoutedEventArgs e)
         {
             Button thisButton = sender as Button;

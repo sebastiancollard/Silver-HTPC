@@ -54,8 +54,8 @@ namespace Silver_HTPC
             {
                 // Backspace = go back to previous screen (Main menu?)
                 // TODO: hard code this for the demo to fake "saved state"
-                MainWindow mainWindow = new MainWindow();
-                mainWindow.Show();
+                MainWindow2 mainWindow2 = new MainWindow2();
+                mainWindow2.Show();
                 this.Close();
             }
             else if (e.Key == Key.S) // "remote" clicks s = search
