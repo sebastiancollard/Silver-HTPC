@@ -17,7 +17,7 @@
         <Slider Name="_slider_TextSize"
                 HorizontalAlignment="Left" Margin="216,131,0,0" VerticalAlignment="Top" Width="196"
                 Value="5" Maximum="10"
-                Focusable="True" ValueChanged="TextSlider_ValueChanged"/>
+                Focusable="True"  ValueChanged="TextSlider_ValueChanged"/>
         <!--KeyDown="Slider_KeyDown" GotKeyboardFocus="SliderGotKeyboardFocus" LostKeyboardFocus="SliderLostKeyboardFocus"-->
         <TextBlock Name="_languageText" Style="{StaticResource TextBlockBodyStyle}" Text="Language" Margin="85,184,0,0"/>
         <ComboBox Name="_combobox_Language" HorizontalAlignment="Left" Height="29" Margin="216,184,0,0" VerticalAlignment="Top" Width="196" Focusable="True">

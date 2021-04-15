@@ -21,8 +21,6 @@ namespace Silver_HTPC
     public partial class Settings : Window
     {
 
-        private static int CurrentSelection=0; // Default cursor to slider
-        private static int sliderup = 0;
         public Settings()
         {
             InitializeComponent();
@@ -38,13 +36,7 @@ namespace Silver_HTPC
         private void TextSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             //Not actually functional, but looks good
-            if (sliderup < 2) {
-                _textsizeText.FontSize += 2;
-            }
-            else {
-                _textsizeText.FontSize -= 2;
-            }
-            sliderup += 1;
+            _textsizeText.FontSize = 20 + (_slider_TextSize.Value - 5);
         }
 
         // Get the bottom button to take you to the next screen
@@ -70,6 +62,12 @@ namespace Silver_HTPC
             {
                 Search search = new Search();
                 search.Show();
+                this.Close();
+            }
+            else if (e.Key == Key.H) // go home
+            {
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.Show();
                 this.Close();
             }
             // The "janky, but it works" method of keyboard navigation.
@@ -99,7 +97,9 @@ namespace Silver_HTPC
             }
             else if (e.Key == Key.O)
             {
-                if (_combobox_Language.IsFocused) {
+                if (_slider_TextSize.IsFocused) {
+                    _combobox_Language.Focus();
+                } else if (_combobox_Language.IsFocused) {
                     _slider_TextSize.Focus();
                 } else if (_togbut_ButtonGuide.IsFocused) {
                     // Trigger _togbut_ButtonGuide.IsChecked;
@@ -127,5 +127,6 @@ namespace Silver_HTPC
             button.Background = (Brush)Application.Current.FindResource("ButtonNormalBackground");
         }
 
+        
     }
 }
