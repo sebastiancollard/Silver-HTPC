@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Silver_HTPC"
         mc:Ignorable="d"
-        Title="Amazon" Height="1080" Width="1920" KeyDown="Window_KeyDown">
+        Title="Amazon" Height="450" Width="800" KeyDown="Window_KeyDown">
     <Window.Resources>
-        <ScaleTransform x:Key="windowScaleTransform" ScaleX="2.4" ScaleY="2.4" />
+        <ScaleTransform x:Key="windowScaleTransform" ScaleX="1" ScaleY="1" />
     </Window.Resources>
     <Grid LayoutTransform="{StaticResource windowScaleTransform}">
         <Grid.ColumnDefinitions>

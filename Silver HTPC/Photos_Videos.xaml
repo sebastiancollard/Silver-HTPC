@@ -7,13 +7,13 @@
       xmlns:local="clr-namespace:Silver_HTPC"
       mc:Ignorable="d" 
       UseLayoutRounding="True"
-      Title="Photos_Videos" Height="1080" Width="1920"
+      Title="Photos_Videos" Height="450" Width="800"
       Background="{StaticResource WindowBackgroundBrush}">
     <Window.Resources>
         <Style x:Key="ButtonStyle" TargetType="Button">
             <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
         </Style>
-        <ScaleTransform x:Key="windowScaleTransform" ScaleX="2.4" ScaleY="2.4" />
+        <ScaleTransform x:Key="windowScaleTransform" ScaleX="1" ScaleY="1" />
     </Window.Resources>
 
 

@@ -6,11 +6,11 @@
         xmlns:system="clr-namespace:System;assembly=mscorlib"
         xmlns:local="clr-namespace:Silver_HTPC"
         mc:Ignorable="d"
-        Title="Recordings" Height="1080" Width="1920"
+        Title="Recordings" Height="450" Width="800"
         Background="{StaticResource WindowBackgroundBrush}"
         KeyDown="Window_KeyDown">
     <Window.Resources>
-        <ScaleTransform x:Key="windowScaleTransform" ScaleX="2.4" ScaleY="2.4" />
+        <ScaleTransform x:Key="windowScaleTransform" ScaleX="1" ScaleY="1" />
     </Window.Resources>
     <Grid LayoutTransform="{StaticResource windowScaleTransform}">
         <Label Name="guide_time"  Content="Time:" Style="{StaticResource TimeLabel}" Margin="498,-6,0,0"/>

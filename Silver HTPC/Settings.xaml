@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Silver_HTPC"
         mc:Ignorable="d"
-        Title="Settings" Height="1080" Width="1920"
+        Title="Settings" Height="450" Width="800"
         KeyDown="Window_KeyDown"
         Background="{StaticResource WindowBackgroundBrush}">
     <Window.Resources>
-        <ScaleTransform x:Key="windowScaleTransform" ScaleX="2.4" ScaleY="2.4" />
+        <ScaleTransform x:Key="windowScaleTransform" ScaleX="1" ScaleY="1" />
     </Window.Resources>
     <Grid LayoutTransform="{StaticResource windowScaleTransform}">
         <TextBlock Style="{StaticResource TextBlockHeaderStyle}" Text="Settings"/>
