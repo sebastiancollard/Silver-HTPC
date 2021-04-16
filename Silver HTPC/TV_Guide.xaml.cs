@@ -287,6 +287,28 @@ namespace Silver_HTPC
                     this.Close();
                     break;
 
+                case Key.S:
+
+                    Search search = new Search();
+                    search.Show();
+                    this.Close();
+                    break;
+
+                case Key.H:
+
+                    MainWindow mainw = new MainWindow();
+                    mainw.Show();
+                    this.Close();
+                    break;
+
+                case Key.Z:
+
+                    Notification_tab not = new Notification_tab();
+                    not.Show();
+                    this.Close();
+                    break;
+
+
                 default:
                     break;
             }
