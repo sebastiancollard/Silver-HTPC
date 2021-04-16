@@ -32,8 +32,7 @@ Button Instructions
 =====================
  TV Guide 
 =====================
-    Currently-on and upcoming shows are organized by category. Browsing works similar to the way it is on streaming services like Netflix. It is designed to present shows based on recommendations and history rather than to support channel surfing. 
-
+    Currently-on and upcoming shows are organized by category. Browsing works similar to the way it is on streaming services like Netflix. 
   * Features
     - Users can go to currently-on shows
     - or set reminders for upcoming shows by selecting them.
