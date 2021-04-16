@@ -78,6 +78,7 @@ Button Instructions
   * What should be selected
     - Select Add profile only
 
+
 =====================
  Other Screen
 =====================
@@ -88,6 +89,7 @@ Button Instructions
   * How to navigate this screen
     - ARROW KEYS to move between buttons
     - OK to select
+    - BACK to go back to homescreen
 
   * What's not implemented
     - Navigation to apps other than Amazon Prime is not imlpemented
@@ -99,6 +101,7 @@ Button Instructions
     - Press Search (s) on remote to go to search
     - Press Settings(?) on remote to go to settings
     - Press Guide(g) on remote to go to TV guide
+    - Press Home(h) on remote to go to home screen
     
     
 =====================
@@ -112,6 +115,7 @@ Button Instructions
   * How to navigate this screen
     - ARROW KEYS to move between buttons
     - OK to select
+    - BACK to go back to homescreen
 
   * What's not implemented
     - Selection of Notification other than the Live TV notification is not implemented
@@ -123,6 +127,7 @@ Button Instructions
     - Press Search (s) on remote to go to search
     - Press Settings(?) on remote to go to settings
     - Press Guide(g) on remote to go to TV guide
+    - Press Home(h) on remote to go to home screen
     
         
 =====================
