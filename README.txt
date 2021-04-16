@@ -133,7 +133,9 @@ Button Instructions
 =====================
  TV Guide 
 =====================
-    Currently-on and upcoming shows are organized by category. Browsing works similar to the way it is on streaming services like Netflix. 
+    Currently-on and upcoming shows are organized by category. 
+    Browsing works similar to the way it is on streaming services like Netflix.
+    
   * Features
     - Users can go to currently-on shows
     - or set reminders for upcoming shows by selecting them.
@@ -161,7 +163,7 @@ Button Instructions
   Live TV screen displays live shows. 
 
   * Features
-      Slide-out sidebar which contains:
+      -Slide-out sidebar which contains:
 	      - time/date
 	      - show description
 	      - scheduled reminders
