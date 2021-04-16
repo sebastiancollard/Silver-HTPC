@@ -177,6 +177,130 @@ Button Instructions
 
 
 
+=====================
+Music
+=====================
+ This screen allows users to manage their music.
+ 
+  * Features
+    - Scrollable list which displays all music
+    - Buttons
+    	- Add music
+	- Sort music
+	- Delete multiple
+    - Users can play music
+    - Users can delete music
+    	- Pop-up confirmation message to delete music
+	- Notification when music is deleted
+    
+  * How to navigate this screen
+    - ARROW KEY navigation to navigate through list as well as the buttons on the side
+    - BACK to go back to the main menu
+    - OK to select an option
+    
+  * What is not implemented
+    - Functionality for add button
+    - Functionality for sort button
+    - Functionality for delete multiple button
+    
+  * What should be selected
+    - Anything with play or delete on the actual music buttons can be selected. After selecting them you can also interact with the reverse/play/forward buttons that appear on the side.
+     - Selecting delete will ask for a confirmation message with yes and no, if you would like to go through the delete
+    
+=====================
+Recordings
+=====================
+  This Screen allows users to manage their recordings.
+
+  * Features
+    - Similar to music, allows users to play and delete their recordings
+    - Buttons
+    	- Sort By
+	- Add
+	- Delete Multiple
+
+* How to navigate this screen
+  - ARROW KEY navigation to navigate through list as well as the buttons on the side
+  - BACK to return to the main menu
+  - OK to select an option
+  
+* What is not implemented
+   - Functionality for add button
+   - Functionality for sort button
+   - Functionality for delete multiple button
+   
+  * What should be selected
+    - Any of the buttons on the screen can be selected. Play will direct you to "Recording Playing" screen
+    - Selecting delete will ask for a confirmation message with yes and no, if you would like to go through the delete
+    
+    
+=====================
+Recording Playing
+=====================
+ This Screen shows what happens after you press play from the Recordings screen.
+ 
+* Features
+  - Slide-out sidebar which contains:
+	      - time/date
+	      - show description
+	      - scheduled reminder
+   - Progress bar which appears at the starting of the recording
+   
+   
+
+* How to navigate this screen
+  - BACK key to go back to the recording screen
+  - I key to bring up and close the info side bar
+  
+* What is not implemented
+  - Functionality for pulling up the progress bar again after the recording has started 
+  
+* What should be selected
+  - There is nothing to be selected on this screen
+  
+  
+  
+=====================
+Gallery
+=====================
+ This Screen allows users to manage their pictures and videos.
+ 
+ * Features
+    - Buttons
+    	- Sort By
+	- Add
+	- Delete 
+	
+* How to navigate this screen
+  - ARROW KEY navigation to navigate through pictures/videos and buttons
+  - OK to either select a picture/video or button which will open a new screen
+  
+* What is not implemented
+   - Functionality for add button
+   - Functionality for sort button
+   - Functionality for delete button
+   
+* What should be selected
+  - One of the images on the screen should be selected, upon selection a new screen will open up "Viewing Gallery"
+  
+=====================
+Viewing Gallery
+=====================
+ This screen allows users to view their pictures/videos in a fullscreen manner.
+ 
+ * Features
+   - Right and Left arrows
+   
+ * How to navigate this screen
+   - LEFT ARROW KEY to navigate to pictures on the left
+   - RIGHT ARROW KEY to navigate to pictures on the right
+   - BACK key to return to the Gallery screen
+   
+* What is not implemented
+   - Functionality for add button
+   - Functionality for sort button
+   - Functionality for delete button
+
 
 
   
