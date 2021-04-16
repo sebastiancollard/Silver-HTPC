@@ -28,6 +28,56 @@ Button Instructions
   Numbers = numbers
   Notification pop-up = z
   
+=====================
+ Main Menu
+=====================
+  * Features
+    - Notification pop-up: press z, which would bring up a notification (ideally it would be done automatically)
+    	- when pop-up is open, if OK is pressed, the user will be navigated to a tv screen.
+    - When Notification pop-up comes up, an indicator on the notification app appears.
+    - Volume could be used using + and - (works for the following range 38-53)
+    
+
+  * How to navigate this screen
+    - ARROW KEYS to move between buttons
+    - OK to select
+
+  * What's not implemented
+    - When Other apps is selected, the 7th (bottom left) app would be replaced by amazon prime and would reorganise the list. So app sorting doesn't work between these two interfaces
+
+  * What should be selected
+    - Select any app except Netflix and Amazon prime to go navigate to that page.
+    - when the profile button (top left) is selected, a pop-up showing the profiles would appear.
+  
+  * Shortcuts
+    - Press Search (s) on remote to go to search
+    - Press Settings(?) on remote to go to settings
+    - Press Guide(g) on remote to go to TV guide
+    
+
+=====================
+ Profile
+=====================
+ * Features
+    - Notification pop-up: press z, which would bring up a notification (ideally it would be done automatically)
+    	- when pop-up is open, if OK is pressed, the user will be navigated to a tv screen.
+    - When Notification pop-up comes up, an indicator on the notification app appears.
+    - Volume could be used using + and - (works for the following range 38-53)
+    
+
+  * How to navigate this screen
+    - ARROW KEYS to move between profiles options
+    - OK to select
+    - When adding profile use BACK to cancel adding profile
+    - BACK to go back from profile screen to Home
+
+  * What's not implemented
+    - Cannot type when adding the profile and also cannot create a new profile
+    - Selecting the current profile would ideally take user back to home screen but it is not implemented
+
+  * What should be selected
+    - Select Add profile only
+
 
 =====================
  TV Guide 
