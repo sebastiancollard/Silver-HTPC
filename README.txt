@@ -365,6 +365,36 @@ This screen provides users with more system settings to change (the less common 
    - Functionality for colour blind accessibility
    - Functionality for notification preferences
   
+=====================
+Search
+=====================
+This screen allows users to perform a system-wide search through all the available applications.
 
+* Features
+  - Real-time search results
+  - Media category filtering
+  - Interactive keypad
+  - Instant redirect to third party applications
+  
+* How to navigate this screen
+  - S KEY to toggle the keypad on/off the screen
+  - BACKSPACE KEY to return to the home screen
+  While on the keypad:
+    - UP, DOWN, LEFT, RIGHT KEYS to navigate from button to button
+    - O KEY to select a button
+    - Left KEY when on the leftmost border of keypad to select first search result (if there is one)
+    - S KEY to disable the keypad and focus on the first search result (if there is one)
+  While hovering over a search result:
+    - RIGHT KEY to move to the search result on the left
+    - LEFT KEY to move to the search result on the right
+    - UP KEY to hover over the filtering list
+    - O KEY to select a search result
+  While hovering over the filtering list:
+    - O KEY to open the drop down menu / select a filter method
+    - DOWN KEY to move to the filter item below the current (if there is one)
+    - UP KEY to move to the filter item above the current (if there is one)
+    
+ * What is not implemented
+   - Smoothed out animation for keypad and horizontal scrolling
   
   
