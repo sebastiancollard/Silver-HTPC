@@ -54,6 +54,8 @@ Button Instructions
     - Press Settings(?) on remote to go to settings
     - Press Guide(g) on remote to go to TV guide
     
+  * Note
+    - When the button guide is visible: Only select the settings since it is the only page that is implemented with the button guide other than the home page
 
 =====================
  Profile
