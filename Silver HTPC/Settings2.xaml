@@ -5,11 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Silver_HTPC"
         mc:Ignorable="d"
-        Title="Settings2" Height="450" Width="800"
+        Title="Settings2" Height="1080" Width="1920"
         KeyDown="Window_KeyDown"
         Background="{StaticResource WindowBackgroundBrush}">
+    <Window.Resources>
+        <ScaleTransform x:Key="windowScaleTransform" ScaleX="2.4" ScaleY="2.4" />
+    </Window.Resources>
 
-    <Grid>
+    <Grid LayoutTransform="{StaticResource windowScaleTransform}">
         <TextBlock Style="{StaticResource TextBlockHeaderStyle}" Text="Settings"/>
         <Image Source="Image/settings_icon.png" Style="{StaticResource HeaderIconPos}"/>
         <Rectangle Style="{StaticResource GreyDivider}"/>
@@ -31,18 +34,19 @@
                 Focusable="True" FocusVisualStyle="{x:Null}"/>
         <Button Name="_button_AdvanceSettings" Content="Advanced Settings"
                 Style="{DynamicResource StandardButton}"
-                Height="59" Margin="0,310,0,53" Width="277"
+                Height="59" Margin="0,306,0,55" Width="277"
                 HorizontalAlignment="Left"
                 FontWeight="Bold"
                 GotFocus="OnButtonGotFocusHandler" LostFocus="OnButtonLostFocusHandler" 
                 Click="AdSet_button_Click"/>
 
         <Rectangle Style="{StaticResource GreyDivider}" VerticalAlignment="Bottom" Margin="0,0,0,49"/>
-        <Label x:Name="guide1" HorizontalAlignment="Left" Height="38" Margin="0,0,0,3.667" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" VerticalAlignment="Bottom" Width="284" FontWeight="Medium" FontSize="20px"  FontFamily="Helvetica">
+        <Label x:Name="guide1" HorizontalAlignment="Left" Height="38" Margin="0,0,0,3.667" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" VerticalAlignment="Bottom" Width="484" FontWeight="Medium" FontSize="20px"  FontFamily="Helvetica">
             <StackPanel Orientation="Horizontal">
-                <TextBlock FontSize="20" Text="Move Around:    "/>
+                <TextBlock FontSize="20" Text="Move Around:   "/>
                 <Image Source="Image/up_button.png" Stretch="Fill" Height="25" Width="25" HorizontalAlignment="Center"/>
                 <Image Source="Image/down_button.png" Stretch="Fill" Height="25" Width="25" HorizontalAlignment="Center"/>
+                <TextBlock FontSize="20" Text="      Adjust Slider:  "/>
                 <Image Source="Image/left_button.png" Stretch="Fill" Height="25" Width="25" HorizontalAlignment="Center"/>
                 <Image Source="Image/right_button.png" Stretch="Fill" Height="25" Width="25" HorizontalAlignment="Center"/>
             </StackPanel>

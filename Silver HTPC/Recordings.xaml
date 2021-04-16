@@ -6,10 +6,13 @@
         xmlns:system="clr-namespace:System;assembly=mscorlib"
         xmlns:local="clr-namespace:Silver_HTPC"
         mc:Ignorable="d"
-        Title="Recordings" Height="450" Width="800"
+        Title="Recordings" Height="1080" Width="1920"
         Background="{StaticResource WindowBackgroundBrush}"
         KeyDown="Window_KeyDown">
-    <Grid>
+    <Window.Resources>
+        <ScaleTransform x:Key="windowScaleTransform" ScaleX="2.4" ScaleY="2.4" />
+    </Window.Resources>
+    <Grid LayoutTransform="{StaticResource windowScaleTransform}">
         <Label Name="guide_time"  Content="Time:" Style="{StaticResource TimeLabel}" Margin="498,-6,0,0"/>
         <Label Name="guide_date" Content="Date:" Style="{StaticResource DateLabel}" Margin="498,25,0,0"/>
         <TextBlock x:Name="Recording_Label" Text="Recordings" Style="{StaticResource TextBlockHeaderStyle}" Margin="64,9,0,0">

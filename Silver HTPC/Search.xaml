@@ -6,7 +6,7 @@
         xmlns:System="clr-namespace:System;assembly=mscorlib" 
         xmlns:local="clr-namespace:Silver_HTPC"
         mc:Ignorable="d"
-        Title="Search" Height="450" Width="800" KeyDown="Window_KeyDown"
+        Title="Search" Height="1080" Width="1920" KeyDown="Window_KeyDown"
         Background="{StaticResource WindowBackgroundBrush}">
     <Window.Resources>
         <!-- This style is used for buttons, to remove the WPF default 'animated' mouse over effect -->
@@ -55,7 +55,7 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        <ScaleTransform x:Key="windowScaleTransform" ScaleX="1" ScaleY="1" />
+        <ScaleTransform x:Key="windowScaleTransform" ScaleX="2.4" ScaleY="2.4" />
     </Window.Resources>
     <Canvas x:Name="background" LayoutTransform="{StaticResource windowScaleTransform}">
         <Line X1="0" Y1="55" X2="800" Y2="55" Stroke="LightSlateGray" StrokeThickness="7" Opacity="1"   />

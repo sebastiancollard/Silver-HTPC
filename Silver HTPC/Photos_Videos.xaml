@@ -7,18 +7,19 @@
       xmlns:local="clr-namespace:Silver_HTPC"
       mc:Ignorable="d" 
       UseLayoutRounding="True"
-      Title="Photos_Videos" Height="484.677" Width="815.605"
+      Title="Photos_Videos" Height="1080" Width="1920"
       Background="{StaticResource WindowBackgroundBrush}">
     <Window.Resources>
         <Style x:Key="ButtonStyle" TargetType="Button">
             <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
         </Style>
+        <ScaleTransform x:Key="windowScaleTransform" ScaleX="2.4" ScaleY="2.4" />
     </Window.Resources>
 
 
 
 
-    <Grid>
+    <Grid LayoutTransform="{StaticResource windowScaleTransform}">
         <Label Name="guide_time"  Content="Time:" Style="{StaticResource TimeLabel}" Margin="514,-6,0,0"/>
         <Label Name="guide_date" Content="Date:" Style="{StaticResource DateLabel}" Margin="514,26,0,0"/>
 

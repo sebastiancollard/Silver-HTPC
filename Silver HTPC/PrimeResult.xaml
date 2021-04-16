@@ -5,8 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Silver_HTPC"
         mc:Ignorable="d"
-        Title="PrimeResult" Height="450" Width="800" KeyDown="Window_KeyDown">
-    <Grid>
-        <Image HorizontalAlignment="Left" Height="419" VerticalAlignment="Top" Width="792" Source="Image/spiderverse_prime_video.jpg" Stretch="Fill"/>
+        Title="PrimeResult" Height="1080" Width="1920" KeyDown="Window_KeyDown">
+    <Window.Resources>
+        <ScaleTransform x:Key="windowScaleTransform" ScaleX="2.4" ScaleY="2.4" />
+    </Window.Resources>
+    <Grid LayoutTransform="{StaticResource windowScaleTransform}">
+        <Image HorizontalAlignment="Left" Height="437" VerticalAlignment="Top" Width="797" Source="Image/spiderverse_prime_video.jpg" Stretch="Fill"/>
     </Grid>
 </Window>

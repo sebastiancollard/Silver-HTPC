@@ -5,10 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Silver_HTPC"
         mc:Ignorable="d"
-        Title="Notification_tab" Height="450" Width="800" KeyDown="Window_KeyDown"
+        Title="Notification_tab" Height="1080" Width="1920" KeyDown="Window_KeyDown"
         Background="{StaticResource WindowBackgroundBrush}">
-
-    <Grid x:Name="windowStack" HorizontalAlignment="Left" Height="420" Margin="-4,0,-4,-1" VerticalAlignment="Top" Width="800">
+    <Window.Resources>
+        <ScaleTransform x:Key="windowScaleTransform" ScaleX="2.4" ScaleY="2.4" />
+    </Window.Resources>
+    <Grid LayoutTransform="{StaticResource windowScaleTransform}" x:Name="windowStack" HorizontalAlignment="Left" Height="420" Margin="-4,0,-4,-1" VerticalAlignment="Top" Width="800">
         <Image HorizontalAlignment="Left" Height="56" Margin="4,3,0,0" VerticalAlignment="Top" Width="62" RenderTransformOrigin="0.148,-0.221" Source="Image/notification_icon.png" />
         <TextBlock Style="{StaticResource TextBlockHeaderStyle}" Text="Notifications"/>
         <Label Name="guide_time"  Content="Time:" Style="{StaticResource TimeLabel}" Margin="498,-7,0,0"/>
