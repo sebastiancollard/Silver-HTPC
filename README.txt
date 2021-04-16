@@ -304,7 +304,66 @@ Viewing Gallery
    - Functionality for delete button
 
 
+=====================
+Settings
+=====================
+This screen allows users to change the system settings
 
+* Features
+   - Text size slider to increase or decrease fontsize
+   - Language options
+   - Button guide to pull up instruction on which buttons to use on this screen
+   - Button to go to advanced settings
+   
+ * How to navigate this screen
+   - Text size slider: ARROW KEYS increase and decrease the font size, TAB to the languages
+   - Languages combobox: ARROW KEYS to see options, TAB to move on down, O to go back up to slider
+   - Button guide: ENTER to toggle, Z to activate and open up "Button Guide Settings", UP and DOWN ARROW KEYS to navigate
+   - Advanced Settings: O to select, UP and DOWN ARROW KEYS to navigate
+   - BACK key to return to the Main screen
+   
+* What is not implemented
+   - Functionality for changing universal text size
+   - Functionality for changing languages
+
+=====================
+Button Guide Settings
+=====================
+This screen is the same as Settings, but it has instructions on-screen for which buttons to use
+
+* Features
+   - Same as Settings
+   
+ * How to navigate this screen
+   - Same as settings
+   - BACK key returns to Main Menu with its button guide turned on
+   - Z while hovering on the button guide takes you back to regular settings
+   
+* What is not implemented
+   - Functionality for changing universal text size
+   - Functionality for changing languages
+   - No button guide for Advanced Settings
+
+=====================
+Advanced Settings
+=====================
+This screen provides users with more system settings to change (the less common ones)
+
+* Features
+   - Magnifier option to bring up an on-screen magnifier (not implemented)
+   - Colour blind accessibility options
+   - Option to turn on or off notifications
+   
+ * How to navigate this screen
+   - Magnifier: ENTER to toggle, UP and DOWN ARROW KEYS to navigate
+   - Colour blind combobox: ARROW KEYS to see options, TAB to move on down, O to go back up to slider
+   - Notifications: ENTER to toggle, UP and DOWN ARROW KEYS to navigate
+   - BACK key to return to the Settings
+   
+* What is not implemented
+   - Functionality for magnifier
+   - Functionality for colour blind accessibility
+   - Functionality for notification preferences
   
 
   
