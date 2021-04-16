@@ -6,10 +6,13 @@
         xmlns:system="clr-namespace:System;assembly=mscorlib"
         xmlns:local="clr-namespace:Silver_HTPC"
         mc:Ignorable="d"
-        Title="Recordings" Height="450" Width="800"
+        Title="Recordings" Height="1080" Width="1920"
         Background="{StaticResource WindowBackgroundBrush}"
         KeyDown="Window_KeyDown">
-    <Grid>
+    <Window.Resources>
+        <ScaleTransform x:Key="windowScaleTransform" ScaleX="2.4" ScaleY="2.4" />
+    </Window.Resources>
+    <Grid LayoutTransform="{StaticResource windowScaleTransform}">
         <Label Name="guide_time"  Content="Time:" Style="{StaticResource TimeLabel}" Margin="498,-6,0,0"/>
         <Label Name="guide_date" Content="Date:" Style="{StaticResource DateLabel}" Margin="498,25,0,0"/>
         <TextBlock x:Name="Recording_Label" Text="Recordings" Style="{StaticResource TextBlockHeaderStyle}" Margin="64,9,0,0">
@@ -22,7 +25,7 @@
         <TextBlock HorizontalAlignment="Left" Height="19" Margin="612,332,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" RenderTransformOrigin="0.406,-0.589" FontSize="12"  Text="210 Hours Recording Time Left" Style="{StaticResource TextBlockBodyStyle}"/>
         <Image HorizontalAlignment="Left" Height="50" Margin="0,1,0,0" VerticalAlignment="Top" Width="58" RenderTransformOrigin="0.148,-0.221" Source="Image/record_icon.png" />
         <Button x:Name="Sort_Button" Content="Sort by" HorizontalAlignment="Left" Margin="651,88,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="9.63,-6.324" Height="44" Style="{StaticResource StandardButton}" GotFocus="Button_GotFocus" LostFocus="Button_LostFocus" KeyDown="Button_KeyDown"/>
-        <Button x:Name="Sort_Button_Copy" Content="Add" HorizontalAlignment="Left" Margin="651,137,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="9.63,-6.324" Height="44" Style="{StaticResource StandardButton}" GotFocus="Button_GotFocus" LostFocus="Button_LostFocus" KeyDown="Button_KeyDown"/>
+        <Button x:Name="Add_Button" Content="Add" HorizontalAlignment="Left" Margin="651,137,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="9.63,-6.324" Height="44" Style="{StaticResource StandardButton}" GotFocus="Button_GotFocus" LostFocus="Button_LostFocus" KeyDown="Button_KeyDown"/>
         <Button Name="DeleteMultiple_Button" Content="Delete &#xD;&#xA;Multiple" HorizontalAlignment="Left" Margin="651,205,0,0" VerticalAlignment="Top" Width="86" RenderTransformOrigin="9.63,-6.324" Height="44" FontSize="15" Style="{StaticResource StandardButton}" GotFocus="DeleteMultiple_GotFocus" LostFocus="Button_LostFocus" KeyDown="Button_KeyDown"/>
 
         <StackPanel Name="RecordingList" Height="318" Margin="46,78,0,0" VerticalAlignment="Top" Width="523" HorizontalAlignment="Left">

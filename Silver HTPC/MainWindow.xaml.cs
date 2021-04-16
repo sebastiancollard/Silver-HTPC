@@ -158,7 +158,7 @@ namespace Silver_HTPC
                 stackPanelList[button_index].Children.Add(selectedLabel);
             //}
             //button.Foreground = Brushes.White;
-            button.Height *= 1.2;
+            button.Height *= 1.3;
             if (button_index == 7)
             {
                 notifyDot.Margin = new Thickness(410, 310, 0, 0);
@@ -195,7 +195,7 @@ namespace Silver_HTPC
             stackPanelList[button_index].Children.Remove(selectedLabel);
             //}
             
-            button.Height /= 1.2;
+            button.Height /= 1.3;
             if (button_index == 7)
             {
                 notifyDot.Margin = new Thickness(410, 323, 0, 0);
@@ -215,7 +215,7 @@ namespace Silver_HTPC
             
             //}
             //button.Foreground = Brushes.White;
-            button.Height *= 1.2;
+            button.Height *= 1.3;
         }
         public void resetProfileButtonFocus(int button_index)
         {
@@ -224,7 +224,7 @@ namespace Silver_HTPC
             //button.ClearValue(Button.ForegroundProperty);
             button.Style = (Style)FindResource("StandardButton");
             button.Background = (LinearGradientBrush)FindResource("ButtonNormalBackground");
-            button.Height /= 1.2;
+            button.Height /= 1.3;
         }
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
