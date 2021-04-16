@@ -54,6 +54,8 @@ Button Instructions
     - Press Settings(?) on remote to go to settings
     - Press Guide(g) on remote to go to TV guide
     
+  * Note
+    - When the button guide is visible: Only select the settings since it is the only page that is implemented with the button guide other than the home page
 
 =====================
  Profile
@@ -133,7 +135,9 @@ Button Instructions
 =====================
  TV Guide 
 =====================
-    Currently-on and upcoming shows are organized by category. Browsing works similar to the way it is on streaming services like Netflix. 
+    Currently-on and upcoming shows are organized by category. 
+    Browsing works similar to the way it is on streaming services like Netflix.
+    
   * Features
     - Users can go to currently-on shows
     - or set reminders for upcoming shows by selecting them.
@@ -161,7 +165,7 @@ Button Instructions
   Live TV screen displays live shows. 
 
   * Features
-      Slide-out sidebar which contains:
+      -Slide-out sidebar which contains:
 	      - time/date
 	      - show description
 	      - scheduled reminders
@@ -302,8 +306,97 @@ Viewing Gallery
    - Functionality for delete button
 
 
+=====================
+Settings
+=====================
+This screen allows users to change the system settings
 
+* Features
+   - Text size slider to increase or decrease fontsize
+   - Language options
+   - Button guide to pull up instruction on which buttons to use on this screen
+   - Button to go to advanced settings
+   
+ * How to navigate this screen
+   - Text size slider: ARROW KEYS increase and decrease the font size, TAB to the languages
+   - Languages combobox: ARROW KEYS to see options, TAB to move on down, O to go back up to slider
+   - Button guide: ENTER to toggle, Z to activate and open up "Button Guide Settings", UP and DOWN ARROW KEYS to navigate
+   - Advanced Settings: O to select, UP and DOWN ARROW KEYS to navigate
+   - BACK key to return to the Main screen
+   
+* What is not implemented
+   - Functionality for changing universal text size
+   - Functionality for changing languages
+
+=====================
+Button Guide Settings
+=====================
+This screen is the same as Settings, but it has instructions on-screen for which buttons to use
+
+* Features
+   - Same as Settings
+   
+ * How to navigate this screen
+   - Same as settings
+   - BACK key returns to Main Menu with its button guide turned on
+   - Z while hovering on the button guide takes you back to regular settings
+   
+* What is not implemented
+   - Functionality for changing universal text size
+   - Functionality for changing languages
+   - No button guide for Advanced Settings
+
+=====================
+Advanced Settings
+=====================
+This screen provides users with more system settings to change (the less common ones)
+
+* Features
+   - Magnifier option to bring up an on-screen magnifier (not implemented)
+   - Colour blind accessibility options
+   - Option to turn on or off notifications
+   
+ * How to navigate this screen
+   - Magnifier: ENTER to toggle, UP and DOWN ARROW KEYS to navigate
+   - Colour blind combobox: ARROW KEYS to see options, TAB to move on down, O to go back up to slider
+   - Notifications: ENTER to toggle, UP and DOWN ARROW KEYS to navigate
+   - BACK key to return to the Settings
+   
+* What is not implemented
+   - Functionality for magnifier
+   - Functionality for colour blind accessibility
+   - Functionality for notification preferences
   
+=====================
+Search
+=====================
+This screen allows users to perform a system-wide search through all the available applications.
 
+* Features
+  - Real-time search results
+  - Media category filtering
+  - Interactive keypad
+  - Instant redirect to third party applications
+  
+* How to navigate this screen
+  - S KEY to toggle the keypad on/off the screen
+  - BACKSPACE KEY to return to the home screen
+  While on the keypad:
+    - UP, DOWN, LEFT, RIGHT KEYS to navigate from button to button
+    - O KEY to select a button
+    - Left KEY when on the leftmost border of keypad to select first search result (if there is one)
+    - S KEY to disable the keypad and focus on the first search result (if there is one)
+  While hovering over a search result:
+    - RIGHT KEY to move to the search result on the left
+    - LEFT KEY to move to the search result on the right
+    - UP KEY to hover over the filtering list
+    - O KEY to select a search result
+  While hovering over the filtering list:
+    - O KEY to open the drop down menu / select a filter method
+    - DOWN KEY to move to the filter item below the current (if there is one)
+    - UP KEY to move to the filter item above the current (if there is one)
+    
+ * What is not implemented
+   - Smoothed out animation for keypad and horizontal scrolling
   
   
