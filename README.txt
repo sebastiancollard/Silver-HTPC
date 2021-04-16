@@ -32,7 +32,7 @@ Button Instructions
  Main Menu
 =====================
   * Features
-    - Notification pop-up: press z, which would bring up a notification (ideally it would be done automatically)
+    - Notification pop-up: press Z, which would bring up a notification (ideally it would be done automatically)
     	- when pop-up is open, if OK is pressed, the user will be navigated to a tv screen.
     - When Notification pop-up comes up, an indicator on the notification app appears.
     - Volume could be used using + and - (works for the following range 38-53)
@@ -78,7 +78,53 @@ Button Instructions
   * What should be selected
     - Select Add profile only
 
+=====================
+ Other Screen
+=====================
+  * Features
+    - Scrollable List
+    
 
+  * How to navigate this screen
+    - ARROW KEYS to move between buttons
+    - OK to select
+
+  * What's not implemented
+    - Navigation to apps other than Amazon Prime is not imlpemented
+
+  * What should be selected
+    - Select Amazon prime to go navigate to that page.
+  
+  * Shortcuts
+    - Press Search (s) on remote to go to search
+    - Press Settings(?) on remote to go to settings
+    - Press Guide(g) on remote to go to TV guide
+    
+    
+=====================
+ Notification
+=====================
+  * Features
+    - Scrollable List
+    - Notification expiry: Press Z, which would remove the 4th (last) notification from the list and replace it with a label for a few sec before disappearing
+    
+
+  * How to navigate this screen
+    - ARROW KEYS to move between buttons
+    - OK to select
+
+  * What's not implemented
+    - Selection of Notification other than the Live TV notification is not implemented
+
+  * What should be selected
+    - Select Notification with Live TV
+  
+  * Shortcuts
+    - Press Search (s) on remote to go to search
+    - Press Settings(?) on remote to go to settings
+    - Press Guide(g) on remote to go to TV guide
+    
+        
 =====================
  TV Guide 
 =====================
